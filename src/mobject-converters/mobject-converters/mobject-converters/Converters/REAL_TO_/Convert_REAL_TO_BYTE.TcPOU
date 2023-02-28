@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="Convert_REAL_TO_BYTE" Id="{55c8895f-1e50-49dd-bd1b-a4dcf5481b8d}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION Convert_REAL_TO_BYTE : BOOL
+VAR_INPUT
+	in : REAL;
+	out : REFERENCE TO BYTE;
+END_VAR
+VAR
+	converted : BYTE;
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[converted := REAL_TO_BYTE(in);
+
+IF (BYTE_TO_REAL(converted) <> in) THEN
+	RETURN;
+END_IF
+
+out := converted;
+Convert_REAL_TO_BYTE := TRUE;]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>
+

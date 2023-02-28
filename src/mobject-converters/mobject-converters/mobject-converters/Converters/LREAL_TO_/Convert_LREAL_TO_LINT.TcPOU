@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="Convert_LREAL_TO_LINT" Id="{de976eb6-5619-41ff-8786-20584025997f}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION Convert_LREAL_TO_LINT : BOOL
+VAR_INPUT
+	in : LREAL;
+	out : REFERENCE TO LINT;
+END_VAR
+VAR
+	converted : LINT;
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[converted := LREAL_TO_LINT(in);
+
+IF (LINT_TO_LREAL(converted) <> in) THEN
+	RETURN;
+END_IF
+
+out := converted;
+Convert_LREAL_TO_LINT := TRUE;]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>
+

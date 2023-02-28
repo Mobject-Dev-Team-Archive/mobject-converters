@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="Convert_DT_TO_LREAL" Id="{0dbc2bd4-c675-4d31-a18c-ff8312799b2e}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION Convert_DT_TO_LREAL : BOOL
+VAR_INPUT
+	in : DT;
+	out : REFERENCE TO LREAL;
+END_VAR
+VAR
+	converted : LREAL;
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[converted := DT_TO_LREAL(in);
+
+IF (LREAL_TO_DT(converted) <> in) THEN
+	RETURN;
+END_IF
+
+out := converted;
+Convert_DT_TO_LREAL := TRUE;]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>
+

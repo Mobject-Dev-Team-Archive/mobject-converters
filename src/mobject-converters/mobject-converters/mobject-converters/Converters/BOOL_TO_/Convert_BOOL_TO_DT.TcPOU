@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="Convert_BOOL_TO_DT" Id="{2d17ef49-5710-4a6a-b436-c8dad875c819}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION Convert_BOOL_TO_DT : BOOL
+VAR_INPUT
+	in : BOOL;
+	out : REFERENCE TO DT;
+END_VAR
+VAR
+	converted : DT;
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[converted := BOOL_TO_DT(in);
+
+IF (DT_TO_BOOL(converted) <> in) THEN
+	RETURN;
+END_IF
+
+out := converted;
+Convert_BOOL_TO_DT := TRUE;]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>
+

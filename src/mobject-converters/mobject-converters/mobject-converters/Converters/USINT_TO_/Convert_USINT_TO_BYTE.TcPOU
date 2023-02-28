@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="Convert_USINT_TO_BYTE" Id="{7efd54d9-ade4-4a68-8617-1547d16d05e9}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION Convert_USINT_TO_BYTE : BOOL
+VAR_INPUT
+	in : USINT;
+	out : REFERENCE TO BYTE;
+END_VAR
+VAR
+	converted : BYTE;
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[converted := USINT_TO_BYTE(in);
+
+IF (BYTE_TO_USINT(converted) <> in) THEN
+	RETURN;
+END_IF
+
+out := converted;
+Convert_USINT_TO_BYTE := TRUE;]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>
+

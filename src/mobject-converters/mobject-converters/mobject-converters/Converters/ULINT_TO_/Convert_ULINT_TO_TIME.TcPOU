@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="Convert_ULINT_TO_TIME" Id="{12cc0030-b180-46dd-b7fb-7644cf9b5396}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION Convert_ULINT_TO_TIME : BOOL
+VAR_INPUT
+	in : ULINT;
+	out : REFERENCE TO TIME;
+END_VAR
+VAR
+	converted : TIME;
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[converted := ULINT_TO_TIME(in);
+
+IF (TIME_TO_ULINT(converted) <> in) THEN
+	RETURN;
+END_IF
+
+out := converted;
+Convert_ULINT_TO_TIME := TRUE;]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>
+

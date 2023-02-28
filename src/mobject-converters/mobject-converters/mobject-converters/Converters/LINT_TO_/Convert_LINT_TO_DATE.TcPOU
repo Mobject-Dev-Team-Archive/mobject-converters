@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="Convert_LINT_TO_DATE" Id="{bb56273b-e394-4105-93e0-4fc609637e34}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION Convert_LINT_TO_DATE : BOOL
+VAR_INPUT
+	in : LINT;
+	out : REFERENCE TO DATE;
+END_VAR
+VAR
+	converted : DATE;
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[converted := LINT_TO_DATE(in);
+
+IF (DATE_TO_LINT(converted) <> in) THEN
+	RETURN;
+END_IF
+
+out := converted;
+Convert_LINT_TO_DATE := TRUE;]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>
+

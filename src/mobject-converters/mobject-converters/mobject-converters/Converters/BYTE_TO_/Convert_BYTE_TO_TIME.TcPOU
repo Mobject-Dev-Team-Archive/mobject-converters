@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="Convert_BYTE_TO_TIME" Id="{c20f3267-c39c-4374-86ec-636ce70f4fa9}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION Convert_BYTE_TO_TIME : BOOL
+VAR_INPUT
+	in : BYTE;
+	out : REFERENCE TO TIME;
+END_VAR
+VAR
+	converted : TIME;
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[converted := BYTE_TO_TIME(in);
+
+IF (TIME_TO_BYTE(converted) <> in) THEN
+	RETURN;
+END_IF
+
+out := converted;
+Convert_BYTE_TO_TIME := TRUE;]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>
+

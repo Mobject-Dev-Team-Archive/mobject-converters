@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="Convert_DATE_TO_TOD" Id="{960ef246-2f99-439d-b73a-c97e6c60d731}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION Convert_DATE_TO_TOD : BOOL
+VAR_INPUT
+	in : DATE;
+	out : REFERENCE TO TOD;
+END_VAR
+VAR
+	converted : TOD;
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[converted := DATE_TO_TOD(in);
+
+IF (TOD_TO_DATE(converted) <> in) THEN
+	RETURN;
+END_IF
+
+out := converted;
+Convert_DATE_TO_TOD := TRUE;]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>
+

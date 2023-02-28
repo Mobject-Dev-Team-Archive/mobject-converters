@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="Convert_INT_TO_INT" Id="{021e00d8-9c3f-45ff-91f4-a2a7208501b6}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION Convert_INT_TO_INT : BOOL
+VAR_INPUT
+	in : INT;
+	out : REFERENCE TO INT;
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[out := in;
+Convert_INT_TO_INT := TRUE;]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

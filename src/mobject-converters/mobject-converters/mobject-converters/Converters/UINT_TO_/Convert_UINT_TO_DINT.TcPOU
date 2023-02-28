@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="Convert_UINT_TO_DINT" Id="{73f9fb5b-1ab6-4484-9f6b-fad7d52ee6c0}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION Convert_UINT_TO_DINT : BOOL
+VAR_INPUT
+	in : UINT;
+	out : REFERENCE TO DINT;
+END_VAR
+VAR
+	converted : DINT;
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[converted := UINT_TO_DINT(in);
+
+IF (DINT_TO_UINT(converted) <> in) THEN
+	RETURN;
+END_IF
+
+out := converted;
+Convert_UINT_TO_DINT := TRUE;]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>
+

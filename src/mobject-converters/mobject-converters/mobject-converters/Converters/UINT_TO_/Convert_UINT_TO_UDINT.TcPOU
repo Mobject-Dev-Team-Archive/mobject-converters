@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="Convert_UINT_TO_UDINT" Id="{c2fbbd14-88db-4a73-bf0b-fac8a00fe815}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION Convert_UINT_TO_UDINT : BOOL
+VAR_INPUT
+	in : UINT;
+	out : REFERENCE TO UDINT;
+END_VAR
+VAR
+	converted : UDINT;
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[converted := UINT_TO_UDINT(in);
+
+IF (UDINT_TO_UINT(converted) <> in) THEN
+	RETURN;
+END_IF
+
+out := converted;
+Convert_UINT_TO_UDINT := TRUE;]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>
+

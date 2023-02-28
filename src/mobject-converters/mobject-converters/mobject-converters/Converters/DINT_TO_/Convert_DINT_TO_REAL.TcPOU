@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="Convert_DINT_TO_REAL" Id="{95e918dc-1357-458f-9e4c-bd0cf92f6e27}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION Convert_DINT_TO_REAL : BOOL
+VAR_INPUT
+	in : DINT;
+	out : REFERENCE TO REAL;
+END_VAR
+VAR
+	converted : REAL;
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[converted := DINT_TO_REAL(in);
+
+IF (REAL_TO_DINT(converted) <> in) THEN
+	RETURN;
+END_IF
+
+out := converted;
+Convert_DINT_TO_REAL := TRUE;]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>
+

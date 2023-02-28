@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="Convert_ULINT_TO_TOD" Id="{e106140b-57db-430f-bf1e-412299b31a60}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION Convert_ULINT_TO_TOD : BOOL
+VAR_INPUT
+	in : ULINT;
+	out : REFERENCE TO TOD;
+END_VAR
+VAR
+	converted : TOD;
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[converted := ULINT_TO_TOD(in);
+
+IF (TOD_TO_ULINT(converted) <> in) THEN
+	RETURN;
+END_IF
+
+out := converted;
+Convert_ULINT_TO_TOD := TRUE;]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>
+

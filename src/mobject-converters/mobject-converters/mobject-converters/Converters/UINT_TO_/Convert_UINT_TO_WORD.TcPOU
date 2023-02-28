@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="Convert_UINT_TO_WORD" Id="{f3ebf6d2-cbc0-4ae6-81bb-f404bfe79bde}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION Convert_UINT_TO_WORD : BOOL
+VAR_INPUT
+	in : UINT;
+	out : REFERENCE TO WORD;
+END_VAR
+VAR
+	converted : WORD;
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[converted := UINT_TO_WORD(in);
+
+IF (WORD_TO_UINT(converted) <> in) THEN
+	RETURN;
+END_IF
+
+out := converted;
+Convert_UINT_TO_WORD := TRUE;]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>
+

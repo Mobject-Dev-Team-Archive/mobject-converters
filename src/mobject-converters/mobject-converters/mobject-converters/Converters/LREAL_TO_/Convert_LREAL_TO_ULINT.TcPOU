@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="Convert_LREAL_TO_ULINT" Id="{64678295-a6f4-4466-986c-398c3f3e50a6}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION Convert_LREAL_TO_ULINT : BOOL
+VAR_INPUT
+	in : LREAL;
+	out : REFERENCE TO ULINT;
+END_VAR
+VAR
+	converted : ULINT;
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[converted := LREAL_TO_ULINT(in);
+
+IF (ULINT_TO_LREAL(converted) <> in) THEN
+	RETURN;
+END_IF
+
+out := converted;
+Convert_LREAL_TO_ULINT := TRUE;]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>
+

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="Convert_BYTE_TO_WORD" Id="{f96b26b8-9bd6-494d-887e-55a472e0a833}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION Convert_BYTE_TO_WORD : BOOL
+VAR_INPUT
+	in : BYTE;
+	out : REFERENCE TO WORD;
+END_VAR
+VAR
+	converted : WORD;
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[converted := BYTE_TO_WORD(in);
+
+IF (WORD_TO_BYTE(converted) <> in) THEN
+	RETURN;
+END_IF
+
+out := converted;
+Convert_BYTE_TO_WORD := TRUE;]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>
+

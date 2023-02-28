@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="Convert_LREAL_TO_DWORD" Id="{8dfc8e84-4109-4f64-9798-541f3e1c40ca}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION Convert_LREAL_TO_DWORD : BOOL
+VAR_INPUT
+	in : LREAL;
+	out : REFERENCE TO DWORD;
+END_VAR
+VAR
+	converted : DWORD;
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[converted := LREAL_TO_DWORD(in);
+
+IF (DWORD_TO_LREAL(converted) <> in) THEN
+	RETURN;
+END_IF
+
+out := converted;
+Convert_LREAL_TO_DWORD := TRUE;]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>
+

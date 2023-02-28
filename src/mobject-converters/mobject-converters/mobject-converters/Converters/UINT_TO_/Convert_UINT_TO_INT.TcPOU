@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="Convert_UINT_TO_INT" Id="{d4ea09e6-cd17-4f7e-ab2d-6598fda923b8}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION Convert_UINT_TO_INT : BOOL
+VAR_INPUT
+	in : UINT;
+	out : REFERENCE TO INT;
+END_VAR
+VAR
+	converted : INT;
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[converted := UINT_TO_INT(in);
+
+IF (INT_TO_UINT(converted) <> in) THEN
+	RETURN;
+END_IF
+
+out := converted;
+Convert_UINT_TO_INT := TRUE;]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>
+

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="Convert_TOD_TO_WORD" Id="{e5cf9853-f56b-4e74-a13e-2464172cdf99}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION Convert_TOD_TO_WORD : BOOL
+VAR_INPUT
+	in : TOD;
+	out : REFERENCE TO WORD;
+END_VAR
+VAR
+	converted : WORD;
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[converted := TOD_TO_WORD(in);
+
+IF (WORD_TO_TOD(converted) <> in) THEN
+	RETURN;
+END_IF
+
+out := converted;
+Convert_TOD_TO_WORD := TRUE;]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>
+

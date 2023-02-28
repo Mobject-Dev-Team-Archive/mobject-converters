@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="Convert_DINT_TO_LWORD" Id="{b83fd981-f527-4f8c-8876-f2642f9449a6}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION Convert_DINT_TO_LWORD : BOOL
+VAR_INPUT
+	in : DINT;
+	out : REFERENCE TO LWORD;
+END_VAR
+VAR
+	converted : LWORD;
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[converted := DINT_TO_LWORD(in);
+
+IF (LWORD_TO_DINT(converted) <> in) THEN
+	RETURN;
+END_IF
+
+out := converted;
+Convert_DINT_TO_LWORD := TRUE;]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>
+

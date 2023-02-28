@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="Convert_DINT_TO_BYTE" Id="{b9214d27-71b9-43f3-b6ab-49a65dc0c178}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION Convert_DINT_TO_BYTE : BOOL
+VAR_INPUT
+	in : DINT;
+	out : REFERENCE TO BYTE;
+END_VAR
+VAR
+	converted : BYTE;
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[converted := DINT_TO_BYTE(in);
+
+IF (BYTE_TO_DINT(converted) <> in) THEN
+	RETURN;
+END_IF
+
+out := converted;
+Convert_DINT_TO_BYTE := TRUE;]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>
+

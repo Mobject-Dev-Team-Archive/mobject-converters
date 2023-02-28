@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="Convert_REAL_TO_BOOL" Id="{404ab3c5-0597-4dee-9d9b-3cfa72342579}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION Convert_REAL_TO_BOOL : BOOL
+VAR_INPUT
+	in : REAL;
+	out : REFERENCE TO BOOL;
+END_VAR
+VAR
+	converted : BOOL;
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[converted := REAL_TO_BOOL(in);
+
+IF (BOOL_TO_REAL(converted) <> in) THEN
+	RETURN;
+END_IF
+
+out := converted;
+Convert_REAL_TO_BOOL := TRUE;]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>
+

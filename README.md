@@ -16,7 +16,7 @@ mobject's goal is to be a lightweight solution to typical oop problems.
 
 ## Documentation
 
-The documentation for this project can be found [here](https://benhar-dev.github.io/mobject-conversion/#/).
+The documentation for this project can be found [here](https://benhar-dev.github.io/mobject-converters/#/).
 
 ## Versions
 

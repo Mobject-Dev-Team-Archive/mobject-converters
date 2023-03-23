@@ -58,6 +58,11 @@
       <SubType>Content</SubType>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <PlaceholderResolution Include="mobject-converters">
+      <Resolution>mobject-converters, 0.0.1 (mobject)</Resolution>
+    </PlaceholderResolution>
+  </ItemGroup>
   <ProjectExtensions>
     <PlcProjectOptions>
       <XmlArchive>

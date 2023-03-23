@@ -20,4 +20,4 @@ The documentation for this project can be found [here](https://benhar-dev.github
 
 ## Versions
 
-- TcXaeShell 3.1.4024.35
+- TcXaeShell 3.1.4024.42

@@ -5,20 +5,10 @@
 VAR_INPUT
 	in : BOOL;
 	out : REFERENCE TO LINT;
-END_VAR
-VAR
-	converted : LINT;
 END_VAR]]></Declaration>
     <Implementation>
-      <ST><![CDATA[converted := BOOL_TO_LINT(in);
-
-IF (LINT_TO_BOOL(converted) <> in) THEN
-	RETURN;
-END_IF
-
-out := converted;
+      <ST><![CDATA[out := BOOL_TO_LINT(in);
 Convert_BOOL_TO_LINT := TRUE;]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>
-

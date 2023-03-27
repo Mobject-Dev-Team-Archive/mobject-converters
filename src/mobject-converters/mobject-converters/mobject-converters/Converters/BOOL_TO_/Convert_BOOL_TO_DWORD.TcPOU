@@ -5,20 +5,10 @@
 VAR_INPUT
 	in : BOOL;
 	out : REFERENCE TO DWORD;
-END_VAR
-VAR
-	converted : DWORD;
 END_VAR]]></Declaration>
     <Implementation>
-      <ST><![CDATA[converted := BOOL_TO_DWORD(in);
-
-IF (DWORD_TO_BOOL(converted) <> in) THEN
-	RETURN;
-END_IF
-
-out := converted;
+      <ST><![CDATA[out := BOOL_TO_DWORD(in);
 Convert_BOOL_TO_DWORD := TRUE;]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>
-

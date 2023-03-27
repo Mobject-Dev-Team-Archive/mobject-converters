@@ -6,55 +6,29 @@ VAR
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[CheckSource_To_DestinationWithBool();
+      <ST><![CDATA[CheckConvertLREAL_TO_BOOL();
 
 // todo, all other tests]]></ST>
     </Implementation>
-    <Method Name="CheckSource_To_DestinationWithBool" Id="{d19bf4d4-3869-07ac-0ec8-00d77588470a}">
-      <Declaration><![CDATA[METHOD PUBLIC CheckSource_To_DestinationWithBool
+    <Method Name="CheckConvertLREAL_TO_BOOL" Id="{598d4d17-7d87-4723-a9da-2e928ca860fc}">
+      <Declaration><![CDATA[METHOD PUBLIC CheckConvertLREAL_TO_BOOL
 VAR
-	in : BOOL := TRUE;
-	_BOOL : BOOL;
-	_BYTE : BYTE;
-	_DATE : DATE;
-	_DINT : DINT;
-	_DT : DT;
-	_DWORD : DWORD;
-	_INT : INT;
-	_LINT : LINT;
-	_LREAL : LREAL;
-	_LWORD : LWORD;
-	_REAL : REAL;
-	_SINT : SINT;
-	_STRING : STRING;
-	_TIME : TIME;
-	_TOD : TOD;
-	_UDINT : UDINT;
-	_UINT : UINT;
-	_ULINT : ULINT;
-	_USINT : USINT;
-	_WORD : WORD;
+	value : LREAL := 123.4;
+	actual : BOOL;
+	expected : BOOL;
+	converted : BOOL;
+	equal : BOOL;
 END_VAR
 ]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('CheckSource_To_DestinationWithBool');
-
-// @TEST-FIXTURE
+        <ST><![CDATA[TEST('CheckConvertLREAL_TO_BOOL');
 
 // @TEST-RUN
-Convert_Source_TO_Destination(in,_BOOL);
-Convert_Source_TO_Destination(in,_BYTE);
+converted := Convert_Source_TO_Destination(value, actual);
 
 // @TEST-ASSSERT
-AssertTrue(
-	Condition := (_BOOL = in),
-	Message := 'BOOL incorrectly converted'
-);
-
-AssertTrue(
-	Condition := (_BYTE = BOOL_TO_BYTE(in)),
-	Message := 'BYTE incorrectly converted'
-);
+AssertEquals(Expected := expected, Actual := actual, Message := 'Did not return the correct value');
+AssertTrue(Condition := converted, Message := 'Did not report conversion was successful');
 
 TEST_FINISHED();]]></ST>
       </Implementation>

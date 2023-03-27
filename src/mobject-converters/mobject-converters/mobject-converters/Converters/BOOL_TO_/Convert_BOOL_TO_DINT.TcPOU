@@ -5,20 +5,10 @@
 VAR_INPUT
 	in : BOOL;
 	out : REFERENCE TO DINT;
-END_VAR
-VAR
-	converted : DINT;
 END_VAR]]></Declaration>
     <Implementation>
-      <ST><![CDATA[converted := BOOL_TO_DINT(in);
-
-IF (DINT_TO_BOOL(converted) <> in) THEN
-	RETURN;
-END_IF
-
-out := converted;
+      <ST><![CDATA[out := BOOL_TO_DINT(in);
 Convert_BOOL_TO_DINT := TRUE;]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>
-

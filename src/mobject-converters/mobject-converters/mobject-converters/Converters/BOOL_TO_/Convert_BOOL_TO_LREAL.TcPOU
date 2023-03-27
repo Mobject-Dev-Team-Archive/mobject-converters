@@ -5,20 +5,10 @@
 VAR_INPUT
 	in : BOOL;
 	out : REFERENCE TO LREAL;
-END_VAR
-VAR
-	converted : LREAL;
 END_VAR]]></Declaration>
     <Implementation>
-      <ST><![CDATA[converted := BOOL_TO_LREAL(in);
-
-IF (LREAL_TO_BOOL(converted) <> in) THEN
-	RETURN;
-END_IF
-
-out := converted;
+      <ST><![CDATA[out := BOOL_TO_LREAL(in);
 Convert_BOOL_TO_LREAL := TRUE;]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>
-

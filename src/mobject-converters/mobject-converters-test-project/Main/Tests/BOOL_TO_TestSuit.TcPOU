@@ -1,0 +1,954 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="BOOL_TO_TestSuit" Id="{4d30f73e-9617-42a5-9076-ace59b4cbdde}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK PUBLIC BOOL_TO_TestSuit EXTENDS TcUnit.FB_TestSuite
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[Check_BOOL_TO_BOOL_Lower();
+Check_BOOL_TO_BOOL_Upper();
+Check_BOOL_TO_BYTE_Lower();
+Check_BOOL_TO_BYTE_Upper();
+Check_BOOL_TO_Date_Lower();
+Check_BOOL_TO_Date_Upper();
+Check_BOOL_TO_DINT_Upper();
+Check_BOOL_TO_DINT_Lower();
+Check_BOOL_TO_DT_Upper();
+Check_BOOL_TO_DT_Lower();
+Check_BOOL_TO_DWORD_Upper();
+Check_BOOL_TO_DWORD_Lower();
+Check_BOOL_TO_INT_Lower();
+Check_BOOL_TO_INT_Upper();
+Check_BOOL_TO_LINT_Lower();
+Check_BOOL_TO_LINT_Upper();
+Check_BOOL_TO_LREAL_Lower();
+Check_BOOL_TO_LREAL_Upper();
+Check_BOOL_TO_LWORD_Lower();
+Check_BOOL_TO_LWORD_Upper();
+Check_BOOL_TO_REAL_Lower();
+Check_BOOL_TO_REAL_Upper();
+Check_BOOL_TO_SINT_Lower();
+Check_BOOL_TO_SINT_Upper();
+Check_BOOL_TO_STRING_Lower();
+Check_BOOL_TO_STRING_Upper();
+Check_BOOL_TO_TIME_Lower();
+Check_BOOL_TO_TIME_Upper();
+Check_BOOL_TO_TOD_Lower();
+Check_BOOL_TO_TOD_Upper();
+Check_BOOL_TO_UDINT_Lower();
+Check_BOOL_TO_UDINT_Upper();
+Check_BOOL_TO_UINT_Lower();
+Check_BOOL_TO_UINT_Upper();
+Check_BOOL_TO_ULINT_Lower();
+Check_BOOL_TO_ULINT_Upper();
+Check_BOOL_TO_USINT_Lower();
+Check_BOOL_TO_USINT_Upper();
+Check_BOOL_TO_WORD_Lower();
+Check_BOOL_TO_WORD_Upper();]]></ST>
+    </Implementation>
+    <Method Name="Check_BOOL_TO_BOOL_Lower" Id="{09c06cf2-8d69-40af-951b-f7421d0b59dd}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_BOOL_Lower
+VAR
+	value : BOOL := FALSE;
+	actual : BOOL;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_BOOL_TO_BOOL_Lower');
+
+// @TEST-RUN
+converted := TryConvert_BOOL_TO_Destination(value, actual);
+equal := actual = FALSE;
+
+// @TEST-ASSSERT
+AssertTrue(Condition := equal, Message := 'Did not return the correct value');
+AssertTrue(Condition := converted, Message := 'Did not report conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_BOOL_TO_BOOL_Upper" Id="{92c0359c-a5f3-420d-b5c3-be2a07f01e70}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_BOOL_Upper
+VAR
+	value : BOOL := TRUE;
+	actual : BOOL;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_BOOL_TO_BOOL_Upper');
+
+// @TEST-RUN
+converted := TryConvert_BOOL_TO_Destination(value, actual);
+equal := actual = TRUE;
+
+// @TEST-ASSSERT
+AssertTrue(Condition := equal, Message := 'Did not return the correct value');
+AssertTrue(Condition := converted, Message := 'Did not report conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_BOOL_TO_BYTE_Lower" Id="{2b75ff50-45ca-4153-8aad-3d6996225ba0}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_BYTE_Lower
+VAR
+	value : BOOL := FALSE;
+	actual : BYTE;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_BOOL_TO_BYTE_Lower');
+
+// @TEST-RUN
+converted := TryConvert_BOOL_TO_Destination(value, actual);
+equal := actual = BOOL_TO_BYTE(value);
+
+// @TEST-ASSSERT
+AssertTrue(Condition := equal, Message := 'Did not return the correct value');
+AssertTrue(Condition := converted, Message := 'Did not report conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_BOOL_TO_BYTE_Upper" Id="{64fbd3b1-c6ca-4519-9f80-d821a3179487}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_BYTE_Upper
+VAR
+	value : BOOL := TRUE;
+	actual : BYTE;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_BOOL_TO_BYTE_Upper');
+
+// @TEST-RUN
+converted := TryConvert_BOOL_TO_Destination(value, actual);
+equal := actual = BOOL_TO_BYTE(value);
+
+// @TEST-ASSSERT
+AssertTrue(Condition := equal, Message := 'Did not return the correct value');
+AssertTrue(Condition := converted, Message := 'Did not report conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_BOOL_TO_Date_Lower" Id="{83828adb-8d8a-4069-bc09-5045f6b20969}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_Date_Lower
+VAR
+	value : BOOL := FALSE;
+	actual : DATE;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_BOOL_TO_DATE_Lower');
+
+// @TEST-RUN
+converted := TryConvert_BOOL_TO_Destination(value, actual);
+equal := actual = BOOL_TO_DATE(value);
+
+// @TEST-ASSSERT
+AssertTrue(Condition := equal, Message := 'Did not return the correct value');
+AssertTrue(Condition := converted, Message := 'Did not report conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_BOOL_TO_Date_Upper" Id="{c6d74b0d-4a7d-431e-bf67-f9c28d3cbe17}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_Date_Upper
+VAR
+	value : BOOL := TRUE;
+	actual : DATE;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_BOOL_TO_DATE_Upper');
+
+// @TEST-RUN
+converted := TryConvert_BOOL_TO_Destination(value, actual);
+equal := actual = BOOL_TO_DATE(value);
+
+// @TEST-ASSSERT
+AssertTrue(Condition := equal, Message := 'Did not return the correct value');
+AssertTrue(Condition := converted, Message := 'Did not report conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_BOOL_TO_DINT_Lower" Id="{f917b9cb-9334-48b1-9c22-1e34ea08011f}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_DINT_Lower
+VAR
+	value : BOOL := FALSE;
+	actual : DINT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_BOOL_TO_DINT_Lower');
+
+// @TEST-RUN
+converted := TryConvert_BOOL_TO_Destination(value, actual);
+equal := actual = BOOL_TO_DINT(value);
+
+// @TEST-ASSSERT
+AssertTrue(Condition := equal, Message := 'Did not return the correct value');
+AssertTrue(Condition := converted, Message := 'Did not report conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_BOOL_TO_DINT_Upper" Id="{a6199ef2-f16b-4b12-a398-88c9fbad2ad5}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_DINT_Upper
+VAR
+	value : BOOL := TRUE;
+	actual : DINT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_BOOL_TO_DINT_Upper');
+
+// @TEST-RUN
+converted := TryConvert_BOOL_TO_Destination(value, actual);
+equal := actual = BOOL_TO_DINT(value);
+
+// @TEST-ASSSERT
+AssertTrue(Condition := equal, Message := 'Did not return the correct value');
+AssertTrue(Condition := converted, Message := 'Did not report conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_BOOL_TO_DT_Lower" Id="{c1c00ed5-9b3e-482b-bc61-ae65af38fc66}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_DT_Lower
+VAR
+	value : BOOL := FALSE;
+	actual : DT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_BOOL_TO_DT_Lower');
+
+// @TEST-RUN
+converted := TryConvert_BOOL_TO_Destination(value, actual);
+equal := actual = BOOL_TO_DT(value);
+
+// @TEST-ASSSERT
+AssertTrue(Condition := equal, Message := 'Did not return the correct value');
+AssertTrue(Condition := converted, Message := 'Did not report conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_BOOL_TO_DT_Upper" Id="{4cfa8745-41e7-41d6-9ff4-ff4b50bc90b4}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_DT_Upper
+VAR
+	value : BOOL := TRUE;
+	actual : DT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_BOOL_TO_DT_Upper');
+
+// @TEST-RUN
+converted := TryConvert_BOOL_TO_Destination(value, actual);
+equal := actual = BOOL_TO_DT(value);
+
+// @TEST-ASSSERT
+AssertTrue(Condition := equal, Message := 'Did not return the correct value');
+AssertTrue(Condition := converted, Message := 'Did not report conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_BOOL_TO_DWORD_Lower" Id="{dcc7cab9-89fe-4c4e-922a-c8d2d6da1815}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_DWORD_Lower
+VAR
+	value : BOOL := FALSE;
+	actual : DWORD;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_BOOL_TO_DWORD_Lower');
+
+// @TEST-RUN
+converted := TryConvert_BOOL_TO_Destination(value, actual);
+equal := actual = BOOL_TO_DWORD(value);
+
+// @TEST-ASSSERT
+AssertTrue(Condition := equal, Message := 'Did not return the correct value');
+AssertTrue(Condition := converted, Message := 'Did not report conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_BOOL_TO_DWORD_Upper" Id="{c277a56b-ea32-44a7-94e2-d44bf1000048}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_DWORD_Upper
+VAR
+	value : BOOL := TRUE;
+	actual : DWORD;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_BOOL_TO_DWORD_Upper');
+
+// @TEST-RUN
+converted := TryConvert_BOOL_TO_Destination(value, actual);
+equal := actual = BOOL_TO_DWORD(value);
+
+// @TEST-ASSSERT
+AssertTrue(Condition := equal, Message := 'Did not return the correct value');
+AssertTrue(Condition := converted, Message := 'Did not report conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_BOOL_TO_INT_Lower" Id="{512a33d4-529c-418e-83c2-88dbfcc57247}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_INT_Lower
+VAR
+	value : BOOL := FALSE;
+	actual : INT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_BOOL_TO_INT_Lower');
+
+// @TEST-RUN
+converted := TryConvert_BOOL_TO_Destination(value, actual);
+equal := actual = BOOL_TO_INT(value);
+
+// @TEST-ASSSERT
+AssertTrue(Condition := equal, Message := 'Did not return the correct value');
+AssertTrue(Condition := converted, Message := 'Did not report conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_BOOL_TO_INT_Upper" Id="{8d4d6a66-ff3d-4331-9966-391ab74e3047}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_INT_Upper
+VAR
+	value : BOOL := TRUE;
+	actual : INT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_BOOL_TO_INT_Upper');
+
+// @TEST-RUN
+converted := TryConvert_BOOL_TO_Destination(value, actual);
+equal := actual = BOOL_TO_INT(value);
+
+// @TEST-ASSSERT
+AssertTrue(Condition := equal, Message := 'Did not return the correct value');
+AssertTrue(Condition := converted, Message := 'Did not report conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_BOOL_TO_LINT_Lower" Id="{9b5e3319-3da6-4a3c-8a4f-6a686c9afd61}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_LINT_Lower
+VAR
+	value : BOOL := FALSE;
+	actual : LINT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_BOOL_TO_LINT_Lower');
+
+// @TEST-RUN
+converted := TryConvert_BOOL_TO_Destination(value, actual);
+equal := actual = BOOL_TO_LINT(value);
+
+// @TEST-ASSSERT
+AssertTrue(Condition := equal, Message := 'Did not return the correct value');
+AssertTrue(Condition := converted, Message := 'Did not report conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_BOOL_TO_LINT_Upper" Id="{422eac85-cb2d-4df0-9bcb-301b45c23144}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_LINT_Upper
+VAR
+	value : BOOL := TRUE;
+	actual : LINT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_BOOL_TO_LINT_Upper');
+
+// @TEST-RUN
+converted := TryConvert_BOOL_TO_Destination(value, actual);
+equal := actual = BOOL_TO_LINT(value);
+
+// @TEST-ASSSERT
+AssertTrue(Condition := equal, Message := 'Did not return the correct value');
+AssertTrue(Condition := converted, Message := 'Did not report conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_BOOL_TO_LREAL_Lower" Id="{3a5e20bc-feb0-455a-a52c-d6440d8e26ac}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_LREAL_Lower
+VAR
+	value : BOOL := FALSE;
+	actual : LREAL;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_BOOL_TO_LREAL_Lower');
+
+// @TEST-RUN
+converted := TryConvert_BOOL_TO_Destination(value, actual);
+equal := actual = BOOL_TO_LREAL(value);
+
+// @TEST-ASSSERT
+AssertTrue(Condition := equal, Message := 'Did not return the correct value');
+AssertTrue(Condition := converted, Message := 'Did not report conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_BOOL_TO_LREAL_Upper" Id="{9411a7ff-4092-426e-a713-906125cff54c}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_LREAL_Upper
+VAR
+	value : BOOL := TRUE;
+	actual : LREAL;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_BOOL_TO_LREAL_Upper');
+
+// @TEST-RUN
+converted := TryConvert_BOOL_TO_Destination(value, actual);
+equal := actual = BOOL_TO_LREAL(value);
+
+// @TEST-ASSSERT
+AssertTrue(Condition := equal, Message := 'Did not return the correct value');
+AssertTrue(Condition := converted, Message := 'Did not report conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_BOOL_TO_LWORD_Lower" Id="{dbe99618-8094-4698-bb58-c1308f5d48fb}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_LWORD_Lower
+VAR
+	value : BOOL := FALSE;
+	actual : LWORD;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_BOOL_TO_LWORD_Lower');
+
+// @TEST-RUN
+converted := TryConvert_BOOL_TO_Destination(value, actual);
+equal := actual = BOOL_TO_LWORD(value);
+
+// @TEST-ASSSERT
+AssertTrue(Condition := equal, Message := 'Did not return the correct value');
+AssertTrue(Condition := converted, Message := 'Did not report conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_BOOL_TO_LWORD_Upper" Id="{17a8a21b-de41-4b2a-959b-647f0a635584}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_LWORD_Upper
+VAR
+	value : BOOL := TRUE;
+	actual : LWORD;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_BOOL_TO_LWORD_Upper');
+
+// @TEST-RUN
+converted := TryConvert_BOOL_TO_Destination(value, actual);
+equal := actual = BOOL_TO_LWORD(value);
+
+// @TEST-ASSSERT
+AssertTrue(Condition := equal, Message := 'Did not return the correct value');
+AssertTrue(Condition := converted, Message := 'Did not report conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_BOOL_TO_REAL_Lower" Id="{85e39840-7c98-47f9-9179-fae4a3614122}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_REAL_Lower
+VAR
+	value : BOOL := FALSE;
+	actual : REAL;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_BOOL_TO_REAL_Lower');
+
+// @TEST-RUN
+converted := TryConvert_BOOL_TO_Destination(value, actual);
+equal := actual = BOOL_TO_REAL(value);
+
+// @TEST-ASSSERT
+AssertTrue(Condition := equal, Message := 'Did not return the correct value');
+AssertTrue(Condition := converted, Message := 'Did not report conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_BOOL_TO_REAL_Upper" Id="{46eee986-1090-4a99-b7a4-164d79e6e082}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_REAL_Upper
+VAR
+	value : BOOL := TRUE;
+	actual : REAL;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_BOOL_TO_REAL_Upper');
+
+// @TEST-RUN
+converted := TryConvert_BOOL_TO_Destination(value, actual);
+equal := actual = BOOL_TO_REAL(value);
+
+// @TEST-ASSSERT
+AssertTrue(Condition := equal, Message := 'Did not return the correct value');
+AssertTrue(Condition := converted, Message := 'Did not report conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_BOOL_TO_SINT_Lower" Id="{f72d22b0-f5f9-4d3a-b42a-f66553d1b4fa}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_SINT_Lower
+VAR
+	value : BOOL := FALSE;
+	actual : SINT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_BOOL_TO_SINT_Lower');
+
+// @TEST-RUN
+converted := TryConvert_BOOL_TO_Destination(value, actual);
+equal := actual = BOOL_TO_SINT(value);
+
+// @TEST-ASSSERT
+AssertTrue(Condition := equal, Message := 'Did not return the correct value');
+AssertTrue(Condition := converted, Message := 'Did not report conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_BOOL_TO_SINT_Upper" Id="{96d61a70-cb1e-42ae-862f-7cfa5c1d2802}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_SINT_Upper
+VAR
+	value : BOOL := TRUE;
+	actual : SINT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_BOOL_TO_SINT_Upper');
+
+// @TEST-RUN
+converted := TryConvert_BOOL_TO_Destination(value, actual);
+equal := actual = BOOL_TO_SINT(value);
+
+// @TEST-ASSSERT
+AssertTrue(Condition := equal, Message := 'Did not return the correct value');
+AssertTrue(Condition := converted, Message := 'Did not report conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_BOOL_TO_STRING_Lower" Id="{cd71636e-bf08-442a-b30c-96ab6756c0f9}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_STRING_Lower
+VAR
+	value : BOOL := FALSE;
+	actual : STRING;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_BOOL_TO_STRING_Lower');
+
+// @TEST-RUN
+converted := TryConvert_BOOL_TO_Destination(value, actual);
+equal := actual = BOOL_TO_STRING(value);
+
+// @TEST-ASSSERT
+AssertTrue(Condition := equal, Message := 'Did not return the correct value');
+AssertTrue(Condition := converted, Message := 'Did not report conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_BOOL_TO_STRING_Upper" Id="{4931bb68-7564-4c44-8f13-b48812003386}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_STRING_Upper
+VAR
+	value : BOOL := TRUE;
+	actual : STRING;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_BOOL_TO_STRING_Upper');
+
+// @TEST-RUN
+converted := TryConvert_BOOL_TO_Destination(value, actual);
+equal := actual = BOOL_TO_STRING(value);
+
+// @TEST-ASSSERT
+AssertTrue(Condition := equal, Message := 'Did not return the correct value');
+AssertTrue(Condition := converted, Message := 'Did not report conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_BOOL_TO_TIME_Lower" Id="{26bbf029-016c-4cbf-89cf-f3a8020add9b}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_TIME_Lower
+VAR
+	value : BOOL := FALSE;
+	actual : TIME;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_BOOL_TO_TIME_Lower');
+
+// @TEST-RUN
+converted := TryConvert_BOOL_TO_Destination(value, actual);
+equal := actual = BOOL_TO_TIME(value);
+
+// @TEST-ASSSERT
+AssertTrue(Condition := equal, Message := 'Did not return the correct value');
+AssertTrue(Condition := converted, Message := 'Did not report conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_BOOL_TO_TIME_Upper" Id="{829fa919-8464-44b1-a823-9bb118cf1c71}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_TIME_Upper
+VAR
+	value : BOOL := TRUE;
+	actual : TIME;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_BOOL_TO_TIME_Upper');
+
+// @TEST-RUN
+converted := TryConvert_BOOL_TO_Destination(value, actual);
+equal := actual = BOOL_TO_TIME(value);
+
+// @TEST-ASSSERT
+AssertTrue(Condition := equal, Message := 'Did not return the correct value');
+AssertTrue(Condition := converted, Message := 'Did not report conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_BOOL_TO_TOD_Lower" Id="{398f2674-6a97-4305-98a5-b6695e2a0dfd}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_TOD_Lower
+VAR
+	value : BOOL := FALSE;
+	actual : TOD;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_BOOL_TO_TOD_Lower');
+
+// @TEST-RUN
+converted := TryConvert_BOOL_TO_Destination(value, actual);
+equal := actual = BOOL_TO_TOD(value);
+
+// @TEST-ASSSERT
+AssertTrue(Condition := equal, Message := 'Did not return the correct value');
+AssertTrue(Condition := converted, Message := 'Did not report conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_BOOL_TO_TOD_Upper" Id="{12cfb746-ee10-458e-8aac-3d897c8d3321}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_TOD_Upper
+VAR
+	value : BOOL := TRUE;
+	actual : TOD;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_BOOL_TO_TOD_Upper');
+
+// @TEST-RUN
+converted := TryConvert_BOOL_TO_Destination(value, actual);
+equal := actual = BOOL_TO_TOD(value);
+
+// @TEST-ASSSERT
+AssertTrue(Condition := equal, Message := 'Did not return the correct value');
+AssertTrue(Condition := converted, Message := 'Did not report conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_BOOL_TO_UDINT_Lower" Id="{8195650c-efac-4905-9193-97e435e123a9}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_UDINT_Lower
+VAR
+	value : BOOL := FALSE;
+	actual : UDINT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_BOOL_TO_UDINT_Lower');
+
+// @TEST-RUN
+converted := TryConvert_BOOL_TO_Destination(value, actual);
+equal := actual = BOOL_TO_UDINT(value);
+
+// @TEST-ASSSERT
+AssertTrue(Condition := equal, Message := 'Did not return the correct value');
+AssertTrue(Condition := converted, Message := 'Did not report conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_BOOL_TO_UDINT_Upper" Id="{9a69d71c-f2b0-4705-829d-e4e61b44badc}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_UDINT_Upper
+VAR
+	value : BOOL := TRUE;
+	actual : UDINT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_BOOL_TO_UDINT_Upper');
+
+// @TEST-RUN
+converted := TryConvert_BOOL_TO_Destination(value, actual);
+equal := actual = BOOL_TO_UDINT(value);
+
+// @TEST-ASSSERT
+AssertTrue(Condition := equal, Message := 'Did not return the correct value');
+AssertTrue(Condition := converted, Message := 'Did not report conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_BOOL_TO_UINT_Lower" Id="{8651b95f-9fee-47b5-b40e-e61758ca2033}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_UINT_Lower
+VAR
+	value : BOOL := FALSE;
+	actual : UINT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_BOOL_TO_UINT_Lower');
+
+// @TEST-RUN
+converted := TryConvert_BOOL_TO_Destination(value, actual);
+equal := actual = BOOL_TO_UINT(value);
+
+// @TEST-ASSSERT
+AssertTrue(Condition := equal, Message := 'Did not return the correct value');
+AssertTrue(Condition := converted, Message := 'Did not report conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_BOOL_TO_UINT_Upper" Id="{10779232-7de6-4d52-9957-1a1f772f929b}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_UINT_Upper
+VAR
+	value : BOOL := TRUE;
+	actual : UINT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_BOOL_TO_UINT_Upper');
+
+// @TEST-RUN
+converted := TryConvert_BOOL_TO_Destination(value, actual);
+equal := actual = BOOL_TO_UINT(value);
+
+// @TEST-ASSSERT
+AssertTrue(Condition := equal, Message := 'Did not return the correct value');
+AssertTrue(Condition := converted, Message := 'Did not report conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_BOOL_TO_ULINT_Lower" Id="{c4d0eb0b-c31c-438c-b08d-94d69b6b0fd0}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_ULINT_Lower
+VAR
+	value : BOOL := FALSE;
+	actual : ULINT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_BOOL_TO_ULINT_Lower');
+
+// @TEST-RUN
+converted := TryConvert_BOOL_TO_Destination(value, actual);
+equal := actual = BOOL_TO_ULINT(value);
+
+// @TEST-ASSSERT
+AssertTrue(Condition := equal, Message := 'Did not return the correct value');
+AssertTrue(Condition := converted, Message := 'Did not report conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_BOOL_TO_ULINT_Upper" Id="{8af44381-02d4-4294-b0cf-9f54e0ac4379}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_ULINT_Upper
+VAR
+	value : BOOL := TRUE;
+	actual : ULINT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_BOOL_TO_ULINT_Upper');
+
+// @TEST-RUN
+converted := TryConvert_BOOL_TO_Destination(value, actual);
+equal := actual = BOOL_TO_ULINT(value);
+
+// @TEST-ASSSERT
+AssertTrue(Condition := equal, Message := 'Did not return the correct value');
+AssertTrue(Condition := converted, Message := 'Did not report conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_BOOL_TO_USINT_Lower" Id="{1617f61b-3a84-4ba1-8b96-01193012418d}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_USINT_Lower
+VAR
+	value : BOOL := FALSE;
+	actual : ULINT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_BOOL_TO_USINT_Lower');
+
+// @TEST-RUN
+converted := TryConvert_BOOL_TO_Destination(value, actual);
+equal := actual = BOOL_TO_USINT(value);
+
+// @TEST-ASSSERT
+AssertTrue(Condition := equal, Message := 'Did not return the correct value');
+AssertTrue(Condition := converted, Message := 'Did not report conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_BOOL_TO_USINT_Upper" Id="{a06bcc49-6a38-49c6-8892-55fb97f8aadb}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_USINT_Upper
+VAR
+	value : BOOL := TRUE;
+	actual : ULINT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_BOOL_TO_USINT_Upper');
+
+// @TEST-RUN
+converted := TryConvert_BOOL_TO_Destination(value, actual);
+equal := actual = BOOL_TO_USINT(value);
+
+// @TEST-ASSSERT
+AssertTrue(Condition := equal, Message := 'Did not return the correct value');
+AssertTrue(Condition := converted, Message := 'Did not report conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_BOOL_TO_WORD_Lower" Id="{96225fe9-9714-446a-a00e-1cc3c9b2e80c}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_WORD_Lower
+VAR
+	value : BOOL := FALSE;
+	actual : WORD;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_BOOL_TO_WORD_Lower');
+
+// @TEST-RUN
+converted := TryConvert_BOOL_TO_Destination(value, actual);
+equal := actual = BOOL_TO_WORD(value);
+
+// @TEST-ASSSERT
+AssertTrue(Condition := equal, Message := 'Did not return the correct value');
+AssertTrue(Condition := converted, Message := 'Did not report conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_BOOL_TO_WORD_Upper" Id="{e214b97b-fc51-41eb-a27b-5fb561309b49}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_WORD_Upper
+VAR
+	value : BOOL := TRUE;
+	actual : WORD;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_BOOL_TO_WORD_Upper');
+
+// @TEST-RUN
+converted := TryConvert_BOOL_TO_Destination(value, actual);
+equal := actual = BOOL_TO_WORD(value);
+
+// @TEST-ASSSERT
+AssertTrue(Condition := equal, Message := 'Did not return the correct value');
+AssertTrue(Condition := converted, Message := 'Did not report conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+  </POU>
+</TcPlcObject>

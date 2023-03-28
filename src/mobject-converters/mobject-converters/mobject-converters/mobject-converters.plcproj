@@ -18,7 +18,7 @@
     <Company>mobject</Company>
     <Released>false</Released>
     <Title>mobject-converters</Title>
-    <ProjectVersion>0.0.0</ProjectVersion>
+    <ProjectVersion>0.1.0</ProjectVersion>
     <DefaultNamespace>mobject-converters</DefaultNamespace>
     <Placeholder>mobject-converters</Placeholder>
     <Author>mobject dev team</Author>
@@ -58,67 +58,67 @@
     <Folder Include="Converters\WORD_TO_" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Converters\BOOL_TO_\Convert_BOOL_TO_Destination.TcPOU">
+    <Compile Include="Converters\BOOL_TO_\TryConvert_BOOL_TO_Destination.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Converters\BOOL_TO_\Convert_BOOL_TO_BOOL.TcPOU">
+    <Compile Include="Converters\BOOL_TO_\TryConvert_BOOL_TO_BOOL.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Converters\BOOL_TO_\Convert_BOOL_TO_BYTE.TcPOU">
+    <Compile Include="Converters\BOOL_TO_\TryConvert_BOOL_TO_BYTE.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Converters\BOOL_TO_\Convert_BOOL_TO_DATE.TcPOU">
+    <Compile Include="Converters\BOOL_TO_\TryConvert_BOOL_TO_DATE.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Converters\BOOL_TO_\Convert_BOOL_TO_DINT.TcPOU">
+    <Compile Include="Converters\BOOL_TO_\TryConvert_BOOL_TO_DINT.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Converters\BOOL_TO_\Convert_BOOL_TO_DT.TcPOU">
+    <Compile Include="Converters\BOOL_TO_\TryConvert_BOOL_TO_DT.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Converters\BOOL_TO_\Convert_BOOL_TO_DWORD.TcPOU">
+    <Compile Include="Converters\BOOL_TO_\TryConvert_BOOL_TO_DWORD.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Converters\BOOL_TO_\Convert_BOOL_TO_INT.TcPOU">
+    <Compile Include="Converters\BOOL_TO_\TryConvert_BOOL_TO_INT.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Converters\BOOL_TO_\Convert_BOOL_TO_LINT.TcPOU">
+    <Compile Include="Converters\BOOL_TO_\TryConvert_BOOL_TO_LINT.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Converters\BOOL_TO_\Convert_BOOL_TO_LREAL.TcPOU">
+    <Compile Include="Converters\BOOL_TO_\TryConvert_BOOL_TO_LREAL.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Converters\BOOL_TO_\Convert_BOOL_TO_LWORD.TcPOU">
+    <Compile Include="Converters\BOOL_TO_\TryConvert_BOOL_TO_LWORD.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Converters\BOOL_TO_\Convert_BOOL_TO_REAL.TcPOU">
+    <Compile Include="Converters\BOOL_TO_\TryConvert_BOOL_TO_REAL.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Converters\BOOL_TO_\Convert_BOOL_TO_SINT.TcPOU">
+    <Compile Include="Converters\BOOL_TO_\TryConvert_BOOL_TO_SINT.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Converters\BOOL_TO_\Convert_BOOL_TO_STRING.TcPOU">
+    <Compile Include="Converters\BOOL_TO_\TryConvert_BOOL_TO_STRING.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Converters\BOOL_TO_\Convert_BOOL_TO_TIME.TcPOU">
+    <Compile Include="Converters\BOOL_TO_\TryConvert_BOOL_TO_TIME.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Converters\BOOL_TO_\Convert_BOOL_TO_TOD.TcPOU">
+    <Compile Include="Converters\BOOL_TO_\TryConvert_BOOL_TO_TOD.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Converters\BOOL_TO_\Convert_BOOL_TO_UDINT.TcPOU">
+    <Compile Include="Converters\BOOL_TO_\TryConvert_BOOL_TO_UDINT.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Converters\BOOL_TO_\Convert_BOOL_TO_UINT.TcPOU">
+    <Compile Include="Converters\BOOL_TO_\TryConvert_BOOL_TO_UINT.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Converters\BOOL_TO_\Convert_BOOL_TO_ULINT.TcPOU">
+    <Compile Include="Converters\BOOL_TO_\TryConvert_BOOL_TO_ULINT.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Converters\BOOL_TO_\Convert_BOOL_TO_USINT.TcPOU">
+    <Compile Include="Converters\BOOL_TO_\TryConvert_BOOL_TO_USINT.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Converters\BOOL_TO_\Convert_BOOL_TO_WORD.TcPOU">
+    <Compile Include="Converters\BOOL_TO_\TryConvert_BOOL_TO_WORD.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Converters\BYTE_TO_\Convert_BYTE_TO_Destination.TcPOU">
@@ -184,7 +184,7 @@
     <Compile Include="Converters\BYTE_TO_\Convert_BYTE_TO_WORD.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Converters\Convert_Source_TO_Destination.TcPOU">
+    <Compile Include="Converters\TryConvert_Source_TO_Destination.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Converters\DATE_TO_\Convert_DATE_TO_Destination.TcPOU">

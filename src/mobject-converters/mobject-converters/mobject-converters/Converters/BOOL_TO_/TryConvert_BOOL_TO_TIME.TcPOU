@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
-  <POU Name="Convert_BOOL_TO_TIME" Id="{7d9c4008-6a3f-4a5c-89ad-3aa4f0dc5b34}" SpecialFunc="None">
-    <Declaration><![CDATA[FUNCTION Convert_BOOL_TO_TIME : BOOL
+  <POU Name="TryConvert_BOOL_TO_TIME" Id="{7d9c4008-6a3f-4a5c-89ad-3aa4f0dc5b34}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION TryConvert_BOOL_TO_TIME : BOOL
 VAR_INPUT
 	in : BOOL;
 	out : REFERENCE TO TIME;
 END_VAR]]></Declaration>
     <Implementation>
       <ST><![CDATA[out := BOOL_TO_TIME(in);
-Convert_BOOL_TO_TIME := TRUE;]]></ST>
+TryConvert_BOOL_TO_TIME := TRUE;]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>

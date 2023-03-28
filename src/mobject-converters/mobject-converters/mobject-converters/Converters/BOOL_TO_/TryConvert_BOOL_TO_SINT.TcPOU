@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
-  <POU Name="Convert_BOOL_TO_SINT" Id="{bdb07fa9-6bf0-4b02-b1b6-6ba7eaf8c765}" SpecialFunc="None">
-    <Declaration><![CDATA[FUNCTION Convert_BOOL_TO_SINT : BOOL
+  <POU Name="TryConvert_BOOL_TO_SINT" Id="{bdb07fa9-6bf0-4b02-b1b6-6ba7eaf8c765}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION TryConvert_BOOL_TO_SINT : BOOL
 VAR_INPUT
 	in : BOOL;
 	out : REFERENCE TO SINT;
 END_VAR]]></Declaration>
     <Implementation>
       <ST><![CDATA[out := BOOL_TO_SINT(in);
-Convert_BOOL_TO_SINT := TRUE;]]></ST>
+TryConvert_BOOL_TO_SINT := TRUE;]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>

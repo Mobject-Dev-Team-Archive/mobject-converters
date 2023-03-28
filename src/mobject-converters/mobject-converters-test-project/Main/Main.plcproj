@@ -23,7 +23,7 @@
     <Compile Include="POUs\MAIN.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Tests\Converters_TestSuit.TcPOU">
+    <Compile Include="Tests\BOOL_TO_TestSuit.TcPOU">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -57,6 +57,11 @@
     <None Include="Main.tmc">
       <SubType>Content</SubType>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <PlaceholderResolution Include="mobject-converters">
+      <Resolution>mobject-converters, 0.1.0 (mobject)</Resolution>
+    </PlaceholderResolution>
   </ItemGroup>
   <ProjectExtensions>
     <PlcProjectOptions>

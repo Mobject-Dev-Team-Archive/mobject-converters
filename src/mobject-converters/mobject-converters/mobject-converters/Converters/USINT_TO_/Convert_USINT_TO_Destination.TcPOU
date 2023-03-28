@@ -35,7 +35,7 @@ END_VAR]]></Declaration>
 	
 	__SYSTEM.TYPE_CLASS.TYPE_BOOL:
 	
-		convertResult := Convert_USINT_TO_BOOL(in, _BOOL);
+		convertResult := TryConvert_USINT_TO_BOOL(in, _BOOL);
 		IF convertResult THEN
 			convertAddress := ADR(_BOOL);
 		END_IF
@@ -161,7 +161,7 @@ END_VAR]]></Declaration>
 
 	__SYSTEM.TYPE_CLASS.TYPE_USINT:
 	
-		convertResult := Convert_USINT_TO_USINT(in, _USINT);
+		convertResult := TryConvert_USINT_TO_USINT(in, _USINT);
 		IF convertResult THEN
 			convertAddress := ADR(_USINT);
 		END_IF

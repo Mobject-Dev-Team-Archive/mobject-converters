@@ -35,7 +35,7 @@ END_VAR]]></Declaration>
 	
 	__SYSTEM.TYPE_CLASS.TYPE_BOOL:
 	
-		convertResult := Convert_SINT_TO_BOOL(in, _BOOL);
+		convertResult := TryConvert_SINT_TO_BOOL(in, _BOOL);
 		IF convertResult THEN
 			convertAddress := ADR(_BOOL);
 		END_IF
@@ -112,7 +112,7 @@ END_VAR]]></Declaration>
 
 	__SYSTEM.TYPE_CLASS.TYPE_SINT:
 	
-		convertResult := Convert_SINT_TO_SINT(in, _SINT);
+		convertResult := TryConvert_SINT_TO_SINT(in, _SINT);
 		IF convertResult THEN
 			convertAddress := ADR(_SINT);
 		END_IF

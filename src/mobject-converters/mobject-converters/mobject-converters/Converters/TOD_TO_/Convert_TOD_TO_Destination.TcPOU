@@ -35,7 +35,7 @@ END_VAR]]></Declaration>
 	
 	__SYSTEM.TYPE_CLASS.TYPE_BOOL:
 	
-		convertResult := Convert_TOD_TO_BOOL(in, _BOOL);
+		convertResult := TryConvert_TOD_TO_BOOL(in, _BOOL);
 		IF convertResult THEN
 			convertAddress := ADR(_BOOL);
 		END_IF
@@ -133,7 +133,7 @@ END_VAR]]></Declaration>
 
 	__SYSTEM.TYPE_CLASS.TYPE_TIMEOFDAY:
 	
-		convertResult := Convert_TOD_TO_TOD(in, _TOD);
+		convertResult := TryConvert_TOD_TO_TOD(in, _TOD);
 		IF convertResult THEN
 			convertAddress := ADR(_TOD);
 		END_IF

@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="TryConvert_DATE_TO_INT" Id="{43b9d99c-3c20-4915-babd-d1596f607b9a}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION TryConvert_DATE_TO_INT : BOOL
+VAR_INPUT
+	in : DATE;
+	out : REFERENCE TO INT;
+END_VAR
+VAR
+	converted : INT;
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF in > INT_TO_DATE(32767) THEN
+	RETURN;
+END_IF
+
+out := DATE_TO_INT(in);
+TryConvert_DATE_TO_INT := TRUE;]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

@@ -147,7 +147,7 @@ END_VAR]]></Declaration>
 
 	__SYSTEM.TYPE_CLASS.TYPE_UINT:
 	
-		convertResult := Convert_UINT_TO_UINT(in, _UINT);
+		convertResult := TryConvert_UINT_TO_UINT(in, _UINT);
 		IF convertResult THEN
 			convertAddress := ADR(_UINT);
 		END_IF

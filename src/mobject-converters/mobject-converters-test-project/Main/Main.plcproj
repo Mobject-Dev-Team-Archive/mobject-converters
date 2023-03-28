@@ -26,6 +26,12 @@
     <Compile Include="Tests\BOOL_TO_TestSuit.TcPOU">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Tests\BYTE_TO_TestSuit.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tests\DATE_TO_TestSuit.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="POUs" />

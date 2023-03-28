@@ -35,7 +35,7 @@ END_VAR]]></Declaration>
 	
 	__SYSTEM.TYPE_CLASS.TYPE_BOOL:
 	
-		convertResult := Convert_ULINT_TO_BOOL(in, _BOOL);
+		convertResult := TryConvert_ULINT_TO_BOOL(in, _BOOL);
 		IF convertResult THEN
 			convertAddress := ADR(_BOOL);
 		END_IF
@@ -154,7 +154,7 @@ END_VAR]]></Declaration>
 
 	__SYSTEM.TYPE_CLASS.TYPE_ULINT:
 	
-		convertResult := Convert_ULINT_TO_ULINT(in, _ULINT);
+		convertResult := TryConvert_ULINT_TO_ULINT(in, _ULINT);
 		IF convertResult THEN
 			convertAddress := ADR(_ULINT);
 		END_IF

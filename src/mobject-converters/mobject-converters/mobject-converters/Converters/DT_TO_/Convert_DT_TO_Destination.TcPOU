@@ -35,7 +35,7 @@ END_VAR]]></Declaration>
 	
 	__SYSTEM.TYPE_CLASS.TYPE_BOOL:
 	
-		convertResult := Convert_DT_TO_BOOL(in, _BOOL);
+		convertResult := TryConvert_DT_TO_BOOL(in, _BOOL);
 		IF convertResult THEN
 			convertAddress := ADR(_BOOL);
 		END_IF
@@ -63,7 +63,7 @@ END_VAR]]></Declaration>
 
 	__SYSTEM.TYPE_CLASS.TYPE_DATEANDTIME:
 	
-		convertResult := Convert_DT_TO_DT(in, _DT);
+		convertResult := TryConvert_DT_TO_DT(in, _DT);
 		IF convertResult THEN
 			convertAddress := ADR(_DT);
 		END_IF

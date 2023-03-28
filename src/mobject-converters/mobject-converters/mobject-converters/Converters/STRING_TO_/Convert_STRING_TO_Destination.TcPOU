@@ -35,7 +35,7 @@ END_VAR]]></Declaration>
 	
 	__SYSTEM.TYPE_CLASS.TYPE_BOOL:
 	
-		convertResult := Convert_STRING_TO_BOOL(in, _BOOL);
+		convertResult := TryConvert_STRING_TO_BOOL(in, _BOOL);
 		IF convertResult THEN
 			convertAddress := ADR(_BOOL);
 		END_IF
@@ -119,7 +119,7 @@ END_VAR]]></Declaration>
 
 	__SYSTEM.TYPE_CLASS.TYPE_STRING:
 	
-		convertResult := Convert_STRING_TO_STRING(in, _STRING);
+		convertResult := TryConvert_STRING_TO_STRING(in, _STRING);
 		IF convertResult THEN
 			convertAddress := ADR(_STRING);
 		END_IF

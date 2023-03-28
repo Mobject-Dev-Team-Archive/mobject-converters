@@ -35,7 +35,7 @@ END_VAR]]></Declaration>
 	
 	__SYSTEM.TYPE_CLASS.TYPE_BOOL:
 	
-		convertResult := Convert_WORD_TO_BOOL(in, _BOOL);
+		convertResult := TryConvert_WORD_TO_BOOL(in, _BOOL);
 		IF convertResult THEN
 			convertAddress := ADR(_BOOL);
 		END_IF
@@ -168,7 +168,7 @@ END_VAR]]></Declaration>
 
 	__SYSTEM.TYPE_CLASS.TYPE_WORD:
 	
-		convertResult := Convert_WORD_TO_WORD(in, _WORD);
+		convertResult := TryConvert_WORD_TO_WORD(in, _WORD);
 		IF convertResult THEN
 			convertAddress := ADR(_WORD);
 		END_IF

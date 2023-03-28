@@ -39,11 +39,11 @@ END_VAR]]></Declaration>
 
 	__SYSTEM.TYPE_CLASS.TYPE_BYTE:
 	    memcpy(ADR(_BYTE),in.pValue,in.diSize);
-		convertResult := Convert_BYTE_To_Destination(_BYTE, out);
+		convertResult := TryConvert_BYTE_TO_Destination(_BYTE, out);
 
 	__SYSTEM.TYPE_CLASS.TYPE_DATE:
 	    memcpy(ADR(_DATE),in.pValue,in.diSize);
-		convertResult := Convert_DATE_To_Destination(_DATE, out);
+		convertResult := TryConvert_DATE_TO_Destination(_DATE, out);
 
 	__SYSTEM.TYPE_CLASS.TYPE_DINT:
 	    memcpy(ADR(_DINT),in.pValue,in.diSize);

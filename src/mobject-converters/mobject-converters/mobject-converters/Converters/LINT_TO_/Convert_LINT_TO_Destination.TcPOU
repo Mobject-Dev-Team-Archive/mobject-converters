@@ -35,7 +35,7 @@ END_VAR]]></Declaration>
 	
 	__SYSTEM.TYPE_CLASS.TYPE_BOOL:
 	
-		convertResult := Convert_LINT_TO_BOOL(in, _BOOL);
+		convertResult := TryConvert_LINT_TO_BOOL(in, _BOOL);
 		IF convertResult THEN
 			convertAddress := ADR(_BOOL);
 		END_IF
@@ -84,7 +84,7 @@ END_VAR]]></Declaration>
 
 	__SYSTEM.TYPE_CLASS.TYPE_LINT:
 	
-		convertResult := Convert_LINT_TO_LINT(in, _LINT);
+		convertResult := TryConvert_LINT_TO_LINT(in, _LINT);
 		IF convertResult THEN
 			convertAddress := ADR(_LINT);
 		END_IF

@@ -1,0 +1,1143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="DATE_TO_TestSuit" Id="{256e7bb9-80b6-4157-89ef-c0504a20c988}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK PUBLIC DATE_TO_TestSuit EXTENDS TcUnit.FB_TestSuite
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[Check_DATE_TO_BOOL_Lower();
+Check_DATE_TO_BOOL_Upper();
+Check_DATE_TO_BYTE_Lower();
+Check_DATE_TO_BYTE_TooHigh();
+Check_DATE_TO_BYTE_Upper();
+Check_DATE_TO_Date_Lower();
+Check_DATE_TO_Date_Upper();
+Check_DATE_TO_DINT_Upper();
+Check_DATE_TO_DINT_TooHigh();
+Check_DATE_TO_DINT_Lower();
+Check_DATE_TO_DT_Upper();
+Check_DATE_TO_DT_Lower();
+Check_DATE_TO_DWORD_Upper();
+Check_DATE_TO_DWORD_Lower();
+Check_DATE_TO_INT_Lower();
+Check_DATE_TO_INT_TooHigh();
+Check_DATE_TO_INT_Upper();
+Check_DATE_TO_LINT_Lower();
+Check_DATE_TO_LINT_Upper();
+Check_DATE_TO_LREAL_Lower();
+Check_DATE_TO_LREAL_Upper();
+Check_DATE_TO_LWORD_Lower();
+Check_DATE_TO_LWORD_Upper();
+Check_DATE_TO_REAL_Lower();
+Check_DATE_TO_REAL_Upper();
+Check_DATE_TO_SINT_Lower();
+Check_DATE_TO_SINT_TooHigh();
+Check_DATE_TO_SINT_Upper();
+Check_DATE_TO_STRING_Lower();
+Check_DATE_TO_STRING_Upper();
+Check_DATE_TO_TIME_Lower();
+Check_DATE_TO_TIME_TooHigh();
+Check_DATE_TO_TIME_Upper();
+Check_DATE_TO_TOD_Lower();
+Check_DATE_TO_TOD_TooHigh();
+Check_DATE_TO_TOD_Upper();
+Check_DATE_TO_UDINT_Lower();
+Check_DATE_TO_UDINT_Upper();
+Check_DATE_TO_UINT_Lower();
+Check_DATE_TO_UINT_TooHigh();
+Check_DATE_TO_UINT_Upper();
+Check_DATE_TO_ULINT_Lower();
+Check_DATE_TO_ULINT_Upper();
+Check_DATE_TO_USINT_Lower();
+Check_DATE_TO_USINT_TooHigh();
+Check_DATE_TO_USINT_Upper();
+Check_DATE_TO_WORD_Lower();
+Check_DATE_TO_WORD_TooHigh();
+Check_DATE_TO_WORD_Upper();]]></ST>
+    </Implementation>
+    <Method Name="Check_DATE_TO_BOOL_Lower" Id="{6db5d457-a303-49c3-ba1b-debcdffbb1e1}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DATE_TO_BOOL_Lower
+VAR
+	value : DATE := D#1970-01-01;
+	actual : BOOL;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DATE_TO_BOOL_Lower');
+
+// @TEST-RUN
+converted := TryConvert_DATE_TO_Destination(value, actual);
+equal := actual = DATE_TO_BOOL(value);
+
+// @TEST-ASSSERT
+AssertTrue(Condition := equal, Message := 'Did not return the correct value');
+AssertTrue(Condition := converted, Message := 'Did not report conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DATE_TO_BOOL_Upper" Id="{c961939e-e3b0-435d-8628-972a839788c4}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DATE_TO_BOOL_Upper
+VAR
+	value : DATE := D#2106-02-07;
+	actual : BOOL;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DATE_TO_BOOL_Upper');
+
+// @TEST-RUN
+converted := TryConvert_DATE_TO_Destination(value, actual);
+equal := actual = DATE_TO_BOOL(value);
+
+// @TEST-ASSSERT
+AssertTrue(Condition := equal, Message := 'Did not return the correct value');
+AssertTrue(Condition := converted, Message := 'Did not report conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DATE_TO_BYTE_Lower" Id="{72b95591-f275-42cf-93eb-00345bacf5b2}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DATE_TO_BYTE_Lower
+VAR
+	value : DATE := D#1970-01-01;
+	actual : BYTE;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DATE_TO_BYTE_Lower');
+
+// @TEST-RUN
+converted := TryConvert_DATE_TO_Destination(value, actual);
+equal := actual = DATE_TO_BYTE(value);
+
+// @TEST-ASSSERT
+AssertTrue(Condition := equal, Message := 'Did not return the correct value');
+AssertTrue(Condition := converted, Message := 'Did not report conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DATE_TO_BYTE_TooHigh" Id="{1dfdf34e-e8b3-44f1-aa3c-5c009472d188}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DATE_TO_BYTE_TooHigh
+VAR
+	value : DATE := D#2106-02-07;
+	actual : BYTE;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DATE_TO_BYTE_TooHigh');
+
+// @TEST-RUN
+converted := TryConvert_DATE_TO_Destination(value, actual);
+
+// @TEST-ASSSERT
+AssertFalse(Condition := converted, Message := 'Did not report conversion was prevented');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DATE_TO_BYTE_Upper" Id="{e5ad81c7-9d3a-425e-955e-ab9219485590}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DATE_TO_BYTE_Upper
+VAR
+	value : DATE := BYTE_TO_DATE(16#FF);
+	actual : BYTE;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DATE_TO_BYTE_Upper');
+
+// @TEST-RUN
+converted := TryConvert_DATE_TO_Destination(value, actual);
+equal := actual = DATE_TO_BYTE(value);
+
+// @TEST-ASSSERT
+AssertTrue(Condition := equal, Message := 'Did not return the correct value');
+AssertTrue(Condition := converted, Message := 'Did not report conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DATE_TO_Date_Lower" Id="{b4cf145d-d4ec-40b0-85a1-758ddc375b7e}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DATE_TO_Date_Lower
+VAR
+	value : DATE := D#1970-01-01;
+	actual : DATE;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DATE_TO_DATE_Lower');
+
+// @TEST-RUN
+converted := TryConvert_DATE_TO_Destination(value, actual);
+equal := actual = value;
+
+// @TEST-ASSSERT
+AssertTrue(Condition := equal, Message := 'Did not return the correct value');
+AssertTrue(Condition := converted, Message := 'Did not report conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DATE_TO_Date_Upper" Id="{f49bb9d7-c5ee-4483-bf43-ff9ed34515e7}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DATE_TO_Date_Upper
+VAR
+	value : DATE := D#2106-02-07;
+	actual : DATE;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DATE_TO_DATE_Upper');
+
+// @TEST-RUN
+converted := TryConvert_DATE_TO_Destination(value, actual);
+equal := actual = value;
+
+// @TEST-ASSSERT
+AssertTrue(Condition := equal, Message := 'Did not return the correct value');
+AssertTrue(Condition := converted, Message := 'Did not report conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DATE_TO_DINT_Lower" Id="{6e1a8117-e838-4a3a-adb0-9252cdb2fe42}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DATE_TO_DINT_Lower
+VAR
+	value : DATE := D#1970-01-01;
+	actual : DINT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DATE_TO_DINT_Lower');
+
+// @TEST-RUN
+converted := TryConvert_DATE_TO_Destination(value, actual);
+equal := actual = DATE_TO_DINT(value);
+
+// @TEST-ASSSERT
+AssertTrue(Condition := equal, Message := 'Did not return the correct value');
+AssertTrue(Condition := converted, Message := 'Did not report conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DATE_TO_DINT_TooHigh" Id="{39d4becd-a822-413a-9c13-3a9c4a9c17ca}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DATE_TO_DINT_TooHigh
+VAR
+	value : DATE := D#2106-02-07;
+	actual : DINT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DATE_TO_DINT_TooHigh');
+
+// @TEST-RUN
+converted := TryConvert_DATE_TO_Destination(value, actual);
+
+// @TEST-ASSSERT
+AssertFalse(Condition := converted, Message := 'Did not report conversion was prevented');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DATE_TO_DINT_Upper" Id="{2cdbebb2-4486-4bcf-9ac8-6cf066edc4dc}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DATE_TO_DINT_Upper
+VAR
+	value : DATE := DINT_TO_DATE(2147483647);
+	actual : DINT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DATE_TO_DINT_Upper');
+
+// @TEST-RUN
+converted := TryConvert_DATE_TO_Destination(value, actual);
+equal := actual = DATE_TO_DINT(value);
+
+// @TEST-ASSSERT
+AssertTrue(Condition := equal, Message := 'Did not return the correct value');
+AssertTrue(Condition := converted, Message := 'Did not report conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DATE_TO_DT_Lower" Id="{9a46277a-7949-4fb5-8c59-c84f506cb227}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DATE_TO_DT_Lower
+VAR
+	value : DATE := D#1970-01-01;
+	actual : DT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DATE_TO_DT_Lower');
+
+// @TEST-RUN
+converted := TryConvert_DATE_TO_Destination(value, actual);
+equal := actual = DATE_TO_DT(value);
+
+// @TEST-ASSSERT
+AssertTrue(Condition := equal, Message := 'Did not return the correct value');
+AssertTrue(Condition := converted, Message := 'Did not report conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DATE_TO_DT_Upper" Id="{d35e4022-67e0-425c-8c55-7e30e37830b9}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DATE_TO_DT_Upper
+VAR
+	value : DATE := D#2106-02-07;
+	actual : DT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DATE_TO_DT_Upper');
+
+// @TEST-RUN
+converted := TryConvert_DATE_TO_Destination(value, actual);
+equal := actual = DATE_TO_DT(value);
+
+// @TEST-ASSSERT
+AssertTrue(Condition := equal, Message := 'Did not return the correct value');
+AssertTrue(Condition := converted, Message := 'Did not report conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DATE_TO_DWORD_Lower" Id="{76e43bc3-37a1-495c-906a-08053f302129}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DATE_TO_DWORD_Lower
+VAR
+	value : DATE := D#1970-01-01;
+	actual : DWORD;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DATE_TO_DWORD_Lower');
+
+// @TEST-RUN
+converted := TryConvert_DATE_TO_Destination(value, actual);
+equal := actual = DATE_TO_DWORD(value);
+
+// @TEST-ASSSERT
+AssertTrue(Condition := equal, Message := 'Did not return the correct value');
+AssertTrue(Condition := converted, Message := 'Did not report conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DATE_TO_DWORD_Upper" Id="{e42fdb3e-e8f3-4a5b-8aae-377c25398f3e}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DATE_TO_DWORD_Upper
+VAR
+	value : DATE := D#2106-02-07;
+	actual : DWORD;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DATE_TO_DWORD_Upper');
+
+// @TEST-RUN
+converted := TryConvert_DATE_TO_Destination(value, actual);
+equal := actual = DATE_TO_DWORD(value);
+
+// @TEST-ASSSERT
+AssertTrue(Condition := equal, Message := 'Did not return the correct value');
+AssertTrue(Condition := converted, Message := 'Did not report conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DATE_TO_INT_Lower" Id="{e37c332a-16b7-48c2-8006-637f0934eee6}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DATE_TO_INT_Lower
+VAR
+	value : DATE := D#1970-01-01;
+	actual : INT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DATE_TO_INT_Lower');
+
+// @TEST-RUN
+converted := TryConvert_DATE_TO_Destination(value, actual);
+equal := actual = DATE_TO_INT(value);
+
+// @TEST-ASSSERT
+AssertTrue(Condition := equal, Message := 'Did not return the correct value');
+AssertTrue(Condition := converted, Message := 'Did not report conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DATE_TO_INT_TooHigh" Id="{51239ac8-9eb3-44a1-85f0-0d256dec84fc}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DATE_TO_INT_TooHigh
+VAR
+	value : DATE := D#2106-02-07;
+	actual : INT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DATE_TO_INT_TooHigh');
+
+// @TEST-RUN
+converted := TryConvert_DATE_TO_Destination(value, actual);
+
+// @TEST-ASSSERT
+AssertFalse(Condition := converted, Message := 'Did not report conversion was prevented');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DATE_TO_INT_Upper" Id="{636444e1-a54a-4db8-933a-d6f908607bde}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DATE_TO_INT_Upper
+VAR
+	value : DATE := INT_TO_DATE(32767);
+	actual : INT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DATE_TO_INT_Upper');
+
+// @TEST-RUN
+converted := TryConvert_DATE_TO_Destination(value, actual);
+equal := actual = DATE_TO_INT(value);
+
+// @TEST-ASSSERT
+AssertTrue(Condition := equal, Message := 'Did not return the correct value');
+AssertTrue(Condition := converted, Message := 'Did not report conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DATE_TO_LINT_Lower" Id="{d2800149-e4a0-4e63-8230-fa59a392aa33}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DATE_TO_LINT_Lower
+VAR
+	value : DATE := D#1970-01-01;
+	actual : LINT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DATE_TO_LINT_Lower');
+
+// @TEST-RUN
+converted := TryConvert_DATE_TO_Destination(value, actual);
+equal := actual = DATE_TO_LINT(value);
+
+// @TEST-ASSSERT
+AssertTrue(Condition := equal, Message := 'Did not return the correct value');
+AssertTrue(Condition := converted, Message := 'Did not report conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DATE_TO_LINT_Upper" Id="{eae12ffa-02e7-4aef-9da1-d839eefacabe}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DATE_TO_LINT_Upper
+VAR
+	value : DATE := D#2106-02-07;
+	actual : LINT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DATE_TO_LINT_Upper');
+
+// @TEST-RUN
+converted := TryConvert_DATE_TO_Destination(value, actual);
+equal := actual = DATE_TO_LINT(value);
+
+// @TEST-ASSSERT
+AssertTrue(Condition := equal, Message := 'Did not return the correct value');
+AssertTrue(Condition := converted, Message := 'Did not report conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DATE_TO_LREAL_Lower" Id="{53d3624c-c57f-4193-be1b-ef9efbb23005}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DATE_TO_LREAL_Lower
+VAR
+	value : DATE := D#1970-01-01;
+	actual : LREAL;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DATE_TO_LREAL_Lower');
+
+// @TEST-RUN
+converted := TryConvert_DATE_TO_Destination(value, actual);
+equal := actual = DATE_TO_LREAL(value);
+
+// @TEST-ASSSERT
+AssertTrue(Condition := equal, Message := 'Did not return the correct value');
+AssertTrue(Condition := converted, Message := 'Did not report conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DATE_TO_LREAL_Upper" Id="{9a7a2b3d-e6c6-4e90-9ad7-62b6f3df0eb6}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DATE_TO_LREAL_Upper
+VAR
+	value : DATE := D#2106-02-07;
+	actual : LREAL;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DATE_TO_LREAL_Upper');
+
+// @TEST-RUN
+converted := TryConvert_DATE_TO_Destination(value, actual);
+equal := actual = DATE_TO_LREAL(value);
+
+// @TEST-ASSSERT
+AssertTrue(Condition := equal, Message := 'Did not return the correct value');
+AssertTrue(Condition := converted, Message := 'Did not report conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DATE_TO_LWORD_Lower" Id="{cbd29f5f-bbf4-4132-91cc-13bb72937712}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DATE_TO_LWORD_Lower
+VAR
+	value : DATE := D#1970-01-01;
+	actual : LWORD;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DATE_TO_LWORD_Lower');
+
+// @TEST-RUN
+converted := TryConvert_DATE_TO_Destination(value, actual);
+equal := actual = DATE_TO_LWORD(value);
+
+// @TEST-ASSSERT
+AssertTrue(Condition := equal, Message := 'Did not return the correct value');
+AssertTrue(Condition := converted, Message := 'Did not report conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DATE_TO_LWORD_Upper" Id="{431c3fd9-f82c-464d-a939-dce929c4523b}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DATE_TO_LWORD_Upper
+VAR
+	value : DATE := D#2106-02-07;
+	actual : LWORD;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DATE_TO_LWORD_Upper');
+
+// @TEST-RUN
+converted := TryConvert_DATE_TO_Destination(value, actual);
+equal := actual = DATE_TO_LWORD(value);
+
+// @TEST-ASSSERT
+AssertTrue(Condition := equal, Message := 'Did not return the correct value');
+AssertTrue(Condition := converted, Message := 'Did not report conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DATE_TO_REAL_Lower" Id="{80212a3e-cb6b-4733-bfca-51834860dc0f}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DATE_TO_REAL_Lower
+VAR
+	value : DATE := D#1970-01-01;
+	actual : REAL;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DATE_TO_REAL_Lower');
+
+// @TEST-RUN
+converted := TryConvert_DATE_TO_Destination(value, actual);
+equal := actual = DATE_TO_REAL(value);
+
+// @TEST-ASSSERT
+AssertTrue(Condition := equal, Message := 'Did not return the correct value');
+AssertTrue(Condition := converted, Message := 'Did not report conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DATE_TO_REAL_Upper" Id="{252b4ed6-188a-4489-948d-f5af08cb310a}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DATE_TO_REAL_Upper
+VAR
+	value : DATE := D#2106-02-07;
+	actual : REAL;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DATE_TO_REAL_Upper');
+
+// @TEST-RUN
+converted := TryConvert_DATE_TO_Destination(value, actual);
+equal := actual = DATE_TO_REAL(value);
+
+// @TEST-ASSSERT
+AssertTrue(Condition := equal, Message := 'Did not return the correct value');
+AssertTrue(Condition := converted, Message := 'Did not report conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DATE_TO_SINT_Lower" Id="{6412be23-ea60-489f-9908-36eaf1a768f8}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DATE_TO_SINT_Lower
+VAR
+	value : DATE := D#1970-01-01;
+	actual : SINT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DATE_TO_SINT_Lower');
+
+// @TEST-RUN
+converted := TryConvert_DATE_TO_Destination(value, actual);
+equal := actual = DATE_TO_SINT(value);
+
+// @TEST-ASSSERT
+AssertTrue(Condition := equal, Message := 'Did not return the correct value');
+AssertTrue(Condition := converted, Message := 'Did not report conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DATE_TO_SINT_TooHigh" Id="{7270132d-5310-4e21-b1a6-9cbba3156a50}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DATE_TO_SINT_TooHigh
+VAR
+	value : DATE := D#2106-02-07;
+	actual : SINT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DATE_TO_SINT_TooHigh');
+
+// @TEST-RUN
+converted := TryConvert_DATE_TO_Destination(value, actual);
+
+// @TEST-ASSSERT
+AssertFalse(Condition := converted, Message := 'Did not report conversion was prevented');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DATE_TO_SINT_Upper" Id="{7a741bb8-77bd-4e7b-a80c-237b73506e11}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DATE_TO_SINT_Upper
+VAR
+	value : DATE := SINT_TO_DATE(127);
+	actual : SINT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DATE_TO_SINT_Upper');
+
+// @TEST-RUN
+converted := TryConvert_DATE_TO_Destination(value, actual);
+equal := actual = DATE_TO_SINT(value);
+
+// @TEST-ASSSERT
+AssertTrue(Condition := equal, Message := 'Did not return the correct value');
+AssertTrue(Condition := converted, Message := 'Did not report conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DATE_TO_STRING_Lower" Id="{9756d330-6c93-4d24-ae95-d4c62483eee0}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DATE_TO_STRING_Lower
+VAR
+	value : DATE := D#1970-01-01;
+	actual : STRING;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DATE_TO_STRING_Lower');
+
+// @TEST-RUN
+converted := TryConvert_DATE_TO_Destination(value, actual);
+equal := actual = DATE_TO_STRING(value);
+
+// @TEST-ASSSERT
+AssertTrue(Condition := equal, Message := 'Did not return the correct value');
+AssertTrue(Condition := converted, Message := 'Did not report conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DATE_TO_STRING_Upper" Id="{b366c7c7-ed0e-4a38-ba75-c67660c158cb}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DATE_TO_STRING_Upper
+VAR
+	value : DATE := D#2106-02-07;
+	actual : STRING;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DATE_TO_STRING_Upper');
+
+// @TEST-RUN
+converted := TryConvert_DATE_TO_Destination(value, actual);
+equal := actual = DATE_TO_STRING(value);
+
+// @TEST-ASSSERT
+AssertTrue(Condition := equal, Message := 'Did not return the correct value');
+AssertTrue(Condition := converted, Message := 'Did not report conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DATE_TO_TIME_Lower" Id="{a40bd398-cc62-450e-925a-b78ada2aeb23}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DATE_TO_TIME_Lower
+VAR
+	value : DATE := D#1970-01-01;
+	actual : TIME;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DATE_TO_TIME_Lower');
+
+// @TEST-RUN
+converted := TryConvert_DATE_TO_Destination(value, actual);
+equal := actual = DATE_TO_TIME(value);
+
+// @TEST-ASSSERT
+AssertTrue(Condition := equal, Message := 'Did not return the correct value');
+AssertTrue(Condition := converted, Message := 'Did not report conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DATE_TO_TIME_TooHigh" Id="{aab01307-5810-4c5f-8daa-ccae6a487f17}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DATE_TO_TIME_TooHigh
+VAR
+	value : DATE := D#2106-02-07;
+	actual : TIME;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DATE_TO_TIME_TooHigh');
+
+// @TEST-RUN
+converted := TryConvert_DATE_TO_Destination(value, actual);
+
+// @TEST-ASSSERT
+AssertFalse(Condition := converted, Message := 'Did not report conversion was prevented');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DATE_TO_TIME_Upper" Id="{2218e0c8-e4b6-4588-ac55-e2268b30aa67}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DATE_TO_TIME_Upper
+VAR
+	value : DATE := TIME_TO_DATE(T#49D17H2M47S295MS);
+	actual : TIME;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DATE_TO_TIME_Upper');
+
+// @TEST-RUN
+converted := TryConvert_DATE_TO_Destination(value, actual);
+equal := actual = DATE_TO_TIME(value);
+
+// @TEST-ASSSERT
+AssertTrue(Condition := equal, Message := 'Did not return the correct value');
+AssertTrue(Condition := converted, Message := 'Did not report conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DATE_TO_TOD_Lower" Id="{118ae488-9de3-46aa-b72f-c4c9e913d2ca}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DATE_TO_TOD_Lower
+VAR
+	value : DATE := D#1970-01-01;
+	actual : TOD;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DATE_TO_TOD_Lower');
+
+// @TEST-RUN
+converted := TryConvert_DATE_TO_Destination(value, actual);
+equal := actual = DATE_TO_TOD(value);
+
+// @TEST-ASSSERT
+AssertTrue(Condition := equal, Message := 'Did not return the correct value');
+AssertTrue(Condition := converted, Message := 'Did not report conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DATE_TO_TOD_TooHigh" Id="{2acdfd45-1ec1-4313-b1b7-14186d68b657}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DATE_TO_TOD_TooHigh
+VAR
+	value : DATE := D#2106-02-07;
+	actual : TOD;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DATE_TO_TOD_TooHigh');
+
+// @TEST-RUN
+converted := TryConvert_DATE_TO_Destination(value, actual);
+
+// @TEST-ASSSERT
+AssertFalse(Condition := converted, Message := 'Did not report conversion was prevented');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DATE_TO_TOD_Upper" Id="{fd1d8c63-5821-4986-8cb0-c647a64720c6}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DATE_TO_TOD_Upper
+VAR
+	value : DATE := TOD_TO_DATE(TOD#23:59:59.999);
+	actual : TOD;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DATE_TO_TOD_Upper');
+
+// @TEST-RUN
+converted := TryConvert_DATE_TO_Destination(value, actual);
+equal := actual = DATE_TO_TOD(value);
+
+// @TEST-ASSSERT
+AssertTrue(Condition := equal, Message := 'Did not return the correct value');
+AssertTrue(Condition := converted, Message := 'Did not report conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DATE_TO_UDINT_Lower" Id="{0ab99d5f-91fa-4e86-8c10-464f389a52f9}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DATE_TO_UDINT_Lower
+VAR
+	value : DATE := D#1970-01-01;
+	actual : UDINT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DATE_TO_UDINT_Lower');
+
+// @TEST-RUN
+converted := TryConvert_DATE_TO_Destination(value, actual);
+equal := actual = DATE_TO_UDINT(value);
+
+// @TEST-ASSSERT
+AssertTrue(Condition := equal, Message := 'Did not return the correct value');
+AssertTrue(Condition := converted, Message := 'Did not report conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DATE_TO_UDINT_Upper" Id="{d8b57b3b-481c-4f0e-b9cc-4c70b69282d3}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DATE_TO_UDINT_Upper
+VAR
+	value : DATE := D#2106-02-07;
+	actual : UDINT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DATE_TO_UDINT_Upper');
+
+// @TEST-RUN
+converted := TryConvert_DATE_TO_Destination(value, actual);
+equal := actual = DATE_TO_UDINT(value);
+
+// @TEST-ASSSERT
+AssertTrue(Condition := equal, Message := 'Did not return the correct value');
+AssertTrue(Condition := converted, Message := 'Did not report conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DATE_TO_UINT_Lower" Id="{b8ba619d-4840-4ccc-b3e7-774647460b7a}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DATE_TO_UINT_Lower
+VAR
+	value : DATE := D#1970-01-01;
+	actual : UINT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DATE_TO_UINT_Lower');
+
+// @TEST-RUN
+converted := TryConvert_DATE_TO_Destination(value, actual);
+equal := actual = DATE_TO_UINT(value);
+
+// @TEST-ASSSERT
+AssertTrue(Condition := equal, Message := 'Did not return the correct value');
+AssertTrue(Condition := converted, Message := 'Did not report conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DATE_TO_UINT_TooHigh" Id="{fad58261-9bea-4f97-ace5-cf85a5f32dd5}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DATE_TO_UINT_TooHigh
+VAR
+	value : DATE := D#2106-02-07;
+	actual : UINT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DATE_TO_UINT_TooHigh');
+
+// @TEST-RUN
+converted := TryConvert_DATE_TO_Destination(value, actual);
+
+// @TEST-ASSSERT
+AssertFalse(Condition := converted, Message := 'Did not report conversion was prevented');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DATE_TO_UINT_Upper" Id="{93c18344-7a9a-46d2-981e-5fc03f537aa5}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DATE_TO_UINT_Upper
+VAR
+	value : DATE := UINT_TO_DATE(65535);
+	actual : UINT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DATE_TO_UINT_Upper');
+
+// @TEST-RUN
+converted := TryConvert_DATE_TO_Destination(value, actual);
+equal := actual = DATE_TO_UINT(value);
+
+// @TEST-ASSSERT
+AssertTrue(Condition := equal, Message := 'Did not return the correct value');
+AssertTrue(Condition := converted, Message := 'Did not report conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DATE_TO_ULINT_Lower" Id="{48764269-1a17-4c95-a7f7-64517c273339}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DATE_TO_ULINT_Lower
+VAR
+	value : DATE := D#1970-01-01;
+	actual : ULINT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DATE_TO_ULINT_Lower');
+
+// @TEST-RUN
+converted := TryConvert_DATE_TO_Destination(value, actual);
+equal := actual = DATE_TO_ULINT(value);
+
+// @TEST-ASSSERT
+AssertTrue(Condition := equal, Message := 'Did not return the correct value');
+AssertTrue(Condition := converted, Message := 'Did not report conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DATE_TO_ULINT_Upper" Id="{98cdfa66-dbeb-451b-b8d5-effb17741380}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DATE_TO_ULINT_Upper
+VAR
+	value : DATE := D#2106-02-07;
+	actual : ULINT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DATE_TO_ULINT_Upper');
+
+// @TEST-RUN
+converted := TryConvert_DATE_TO_Destination(value, actual);
+equal := actual = DATE_TO_ULINT(value);
+
+// @TEST-ASSSERT
+AssertTrue(Condition := equal, Message := 'Did not return the correct value');
+AssertTrue(Condition := converted, Message := 'Did not report conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DATE_TO_USINT_Lower" Id="{9ee71073-f704-4271-b13f-8f577f64ccee}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DATE_TO_USINT_Lower
+VAR
+	value : DATE := D#1970-01-01;
+	actual : ULINT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DATE_TO_USINT_Lower');
+
+// @TEST-RUN
+converted := TryConvert_DATE_TO_Destination(value, actual);
+equal := actual = DATE_TO_USINT(value);
+
+// @TEST-ASSSERT
+AssertTrue(Condition := equal, Message := 'Did not return the correct value');
+AssertTrue(Condition := converted, Message := 'Did not report conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DATE_TO_USINT_TooHigh" Id="{ca9243cc-a793-43ac-a779-0ad871841e72}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DATE_TO_USINT_TooHigh
+VAR
+	value : DATE := D#2106-02-07;
+	actual : USINT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DATE_TO_USINT_TooHigh');
+
+// @TEST-RUN
+converted := TryConvert_DATE_TO_Destination(value, actual);
+
+// @TEST-ASSSERT
+AssertFalse(Condition := converted, Message := 'Did not report conversion was prevented');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DATE_TO_USINT_Upper" Id="{efcf1c75-0987-42a8-b4ab-8078a7c106de}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DATE_TO_USINT_Upper
+VAR
+	value : DATE := USINT_TO_DATE(255);
+	actual : ULINT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DATE_TO_USINT_Upper');
+
+// @TEST-RUN
+converted := TryConvert_DATE_TO_Destination(value, actual);
+equal := actual = DATE_TO_USINT(value);
+
+// @TEST-ASSSERT
+AssertTrue(Condition := equal, Message := 'Did not return the correct value');
+AssertTrue(Condition := converted, Message := 'Did not report conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DATE_TO_WORD_Lower" Id="{a209cc38-9b56-4c22-8e1b-f60793ccb8ff}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DATE_TO_WORD_Lower
+VAR
+	value : DATE := D#1970-01-01;
+	actual : WORD;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DATE_TO_WORD_Lower');
+
+// @TEST-RUN
+converted := TryConvert_DATE_TO_Destination(value, actual);
+equal := actual = DATE_TO_WORD(value);
+
+// @TEST-ASSSERT
+AssertTrue(Condition := equal, Message := 'Did not return the correct value');
+AssertTrue(Condition := converted, Message := 'Did not report conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DATE_TO_WORD_TooHigh" Id="{b309a627-e8fe-4c2f-a841-e8b38a658d21}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DATE_TO_WORD_TooHigh
+VAR
+	value : DATE := D#2106-02-07;
+	actual : WORD;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DATE_TO_WORD_TooHigh');
+
+// @TEST-RUN
+converted := TryConvert_DATE_TO_Destination(value, actual);
+
+// @TEST-ASSSERT
+AssertFalse(Condition := converted, Message := 'Did not report conversion was prevented');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DATE_TO_WORD_Upper" Id="{8aaaa021-2470-458d-9694-c5024171923e}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DATE_TO_WORD_Upper
+VAR
+	value : DATE := WORD_TO_DATE(16#FFFF);
+	actual : WORD;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DATE_TO_WORD_Upper');
+
+// @TEST-RUN
+converted := TryConvert_DATE_TO_Destination(value, actual);
+equal := actual = DATE_TO_WORD(value);
+
+// @TEST-ASSSERT
+AssertTrue(Condition := equal, Message := 'Did not return the correct value');
+AssertTrue(Condition := converted, Message := 'Did not report conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+  </POU>
+</TcPlcObject>

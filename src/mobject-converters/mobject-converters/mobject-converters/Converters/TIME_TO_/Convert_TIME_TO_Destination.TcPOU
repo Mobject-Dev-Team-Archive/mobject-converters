@@ -35,7 +35,7 @@ END_VAR]]></Declaration>
 	
 	__SYSTEM.TYPE_CLASS.TYPE_BOOL:
 	
-		convertResult := Convert_TIME_TO_BOOL(in, _BOOL);
+		convertResult := TryConvert_TIME_TO_BOOL(in, _BOOL);
 		IF convertResult THEN
 			convertAddress := ADR(_BOOL);
 		END_IF
@@ -126,7 +126,7 @@ END_VAR]]></Declaration>
 
 	__SYSTEM.TYPE_CLASS.TYPE_TIME:
 	
-		convertResult := Convert_TIME_TO_TIME(in, _TIME);
+		convertResult := TryConvert_TIME_TO_TIME(in, _TIME);
 		IF convertResult THEN
 			convertAddress := ADR(_TIME);
 		END_IF

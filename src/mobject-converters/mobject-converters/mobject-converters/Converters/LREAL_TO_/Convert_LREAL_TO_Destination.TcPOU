@@ -35,7 +35,7 @@ END_VAR]]></Declaration>
 	
 	__SYSTEM.TYPE_CLASS.TYPE_BOOL:
 	
-		convertResult := Convert_LREAL_TO_BOOL(in, _BOOL);
+		convertResult := TryConvert_LREAL_TO_BOOL(in, _BOOL);
 		IF convertResult THEN
 			convertAddress := ADR(_BOOL);
 		END_IF
@@ -91,7 +91,7 @@ END_VAR]]></Declaration>
 
 	__SYSTEM.TYPE_CLASS.TYPE_LREAL:
 	
-		convertResult := Convert_LREAL_TO_LREAL(in, _LREAL);
+		convertResult := TryConvert_LREAL_TO_LREAL(in, _LREAL);
 		IF convertResult THEN
 			convertAddress := ADR(_LREAL);
 		END_IF

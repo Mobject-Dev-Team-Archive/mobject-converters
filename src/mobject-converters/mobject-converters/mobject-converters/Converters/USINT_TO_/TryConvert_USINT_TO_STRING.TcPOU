@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="TryConvert_USINT_TO_STRING" Id="{3f35bca5-6688-471f-8ff8-a941a837a0e6}" SpecialFunc="None">
+      <Declaration><![CDATA[FUNCTION TryConvert_USINT_TO_STRING : BOOL
+VAR_INPUT
+	in : USINT;
+	out : REFERENCE TO STRING;
+END_VAR]]></Declaration>
+      <Implementation>
+          <ST><![CDATA[out := USINT_TO_STRING(in);
+TryConvert_USINT_TO_STRING := TRUE;]]></ST>
+      </Implementation>
+      
+  </POU>
+</TcPlcObject>

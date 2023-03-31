@@ -1,14 +1,15 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
-  <POU Name="TryConvert_UDINT_TO_UDINT" Id="{4ab931f1-5356-4712-b0c8-0bc9df2be179}" SpecialFunc="None">
-    <Declaration><![CDATA[FUNCTION TryConvert_UDINT_TO_UDINT : BOOL
+  <POU Name="TryConvert_UDINT_TO_UDINT" Id="{8f75e8e6-6c1b-4ff6-b44f-1c7769de6d89}" SpecialFunc="None">
+      <Declaration><![CDATA[FUNCTION TryConvert_UDINT_TO_UDINT : BOOL
 VAR_INPUT
 	in : UDINT;
 	out : REFERENCE TO UDINT;
 END_VAR]]></Declaration>
-    <Implementation>
-      <ST><![CDATA[out := in;
+      <Implementation>
+          <ST><![CDATA[out := in;
 TryConvert_UDINT_TO_UDINT := TRUE;]]></ST>
-    </Implementation>
+      </Implementation>
+      
   </POU>
 </TcPlcObject>

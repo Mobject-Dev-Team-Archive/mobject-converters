@@ -1,18 +1,19 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
-  <POU Name="TryConvert_DATE_TO_TIME" Id="{2713f4ac-162f-4e4b-9f32-845d185859aa}" SpecialFunc="None">
-    <Declaration><![CDATA[FUNCTION TryConvert_DATE_TO_TIME : BOOL
+  <POU Name="TryConvert_DATE_TO_TIME" Id="{5f597a9d-a0f1-42e6-9681-fdf07af02943}" SpecialFunc="None">
+      <Declaration><![CDATA[FUNCTION TryConvert_DATE_TO_TIME : BOOL
 VAR_INPUT
 	in : DATE;
 	out : REFERENCE TO TIME;
 END_VAR]]></Declaration>
-    <Implementation>
-      <ST><![CDATA[IF in > TIME_TO_DATE(T#49D17H2M47S295MS) THEN
+      <Implementation>
+          <ST><![CDATA[IF in > DatatypeLimits.MAX_VALUE_OF_DATE_WHICH_CAN_BE_HELD_IN_A_TIME THEN
 	RETURN;
 END_IF
 
 out := DATE_TO_TIME(in);
 TryConvert_DATE_TO_TIME := TRUE;]]></ST>
-    </Implementation>
+      </Implementation>
+      
   </POU>
 </TcPlcObject>

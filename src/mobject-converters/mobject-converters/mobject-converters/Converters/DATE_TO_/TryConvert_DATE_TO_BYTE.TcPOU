@@ -1,18 +1,19 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
-  <POU Name="TryConvert_DATE_TO_BYTE" Id="{34c46e11-6812-425e-a4a6-6d26beda4ee4}" SpecialFunc="None">
-    <Declaration><![CDATA[FUNCTION TryConvert_DATE_TO_BYTE : BOOL
+  <POU Name="TryConvert_DATE_TO_BYTE" Id="{93d9386a-56f2-4011-887b-69e1386ca308}" SpecialFunc="None">
+      <Declaration><![CDATA[FUNCTION TryConvert_DATE_TO_BYTE : BOOL
 VAR_INPUT
 	in : DATE;
 	out : REFERENCE TO BYTE;
 END_VAR]]></Declaration>
-    <Implementation>
-      <ST><![CDATA[IF in > BYTE_TO_DATE(16#FF) THEN
+      <Implementation>
+          <ST><![CDATA[IF in > DatatypeLimits.MAX_VALUE_OF_DATE_WHICH_CAN_BE_HELD_IN_A_BYTE THEN
 	RETURN;
 END_IF
 
 out := DATE_TO_BYTE(in);
 TryConvert_DATE_TO_BYTE := TRUE;]]></ST>
-    </Implementation>
+      </Implementation>
+      
   </POU>
 </TcPlcObject>

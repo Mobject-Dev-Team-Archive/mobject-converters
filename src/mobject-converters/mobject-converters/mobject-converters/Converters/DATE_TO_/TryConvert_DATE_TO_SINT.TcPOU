@@ -1,18 +1,19 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
-  <POU Name="TryConvert_DATE_TO_SINT" Id="{59485a94-f235-4e24-91af-0d5aebccfba4}" SpecialFunc="None">
-    <Declaration><![CDATA[FUNCTION TryConvert_DATE_TO_SINT : BOOL
+  <POU Name="TryConvert_DATE_TO_SINT" Id="{0e5537e0-40ff-41f1-83bd-3e7b318a94cb}" SpecialFunc="None">
+      <Declaration><![CDATA[FUNCTION TryConvert_DATE_TO_SINT : BOOL
 VAR_INPUT
 	in : DATE;
 	out : REFERENCE TO SINT;
 END_VAR]]></Declaration>
-    <Implementation>
-      <ST><![CDATA[IF in > SINT_TO_DATE(127) THEN
+      <Implementation>
+          <ST><![CDATA[IF in > DatatypeLimits.MAX_VALUE_OF_DATE_WHICH_CAN_BE_HELD_IN_A_SINT THEN
 	RETURN;
 END_IF
 
 out := DATE_TO_SINT(in);
 TryConvert_DATE_TO_SINT := TRUE;]]></ST>
-    </Implementation>
+      </Implementation>
+      
   </POU>
 </TcPlcObject>

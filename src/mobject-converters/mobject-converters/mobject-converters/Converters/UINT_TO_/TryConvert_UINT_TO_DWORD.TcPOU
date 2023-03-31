@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="TryConvert_UINT_TO_DWORD" Id="{d6f66d6c-3ecb-4132-a16f-1066f29d9b0d}" SpecialFunc="None">
+      <Declaration><![CDATA[FUNCTION TryConvert_UINT_TO_DWORD : BOOL
+VAR_INPUT
+	in : UINT;
+	out : REFERENCE TO DWORD;
+END_VAR]]></Declaration>
+      <Implementation>
+          <ST><![CDATA[out := UINT_TO_DWORD(in);
+TryConvert_UINT_TO_DWORD := TRUE;]]></ST>
+      </Implementation>
+      
+  </POU>
+</TcPlcObject>

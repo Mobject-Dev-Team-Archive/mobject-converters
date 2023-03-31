@@ -1,14 +1,15 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
-  <POU Name="TryConvert_BOOL_TO_LREAL" Id="{adb89cf5-c2b2-42dd-8ede-d86a0a994a5b}" SpecialFunc="None">
-    <Declaration><![CDATA[FUNCTION TryConvert_BOOL_TO_LREAL : BOOL
+  <POU Name="TryConvert_BOOL_TO_LREAL" Id="{707b4936-a912-4912-8a5d-ea2b95457119}" SpecialFunc="None">
+      <Declaration><![CDATA[FUNCTION TryConvert_BOOL_TO_LREAL : BOOL
 VAR_INPUT
 	in : BOOL;
 	out : REFERENCE TO LREAL;
 END_VAR]]></Declaration>
-    <Implementation>
-      <ST><![CDATA[out := BOOL_TO_LREAL(in);
+      <Implementation>
+          <ST><![CDATA[out := BOOL_TO_LREAL(in);
 TryConvert_BOOL_TO_LREAL := TRUE;]]></ST>
-    </Implementation>
+      </Implementation>
+      
   </POU>
 </TcPlcObject>

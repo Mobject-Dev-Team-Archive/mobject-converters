@@ -1,14 +1,15 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
-  <POU Name="TryConvert_BYTE_TO_USINT" Id="{db610eed-ccbd-4d2e-a8c6-fe205d6e5b23}" SpecialFunc="None">
-    <Declaration><![CDATA[FUNCTION TryConvert_BYTE_TO_USINT : BOOL
+  <POU Name="TryConvert_BYTE_TO_USINT" Id="{d41f3ddf-7e59-4ba7-bb6f-8fb200be3b66}" SpecialFunc="None">
+      <Declaration><![CDATA[FUNCTION TryConvert_BYTE_TO_USINT : BOOL
 VAR_INPUT
 	in : BYTE;
 	out : REFERENCE TO USINT;
 END_VAR]]></Declaration>
-    <Implementation>
-      <ST><![CDATA[out := BYTE_TO_USINT(in);
+      <Implementation>
+          <ST><![CDATA[out := BYTE_TO_USINT(in);
 TryConvert_BYTE_TO_USINT := TRUE;]]></ST>
-    </Implementation>
+      </Implementation>
+      
   </POU>
 </TcPlcObject>

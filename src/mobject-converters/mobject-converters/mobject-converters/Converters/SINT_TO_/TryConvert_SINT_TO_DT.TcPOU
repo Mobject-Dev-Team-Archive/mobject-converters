@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="TryConvert_SINT_TO_DT" Id="{d31669ec-d996-4b61-8ad5-28ca21d71ffc}" SpecialFunc="None">
+      <Declaration><![CDATA[FUNCTION TryConvert_SINT_TO_DT : BOOL
+VAR_INPUT
+	in : SINT;
+	out : REFERENCE TO DT;
+END_VAR]]></Declaration>
+      <Implementation>
+          <ST><![CDATA[IF in < DatatypeLimits.MIN_VALUE_OF_SINT_WHICH_CAN_BE_HELD_IN_A_DT THEN
+	RETURN;
+END_IF
+
+out := SINT_TO_DT(in);
+TryConvert_SINT_TO_DT := TRUE;]]></ST>
+      </Implementation>
+      
+  </POU>
+</TcPlcObject>

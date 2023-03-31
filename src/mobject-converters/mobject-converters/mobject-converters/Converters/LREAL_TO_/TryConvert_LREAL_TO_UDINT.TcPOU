@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="TryConvert_LREAL_TO_UDINT" Id="{d8f427f0-8d63-47e3-98f2-a25650992443}" SpecialFunc="None">
+      <Declaration><![CDATA[FUNCTION TryConvert_LREAL_TO_UDINT : BOOL
+VAR_INPUT
+	in : LREAL;
+	out : REFERENCE TO UDINT;
+END_VAR]]></Declaration>
+      <Implementation>
+          <ST><![CDATA[IF in > DatatypeLimits.MAX_VALUE_OF_LREAL_WHICH_CAN_BE_HELD_IN_A_UDINT THEN
+	RETURN;
+END_IF
+
+IF in < DatatypeLimits.MIN_VALUE_OF_LREAL_WHICH_CAN_BE_HELD_IN_A_UDINT THEN
+	RETURN;
+END_IF
+
+out := LREAL_TO_UDINT(in);
+TryConvert_LREAL_TO_UDINT := TRUE;]]></ST>
+      </Implementation>
+      
+  </POU>
+</TcPlcObject>

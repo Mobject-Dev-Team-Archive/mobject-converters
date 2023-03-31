@@ -1,21 +1,19 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
-  <POU Name="TryConvert_BYTE_TO_SINT" Id="{2907a8e5-21ee-4b56-a751-80d5541e51e0}" SpecialFunc="None">
-    <Declaration><![CDATA[FUNCTION TryConvert_BYTE_TO_SINT : BOOL
+  <POU Name="TryConvert_BYTE_TO_SINT" Id="{a9b7224a-ab09-4e77-87e6-dfb1e516edf6}" SpecialFunc="None">
+      <Declaration><![CDATA[FUNCTION TryConvert_BYTE_TO_SINT : BOOL
 VAR_INPUT
 	in : BYTE;
 	out : REFERENCE TO SINT;
-END_VAR
-VAR
-	converted : SINT;
 END_VAR]]></Declaration>
-    <Implementation>
-      <ST><![CDATA[IF in > 127 THEN
+      <Implementation>
+          <ST><![CDATA[IF in > DatatypeLimits.MAX_VALUE_OF_BYTE_WHICH_CAN_BE_HELD_IN_A_SINT THEN
 	RETURN;
 END_IF
 
 out := BYTE_TO_SINT(in);
 TryConvert_BYTE_TO_SINT := TRUE;]]></ST>
-    </Implementation>
+      </Implementation>
+      
   </POU>
 </TcPlcObject>

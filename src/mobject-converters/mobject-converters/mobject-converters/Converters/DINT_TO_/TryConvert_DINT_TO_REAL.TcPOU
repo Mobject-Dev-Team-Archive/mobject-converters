@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="TryConvert_DINT_TO_REAL" Id="{c2d871c2-6211-4d4a-bccf-c62be106bf78}" SpecialFunc="None">
+      <Declaration><![CDATA[FUNCTION TryConvert_DINT_TO_REAL : BOOL
+VAR_INPUT
+	in : DINT;
+	out : REFERENCE TO REAL;
+END_VAR]]></Declaration>
+      <Implementation>
+          <ST><![CDATA[out := DINT_TO_REAL(in);
+TryConvert_DINT_TO_REAL := TRUE;]]></ST>
+      </Implementation>
+      
+  </POU>
+</TcPlcObject>

@@ -1,0 +1,1010 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="WORD_TO_TestSuite" Id="{62b61cec-b9d5-4afe-9616-1f1ed6f0a409}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK PUBLIC WORD_TO_TestSuite EXTENDS TcUnit.FB_TestSuite
+VAR
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[Check_WORD_TO_BOOL_Upper();
+Check_WORD_TO_BOOL_Lower();
+Check_WORD_TO_BYTE_Upper();
+Check_WORD_TO_BYTE_Lower();
+Check_WORD_TO_BYTE_TooHigh();
+Check_WORD_TO_WORD_Upper();
+Check_WORD_TO_WORD_Lower();
+Check_WORD_TO_DWORD_Upper();
+Check_WORD_TO_DWORD_Lower();
+Check_WORD_TO_LWORD_Upper();
+Check_WORD_TO_LWORD_Lower();
+Check_WORD_TO_SINT_Upper();
+Check_WORD_TO_SINT_Lower();
+Check_WORD_TO_SINT_TooHigh();
+Check_WORD_TO_INT_Upper();
+Check_WORD_TO_INT_Lower();
+Check_WORD_TO_INT_TooHigh();
+Check_WORD_TO_DINT_Upper();
+Check_WORD_TO_DINT_Lower();
+Check_WORD_TO_LINT_Upper();
+Check_WORD_TO_LINT_Lower();
+Check_WORD_TO_USINT_Upper();
+Check_WORD_TO_USINT_Lower();
+Check_WORD_TO_USINT_TooHigh();
+Check_WORD_TO_UINT_Upper();
+Check_WORD_TO_UINT_Lower();
+Check_WORD_TO_UDINT_Upper();
+Check_WORD_TO_UDINT_Lower();
+Check_WORD_TO_ULINT_Upper();
+Check_WORD_TO_ULINT_Lower();
+Check_WORD_TO_REAL_Upper();
+Check_WORD_TO_REAL_Lower();
+Check_WORD_TO_LREAL_Upper();
+Check_WORD_TO_LREAL_Lower();
+Check_WORD_TO_TIME_Upper();
+Check_WORD_TO_TIME_Lower();
+Check_WORD_TO_TOD_Upper();
+Check_WORD_TO_TOD_Lower();
+Check_WORD_TO_DATE_Upper();
+Check_WORD_TO_DATE_Lower();
+Check_WORD_TO_DT_Upper();
+Check_WORD_TO_DT_Lower();
+Check_WORD_TO_STRING_Upper();
+Check_WORD_TO_STRING_Lower();]]></ST>
+    </Implementation>
+    <Method Name="Check_WORD_TO_BOOL_Lower" Id="{6142438c-d47a-4da9-8d42-6293b4628560}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_WORD_TO_BOOL_Lower
+VAR
+	value : WORD := DatatypeLimits.WORD_LOWER_LIMIT;
+	actual : BOOL;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_WORD_TO_BOOL_Lower');
+
+// @TEST-RUN
+converted := TryConvert_WORD_TO_Destination(value, actual);
+equal := actual = WORD_TO_BOOL(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert WORD to BOOL correctly');
+AssertTrue(Condition := converted, Message := 'Did not report WORD to BOOL conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_WORD_TO_BOOL_Upper" Id="{a288822c-bbe7-4270-bc39-95718ec0b7ad}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_WORD_TO_BOOL_Upper
+VAR
+	value : WORD := DatatypeLimits.WORD_UPPER_LIMIT;
+	actual : BOOL;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_WORD_TO_BOOL_Upper');
+
+// @TEST-RUN
+converted := TryConvert_WORD_TO_Destination(value, actual);
+equal := actual = WORD_TO_BOOL(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert WORD to BOOL correctly');
+AssertTrue(Condition := converted, Message := 'Did not report WORD to BOOL conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_WORD_TO_BYTE_Lower" Id="{3037b4dd-3f7d-4e39-859f-9677bf5817fa}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_WORD_TO_BYTE_Lower
+VAR
+	value : WORD := DatatypeLimits.WORD_LOWER_LIMIT;
+	actual : BYTE;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_WORD_TO_BYTE_Lower');
+
+// @TEST-RUN
+converted := TryConvert_WORD_TO_Destination(value, actual);
+equal := actual = WORD_TO_BYTE(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert WORD to BYTE correctly');
+AssertTrue(Condition := converted, Message := 'Did not report WORD to BYTE conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_WORD_TO_BYTE_TooHigh" Id="{85a6002a-c0db-4bdf-b969-26e500799f75}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_WORD_TO_BYTE_TooHigh
+VAR
+	value : WORD := DatatypeLimits.WORD_UPPER_LIMIT;
+	actual : BYTE;
+	converted : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_WORD_TO_BYTE_TooHigh');
+
+// @TEST-RUN
+converted := TryConvert_WORD_TO_Destination(value, actual);
+
+// @TEST-ASSERT
+AssertFalse(Condition := converted, Message := 'Did not report WORD to BYTE conversion was prevented');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_WORD_TO_BYTE_Upper" Id="{3ef5763f-3543-4ee7-aa3f-8220aaf52d41}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_WORD_TO_BYTE_Upper
+VAR
+	value : WORD := DatatypeLimits.MAX_VALUE_OF_WORD_WHICH_CAN_BE_HELD_IN_A_BYTE;
+	actual : BYTE;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_WORD_TO_BYTE_Upper');
+
+// @TEST-RUN
+converted := TryConvert_WORD_TO_Destination(value, actual);
+equal := actual = WORD_TO_BYTE(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert WORD to BYTE correctly');
+AssertTrue(Condition := converted, Message := 'Did not report WORD to BYTE conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_WORD_TO_DATE_Lower" Id="{bd5cc940-2d37-497a-bdd9-fd0b288dfc23}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_WORD_TO_DATE_Lower
+VAR
+	value : WORD := DatatypeLimits.WORD_LOWER_LIMIT;
+	actual : DATE;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_WORD_TO_DATE_Lower');
+
+// @TEST-RUN
+converted := TryConvert_WORD_TO_Destination(value, actual);
+equal := actual = WORD_TO_DATE(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert WORD to DATE correctly');
+AssertTrue(Condition := converted, Message := 'Did not report WORD to DATE conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_WORD_TO_DATE_Upper" Id="{717a77d1-1fa5-486a-81df-4a498b6bc5fd}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_WORD_TO_DATE_Upper
+VAR
+	value : WORD := DatatypeLimits.WORD_UPPER_LIMIT;
+	actual : DATE;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_WORD_TO_DATE_Upper');
+
+// @TEST-RUN
+converted := TryConvert_WORD_TO_Destination(value, actual);
+equal := actual = WORD_TO_DATE(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert WORD to DATE correctly');
+AssertTrue(Condition := converted, Message := 'Did not report WORD to DATE conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_WORD_TO_DINT_Lower" Id="{099347bb-7c81-4b27-b820-0bfcdf01984b}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_WORD_TO_DINT_Lower
+VAR
+	value : WORD := DatatypeLimits.WORD_LOWER_LIMIT;
+	actual : DINT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_WORD_TO_DINT_Lower');
+
+// @TEST-RUN
+converted := TryConvert_WORD_TO_Destination(value, actual);
+equal := actual = WORD_TO_DINT(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert WORD to DINT correctly');
+AssertTrue(Condition := converted, Message := 'Did not report WORD to DINT conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_WORD_TO_DINT_Upper" Id="{17e9500d-e7e8-404a-84e6-c5cc56bc3d7a}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_WORD_TO_DINT_Upper
+VAR
+	value : WORD := DatatypeLimits.WORD_UPPER_LIMIT;
+	actual : DINT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_WORD_TO_DINT_Upper');
+
+// @TEST-RUN
+converted := TryConvert_WORD_TO_Destination(value, actual);
+equal := actual = WORD_TO_DINT(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert WORD to DINT correctly');
+AssertTrue(Condition := converted, Message := 'Did not report WORD to DINT conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_WORD_TO_DT_Lower" Id="{12d5c476-367d-4e40-b7f2-1b5e238ad9a3}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_WORD_TO_DT_Lower
+VAR
+	value : WORD := DatatypeLimits.WORD_LOWER_LIMIT;
+	actual : DT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_WORD_TO_DT_Lower');
+
+// @TEST-RUN
+converted := TryConvert_WORD_TO_Destination(value, actual);
+equal := actual = WORD_TO_DT(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert WORD to DT correctly');
+AssertTrue(Condition := converted, Message := 'Did not report WORD to DT conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_WORD_TO_DT_Upper" Id="{8fd068de-e7dc-4ac8-9b3b-48c1a03b6ba3}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_WORD_TO_DT_Upper
+VAR
+	value : WORD := DatatypeLimits.WORD_UPPER_LIMIT;
+	actual : DT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_WORD_TO_DT_Upper');
+
+// @TEST-RUN
+converted := TryConvert_WORD_TO_Destination(value, actual);
+equal := actual = WORD_TO_DT(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert WORD to DT correctly');
+AssertTrue(Condition := converted, Message := 'Did not report WORD to DT conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_WORD_TO_DWORD_Lower" Id="{6664c6ba-1e1b-4d7f-bc2b-c43fe5a26094}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_WORD_TO_DWORD_Lower
+VAR
+	value : WORD := DatatypeLimits.WORD_LOWER_LIMIT;
+	actual : DWORD;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_WORD_TO_DWORD_Lower');
+
+// @TEST-RUN
+converted := TryConvert_WORD_TO_Destination(value, actual);
+equal := actual = WORD_TO_DWORD(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert WORD to DWORD correctly');
+AssertTrue(Condition := converted, Message := 'Did not report WORD to DWORD conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_WORD_TO_DWORD_Upper" Id="{1281df2d-7439-45bb-b557-29bf236e37ed}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_WORD_TO_DWORD_Upper
+VAR
+	value : WORD := DatatypeLimits.WORD_UPPER_LIMIT;
+	actual : DWORD;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_WORD_TO_DWORD_Upper');
+
+// @TEST-RUN
+converted := TryConvert_WORD_TO_Destination(value, actual);
+equal := actual = WORD_TO_DWORD(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert WORD to DWORD correctly');
+AssertTrue(Condition := converted, Message := 'Did not report WORD to DWORD conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_WORD_TO_INT_Lower" Id="{fe637056-9b3c-41a2-a49d-45961ee08c82}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_WORD_TO_INT_Lower
+VAR
+	value : WORD := DatatypeLimits.WORD_LOWER_LIMIT;
+	actual : INT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_WORD_TO_INT_Lower');
+
+// @TEST-RUN
+converted := TryConvert_WORD_TO_Destination(value, actual);
+equal := actual = WORD_TO_INT(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert WORD to INT correctly');
+AssertTrue(Condition := converted, Message := 'Did not report WORD to INT conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_WORD_TO_INT_TooHigh" Id="{803762a4-98b0-4c12-8d2e-27e3e62c9d35}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_WORD_TO_INT_TooHigh
+VAR
+	value : WORD := DatatypeLimits.WORD_UPPER_LIMIT;
+	actual : INT;
+	converted : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_WORD_TO_INT_TooHigh');
+
+// @TEST-RUN
+converted := TryConvert_WORD_TO_Destination(value, actual);
+
+// @TEST-ASSERT
+AssertFalse(Condition := converted, Message := 'Did not report WORD to INT conversion was prevented');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_WORD_TO_INT_Upper" Id="{02610d71-5cef-44cf-8151-130a3200d9ab}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_WORD_TO_INT_Upper
+VAR
+	value : WORD := DatatypeLimits.MAX_VALUE_OF_WORD_WHICH_CAN_BE_HELD_IN_A_INT;
+	actual : INT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_WORD_TO_INT_Upper');
+
+// @TEST-RUN
+converted := TryConvert_WORD_TO_Destination(value, actual);
+equal := actual = WORD_TO_INT(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert WORD to INT correctly');
+AssertTrue(Condition := converted, Message := 'Did not report WORD to INT conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_WORD_TO_LINT_Lower" Id="{74e403d2-2053-4b3f-88b7-8443a369bdad}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_WORD_TO_LINT_Lower
+VAR
+	value : WORD := DatatypeLimits.WORD_LOWER_LIMIT;
+	actual : LINT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_WORD_TO_LINT_Lower');
+
+// @TEST-RUN
+converted := TryConvert_WORD_TO_Destination(value, actual);
+equal := actual = WORD_TO_LINT(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert WORD to LINT correctly');
+AssertTrue(Condition := converted, Message := 'Did not report WORD to LINT conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_WORD_TO_LINT_Upper" Id="{e914f27d-8ed9-4db6-a994-28c8f2e4cfad}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_WORD_TO_LINT_Upper
+VAR
+	value : WORD := DatatypeLimits.WORD_UPPER_LIMIT;
+	actual : LINT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_WORD_TO_LINT_Upper');
+
+// @TEST-RUN
+converted := TryConvert_WORD_TO_Destination(value, actual);
+equal := actual = WORD_TO_LINT(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert WORD to LINT correctly');
+AssertTrue(Condition := converted, Message := 'Did not report WORD to LINT conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_WORD_TO_LREAL_Lower" Id="{ba5663d1-f2d1-4307-bd23-3366ed6e9179}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_WORD_TO_LREAL_Lower
+VAR
+	value : WORD := DatatypeLimits.WORD_LOWER_LIMIT;
+	actual : LREAL;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_WORD_TO_LREAL_Lower');
+
+// @TEST-RUN
+converted := TryConvert_WORD_TO_Destination(value, actual);
+equal := actual = WORD_TO_LREAL(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert WORD to LREAL correctly');
+AssertTrue(Condition := converted, Message := 'Did not report WORD to LREAL conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_WORD_TO_LREAL_Upper" Id="{28990a9f-5632-45e1-b8dd-919a455eb985}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_WORD_TO_LREAL_Upper
+VAR
+	value : WORD := DatatypeLimits.WORD_UPPER_LIMIT;
+	actual : LREAL;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_WORD_TO_LREAL_Upper');
+
+// @TEST-RUN
+converted := TryConvert_WORD_TO_Destination(value, actual);
+equal := actual = WORD_TO_LREAL(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert WORD to LREAL correctly');
+AssertTrue(Condition := converted, Message := 'Did not report WORD to LREAL conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_WORD_TO_LWORD_Lower" Id="{bdc543ab-0adb-471e-8c3c-9da809b3e2a7}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_WORD_TO_LWORD_Lower
+VAR
+	value : WORD := DatatypeLimits.WORD_LOWER_LIMIT;
+	actual : LWORD;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_WORD_TO_LWORD_Lower');
+
+// @TEST-RUN
+converted := TryConvert_WORD_TO_Destination(value, actual);
+equal := actual = WORD_TO_LWORD(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert WORD to LWORD correctly');
+AssertTrue(Condition := converted, Message := 'Did not report WORD to LWORD conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_WORD_TO_LWORD_Upper" Id="{ded4d81f-84db-4ed3-87ac-adc36ce70f12}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_WORD_TO_LWORD_Upper
+VAR
+	value : WORD := DatatypeLimits.WORD_UPPER_LIMIT;
+	actual : LWORD;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_WORD_TO_LWORD_Upper');
+
+// @TEST-RUN
+converted := TryConvert_WORD_TO_Destination(value, actual);
+equal := actual = WORD_TO_LWORD(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert WORD to LWORD correctly');
+AssertTrue(Condition := converted, Message := 'Did not report WORD to LWORD conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_WORD_TO_REAL_Lower" Id="{fac6b1e0-c6d2-45f8-b9a9-e79b38a6d7e2}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_WORD_TO_REAL_Lower
+VAR
+	value : WORD := DatatypeLimits.WORD_LOWER_LIMIT;
+	actual : REAL;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_WORD_TO_REAL_Lower');
+
+// @TEST-RUN
+converted := TryConvert_WORD_TO_Destination(value, actual);
+equal := actual = WORD_TO_REAL(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert WORD to REAL correctly');
+AssertTrue(Condition := converted, Message := 'Did not report WORD to REAL conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_WORD_TO_REAL_Upper" Id="{f72d6e25-14b3-4a7d-8d27-a406de0e0f01}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_WORD_TO_REAL_Upper
+VAR
+	value : WORD := DatatypeLimits.WORD_UPPER_LIMIT;
+	actual : REAL;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_WORD_TO_REAL_Upper');
+
+// @TEST-RUN
+converted := TryConvert_WORD_TO_Destination(value, actual);
+equal := actual = WORD_TO_REAL(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert WORD to REAL correctly');
+AssertTrue(Condition := converted, Message := 'Did not report WORD to REAL conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_WORD_TO_SINT_Lower" Id="{bf4b641a-3205-4440-9415-8e2a4096dd79}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_WORD_TO_SINT_Lower
+VAR
+	value : WORD := DatatypeLimits.WORD_LOWER_LIMIT;
+	actual : SINT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_WORD_TO_SINT_Lower');
+
+// @TEST-RUN
+converted := TryConvert_WORD_TO_Destination(value, actual);
+equal := actual = WORD_TO_SINT(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert WORD to SINT correctly');
+AssertTrue(Condition := converted, Message := 'Did not report WORD to SINT conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_WORD_TO_SINT_TooHigh" Id="{d6acec3f-851f-48d2-82a6-4c260cc1dc41}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_WORD_TO_SINT_TooHigh
+VAR
+	value : WORD := DatatypeLimits.WORD_UPPER_LIMIT;
+	actual : SINT;
+	converted : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_WORD_TO_SINT_TooHigh');
+
+// @TEST-RUN
+converted := TryConvert_WORD_TO_Destination(value, actual);
+
+// @TEST-ASSERT
+AssertFalse(Condition := converted, Message := 'Did not report WORD to SINT conversion was prevented');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_WORD_TO_SINT_Upper" Id="{8e90d411-10eb-4b81-87be-654c0663adb1}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_WORD_TO_SINT_Upper
+VAR
+	value : WORD := DatatypeLimits.MAX_VALUE_OF_WORD_WHICH_CAN_BE_HELD_IN_A_SINT;
+	actual : SINT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_WORD_TO_SINT_Upper');
+
+// @TEST-RUN
+converted := TryConvert_WORD_TO_Destination(value, actual);
+equal := actual = WORD_TO_SINT(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert WORD to SINT correctly');
+AssertTrue(Condition := converted, Message := 'Did not report WORD to SINT conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_WORD_TO_STRING_Lower" Id="{5de9abee-bb43-4ed3-ba22-5560d7489866}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_WORD_TO_STRING_Lower
+VAR
+	value : WORD := DatatypeLimits.WORD_LOWER_LIMIT;
+	actual : STRING;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_WORD_TO_STRING_Lower');
+
+// @TEST-RUN
+converted := TryConvert_WORD_TO_Destination(value, actual);
+equal := actual = WORD_TO_STRING(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert WORD to STRING correctly');
+AssertTrue(Condition := converted, Message := 'Did not report WORD to STRING conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_WORD_TO_STRING_Upper" Id="{774845f7-d7dc-4ae4-bdef-d92b7621725d}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_WORD_TO_STRING_Upper
+VAR
+	value : WORD := DatatypeLimits.WORD_UPPER_LIMIT;
+	actual : STRING;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_WORD_TO_STRING_Upper');
+
+// @TEST-RUN
+converted := TryConvert_WORD_TO_Destination(value, actual);
+equal := actual = WORD_TO_STRING(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert WORD to STRING correctly');
+AssertTrue(Condition := converted, Message := 'Did not report WORD to STRING conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_WORD_TO_TIME_Lower" Id="{c10bfda8-7c18-4688-a3ca-253c8428679c}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_WORD_TO_TIME_Lower
+VAR
+	value : WORD := DatatypeLimits.WORD_LOWER_LIMIT;
+	actual : TIME;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_WORD_TO_TIME_Lower');
+
+// @TEST-RUN
+converted := TryConvert_WORD_TO_Destination(value, actual);
+equal := actual = WORD_TO_TIME(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert WORD to TIME correctly');
+AssertTrue(Condition := converted, Message := 'Did not report WORD to TIME conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_WORD_TO_TIME_Upper" Id="{a992cc1a-c7cb-4478-a255-3d3d4092457c}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_WORD_TO_TIME_Upper
+VAR
+	value : WORD := DatatypeLimits.WORD_UPPER_LIMIT;
+	actual : TIME;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_WORD_TO_TIME_Upper');
+
+// @TEST-RUN
+converted := TryConvert_WORD_TO_Destination(value, actual);
+equal := actual = WORD_TO_TIME(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert WORD to TIME correctly');
+AssertTrue(Condition := converted, Message := 'Did not report WORD to TIME conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_WORD_TO_TOD_Lower" Id="{cdc4720a-4598-428c-842b-8751d7a5c035}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_WORD_TO_TOD_Lower
+VAR
+	value : WORD := DatatypeLimits.WORD_LOWER_LIMIT;
+	actual : TOD;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_WORD_TO_TOD_Lower');
+
+// @TEST-RUN
+converted := TryConvert_WORD_TO_Destination(value, actual);
+equal := actual = WORD_TO_TOD(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert WORD to TOD correctly');
+AssertTrue(Condition := converted, Message := 'Did not report WORD to TOD conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_WORD_TO_TOD_Upper" Id="{40621d38-8f27-4711-87b8-bcf980ad1d49}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_WORD_TO_TOD_Upper
+VAR
+	value : WORD := DatatypeLimits.WORD_UPPER_LIMIT;
+	actual : TOD;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_WORD_TO_TOD_Upper');
+
+// @TEST-RUN
+converted := TryConvert_WORD_TO_Destination(value, actual);
+equal := actual = WORD_TO_TOD(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert WORD to TOD correctly');
+AssertTrue(Condition := converted, Message := 'Did not report WORD to TOD conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_WORD_TO_UDINT_Lower" Id="{f51698f8-c60e-4d37-a2f9-e87b9cb13c03}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_WORD_TO_UDINT_Lower
+VAR
+	value : WORD := DatatypeLimits.WORD_LOWER_LIMIT;
+	actual : UDINT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_WORD_TO_UDINT_Lower');
+
+// @TEST-RUN
+converted := TryConvert_WORD_TO_Destination(value, actual);
+equal := actual = WORD_TO_UDINT(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert WORD to UDINT correctly');
+AssertTrue(Condition := converted, Message := 'Did not report WORD to UDINT conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_WORD_TO_UDINT_Upper" Id="{f3503da2-004d-4dcf-a824-dbfd32da2d42}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_WORD_TO_UDINT_Upper
+VAR
+	value : WORD := DatatypeLimits.WORD_UPPER_LIMIT;
+	actual : UDINT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_WORD_TO_UDINT_Upper');
+
+// @TEST-RUN
+converted := TryConvert_WORD_TO_Destination(value, actual);
+equal := actual = WORD_TO_UDINT(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert WORD to UDINT correctly');
+AssertTrue(Condition := converted, Message := 'Did not report WORD to UDINT conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_WORD_TO_UINT_Lower" Id="{9be4c835-dab3-47bf-ab0f-d4d1aac47758}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_WORD_TO_UINT_Lower
+VAR
+	value : WORD := DatatypeLimits.WORD_LOWER_LIMIT;
+	actual : UINT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_WORD_TO_UINT_Lower');
+
+// @TEST-RUN
+converted := TryConvert_WORD_TO_Destination(value, actual);
+equal := actual = WORD_TO_UINT(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert WORD to UINT correctly');
+AssertTrue(Condition := converted, Message := 'Did not report WORD to UINT conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_WORD_TO_UINT_Upper" Id="{9809e231-e4cb-49f4-904d-e1c47afb4eb6}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_WORD_TO_UINT_Upper
+VAR
+	value : WORD := DatatypeLimits.WORD_UPPER_LIMIT;
+	actual : UINT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_WORD_TO_UINT_Upper');
+
+// @TEST-RUN
+converted := TryConvert_WORD_TO_Destination(value, actual);
+equal := actual = WORD_TO_UINT(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert WORD to UINT correctly');
+AssertTrue(Condition := converted, Message := 'Did not report WORD to UINT conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_WORD_TO_ULINT_Lower" Id="{17cbecef-02f0-4711-b364-f6ef47a62eb9}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_WORD_TO_ULINT_Lower
+VAR
+	value : WORD := DatatypeLimits.WORD_LOWER_LIMIT;
+	actual : ULINT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_WORD_TO_ULINT_Lower');
+
+// @TEST-RUN
+converted := TryConvert_WORD_TO_Destination(value, actual);
+equal := actual = WORD_TO_ULINT(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert WORD to ULINT correctly');
+AssertTrue(Condition := converted, Message := 'Did not report WORD to ULINT conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_WORD_TO_ULINT_Upper" Id="{871368b9-a6b3-4afc-921a-ca49afb28994}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_WORD_TO_ULINT_Upper
+VAR
+	value : WORD := DatatypeLimits.WORD_UPPER_LIMIT;
+	actual : ULINT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_WORD_TO_ULINT_Upper');
+
+// @TEST-RUN
+converted := TryConvert_WORD_TO_Destination(value, actual);
+equal := actual = WORD_TO_ULINT(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert WORD to ULINT correctly');
+AssertTrue(Condition := converted, Message := 'Did not report WORD to ULINT conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_WORD_TO_USINT_Lower" Id="{8e02364b-6598-4599-8dbc-1dfe10e7eff1}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_WORD_TO_USINT_Lower
+VAR
+	value : WORD := DatatypeLimits.WORD_LOWER_LIMIT;
+	actual : USINT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_WORD_TO_USINT_Lower');
+
+// @TEST-RUN
+converted := TryConvert_WORD_TO_Destination(value, actual);
+equal := actual = WORD_TO_USINT(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert WORD to USINT correctly');
+AssertTrue(Condition := converted, Message := 'Did not report WORD to USINT conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_WORD_TO_USINT_TooHigh" Id="{07370261-1acf-40c9-bcf5-7507548fa09d}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_WORD_TO_USINT_TooHigh
+VAR
+	value : WORD := DatatypeLimits.WORD_UPPER_LIMIT;
+	actual : USINT;
+	converted : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_WORD_TO_USINT_TooHigh');
+
+// @TEST-RUN
+converted := TryConvert_WORD_TO_Destination(value, actual);
+
+// @TEST-ASSERT
+AssertFalse(Condition := converted, Message := 'Did not report WORD to USINT conversion was prevented');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_WORD_TO_USINT_Upper" Id="{4af528d0-023f-442e-aa06-bbfe3ee4a7ab}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_WORD_TO_USINT_Upper
+VAR
+	value : WORD := DatatypeLimits.MAX_VALUE_OF_WORD_WHICH_CAN_BE_HELD_IN_A_USINT;
+	actual : USINT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_WORD_TO_USINT_Upper');
+
+// @TEST-RUN
+converted := TryConvert_WORD_TO_Destination(value, actual);
+equal := actual = WORD_TO_USINT(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert WORD to USINT correctly');
+AssertTrue(Condition := converted, Message := 'Did not report WORD to USINT conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_WORD_TO_WORD_Lower" Id="{3608d9e3-480a-4f3d-b851-da67311b7aa6}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_WORD_TO_WORD_Lower
+VAR
+	value : WORD := DatatypeLimits.WORD_LOWER_LIMIT;
+	actual : WORD;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_WORD_TO_WORD_Lower');
+
+// @TEST-RUN
+converted := TryConvert_WORD_TO_Destination(value, actual);
+equal := actual = value;
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert WORD to WORD correctly');
+AssertTrue(Condition := converted, Message := 'Did not report WORD to WORD conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_WORD_TO_WORD_Upper" Id="{136ee5f7-90b3-4bfe-8fd7-bb03144dd6b4}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_WORD_TO_WORD_Upper
+VAR
+	value : WORD := DatatypeLimits.WORD_UPPER_LIMIT;
+	actual : WORD;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_WORD_TO_WORD_Upper');
+
+// @TEST-RUN
+converted := TryConvert_WORD_TO_Destination(value, actual);
+equal := actual = value;
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert WORD to WORD correctly');
+AssertTrue(Condition := converted, Message := 'Did not report WORD to WORD conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+  </POU>
+</TcPlcObject>

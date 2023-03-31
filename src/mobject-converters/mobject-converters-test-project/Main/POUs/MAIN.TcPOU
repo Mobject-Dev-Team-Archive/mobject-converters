@@ -3,9 +3,26 @@
   <POU Name="MAIN" Id="{7c22aba4-4a89-069c-18cd-1d4a5752fff2}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM MAIN
 VAR
-	boolTo_TestSuit : BOOL_TO_TestSuit;
-	byteTo_TestSuit : BYTE_TO_TestSuit;
-	dateTo_TestSuit : DATE_TO_TestSuit;
+	BOOL_TO_TestSuite : BOOL_TO_TestSuite;
+	BYTE_TO_TestSuite : BYTE_TO_TestSuite;
+	WORD_TO_TestSuite : WORD_TO_TestSuite;
+	DWORD_TO_TestSuite : DWORD_TO_TestSuite;
+	LWORD_TO_TestSuite : LWORD_TO_TestSuite;
+	SINT_TO_TestSuite : SINT_TO_TestSuite;
+	INT_TO_TestSuite : INT_TO_TestSuite;
+	DINT_TO_TestSuite : DINT_TO_TestSuite;
+	LINT_TO_TestSuite : LINT_TO_TestSuite;
+	USINT_TO_TestSuite : USINT_TO_TestSuite;
+	UINT_TO_TestSuite : UINT_TO_TestSuite;
+	UDINT_TO_TestSuite : UDINT_TO_TestSuite;
+	ULINT_TO_TestSuite : ULINT_TO_TestSuite;
+	REAL_TO_TestSuite : REAL_TO_TestSuite;
+	LREAL_TO_TestSuite : LREAL_TO_TestSuite;
+	TIME_TO_TestSuite : TIME_TO_TestSuite;
+	TOD_TO_TestSuite : TOD_TO_TestSuite;
+	DATE_TO_TestSuite : DATE_TO_TestSuite;
+	DT_TO_TestSuite : DT_TO_TestSuite;
+	STRING_TO_TestSuite : STRING_TO_TestSuite;
 END_VAR
 ]]></Declaration>
     <Implementation>

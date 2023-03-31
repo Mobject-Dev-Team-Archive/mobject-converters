@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="TryConvert_LWORD_TO_ULINT" Id="{a263e698-5c56-4778-be68-7f34aea492c3}" SpecialFunc="None">
+      <Declaration><![CDATA[FUNCTION TryConvert_LWORD_TO_ULINT : BOOL
+VAR_INPUT
+	in : LWORD;
+	out : REFERENCE TO ULINT;
+END_VAR]]></Declaration>
+      <Implementation>
+          <ST><![CDATA[out := LWORD_TO_ULINT(in);
+TryConvert_LWORD_TO_ULINT := TRUE;]]></ST>
+      </Implementation>
+      
+  </POU>
+</TcPlcObject>

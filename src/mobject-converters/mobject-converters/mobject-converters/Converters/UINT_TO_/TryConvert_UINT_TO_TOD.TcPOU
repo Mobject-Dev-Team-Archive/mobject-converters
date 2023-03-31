@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="TryConvert_UINT_TO_TOD" Id="{8cc03be3-7b32-4ce3-89b3-5717a2d912cb}" SpecialFunc="None">
+      <Declaration><![CDATA[FUNCTION TryConvert_UINT_TO_TOD : BOOL
+VAR_INPUT
+	in : UINT;
+	out : REFERENCE TO TOD;
+END_VAR]]></Declaration>
+      <Implementation>
+          <ST><![CDATA[out := UINT_TO_TOD(in);
+TryConvert_UINT_TO_TOD := TRUE;]]></ST>
+      </Implementation>
+      
+  </POU>
+</TcPlcObject>

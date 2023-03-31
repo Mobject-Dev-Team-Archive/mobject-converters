@@ -1,0 +1,1350 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="DINT_TO_TestSuite" Id="{ccd4468a-c625-4487-b5e8-61ddf1078172}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK PUBLIC DINT_TO_TestSuite EXTENDS TcUnit.FB_TestSuite
+VAR
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[Check_DINT_TO_BOOL_Upper();
+Check_DINT_TO_BOOL_Lower();
+Check_DINT_TO_BYTE_Upper();
+Check_DINT_TO_BYTE_Lower();
+Check_DINT_TO_BYTE_TooHigh();
+Check_DINT_TO_BYTE_TooLow();
+Check_DINT_TO_WORD_Upper();
+Check_DINT_TO_WORD_Lower();
+Check_DINT_TO_WORD_TooHigh();
+Check_DINT_TO_WORD_TooLow();
+Check_DINT_TO_DWORD_Upper();
+Check_DINT_TO_DWORD_Lower();
+Check_DINT_TO_DWORD_TooLow();
+Check_DINT_TO_LWORD_Upper();
+Check_DINT_TO_LWORD_Lower();
+Check_DINT_TO_LWORD_TooLow();
+Check_DINT_TO_SINT_Upper();
+Check_DINT_TO_SINT_Lower();
+Check_DINT_TO_SINT_TooHigh();
+Check_DINT_TO_SINT_TooLow();
+Check_DINT_TO_INT_Upper();
+Check_DINT_TO_INT_Lower();
+Check_DINT_TO_INT_TooHigh();
+Check_DINT_TO_INT_TooLow();
+Check_DINT_TO_DINT_Upper();
+Check_DINT_TO_DINT_Lower();
+Check_DINT_TO_LINT_Upper();
+Check_DINT_TO_LINT_Lower();
+Check_DINT_TO_USINT_Upper();
+Check_DINT_TO_USINT_Lower();
+Check_DINT_TO_USINT_TooHigh();
+Check_DINT_TO_USINT_TooLow();
+Check_DINT_TO_UINT_Upper();
+Check_DINT_TO_UINT_Lower();
+Check_DINT_TO_UINT_TooHigh();
+Check_DINT_TO_UINT_TooLow();
+Check_DINT_TO_UDINT_Upper();
+Check_DINT_TO_UDINT_Lower();
+Check_DINT_TO_UDINT_TooLow();
+Check_DINT_TO_ULINT_Upper();
+Check_DINT_TO_ULINT_Lower();
+Check_DINT_TO_ULINT_TooLow();
+Check_DINT_TO_REAL_Upper();
+Check_DINT_TO_REAL_Lower();
+Check_DINT_TO_LREAL_Upper();
+Check_DINT_TO_LREAL_Lower();
+Check_DINT_TO_TIME_Upper();
+Check_DINT_TO_TIME_Lower();
+Check_DINT_TO_TIME_TooLow();
+Check_DINT_TO_TOD_Upper();
+Check_DINT_TO_TOD_Lower();
+Check_DINT_TO_TOD_TooHigh();
+Check_DINT_TO_TOD_TooLow();
+Check_DINT_TO_DATE_Upper();
+Check_DINT_TO_DATE_Lower();
+Check_DINT_TO_DATE_TooLow();
+Check_DINT_TO_DT_Upper();
+Check_DINT_TO_DT_Lower();
+Check_DINT_TO_DT_TooLow();
+Check_DINT_TO_STRING_Upper();
+Check_DINT_TO_STRING_Lower();]]></ST>
+    </Implementation>
+    <Method Name="Check_DINT_TO_BOOL_Lower" Id="{bd9ca437-a054-4938-bf97-cbd3fc629221}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DINT_TO_BOOL_Lower
+VAR
+	value : DINT := DatatypeLimits.DINT_LOWER_LIMIT;
+	actual : BOOL;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DINT_TO_BOOL_Lower');
+
+// @TEST-RUN
+converted := TryConvert_DINT_TO_Destination(value, actual);
+equal := actual = DINT_TO_BOOL(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert DINT to BOOL correctly');
+AssertTrue(Condition := converted, Message := 'Did not report DINT to BOOL conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DINT_TO_BOOL_Upper" Id="{8e69a081-9efb-4609-8886-b22a8c66e795}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DINT_TO_BOOL_Upper
+VAR
+	value : DINT := DatatypeLimits.DINT_UPPER_LIMIT;
+	actual : BOOL;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DINT_TO_BOOL_Upper');
+
+// @TEST-RUN
+converted := TryConvert_DINT_TO_Destination(value, actual);
+equal := actual = DINT_TO_BOOL(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert DINT to BOOL correctly');
+AssertTrue(Condition := converted, Message := 'Did not report DINT to BOOL conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DINT_TO_BYTE_Lower" Id="{a0958c9a-f682-4648-86a4-d3127e26b72c}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DINT_TO_BYTE_Lower
+VAR
+	value : DINT := DatatypeLimits.MIN_VALUE_OF_DINT_WHICH_CAN_BE_HELD_IN_A_BYTE;
+	actual : BYTE;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DINT_TO_BYTE_Lower');
+
+// @TEST-RUN
+converted := TryConvert_DINT_TO_Destination(value, actual);
+equal := actual = DINT_TO_BYTE(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert DINT to BYTE correctly');
+AssertTrue(Condition := converted, Message := 'Did not report DINT to BYTE conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DINT_TO_BYTE_TooHigh" Id="{86bf0c88-fe88-43b8-85a6-67aa670d5699}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DINT_TO_BYTE_TooHigh
+VAR
+	value : DINT := DatatypeLimits.DINT_UPPER_LIMIT;
+	actual : BYTE;
+	converted : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DINT_TO_BYTE_TooHigh');
+
+// @TEST-RUN
+converted := TryConvert_DINT_TO_Destination(value, actual);
+
+// @TEST-ASSERT
+AssertFalse(Condition := converted, Message := 'Did not report DINT to BYTE conversion was prevented');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DINT_TO_BYTE_TooLow" Id="{30d1631b-158a-47b5-816c-963e5fe39520}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DINT_TO_BYTE_TooLow
+VAR
+	value : DINT := DatatypeLimits.DINT_LOWER_LIMIT;
+	actual : BYTE;
+	converted : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DINT_TO_BYTE_TooLow');
+
+// @TEST-RUN
+converted := TryConvert_DINT_TO_Destination(value, actual);
+
+// @TEST-ASSERT
+AssertFalse(Condition := converted, Message := 'Did not report DINT to BYTE conversion was prevented');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DINT_TO_BYTE_Upper" Id="{0615536a-605c-45b0-9b89-20c4d3aaae8a}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DINT_TO_BYTE_Upper
+VAR
+	value : DINT := DatatypeLimits.MAX_VALUE_OF_DINT_WHICH_CAN_BE_HELD_IN_A_BYTE;
+	actual : BYTE;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DINT_TO_BYTE_Upper');
+
+// @TEST-RUN
+converted := TryConvert_DINT_TO_Destination(value, actual);
+equal := actual = DINT_TO_BYTE(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert DINT to BYTE correctly');
+AssertTrue(Condition := converted, Message := 'Did not report DINT to BYTE conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DINT_TO_DATE_Lower" Id="{059a1654-d445-4a51-be79-28da933c50cb}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DINT_TO_DATE_Lower
+VAR
+	value : DINT := DatatypeLimits.MIN_VALUE_OF_DINT_WHICH_CAN_BE_HELD_IN_A_DATE;
+	actual : DATE;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DINT_TO_DATE_Lower');
+
+// @TEST-RUN
+converted := TryConvert_DINT_TO_Destination(value, actual);
+equal := actual = DINT_TO_DATE(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert DINT to DATE correctly');
+AssertTrue(Condition := converted, Message := 'Did not report DINT to DATE conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DINT_TO_DATE_TooLow" Id="{49c5d63c-773e-42ee-befe-0661cc3e9aef}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DINT_TO_DATE_TooLow
+VAR
+	value : DINT := DatatypeLimits.DINT_LOWER_LIMIT;
+	actual : DATE;
+	converted : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DINT_TO_DATE_TooLow');
+
+// @TEST-RUN
+converted := TryConvert_DINT_TO_Destination(value, actual);
+
+// @TEST-ASSERT
+AssertFalse(Condition := converted, Message := 'Did not report DINT to DATE conversion was prevented');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DINT_TO_DATE_Upper" Id="{9782387e-5de2-43ca-8930-79797ebcd31c}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DINT_TO_DATE_Upper
+VAR
+	value : DINT := DatatypeLimits.DINT_UPPER_LIMIT;
+	actual : DATE;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DINT_TO_DATE_Upper');
+
+// @TEST-RUN
+converted := TryConvert_DINT_TO_Destination(value, actual);
+equal := actual = DINT_TO_DATE(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert DINT to DATE correctly');
+AssertTrue(Condition := converted, Message := 'Did not report DINT to DATE conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DINT_TO_DINT_Lower" Id="{bb68e526-02e3-4069-86d0-310133a920a2}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DINT_TO_DINT_Lower
+VAR
+	value : DINT := DatatypeLimits.DINT_LOWER_LIMIT;
+	actual : DINT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DINT_TO_DINT_Lower');
+
+// @TEST-RUN
+converted := TryConvert_DINT_TO_Destination(value, actual);
+equal := actual = value;
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert DINT to DINT correctly');
+AssertTrue(Condition := converted, Message := 'Did not report DINT to DINT conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DINT_TO_DINT_Upper" Id="{92116c12-d263-4dec-8f01-526060225754}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DINT_TO_DINT_Upper
+VAR
+	value : DINT := DatatypeLimits.DINT_UPPER_LIMIT;
+	actual : DINT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DINT_TO_DINT_Upper');
+
+// @TEST-RUN
+converted := TryConvert_DINT_TO_Destination(value, actual);
+equal := actual = value;
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert DINT to DINT correctly');
+AssertTrue(Condition := converted, Message := 'Did not report DINT to DINT conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DINT_TO_DT_Lower" Id="{689f5f28-a374-4eb5-90fb-7fac492084d6}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DINT_TO_DT_Lower
+VAR
+	value : DINT := DatatypeLimits.MIN_VALUE_OF_DINT_WHICH_CAN_BE_HELD_IN_A_DT;
+	actual : DT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DINT_TO_DT_Lower');
+
+// @TEST-RUN
+converted := TryConvert_DINT_TO_Destination(value, actual);
+equal := actual = DINT_TO_DT(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert DINT to DT correctly');
+AssertTrue(Condition := converted, Message := 'Did not report DINT to DT conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DINT_TO_DT_TooLow" Id="{92f8dabe-4a9f-49d8-905b-7de9b8df5f50}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DINT_TO_DT_TooLow
+VAR
+	value : DINT := DatatypeLimits.DINT_LOWER_LIMIT;
+	actual : DT;
+	converted : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DINT_TO_DT_TooLow');
+
+// @TEST-RUN
+converted := TryConvert_DINT_TO_Destination(value, actual);
+
+// @TEST-ASSERT
+AssertFalse(Condition := converted, Message := 'Did not report DINT to DT conversion was prevented');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DINT_TO_DT_Upper" Id="{fa16b14f-6bba-4fc1-94c8-17945dfd0b40}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DINT_TO_DT_Upper
+VAR
+	value : DINT := DatatypeLimits.DINT_UPPER_LIMIT;
+	actual : DT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DINT_TO_DT_Upper');
+
+// @TEST-RUN
+converted := TryConvert_DINT_TO_Destination(value, actual);
+equal := actual = DINT_TO_DT(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert DINT to DT correctly');
+AssertTrue(Condition := converted, Message := 'Did not report DINT to DT conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DINT_TO_DWORD_Lower" Id="{a3af9291-b4f3-46f4-ab1c-b4bae01fbefd}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DINT_TO_DWORD_Lower
+VAR
+	value : DINT := DatatypeLimits.MIN_VALUE_OF_DINT_WHICH_CAN_BE_HELD_IN_A_DWORD;
+	actual : DWORD;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DINT_TO_DWORD_Lower');
+
+// @TEST-RUN
+converted := TryConvert_DINT_TO_Destination(value, actual);
+equal := actual = DINT_TO_DWORD(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert DINT to DWORD correctly');
+AssertTrue(Condition := converted, Message := 'Did not report DINT to DWORD conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DINT_TO_DWORD_TooLow" Id="{333a3bd6-40fb-4a54-9965-8ce747df2289}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DINT_TO_DWORD_TooLow
+VAR
+	value : DINT := DatatypeLimits.DINT_LOWER_LIMIT;
+	actual : DWORD;
+	converted : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DINT_TO_DWORD_TooLow');
+
+// @TEST-RUN
+converted := TryConvert_DINT_TO_Destination(value, actual);
+
+// @TEST-ASSERT
+AssertFalse(Condition := converted, Message := 'Did not report DINT to DWORD conversion was prevented');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DINT_TO_DWORD_Upper" Id="{c8fc0ba4-8330-46b9-9304-f83a01282ac8}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DINT_TO_DWORD_Upper
+VAR
+	value : DINT := DatatypeLimits.DINT_UPPER_LIMIT;
+	actual : DWORD;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DINT_TO_DWORD_Upper');
+
+// @TEST-RUN
+converted := TryConvert_DINT_TO_Destination(value, actual);
+equal := actual = DINT_TO_DWORD(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert DINT to DWORD correctly');
+AssertTrue(Condition := converted, Message := 'Did not report DINT to DWORD conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DINT_TO_INT_Lower" Id="{4fb0528f-6b40-4b37-a24b-77743e697168}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DINT_TO_INT_Lower
+VAR
+	value : DINT := DatatypeLimits.MIN_VALUE_OF_DINT_WHICH_CAN_BE_HELD_IN_A_INT;
+	actual : INT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DINT_TO_INT_Lower');
+
+// @TEST-RUN
+converted := TryConvert_DINT_TO_Destination(value, actual);
+equal := actual = DINT_TO_INT(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert DINT to INT correctly');
+AssertTrue(Condition := converted, Message := 'Did not report DINT to INT conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DINT_TO_INT_TooHigh" Id="{4934d152-82ea-4020-be58-7c796dde6676}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DINT_TO_INT_TooHigh
+VAR
+	value : DINT := DatatypeLimits.DINT_UPPER_LIMIT;
+	actual : INT;
+	converted : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DINT_TO_INT_TooHigh');
+
+// @TEST-RUN
+converted := TryConvert_DINT_TO_Destination(value, actual);
+
+// @TEST-ASSERT
+AssertFalse(Condition := converted, Message := 'Did not report DINT to INT conversion was prevented');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DINT_TO_INT_TooLow" Id="{16ea1221-8082-4e4c-8c2f-1b084070f54b}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DINT_TO_INT_TooLow
+VAR
+	value : DINT := DatatypeLimits.DINT_LOWER_LIMIT;
+	actual : INT;
+	converted : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DINT_TO_INT_TooLow');
+
+// @TEST-RUN
+converted := TryConvert_DINT_TO_Destination(value, actual);
+
+// @TEST-ASSERT
+AssertFalse(Condition := converted, Message := 'Did not report DINT to INT conversion was prevented');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DINT_TO_INT_Upper" Id="{e1b6d2a0-a89e-43f4-8463-c18f99a3548a}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DINT_TO_INT_Upper
+VAR
+	value : DINT := DatatypeLimits.MAX_VALUE_OF_DINT_WHICH_CAN_BE_HELD_IN_A_INT;
+	actual : INT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DINT_TO_INT_Upper');
+
+// @TEST-RUN
+converted := TryConvert_DINT_TO_Destination(value, actual);
+equal := actual = DINT_TO_INT(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert DINT to INT correctly');
+AssertTrue(Condition := converted, Message := 'Did not report DINT to INT conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DINT_TO_LINT_Lower" Id="{0ebc0668-db7f-4b13-a4cf-93033422f81e}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DINT_TO_LINT_Lower
+VAR
+	value : DINT := DatatypeLimits.DINT_LOWER_LIMIT;
+	actual : LINT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DINT_TO_LINT_Lower');
+
+// @TEST-RUN
+converted := TryConvert_DINT_TO_Destination(value, actual);
+equal := actual = DINT_TO_LINT(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert DINT to LINT correctly');
+AssertTrue(Condition := converted, Message := 'Did not report DINT to LINT conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DINT_TO_LINT_Upper" Id="{04ab3e3f-aeec-4dc8-854f-c660c8cebb6d}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DINT_TO_LINT_Upper
+VAR
+	value : DINT := DatatypeLimits.DINT_UPPER_LIMIT;
+	actual : LINT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DINT_TO_LINT_Upper');
+
+// @TEST-RUN
+converted := TryConvert_DINT_TO_Destination(value, actual);
+equal := actual = DINT_TO_LINT(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert DINT to LINT correctly');
+AssertTrue(Condition := converted, Message := 'Did not report DINT to LINT conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DINT_TO_LREAL_Lower" Id="{31030fb7-ab54-4e4f-8f8e-69190aa1c4fb}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DINT_TO_LREAL_Lower
+VAR
+	value : DINT := DatatypeLimits.DINT_LOWER_LIMIT;
+	actual : LREAL;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DINT_TO_LREAL_Lower');
+
+// @TEST-RUN
+converted := TryConvert_DINT_TO_Destination(value, actual);
+equal := actual = DINT_TO_LREAL(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert DINT to LREAL correctly');
+AssertTrue(Condition := converted, Message := 'Did not report DINT to LREAL conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DINT_TO_LREAL_Upper" Id="{f83a56c0-3659-413d-8359-466c737dab3f}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DINT_TO_LREAL_Upper
+VAR
+	value : DINT := DatatypeLimits.DINT_UPPER_LIMIT;
+	actual : LREAL;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DINT_TO_LREAL_Upper');
+
+// @TEST-RUN
+converted := TryConvert_DINT_TO_Destination(value, actual);
+equal := actual = DINT_TO_LREAL(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert DINT to LREAL correctly');
+AssertTrue(Condition := converted, Message := 'Did not report DINT to LREAL conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DINT_TO_LWORD_Lower" Id="{1e3a0884-0e2c-4e73-b90f-85418f5c3478}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DINT_TO_LWORD_Lower
+VAR
+	value : DINT := DatatypeLimits.MIN_VALUE_OF_DINT_WHICH_CAN_BE_HELD_IN_A_LWORD;
+	actual : LWORD;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DINT_TO_LWORD_Lower');
+
+// @TEST-RUN
+converted := TryConvert_DINT_TO_Destination(value, actual);
+equal := actual = DINT_TO_LWORD(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert DINT to LWORD correctly');
+AssertTrue(Condition := converted, Message := 'Did not report DINT to LWORD conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DINT_TO_LWORD_TooLow" Id="{f3b474cd-82e7-4649-9f7a-227b3ccdbc60}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DINT_TO_LWORD_TooLow
+VAR
+	value : DINT := DatatypeLimits.DINT_LOWER_LIMIT;
+	actual : LWORD;
+	converted : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DINT_TO_LWORD_TooLow');
+
+// @TEST-RUN
+converted := TryConvert_DINT_TO_Destination(value, actual);
+
+// @TEST-ASSERT
+AssertFalse(Condition := converted, Message := 'Did not report DINT to LWORD conversion was prevented');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DINT_TO_LWORD_Upper" Id="{fc637edf-1d3e-499f-869a-88078144c0a7}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DINT_TO_LWORD_Upper
+VAR
+	value : DINT := DatatypeLimits.DINT_UPPER_LIMIT;
+	actual : LWORD;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DINT_TO_LWORD_Upper');
+
+// @TEST-RUN
+converted := TryConvert_DINT_TO_Destination(value, actual);
+equal := actual = DINT_TO_LWORD(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert DINT to LWORD correctly');
+AssertTrue(Condition := converted, Message := 'Did not report DINT to LWORD conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DINT_TO_REAL_Lower" Id="{7576b93b-f685-491c-88f9-456058cb3325}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DINT_TO_REAL_Lower
+VAR
+	value : DINT := DatatypeLimits.DINT_LOWER_LIMIT;
+	actual : REAL;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DINT_TO_REAL_Lower');
+
+// @TEST-RUN
+converted := TryConvert_DINT_TO_Destination(value, actual);
+equal := actual = DINT_TO_REAL(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert DINT to REAL correctly');
+AssertTrue(Condition := converted, Message := 'Did not report DINT to REAL conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DINT_TO_REAL_Upper" Id="{b33a7aaf-d484-4085-9964-10b13cd6ff6b}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DINT_TO_REAL_Upper
+VAR
+	value : DINT := DatatypeLimits.DINT_UPPER_LIMIT;
+	actual : REAL;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DINT_TO_REAL_Upper');
+
+// @TEST-RUN
+converted := TryConvert_DINT_TO_Destination(value, actual);
+equal := actual = DINT_TO_REAL(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert DINT to REAL correctly');
+AssertTrue(Condition := converted, Message := 'Did not report DINT to REAL conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DINT_TO_SINT_Lower" Id="{f69e0527-5d19-408b-8105-3d23fa03dd66}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DINT_TO_SINT_Lower
+VAR
+	value : DINT := DatatypeLimits.MIN_VALUE_OF_DINT_WHICH_CAN_BE_HELD_IN_A_SINT;
+	actual : SINT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DINT_TO_SINT_Lower');
+
+// @TEST-RUN
+converted := TryConvert_DINT_TO_Destination(value, actual);
+equal := actual = DINT_TO_SINT(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert DINT to SINT correctly');
+AssertTrue(Condition := converted, Message := 'Did not report DINT to SINT conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DINT_TO_SINT_TooHigh" Id="{8868e951-7aa4-4517-9435-e17d0b3d3b72}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DINT_TO_SINT_TooHigh
+VAR
+	value : DINT := DatatypeLimits.DINT_UPPER_LIMIT;
+	actual : SINT;
+	converted : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DINT_TO_SINT_TooHigh');
+
+// @TEST-RUN
+converted := TryConvert_DINT_TO_Destination(value, actual);
+
+// @TEST-ASSERT
+AssertFalse(Condition := converted, Message := 'Did not report DINT to SINT conversion was prevented');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DINT_TO_SINT_TooLow" Id="{a9a277e7-593c-4d3b-b9c3-2747b1da74ef}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DINT_TO_SINT_TooLow
+VAR
+	value : DINT := DatatypeLimits.DINT_LOWER_LIMIT;
+	actual : SINT;
+	converted : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DINT_TO_SINT_TooLow');
+
+// @TEST-RUN
+converted := TryConvert_DINT_TO_Destination(value, actual);
+
+// @TEST-ASSERT
+AssertFalse(Condition := converted, Message := 'Did not report DINT to SINT conversion was prevented');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DINT_TO_SINT_Upper" Id="{5921da75-bf3b-44a3-b637-7d7d0db4c201}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DINT_TO_SINT_Upper
+VAR
+	value : DINT := DatatypeLimits.MAX_VALUE_OF_DINT_WHICH_CAN_BE_HELD_IN_A_SINT;
+	actual : SINT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DINT_TO_SINT_Upper');
+
+// @TEST-RUN
+converted := TryConvert_DINT_TO_Destination(value, actual);
+equal := actual = DINT_TO_SINT(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert DINT to SINT correctly');
+AssertTrue(Condition := converted, Message := 'Did not report DINT to SINT conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DINT_TO_STRING_Lower" Id="{c7887a47-ad1e-4b6d-9e31-3cfae85efded}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DINT_TO_STRING_Lower
+VAR
+	value : DINT := DatatypeLimits.DINT_LOWER_LIMIT;
+	actual : STRING;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DINT_TO_STRING_Lower');
+
+// @TEST-RUN
+converted := TryConvert_DINT_TO_Destination(value, actual);
+equal := actual = DINT_TO_STRING(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert DINT to STRING correctly');
+AssertTrue(Condition := converted, Message := 'Did not report DINT to STRING conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DINT_TO_STRING_Upper" Id="{bc2ba31f-16b5-4767-a08c-029249e4bb5d}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DINT_TO_STRING_Upper
+VAR
+	value : DINT := DatatypeLimits.DINT_UPPER_LIMIT;
+	actual : STRING;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DINT_TO_STRING_Upper');
+
+// @TEST-RUN
+converted := TryConvert_DINT_TO_Destination(value, actual);
+equal := actual = DINT_TO_STRING(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert DINT to STRING correctly');
+AssertTrue(Condition := converted, Message := 'Did not report DINT to STRING conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DINT_TO_TIME_Lower" Id="{7afc5575-fc55-4bf7-93ea-85cafb7562db}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DINT_TO_TIME_Lower
+VAR
+	value : DINT := DatatypeLimits.MIN_VALUE_OF_DINT_WHICH_CAN_BE_HELD_IN_A_TIME;
+	actual : TIME;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DINT_TO_TIME_Lower');
+
+// @TEST-RUN
+converted := TryConvert_DINT_TO_Destination(value, actual);
+equal := actual = DINT_TO_TIME(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert DINT to TIME correctly');
+AssertTrue(Condition := converted, Message := 'Did not report DINT to TIME conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DINT_TO_TIME_TooLow" Id="{e6c34c82-dee7-49f7-a12e-363a0ee04d7b}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DINT_TO_TIME_TooLow
+VAR
+	value : DINT := DatatypeLimits.DINT_LOWER_LIMIT;
+	actual : TIME;
+	converted : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DINT_TO_TIME_TooLow');
+
+// @TEST-RUN
+converted := TryConvert_DINT_TO_Destination(value, actual);
+
+// @TEST-ASSERT
+AssertFalse(Condition := converted, Message := 'Did not report DINT to TIME conversion was prevented');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DINT_TO_TIME_Upper" Id="{b28fad9d-3768-480e-9ecc-2ed801918347}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DINT_TO_TIME_Upper
+VAR
+	value : DINT := DatatypeLimits.DINT_UPPER_LIMIT;
+	actual : TIME;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DINT_TO_TIME_Upper');
+
+// @TEST-RUN
+converted := TryConvert_DINT_TO_Destination(value, actual);
+equal := actual = DINT_TO_TIME(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert DINT to TIME correctly');
+AssertTrue(Condition := converted, Message := 'Did not report DINT to TIME conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DINT_TO_TOD_Lower" Id="{c5d2800c-ec12-40a2-9e0a-db65f5ca7170}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DINT_TO_TOD_Lower
+VAR
+	value : DINT := DatatypeLimits.MIN_VALUE_OF_DINT_WHICH_CAN_BE_HELD_IN_A_TOD;
+	actual : TOD;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DINT_TO_TOD_Lower');
+
+// @TEST-RUN
+converted := TryConvert_DINT_TO_Destination(value, actual);
+equal := actual = DINT_TO_TOD(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert DINT to TOD correctly');
+AssertTrue(Condition := converted, Message := 'Did not report DINT to TOD conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DINT_TO_TOD_TooHigh" Id="{8fe3785f-5283-441c-a96a-615855458df1}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DINT_TO_TOD_TooHigh
+VAR
+	value : DINT := DatatypeLimits.DINT_UPPER_LIMIT;
+	actual : TOD;
+	converted : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DINT_TO_TOD_TooHigh');
+
+// @TEST-RUN
+converted := TryConvert_DINT_TO_Destination(value, actual);
+
+// @TEST-ASSERT
+AssertFalse(Condition := converted, Message := 'Did not report DINT to TOD conversion was prevented');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DINT_TO_TOD_TooLow" Id="{1cb986aa-b124-4e52-93bc-8555edb16265}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DINT_TO_TOD_TooLow
+VAR
+	value : DINT := DatatypeLimits.DINT_LOWER_LIMIT;
+	actual : TOD;
+	converted : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DINT_TO_TOD_TooLow');
+
+// @TEST-RUN
+converted := TryConvert_DINT_TO_Destination(value, actual);
+
+// @TEST-ASSERT
+AssertFalse(Condition := converted, Message := 'Did not report DINT to TOD conversion was prevented');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DINT_TO_TOD_Upper" Id="{2a1a116f-66a7-4f10-a074-d8d2c07aa909}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DINT_TO_TOD_Upper
+VAR
+	value : DINT := DatatypeLimits.MAX_VALUE_OF_DINT_WHICH_CAN_BE_HELD_IN_A_TOD;
+	actual : TOD;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DINT_TO_TOD_Upper');
+
+// @TEST-RUN
+converted := TryConvert_DINT_TO_Destination(value, actual);
+equal := actual = DINT_TO_TOD(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert DINT to TOD correctly');
+AssertTrue(Condition := converted, Message := 'Did not report DINT to TOD conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DINT_TO_UDINT_Lower" Id="{e06a360c-a5c7-4745-bbbd-a001baa96ff9}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DINT_TO_UDINT_Lower
+VAR
+	value : DINT := DatatypeLimits.MIN_VALUE_OF_DINT_WHICH_CAN_BE_HELD_IN_A_UDINT;
+	actual : UDINT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DINT_TO_UDINT_Lower');
+
+// @TEST-RUN
+converted := TryConvert_DINT_TO_Destination(value, actual);
+equal := actual = DINT_TO_UDINT(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert DINT to UDINT correctly');
+AssertTrue(Condition := converted, Message := 'Did not report DINT to UDINT conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DINT_TO_UDINT_TooLow" Id="{cd8a4d50-d186-45a3-bded-afc78f09a330}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DINT_TO_UDINT_TooLow
+VAR
+	value : DINT := DatatypeLimits.DINT_LOWER_LIMIT;
+	actual : UDINT;
+	converted : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DINT_TO_UDINT_TooLow');
+
+// @TEST-RUN
+converted := TryConvert_DINT_TO_Destination(value, actual);
+
+// @TEST-ASSERT
+AssertFalse(Condition := converted, Message := 'Did not report DINT to UDINT conversion was prevented');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DINT_TO_UDINT_Upper" Id="{4d857c9c-1588-409f-a2e7-54264e003377}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DINT_TO_UDINT_Upper
+VAR
+	value : DINT := DatatypeLimits.DINT_UPPER_LIMIT;
+	actual : UDINT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DINT_TO_UDINT_Upper');
+
+// @TEST-RUN
+converted := TryConvert_DINT_TO_Destination(value, actual);
+equal := actual = DINT_TO_UDINT(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert DINT to UDINT correctly');
+AssertTrue(Condition := converted, Message := 'Did not report DINT to UDINT conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DINT_TO_UINT_Lower" Id="{07b7a789-918e-4ef1-be5e-3716c558d55a}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DINT_TO_UINT_Lower
+VAR
+	value : DINT := DatatypeLimits.MIN_VALUE_OF_DINT_WHICH_CAN_BE_HELD_IN_A_UINT;
+	actual : UINT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DINT_TO_UINT_Lower');
+
+// @TEST-RUN
+converted := TryConvert_DINT_TO_Destination(value, actual);
+equal := actual = DINT_TO_UINT(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert DINT to UINT correctly');
+AssertTrue(Condition := converted, Message := 'Did not report DINT to UINT conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DINT_TO_UINT_TooHigh" Id="{a9581152-92d5-4d91-a54f-62951fc6e587}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DINT_TO_UINT_TooHigh
+VAR
+	value : DINT := DatatypeLimits.DINT_UPPER_LIMIT;
+	actual : UINT;
+	converted : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DINT_TO_UINT_TooHigh');
+
+// @TEST-RUN
+converted := TryConvert_DINT_TO_Destination(value, actual);
+
+// @TEST-ASSERT
+AssertFalse(Condition := converted, Message := 'Did not report DINT to UINT conversion was prevented');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DINT_TO_UINT_TooLow" Id="{3d86101b-6e26-4b71-8f90-85c220124f6a}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DINT_TO_UINT_TooLow
+VAR
+	value : DINT := DatatypeLimits.DINT_LOWER_LIMIT;
+	actual : UINT;
+	converted : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DINT_TO_UINT_TooLow');
+
+// @TEST-RUN
+converted := TryConvert_DINT_TO_Destination(value, actual);
+
+// @TEST-ASSERT
+AssertFalse(Condition := converted, Message := 'Did not report DINT to UINT conversion was prevented');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DINT_TO_UINT_Upper" Id="{1afba9d1-161e-49fb-8eac-055f39bbba66}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DINT_TO_UINT_Upper
+VAR
+	value : DINT := DatatypeLimits.MAX_VALUE_OF_DINT_WHICH_CAN_BE_HELD_IN_A_UINT;
+	actual : UINT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DINT_TO_UINT_Upper');
+
+// @TEST-RUN
+converted := TryConvert_DINT_TO_Destination(value, actual);
+equal := actual = DINT_TO_UINT(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert DINT to UINT correctly');
+AssertTrue(Condition := converted, Message := 'Did not report DINT to UINT conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DINT_TO_ULINT_Lower" Id="{dc9a2580-5522-4464-af79-2f1550f09b42}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DINT_TO_ULINT_Lower
+VAR
+	value : DINT := DatatypeLimits.MIN_VALUE_OF_DINT_WHICH_CAN_BE_HELD_IN_A_ULINT;
+	actual : ULINT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DINT_TO_ULINT_Lower');
+
+// @TEST-RUN
+converted := TryConvert_DINT_TO_Destination(value, actual);
+equal := actual = DINT_TO_ULINT(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert DINT to ULINT correctly');
+AssertTrue(Condition := converted, Message := 'Did not report DINT to ULINT conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DINT_TO_ULINT_TooLow" Id="{3f9b55a0-9172-4da3-a7a6-34b122844ef7}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DINT_TO_ULINT_TooLow
+VAR
+	value : DINT := DatatypeLimits.DINT_LOWER_LIMIT;
+	actual : ULINT;
+	converted : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DINT_TO_ULINT_TooLow');
+
+// @TEST-RUN
+converted := TryConvert_DINT_TO_Destination(value, actual);
+
+// @TEST-ASSERT
+AssertFalse(Condition := converted, Message := 'Did not report DINT to ULINT conversion was prevented');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DINT_TO_ULINT_Upper" Id="{9b9f5bd5-0759-47a1-8744-9f4d9432f180}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DINT_TO_ULINT_Upper
+VAR
+	value : DINT := DatatypeLimits.DINT_UPPER_LIMIT;
+	actual : ULINT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DINT_TO_ULINT_Upper');
+
+// @TEST-RUN
+converted := TryConvert_DINT_TO_Destination(value, actual);
+equal := actual = DINT_TO_ULINT(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert DINT to ULINT correctly');
+AssertTrue(Condition := converted, Message := 'Did not report DINT to ULINT conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DINT_TO_USINT_Lower" Id="{5894bb98-e9ce-450b-9b91-ad166637e5bf}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DINT_TO_USINT_Lower
+VAR
+	value : DINT := DatatypeLimits.MIN_VALUE_OF_DINT_WHICH_CAN_BE_HELD_IN_A_USINT;
+	actual : USINT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DINT_TO_USINT_Lower');
+
+// @TEST-RUN
+converted := TryConvert_DINT_TO_Destination(value, actual);
+equal := actual = DINT_TO_USINT(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert DINT to USINT correctly');
+AssertTrue(Condition := converted, Message := 'Did not report DINT to USINT conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DINT_TO_USINT_TooHigh" Id="{b28cb752-825a-4492-97cb-025752e4d077}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DINT_TO_USINT_TooHigh
+VAR
+	value : DINT := DatatypeLimits.DINT_UPPER_LIMIT;
+	actual : USINT;
+	converted : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DINT_TO_USINT_TooHigh');
+
+// @TEST-RUN
+converted := TryConvert_DINT_TO_Destination(value, actual);
+
+// @TEST-ASSERT
+AssertFalse(Condition := converted, Message := 'Did not report DINT to USINT conversion was prevented');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DINT_TO_USINT_TooLow" Id="{ea772ae2-6880-4e9f-9268-20909e08e250}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DINT_TO_USINT_TooLow
+VAR
+	value : DINT := DatatypeLimits.DINT_LOWER_LIMIT;
+	actual : USINT;
+	converted : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DINT_TO_USINT_TooLow');
+
+// @TEST-RUN
+converted := TryConvert_DINT_TO_Destination(value, actual);
+
+// @TEST-ASSERT
+AssertFalse(Condition := converted, Message := 'Did not report DINT to USINT conversion was prevented');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DINT_TO_USINT_Upper" Id="{ac31663a-3ce7-4749-b32e-59a119a56b0d}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DINT_TO_USINT_Upper
+VAR
+	value : DINT := DatatypeLimits.MAX_VALUE_OF_DINT_WHICH_CAN_BE_HELD_IN_A_USINT;
+	actual : USINT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DINT_TO_USINT_Upper');
+
+// @TEST-RUN
+converted := TryConvert_DINT_TO_Destination(value, actual);
+equal := actual = DINT_TO_USINT(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert DINT to USINT correctly');
+AssertTrue(Condition := converted, Message := 'Did not report DINT to USINT conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DINT_TO_WORD_Lower" Id="{ee63e8be-6895-4cf4-903a-3e330366c00b}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DINT_TO_WORD_Lower
+VAR
+	value : DINT := DatatypeLimits.MIN_VALUE_OF_DINT_WHICH_CAN_BE_HELD_IN_A_WORD;
+	actual : WORD;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DINT_TO_WORD_Lower');
+
+// @TEST-RUN
+converted := TryConvert_DINT_TO_Destination(value, actual);
+equal := actual = DINT_TO_WORD(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert DINT to WORD correctly');
+AssertTrue(Condition := converted, Message := 'Did not report DINT to WORD conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DINT_TO_WORD_TooHigh" Id="{1af000d9-ea98-4226-a912-585eb3f8f949}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DINT_TO_WORD_TooHigh
+VAR
+	value : DINT := DatatypeLimits.DINT_UPPER_LIMIT;
+	actual : WORD;
+	converted : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DINT_TO_WORD_TooHigh');
+
+// @TEST-RUN
+converted := TryConvert_DINT_TO_Destination(value, actual);
+
+// @TEST-ASSERT
+AssertFalse(Condition := converted, Message := 'Did not report DINT to WORD conversion was prevented');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DINT_TO_WORD_TooLow" Id="{2be13838-3720-4f8f-acd0-075ccdd29e44}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DINT_TO_WORD_TooLow
+VAR
+	value : DINT := DatatypeLimits.DINT_LOWER_LIMIT;
+	actual : WORD;
+	converted : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DINT_TO_WORD_TooLow');
+
+// @TEST-RUN
+converted := TryConvert_DINT_TO_Destination(value, actual);
+
+// @TEST-ASSERT
+AssertFalse(Condition := converted, Message := 'Did not report DINT to WORD conversion was prevented');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DINT_TO_WORD_Upper" Id="{89738e0e-7612-4896-bec4-12df5d2ebfde}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DINT_TO_WORD_Upper
+VAR
+	value : DINT := DatatypeLimits.MAX_VALUE_OF_DINT_WHICH_CAN_BE_HELD_IN_A_WORD;
+	actual : WORD;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DINT_TO_WORD_Upper');
+
+// @TEST-RUN
+converted := TryConvert_DINT_TO_Destination(value, actual);
+equal := actual = DINT_TO_WORD(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert DINT to WORD correctly');
+AssertTrue(Condition := converted, Message := 'Did not report DINT to WORD conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+  </POU>
+</TcPlcObject>

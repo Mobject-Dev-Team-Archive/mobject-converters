@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="TryConvert_DINT_TO_UDINT" Id="{be34922c-d021-4252-b9e6-8c8922733ef7}" SpecialFunc="None">
+      <Declaration><![CDATA[FUNCTION TryConvert_DINT_TO_UDINT : BOOL
+VAR_INPUT
+	in : DINT;
+	out : REFERENCE TO UDINT;
+END_VAR]]></Declaration>
+      <Implementation>
+          <ST><![CDATA[IF in < DatatypeLimits.MIN_VALUE_OF_DINT_WHICH_CAN_BE_HELD_IN_A_UDINT THEN
+	RETURN;
+END_IF
+
+out := DINT_TO_UDINT(in);
+TryConvert_DINT_TO_UDINT := TRUE;]]></ST>
+      </Implementation>
+      
+  </POU>
+</TcPlcObject>

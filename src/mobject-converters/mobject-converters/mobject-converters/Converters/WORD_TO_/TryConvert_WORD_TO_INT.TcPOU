@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="TryConvert_WORD_TO_INT" Id="{71554ed5-4d2c-4547-a92f-efe55a01cfe8}" SpecialFunc="None">
+      <Declaration><![CDATA[FUNCTION TryConvert_WORD_TO_INT : BOOL
+VAR_INPUT
+	in : WORD;
+	out : REFERENCE TO INT;
+END_VAR]]></Declaration>
+      <Implementation>
+          <ST><![CDATA[IF in > DatatypeLimits.MAX_VALUE_OF_WORD_WHICH_CAN_BE_HELD_IN_A_INT THEN
+	RETURN;
+END_IF
+
+out := WORD_TO_INT(in);
+TryConvert_WORD_TO_INT := TRUE;]]></ST>
+      </Implementation>
+      
+  </POU>
+</TcPlcObject>

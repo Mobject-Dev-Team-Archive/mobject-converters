@@ -1,14 +1,15 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
-  <POU Name="TryConvert_SINT_TO_BOOL" Id="{b8836685-e256-4409-90a7-44f535f4073d}" SpecialFunc="None">
-    <Declaration><![CDATA[FUNCTION TryConvert_SINT_TO_BOOL : BOOL
+  <POU Name="TryConvert_SINT_TO_BOOL" Id="{cbbd89b9-3b22-4b51-a41c-7e26a87f268e}" SpecialFunc="None">
+      <Declaration><![CDATA[FUNCTION TryConvert_SINT_TO_BOOL : BOOL
 VAR_INPUT
 	in : SINT;
 	out : REFERENCE TO BOOL;
 END_VAR]]></Declaration>
-    <Implementation>
-      <ST><![CDATA[out := SINT_TO_BOOL(in);
+      <Implementation>
+          <ST><![CDATA[out := SINT_TO_BOOL(in);
 TryConvert_SINT_TO_BOOL := TRUE;]]></ST>
-    </Implementation>
+      </Implementation>
+      
   </POU>
 </TcPlcObject>

@@ -1,14 +1,15 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
-  <POU Name="TryConvert_BOOL_TO_UINT" Id="{c3bbc0e4-c310-48aa-abe1-341d8f6734da}" SpecialFunc="None">
-    <Declaration><![CDATA[FUNCTION TryConvert_BOOL_TO_UINT : BOOL
+  <POU Name="TryConvert_BOOL_TO_UINT" Id="{e5cdf9a0-b81b-4fc2-a5e0-b0f42c3f6e26}" SpecialFunc="None">
+      <Declaration><![CDATA[FUNCTION TryConvert_BOOL_TO_UINT : BOOL
 VAR_INPUT
 	in : BOOL;
 	out : REFERENCE TO UINT;
 END_VAR]]></Declaration>
-    <Implementation>
-      <ST><![CDATA[out := BOOL_TO_UINT(in);
+      <Implementation>
+          <ST><![CDATA[out := BOOL_TO_UINT(in);
 TryConvert_BOOL_TO_UINT := TRUE;]]></ST>
-    </Implementation>
+      </Implementation>
+      
   </POU>
 </TcPlcObject>

@@ -1,14 +1,15 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
-  <POU Name="TryConvert_DATE_TO_LINT" Id="{1b12d8a3-57e4-49cb-9ba6-898e3d290faf}" SpecialFunc="None">
-    <Declaration><![CDATA[FUNCTION TryConvert_DATE_TO_LINT : BOOL
+  <POU Name="TryConvert_DATE_TO_LINT" Id="{53d1ea86-1c06-4d6c-a08f-250568feb179}" SpecialFunc="None">
+      <Declaration><![CDATA[FUNCTION TryConvert_DATE_TO_LINT : BOOL
 VAR_INPUT
 	in : DATE;
 	out : REFERENCE TO LINT;
 END_VAR]]></Declaration>
-    <Implementation>
-      <ST><![CDATA[out := DATE_TO_LINT(in);
+      <Implementation>
+          <ST><![CDATA[out := DATE_TO_LINT(in);
 TryConvert_DATE_TO_LINT := TRUE;]]></ST>
-    </Implementation>
+      </Implementation>
+      
   </POU>
 </TcPlcObject>

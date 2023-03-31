@@ -1,14 +1,15 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
-  <POU Name="TryConvert_BOOL_TO_LINT" Id="{ad3da8f2-78e0-44a3-b129-fc9d8ffa7034}" SpecialFunc="None">
-    <Declaration><![CDATA[FUNCTION TryConvert_BOOL_TO_LINT : BOOL
+  <POU Name="TryConvert_BOOL_TO_LINT" Id="{d67a36cf-96ab-45af-9e7d-d49504d8b182}" SpecialFunc="None">
+      <Declaration><![CDATA[FUNCTION TryConvert_BOOL_TO_LINT : BOOL
 VAR_INPUT
 	in : BOOL;
 	out : REFERENCE TO LINT;
 END_VAR]]></Declaration>
-    <Implementation>
-      <ST><![CDATA[out := BOOL_TO_LINT(in);
+      <Implementation>
+          <ST><![CDATA[out := BOOL_TO_LINT(in);
 TryConvert_BOOL_TO_LINT := TRUE;]]></ST>
-    </Implementation>
+      </Implementation>
+      
   </POU>
 </TcPlcObject>

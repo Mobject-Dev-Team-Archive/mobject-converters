@@ -1,14 +1,15 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
-  <POU Name="TryConvert_STRING_TO_STRING" Id="{a410dc35-25c5-44f1-9fd5-46ea15a198d3}" SpecialFunc="None">
-    <Declaration><![CDATA[FUNCTION TryConvert_STRING_TO_STRING : BOOL
+  <POU Name="TryConvert_STRING_TO_STRING" Id="{7cabc749-8652-476c-b3d9-553c33e8a4bf}" SpecialFunc="None">
+      <Declaration><![CDATA[FUNCTION TryConvert_STRING_TO_STRING : BOOL
 VAR_INPUT
 	in : STRING;
 	out : REFERENCE TO STRING;
 END_VAR]]></Declaration>
-    <Implementation>
-      <ST><![CDATA[out := in;
+      <Implementation>
+          <ST><![CDATA[out := in;
 TryConvert_STRING_TO_STRING := TRUE;]]></ST>
-    </Implementation>
+      </Implementation>
+      
   </POU>
 </TcPlcObject>

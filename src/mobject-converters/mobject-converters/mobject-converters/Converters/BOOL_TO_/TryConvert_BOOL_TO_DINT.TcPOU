@@ -1,14 +1,15 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
-  <POU Name="TryConvert_BOOL_TO_DINT" Id="{a764e9d8-9af9-4541-b414-cc28c823458a}" SpecialFunc="None">
-    <Declaration><![CDATA[FUNCTION TryConvert_BOOL_TO_DINT : BOOL
+  <POU Name="TryConvert_BOOL_TO_DINT" Id="{6ad1e1b7-601d-4ea6-b103-140446243940}" SpecialFunc="None">
+      <Declaration><![CDATA[FUNCTION TryConvert_BOOL_TO_DINT : BOOL
 VAR_INPUT
 	in : BOOL;
 	out : REFERENCE TO DINT;
 END_VAR]]></Declaration>
-    <Implementation>
-      <ST><![CDATA[out := BOOL_TO_DINT(in);
+      <Implementation>
+          <ST><![CDATA[out := BOOL_TO_DINT(in);
 TryConvert_BOOL_TO_DINT := TRUE;]]></ST>
-    </Implementation>
+      </Implementation>
+      
   </POU>
 </TcPlcObject>

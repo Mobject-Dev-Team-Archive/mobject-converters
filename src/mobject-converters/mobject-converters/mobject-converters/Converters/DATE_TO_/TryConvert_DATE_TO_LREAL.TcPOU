@@ -1,14 +1,15 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
-  <POU Name="TryConvert_DATE_TO_LREAL" Id="{06d93b51-cd22-48db-b1ae-1a13913ccc43}" SpecialFunc="None">
-    <Declaration><![CDATA[FUNCTION TryConvert_DATE_TO_LREAL : BOOL
+  <POU Name="TryConvert_DATE_TO_LREAL" Id="{34290b6f-4d7e-4e50-88f3-f37aa4463a4c}" SpecialFunc="None">
+      <Declaration><![CDATA[FUNCTION TryConvert_DATE_TO_LREAL : BOOL
 VAR_INPUT
 	in : DATE;
 	out : REFERENCE TO LREAL;
 END_VAR]]></Declaration>
-    <Implementation>
-      <ST><![CDATA[out := DATE_TO_LREAL(in);
+      <Implementation>
+          <ST><![CDATA[out := DATE_TO_LREAL(in);
 TryConvert_DATE_TO_LREAL := TRUE;]]></ST>
-    </Implementation>
+      </Implementation>
+      
   </POU>
 </TcPlcObject>

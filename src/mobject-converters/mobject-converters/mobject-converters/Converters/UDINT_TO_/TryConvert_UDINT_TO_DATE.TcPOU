@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="TryConvert_UDINT_TO_DATE" Id="{56eeaa3e-e94b-4d1e-b221-9344584366d4}" SpecialFunc="None">
+      <Declaration><![CDATA[FUNCTION TryConvert_UDINT_TO_DATE : BOOL
+VAR_INPUT
+	in : UDINT;
+	out : REFERENCE TO DATE;
+END_VAR]]></Declaration>
+      <Implementation>
+          <ST><![CDATA[out := UDINT_TO_DATE(in);
+TryConvert_UDINT_TO_DATE := TRUE;]]></ST>
+      </Implementation>
+      
+  </POU>
+</TcPlcObject>

@@ -1,14 +1,15 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
-  <POU Name="TryConvert_BYTE_TO_LWORD" Id="{1a4d5ea9-bacd-40d0-aaf5-a1f1abe5d617}" SpecialFunc="None">
-    <Declaration><![CDATA[FUNCTION TryConvert_BYTE_TO_LWORD : BOOL
+  <POU Name="TryConvert_BYTE_TO_LWORD" Id="{001e3168-1e0d-47b3-8436-1b4a2e2296c2}" SpecialFunc="None">
+      <Declaration><![CDATA[FUNCTION TryConvert_BYTE_TO_LWORD : BOOL
 VAR_INPUT
 	in : BYTE;
 	out : REFERENCE TO LWORD;
 END_VAR]]></Declaration>
-    <Implementation>
-      <ST><![CDATA[out := BYTE_TO_LWORD(in);
+      <Implementation>
+          <ST><![CDATA[out := BYTE_TO_LWORD(in);
 TryConvert_BYTE_TO_LWORD := TRUE;]]></ST>
-    </Implementation>
+      </Implementation>
+      
   </POU>
 </TcPlcObject>

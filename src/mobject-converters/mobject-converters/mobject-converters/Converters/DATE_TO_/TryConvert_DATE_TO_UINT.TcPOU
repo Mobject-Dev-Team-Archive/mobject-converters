@@ -1,18 +1,19 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
-  <POU Name="TryConvert_DATE_TO_UINT" Id="{368f8a59-461d-46bc-bc8f-b765c2700883}" SpecialFunc="None">
-    <Declaration><![CDATA[FUNCTION TryConvert_DATE_TO_UINT : BOOL
+  <POU Name="TryConvert_DATE_TO_UINT" Id="{8ef7ad2c-a0be-46a3-9dd8-299619513657}" SpecialFunc="None">
+      <Declaration><![CDATA[FUNCTION TryConvert_DATE_TO_UINT : BOOL
 VAR_INPUT
 	in : DATE;
 	out : REFERENCE TO UINT;
 END_VAR]]></Declaration>
-    <Implementation>
-      <ST><![CDATA[IF in > UINT_TO_DATE(65535) THEN
+      <Implementation>
+          <ST><![CDATA[IF in > DatatypeLimits.MAX_VALUE_OF_DATE_WHICH_CAN_BE_HELD_IN_A_UINT THEN
 	RETURN;
 END_IF
 
 out := DATE_TO_UINT(in);
 TryConvert_DATE_TO_UINT := TRUE;]]></ST>
-    </Implementation>
+      </Implementation>
+      
   </POU>
 </TcPlcObject>

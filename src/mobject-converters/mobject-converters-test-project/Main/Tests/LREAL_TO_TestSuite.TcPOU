@@ -1,0 +1,1727 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="LREAL_TO_TestSuite" Id="{5ce6a41d-b68f-4e4c-b7ee-0403e011b94c}" SpecialFunc="None">
+      <Declaration><![CDATA[FUNCTION_BLOCK PUBLIC LREAL_TO_TestSuite EXTENDS TcUnit.FB_TestSuite
+VAR
+END_VAR]]></Declaration>
+      <Implementation>
+          <ST><![CDATA[Check_LREAL_TO_BOOL_Upper();
+Check_LREAL_TO_BOOL_Lower();
+Check_LREAL_TO_BYTE_Upper();
+Check_LREAL_TO_BYTE_Lower();
+Check_LREAL_TO_BYTE_TooHigh();
+Check_LREAL_TO_BYTE_TooLow();
+Check_LREAL_TO_WORD_Upper();
+Check_LREAL_TO_WORD_Lower();
+Check_LREAL_TO_WORD_TooHigh();
+Check_LREAL_TO_WORD_TooLow();
+Check_LREAL_TO_DWORD_Upper();
+Check_LREAL_TO_DWORD_Lower();
+Check_LREAL_TO_DWORD_TooHigh();
+Check_LREAL_TO_DWORD_TooLow();
+Check_LREAL_TO_LWORD_Upper();
+Check_LREAL_TO_LWORD_Lower();
+Check_LREAL_TO_LWORD_TooHigh();
+Check_LREAL_TO_LWORD_TooLow();
+Check_LREAL_TO_SINT_Upper();
+Check_LREAL_TO_SINT_Lower();
+Check_LREAL_TO_SINT_TooHigh();
+Check_LREAL_TO_SINT_TooLow();
+Check_LREAL_TO_INT_Upper();
+Check_LREAL_TO_INT_Lower();
+Check_LREAL_TO_INT_TooHigh();
+Check_LREAL_TO_INT_TooLow();
+Check_LREAL_TO_DINT_Upper();
+Check_LREAL_TO_DINT_Lower();
+Check_LREAL_TO_DINT_TooHigh();
+Check_LREAL_TO_DINT_TooLow();
+Check_LREAL_TO_LINT_Upper();
+Check_LREAL_TO_LINT_Lower();
+Check_LREAL_TO_LINT_TooHigh();
+Check_LREAL_TO_LINT_TooLow();
+Check_LREAL_TO_USINT_Upper();
+Check_LREAL_TO_USINT_Lower();
+Check_LREAL_TO_USINT_TooHigh();
+Check_LREAL_TO_USINT_TooLow();
+Check_LREAL_TO_UINT_Upper();
+Check_LREAL_TO_UINT_Lower();
+Check_LREAL_TO_UINT_TooHigh();
+Check_LREAL_TO_UINT_TooLow();
+Check_LREAL_TO_UDINT_Upper();
+Check_LREAL_TO_UDINT_Lower();
+Check_LREAL_TO_UDINT_TooHigh();
+Check_LREAL_TO_UDINT_TooLow();
+Check_LREAL_TO_ULINT_Upper();
+Check_LREAL_TO_ULINT_Lower();
+Check_LREAL_TO_ULINT_TooHigh();
+Check_LREAL_TO_ULINT_TooLow();
+Check_LREAL_TO_REAL_Upper();
+Check_LREAL_TO_REAL_Lower();
+Check_LREAL_TO_REAL_TooHigh();
+Check_LREAL_TO_REAL_TooLow();
+Check_LREAL_TO_LREAL_Upper();
+Check_LREAL_TO_LREAL_Lower();
+Check_LREAL_TO_TIME_Upper();
+Check_LREAL_TO_TIME_Lower();
+Check_LREAL_TO_TIME_TooHigh();
+Check_LREAL_TO_TIME_TooLow();
+Check_LREAL_TO_TOD_Upper();
+Check_LREAL_TO_TOD_Lower();
+Check_LREAL_TO_TOD_TooHigh();
+Check_LREAL_TO_TOD_TooLow();
+Check_LREAL_TO_DATE_Upper();
+Check_LREAL_TO_DATE_Lower();
+Check_LREAL_TO_DATE_TooHigh();
+Check_LREAL_TO_DATE_TooLow();
+Check_LREAL_TO_DT_Upper();
+Check_LREAL_TO_DT_Lower();
+Check_LREAL_TO_DT_TooHigh();
+Check_LREAL_TO_DT_TooLow();
+Check_LREAL_TO_STRING_Upper();
+Check_LREAL_TO_STRING_Lower();
+Check_LREAL_TO_STRING_TooHigh();
+Check_LREAL_TO_STRING_TooLow();]]></ST>
+      </Implementation>
+      
+      <Method Name="Check_LREAL_TO_BOOL_Upper" Id="{9cd81b98-281a-413e-a6fa-9fb190225f41}">
+        <Declaration><![CDATA[METHOD PUBLIC Check_LREAL_TO_BOOL_Upper
+VAR
+	value : LREAL := DatatypeLimits.LREAL_UPPER_LIMIT;
+	actual : BOOL;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[TEST('Check_LREAL_TO_BOOL_Upper');
+
+// @TEST-RUN
+converted := TryConvert_LREAL_TO_Destination(value, actual);
+equal := actual = LREAL_TO_BOOL(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert LREAL to BOOL correctly');
+AssertTrue(Condition := converted, Message := 'Did not report LREAL to BOOL conversion was successful');
+
+TEST_FINISHED();]]></ST>
+        </Implementation>
+      </Method>
+    
+      <Method Name="Check_LREAL_TO_BOOL_Lower" Id="{d33a5c7e-20a5-4c5c-b44a-0dfd9d6d239f}">
+        <Declaration><![CDATA[METHOD PUBLIC Check_LREAL_TO_BOOL_Lower
+VAR
+	value : LREAL := DatatypeLimits.LREAL_LOWER_LIMIT;
+	actual : BOOL;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[TEST('Check_LREAL_TO_BOOL_Lower');
+
+// @TEST-RUN
+converted := TryConvert_LREAL_TO_Destination(value, actual);
+equal := actual = LREAL_TO_BOOL(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert LREAL to BOOL correctly');
+AssertTrue(Condition := converted, Message := 'Did not report LREAL to BOOL conversion was successful');
+
+TEST_FINISHED();]]></ST>
+        </Implementation>
+      </Method>
+    
+      <Method Name="Check_LREAL_TO_BYTE_Upper" Id="{3f33f805-437d-440b-a0e1-fb1ccc461f95}">
+        <Declaration><![CDATA[METHOD PUBLIC Check_LREAL_TO_BYTE_Upper
+VAR
+	value : LREAL := DatatypeLimits.MAX_VALUE_OF_LREAL_WHICH_CAN_BE_HELD_IN_A_BYTE;
+	actual : BYTE;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[TEST('Check_LREAL_TO_BYTE_Upper');
+
+// @TEST-RUN
+converted := TryConvert_LREAL_TO_Destination(value, actual);
+equal := actual = LREAL_TO_BYTE(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert LREAL to BYTE correctly');
+AssertTrue(Condition := converted, Message := 'Did not report LREAL to BYTE conversion was successful');
+
+TEST_FINISHED();]]></ST>
+        </Implementation>
+      </Method>
+    
+      <Method Name="Check_LREAL_TO_BYTE_Lower" Id="{43b0fcc9-dd6e-4ce6-ba2f-9a0bdf0697fa}">
+        <Declaration><![CDATA[METHOD PUBLIC Check_LREAL_TO_BYTE_Lower
+VAR
+	value : LREAL := DatatypeLimits.MIN_VALUE_OF_LREAL_WHICH_CAN_BE_HELD_IN_A_BYTE;
+	actual : BYTE;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[TEST('Check_LREAL_TO_BYTE_Lower');
+
+// @TEST-RUN
+converted := TryConvert_LREAL_TO_Destination(value, actual);
+equal := actual = LREAL_TO_BYTE(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert LREAL to BYTE correctly');
+AssertTrue(Condition := converted, Message := 'Did not report LREAL to BYTE conversion was successful');
+
+TEST_FINISHED();]]></ST>
+        </Implementation>
+      </Method>
+    
+      <Method Name="Check_LREAL_TO_BYTE_TooHigh" Id="{9fd960e8-3ef7-4f8e-914c-77b676a54471}">
+        <Declaration><![CDATA[METHOD PUBLIC Check_LREAL_TO_BYTE_TooHigh
+VAR
+	value : LREAL := DatatypeLimits.LREAL_UPPER_LIMIT;
+	actual : BYTE;
+	converted : BOOL;
+END_VAR]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[TEST('Check_LREAL_TO_BYTE_TooHigh');
+
+// @TEST-RUN
+converted := TryConvert_LREAL_TO_Destination(value, actual);
+
+// @TEST-ASSERT
+AssertFalse(Condition := converted, Message := 'Did not report LREAL to BYTE conversion was prevented');
+
+TEST_FINISHED();]]></ST>
+        </Implementation>
+      </Method>
+    
+      <Method Name="Check_LREAL_TO_BYTE_TooLow" Id="{06b8c9a3-2a35-417b-9d4b-f40deb8e32c4}">
+        <Declaration><![CDATA[METHOD PUBLIC Check_LREAL_TO_BYTE_TooLow
+VAR
+	value : LREAL := DatatypeLimits.LREAL_LOWER_LIMIT;
+	actual : BYTE;
+	converted : BOOL;
+END_VAR]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[TEST('Check_LREAL_TO_BYTE_TooLow');
+
+// @TEST-RUN
+converted := TryConvert_LREAL_TO_Destination(value, actual);
+
+// @TEST-ASSERT
+AssertFalse(Condition := converted, Message := 'Did not report LREAL to BYTE conversion was prevented');
+
+TEST_FINISHED();]]></ST>
+        </Implementation>
+      </Method>
+    
+      <Method Name="Check_LREAL_TO_WORD_Upper" Id="{09f0dc3a-113a-427d-ab12-5339785255bc}">
+        <Declaration><![CDATA[METHOD PUBLIC Check_LREAL_TO_WORD_Upper
+VAR
+	value : LREAL := DatatypeLimits.MAX_VALUE_OF_LREAL_WHICH_CAN_BE_HELD_IN_A_WORD;
+	actual : WORD;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[TEST('Check_LREAL_TO_WORD_Upper');
+
+// @TEST-RUN
+converted := TryConvert_LREAL_TO_Destination(value, actual);
+equal := actual = LREAL_TO_WORD(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert LREAL to WORD correctly');
+AssertTrue(Condition := converted, Message := 'Did not report LREAL to WORD conversion was successful');
+
+TEST_FINISHED();]]></ST>
+        </Implementation>
+      </Method>
+    
+      <Method Name="Check_LREAL_TO_WORD_Lower" Id="{044fdc7d-dc66-4ce1-a15b-e9273411ac5d}">
+        <Declaration><![CDATA[METHOD PUBLIC Check_LREAL_TO_WORD_Lower
+VAR
+	value : LREAL := DatatypeLimits.MIN_VALUE_OF_LREAL_WHICH_CAN_BE_HELD_IN_A_WORD;
+	actual : WORD;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[TEST('Check_LREAL_TO_WORD_Lower');
+
+// @TEST-RUN
+converted := TryConvert_LREAL_TO_Destination(value, actual);
+equal := actual = LREAL_TO_WORD(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert LREAL to WORD correctly');
+AssertTrue(Condition := converted, Message := 'Did not report LREAL to WORD conversion was successful');
+
+TEST_FINISHED();]]></ST>
+        </Implementation>
+      </Method>
+    
+      <Method Name="Check_LREAL_TO_WORD_TooHigh" Id="{904904d2-fa8c-475b-84c7-34b18625f67f}">
+        <Declaration><![CDATA[METHOD PUBLIC Check_LREAL_TO_WORD_TooHigh
+VAR
+	value : LREAL := DatatypeLimits.LREAL_UPPER_LIMIT;
+	actual : WORD;
+	converted : BOOL;
+END_VAR]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[TEST('Check_LREAL_TO_WORD_TooHigh');
+
+// @TEST-RUN
+converted := TryConvert_LREAL_TO_Destination(value, actual);
+
+// @TEST-ASSERT
+AssertFalse(Condition := converted, Message := 'Did not report LREAL to WORD conversion was prevented');
+
+TEST_FINISHED();]]></ST>
+        </Implementation>
+      </Method>
+    
+      <Method Name="Check_LREAL_TO_WORD_TooLow" Id="{ffc1fe8f-4490-4333-993e-1f295d2de17d}">
+        <Declaration><![CDATA[METHOD PUBLIC Check_LREAL_TO_WORD_TooLow
+VAR
+	value : LREAL := DatatypeLimits.LREAL_LOWER_LIMIT;
+	actual : WORD;
+	converted : BOOL;
+END_VAR]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[TEST('Check_LREAL_TO_WORD_TooLow');
+
+// @TEST-RUN
+converted := TryConvert_LREAL_TO_Destination(value, actual);
+
+// @TEST-ASSERT
+AssertFalse(Condition := converted, Message := 'Did not report LREAL to WORD conversion was prevented');
+
+TEST_FINISHED();]]></ST>
+        </Implementation>
+      </Method>
+    
+      <Method Name="Check_LREAL_TO_DWORD_Upper" Id="{02dcde96-890e-469b-a8eb-10735d6a9e4b}">
+        <Declaration><![CDATA[METHOD PUBLIC Check_LREAL_TO_DWORD_Upper
+VAR
+	value : LREAL := DatatypeLimits.MAX_VALUE_OF_LREAL_WHICH_CAN_BE_HELD_IN_A_DWORD;
+	actual : DWORD;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[TEST('Check_LREAL_TO_DWORD_Upper');
+
+// @TEST-RUN
+converted := TryConvert_LREAL_TO_Destination(value, actual);
+equal := actual = LREAL_TO_DWORD(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert LREAL to DWORD correctly');
+AssertTrue(Condition := converted, Message := 'Did not report LREAL to DWORD conversion was successful');
+
+TEST_FINISHED();]]></ST>
+        </Implementation>
+      </Method>
+    
+      <Method Name="Check_LREAL_TO_DWORD_Lower" Id="{43ed7df7-6f26-4cc0-8ae6-8d5c6fad438b}">
+        <Declaration><![CDATA[METHOD PUBLIC Check_LREAL_TO_DWORD_Lower
+VAR
+	value : LREAL := DatatypeLimits.MIN_VALUE_OF_LREAL_WHICH_CAN_BE_HELD_IN_A_DWORD;
+	actual : DWORD;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[TEST('Check_LREAL_TO_DWORD_Lower');
+
+// @TEST-RUN
+converted := TryConvert_LREAL_TO_Destination(value, actual);
+equal := actual = LREAL_TO_DWORD(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert LREAL to DWORD correctly');
+AssertTrue(Condition := converted, Message := 'Did not report LREAL to DWORD conversion was successful');
+
+TEST_FINISHED();]]></ST>
+        </Implementation>
+      </Method>
+    
+      <Method Name="Check_LREAL_TO_DWORD_TooHigh" Id="{b4ee4e7b-0610-4a06-8d13-e0b2338adb71}">
+        <Declaration><![CDATA[METHOD PUBLIC Check_LREAL_TO_DWORD_TooHigh
+VAR
+	value : LREAL := DatatypeLimits.LREAL_UPPER_LIMIT;
+	actual : DWORD;
+	converted : BOOL;
+END_VAR]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[TEST('Check_LREAL_TO_DWORD_TooHigh');
+
+// @TEST-RUN
+converted := TryConvert_LREAL_TO_Destination(value, actual);
+
+// @TEST-ASSERT
+AssertFalse(Condition := converted, Message := 'Did not report LREAL to DWORD conversion was prevented');
+
+TEST_FINISHED();]]></ST>
+        </Implementation>
+      </Method>
+    
+      <Method Name="Check_LREAL_TO_DWORD_TooLow" Id="{655c2a8c-28a6-4640-9ff4-68f607fcf5a4}">
+        <Declaration><![CDATA[METHOD PUBLIC Check_LREAL_TO_DWORD_TooLow
+VAR
+	value : LREAL := DatatypeLimits.LREAL_LOWER_LIMIT;
+	actual : DWORD;
+	converted : BOOL;
+END_VAR]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[TEST('Check_LREAL_TO_DWORD_TooLow');
+
+// @TEST-RUN
+converted := TryConvert_LREAL_TO_Destination(value, actual);
+
+// @TEST-ASSERT
+AssertFalse(Condition := converted, Message := 'Did not report LREAL to DWORD conversion was prevented');
+
+TEST_FINISHED();]]></ST>
+        </Implementation>
+      </Method>
+    
+      <Method Name="Check_LREAL_TO_LWORD_Upper" Id="{3a5aa79f-0e56-4087-9ff5-c21cdfcedeb0}">
+        <Declaration><![CDATA[METHOD PUBLIC Check_LREAL_TO_LWORD_Upper
+VAR
+	value : LREAL := DatatypeLimits.MAX_VALUE_OF_LREAL_WHICH_CAN_BE_HELD_IN_A_LWORD;
+	actual : LWORD;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[TEST('Check_LREAL_TO_LWORD_Upper');
+
+// @TEST-RUN
+converted := TryConvert_LREAL_TO_Destination(value, actual);
+equal := actual = LREAL_TO_LWORD(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert LREAL to LWORD correctly');
+AssertTrue(Condition := converted, Message := 'Did not report LREAL to LWORD conversion was successful');
+
+TEST_FINISHED();]]></ST>
+        </Implementation>
+      </Method>
+    
+      <Method Name="Check_LREAL_TO_LWORD_Lower" Id="{f68b28af-f5fb-43ba-88d5-e877faa02f7b}">
+        <Declaration><![CDATA[METHOD PUBLIC Check_LREAL_TO_LWORD_Lower
+VAR
+	value : LREAL := DatatypeLimits.MIN_VALUE_OF_LREAL_WHICH_CAN_BE_HELD_IN_A_LWORD;
+	actual : LWORD;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[TEST('Check_LREAL_TO_LWORD_Lower');
+
+// @TEST-RUN
+converted := TryConvert_LREAL_TO_Destination(value, actual);
+equal := actual = LREAL_TO_LWORD(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert LREAL to LWORD correctly');
+AssertTrue(Condition := converted, Message := 'Did not report LREAL to LWORD conversion was successful');
+
+TEST_FINISHED();]]></ST>
+        </Implementation>
+      </Method>
+    
+      <Method Name="Check_LREAL_TO_LWORD_TooHigh" Id="{4b3cf171-92aa-46ca-9d93-7a401397dc47}">
+        <Declaration><![CDATA[METHOD PUBLIC Check_LREAL_TO_LWORD_TooHigh
+VAR
+	value : LREAL := DatatypeLimits.LREAL_UPPER_LIMIT;
+	actual : LWORD;
+	converted : BOOL;
+END_VAR]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[TEST('Check_LREAL_TO_LWORD_TooHigh');
+
+// @TEST-RUN
+converted := TryConvert_LREAL_TO_Destination(value, actual);
+
+// @TEST-ASSERT
+AssertFalse(Condition := converted, Message := 'Did not report LREAL to LWORD conversion was prevented');
+
+TEST_FINISHED();]]></ST>
+        </Implementation>
+      </Method>
+    
+      <Method Name="Check_LREAL_TO_LWORD_TooLow" Id="{ed4af8cf-a692-4b98-901e-93a97f199d98}">
+        <Declaration><![CDATA[METHOD PUBLIC Check_LREAL_TO_LWORD_TooLow
+VAR
+	value : LREAL := DatatypeLimits.LREAL_LOWER_LIMIT;
+	actual : LWORD;
+	converted : BOOL;
+END_VAR]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[TEST('Check_LREAL_TO_LWORD_TooLow');
+
+// @TEST-RUN
+converted := TryConvert_LREAL_TO_Destination(value, actual);
+
+// @TEST-ASSERT
+AssertFalse(Condition := converted, Message := 'Did not report LREAL to LWORD conversion was prevented');
+
+TEST_FINISHED();]]></ST>
+        </Implementation>
+      </Method>
+    
+      <Method Name="Check_LREAL_TO_SINT_Upper" Id="{f4df60bf-6247-4516-a1a7-27ac5d90ea04}">
+        <Declaration><![CDATA[METHOD PUBLIC Check_LREAL_TO_SINT_Upper
+VAR
+	value : LREAL := DatatypeLimits.MAX_VALUE_OF_LREAL_WHICH_CAN_BE_HELD_IN_A_SINT;
+	actual : SINT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[TEST('Check_LREAL_TO_SINT_Upper');
+
+// @TEST-RUN
+converted := TryConvert_LREAL_TO_Destination(value, actual);
+equal := actual = LREAL_TO_SINT(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert LREAL to SINT correctly');
+AssertTrue(Condition := converted, Message := 'Did not report LREAL to SINT conversion was successful');
+
+TEST_FINISHED();]]></ST>
+        </Implementation>
+      </Method>
+    
+      <Method Name="Check_LREAL_TO_SINT_Lower" Id="{c415831e-a821-45e8-9de1-6352fc945e4f}">
+        <Declaration><![CDATA[METHOD PUBLIC Check_LREAL_TO_SINT_Lower
+VAR
+	value : LREAL := DatatypeLimits.MIN_VALUE_OF_LREAL_WHICH_CAN_BE_HELD_IN_A_SINT;
+	actual : SINT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[TEST('Check_LREAL_TO_SINT_Lower');
+
+// @TEST-RUN
+converted := TryConvert_LREAL_TO_Destination(value, actual);
+equal := actual = LREAL_TO_SINT(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert LREAL to SINT correctly');
+AssertTrue(Condition := converted, Message := 'Did not report LREAL to SINT conversion was successful');
+
+TEST_FINISHED();]]></ST>
+        </Implementation>
+      </Method>
+    
+      <Method Name="Check_LREAL_TO_SINT_TooHigh" Id="{69339e2a-d5a6-44cc-a2ed-79fa2d29eb35}">
+        <Declaration><![CDATA[METHOD PUBLIC Check_LREAL_TO_SINT_TooHigh
+VAR
+	value : LREAL := DatatypeLimits.LREAL_UPPER_LIMIT;
+	actual : SINT;
+	converted : BOOL;
+END_VAR]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[TEST('Check_LREAL_TO_SINT_TooHigh');
+
+// @TEST-RUN
+converted := TryConvert_LREAL_TO_Destination(value, actual);
+
+// @TEST-ASSERT
+AssertFalse(Condition := converted, Message := 'Did not report LREAL to SINT conversion was prevented');
+
+TEST_FINISHED();]]></ST>
+        </Implementation>
+      </Method>
+    
+      <Method Name="Check_LREAL_TO_SINT_TooLow" Id="{f446f333-a4a3-4879-9e29-ef5a2ed91329}">
+        <Declaration><![CDATA[METHOD PUBLIC Check_LREAL_TO_SINT_TooLow
+VAR
+	value : LREAL := DatatypeLimits.LREAL_LOWER_LIMIT;
+	actual : SINT;
+	converted : BOOL;
+END_VAR]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[TEST('Check_LREAL_TO_SINT_TooLow');
+
+// @TEST-RUN
+converted := TryConvert_LREAL_TO_Destination(value, actual);
+
+// @TEST-ASSERT
+AssertFalse(Condition := converted, Message := 'Did not report LREAL to SINT conversion was prevented');
+
+TEST_FINISHED();]]></ST>
+        </Implementation>
+      </Method>
+    
+      <Method Name="Check_LREAL_TO_INT_Upper" Id="{7d138766-6e96-497a-8c6c-5e3c9749e81e}">
+        <Declaration><![CDATA[METHOD PUBLIC Check_LREAL_TO_INT_Upper
+VAR
+	value : LREAL := DatatypeLimits.MAX_VALUE_OF_LREAL_WHICH_CAN_BE_HELD_IN_A_INT;
+	actual : INT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[TEST('Check_LREAL_TO_INT_Upper');
+
+// @TEST-RUN
+converted := TryConvert_LREAL_TO_Destination(value, actual);
+equal := actual = LREAL_TO_INT(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert LREAL to INT correctly');
+AssertTrue(Condition := converted, Message := 'Did not report LREAL to INT conversion was successful');
+
+TEST_FINISHED();]]></ST>
+        </Implementation>
+      </Method>
+    
+      <Method Name="Check_LREAL_TO_INT_Lower" Id="{70d3ae19-b88e-4bdc-b936-7f3299134a00}">
+        <Declaration><![CDATA[METHOD PUBLIC Check_LREAL_TO_INT_Lower
+VAR
+	value : LREAL := DatatypeLimits.MIN_VALUE_OF_LREAL_WHICH_CAN_BE_HELD_IN_A_INT;
+	actual : INT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[TEST('Check_LREAL_TO_INT_Lower');
+
+// @TEST-RUN
+converted := TryConvert_LREAL_TO_Destination(value, actual);
+equal := actual = LREAL_TO_INT(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert LREAL to INT correctly');
+AssertTrue(Condition := converted, Message := 'Did not report LREAL to INT conversion was successful');
+
+TEST_FINISHED();]]></ST>
+        </Implementation>
+      </Method>
+    
+      <Method Name="Check_LREAL_TO_INT_TooHigh" Id="{02aecfea-be2a-47e1-a634-cbf7afcb56ad}">
+        <Declaration><![CDATA[METHOD PUBLIC Check_LREAL_TO_INT_TooHigh
+VAR
+	value : LREAL := DatatypeLimits.LREAL_UPPER_LIMIT;
+	actual : INT;
+	converted : BOOL;
+END_VAR]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[TEST('Check_LREAL_TO_INT_TooHigh');
+
+// @TEST-RUN
+converted := TryConvert_LREAL_TO_Destination(value, actual);
+
+// @TEST-ASSERT
+AssertFalse(Condition := converted, Message := 'Did not report LREAL to INT conversion was prevented');
+
+TEST_FINISHED();]]></ST>
+        </Implementation>
+      </Method>
+    
+      <Method Name="Check_LREAL_TO_INT_TooLow" Id="{caa6ea16-3eb0-43a2-b001-996163786f6c}">
+        <Declaration><![CDATA[METHOD PUBLIC Check_LREAL_TO_INT_TooLow
+VAR
+	value : LREAL := DatatypeLimits.LREAL_LOWER_LIMIT;
+	actual : INT;
+	converted : BOOL;
+END_VAR]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[TEST('Check_LREAL_TO_INT_TooLow');
+
+// @TEST-RUN
+converted := TryConvert_LREAL_TO_Destination(value, actual);
+
+// @TEST-ASSERT
+AssertFalse(Condition := converted, Message := 'Did not report LREAL to INT conversion was prevented');
+
+TEST_FINISHED();]]></ST>
+        </Implementation>
+      </Method>
+    
+      <Method Name="Check_LREAL_TO_DINT_Upper" Id="{54d69bf3-d2d9-4afc-a824-17305968f105}">
+        <Declaration><![CDATA[METHOD PUBLIC Check_LREAL_TO_DINT_Upper
+VAR
+	value : LREAL := DatatypeLimits.MAX_VALUE_OF_LREAL_WHICH_CAN_BE_HELD_IN_A_DINT;
+	actual : DINT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[TEST('Check_LREAL_TO_DINT_Upper');
+
+// @TEST-RUN
+converted := TryConvert_LREAL_TO_Destination(value, actual);
+equal := actual = LREAL_TO_DINT(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert LREAL to DINT correctly');
+AssertTrue(Condition := converted, Message := 'Did not report LREAL to DINT conversion was successful');
+
+TEST_FINISHED();]]></ST>
+        </Implementation>
+      </Method>
+    
+      <Method Name="Check_LREAL_TO_DINT_Lower" Id="{5c318db9-abea-4374-9a36-f63cdc84760c}">
+        <Declaration><![CDATA[METHOD PUBLIC Check_LREAL_TO_DINT_Lower
+VAR
+	value : LREAL := DatatypeLimits.MIN_VALUE_OF_LREAL_WHICH_CAN_BE_HELD_IN_A_DINT;
+	actual : DINT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[TEST('Check_LREAL_TO_DINT_Lower');
+
+// @TEST-RUN
+converted := TryConvert_LREAL_TO_Destination(value, actual);
+equal := actual = LREAL_TO_DINT(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert LREAL to DINT correctly');
+AssertTrue(Condition := converted, Message := 'Did not report LREAL to DINT conversion was successful');
+
+TEST_FINISHED();]]></ST>
+        </Implementation>
+      </Method>
+    
+      <Method Name="Check_LREAL_TO_DINT_TooHigh" Id="{79ce9264-bbdf-40f0-bee0-eb5849676f6e}">
+        <Declaration><![CDATA[METHOD PUBLIC Check_LREAL_TO_DINT_TooHigh
+VAR
+	value : LREAL := DatatypeLimits.LREAL_UPPER_LIMIT;
+	actual : DINT;
+	converted : BOOL;
+END_VAR]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[TEST('Check_LREAL_TO_DINT_TooHigh');
+
+// @TEST-RUN
+converted := TryConvert_LREAL_TO_Destination(value, actual);
+
+// @TEST-ASSERT
+AssertFalse(Condition := converted, Message := 'Did not report LREAL to DINT conversion was prevented');
+
+TEST_FINISHED();]]></ST>
+        </Implementation>
+      </Method>
+    
+      <Method Name="Check_LREAL_TO_DINT_TooLow" Id="{7637db86-d6d3-4dba-86fb-bdc612910d96}">
+        <Declaration><![CDATA[METHOD PUBLIC Check_LREAL_TO_DINT_TooLow
+VAR
+	value : LREAL := DatatypeLimits.LREAL_LOWER_LIMIT;
+	actual : DINT;
+	converted : BOOL;
+END_VAR]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[TEST('Check_LREAL_TO_DINT_TooLow');
+
+// @TEST-RUN
+converted := TryConvert_LREAL_TO_Destination(value, actual);
+
+// @TEST-ASSERT
+AssertFalse(Condition := converted, Message := 'Did not report LREAL to DINT conversion was prevented');
+
+TEST_FINISHED();]]></ST>
+        </Implementation>
+      </Method>
+    
+      <Method Name="Check_LREAL_TO_LINT_Upper" Id="{67a6385a-e1c6-45bd-a404-9ecca5c2bd4a}">
+        <Declaration><![CDATA[METHOD PUBLIC Check_LREAL_TO_LINT_Upper
+VAR
+	value : LREAL := DatatypeLimits.MAX_VALUE_OF_LREAL_WHICH_CAN_BE_HELD_IN_A_LINT;
+	actual : LINT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[TEST('Check_LREAL_TO_LINT_Upper');
+
+// @TEST-RUN
+converted := TryConvert_LREAL_TO_Destination(value, actual);
+equal := actual = LREAL_TO_LINT(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert LREAL to LINT correctly');
+AssertTrue(Condition := converted, Message := 'Did not report LREAL to LINT conversion was successful');
+
+TEST_FINISHED();]]></ST>
+        </Implementation>
+      </Method>
+    
+      <Method Name="Check_LREAL_TO_LINT_Lower" Id="{3dcfe678-daf2-49c9-b3ce-0e8f3ff65106}">
+        <Declaration><![CDATA[METHOD PUBLIC Check_LREAL_TO_LINT_Lower
+VAR
+	value : LREAL := DatatypeLimits.MIN_VALUE_OF_LREAL_WHICH_CAN_BE_HELD_IN_A_LINT;
+	actual : LINT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[TEST('Check_LREAL_TO_LINT_Lower');
+
+// @TEST-RUN
+converted := TryConvert_LREAL_TO_Destination(value, actual);
+equal := actual = LREAL_TO_LINT(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert LREAL to LINT correctly');
+AssertTrue(Condition := converted, Message := 'Did not report LREAL to LINT conversion was successful');
+
+TEST_FINISHED();]]></ST>
+        </Implementation>
+      </Method>
+    
+      <Method Name="Check_LREAL_TO_LINT_TooHigh" Id="{20f9d196-d2a5-44a7-bbdf-aa4146944f4b}">
+        <Declaration><![CDATA[METHOD PUBLIC Check_LREAL_TO_LINT_TooHigh
+VAR
+	value : LREAL := DatatypeLimits.LREAL_UPPER_LIMIT;
+	actual : LINT;
+	converted : BOOL;
+END_VAR]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[TEST('Check_LREAL_TO_LINT_TooHigh');
+
+// @TEST-RUN
+converted := TryConvert_LREAL_TO_Destination(value, actual);
+
+// @TEST-ASSERT
+AssertFalse(Condition := converted, Message := 'Did not report LREAL to LINT conversion was prevented');
+
+TEST_FINISHED();]]></ST>
+        </Implementation>
+      </Method>
+    
+      <Method Name="Check_LREAL_TO_LINT_TooLow" Id="{0afc8119-6464-493d-b11d-02d8a9764808}">
+        <Declaration><![CDATA[METHOD PUBLIC Check_LREAL_TO_LINT_TooLow
+VAR
+	value : LREAL := DatatypeLimits.LREAL_LOWER_LIMIT;
+	actual : LINT;
+	converted : BOOL;
+END_VAR]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[TEST('Check_LREAL_TO_LINT_TooLow');
+
+// @TEST-RUN
+converted := TryConvert_LREAL_TO_Destination(value, actual);
+
+// @TEST-ASSERT
+AssertFalse(Condition := converted, Message := 'Did not report LREAL to LINT conversion was prevented');
+
+TEST_FINISHED();]]></ST>
+        </Implementation>
+      </Method>
+    
+      <Method Name="Check_LREAL_TO_USINT_Upper" Id="{6724de20-9765-498c-bbcd-40244282bac7}">
+        <Declaration><![CDATA[METHOD PUBLIC Check_LREAL_TO_USINT_Upper
+VAR
+	value : LREAL := DatatypeLimits.MAX_VALUE_OF_LREAL_WHICH_CAN_BE_HELD_IN_A_USINT;
+	actual : USINT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[TEST('Check_LREAL_TO_USINT_Upper');
+
+// @TEST-RUN
+converted := TryConvert_LREAL_TO_Destination(value, actual);
+equal := actual = LREAL_TO_USINT(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert LREAL to USINT correctly');
+AssertTrue(Condition := converted, Message := 'Did not report LREAL to USINT conversion was successful');
+
+TEST_FINISHED();]]></ST>
+        </Implementation>
+      </Method>
+    
+      <Method Name="Check_LREAL_TO_USINT_Lower" Id="{87c20d8d-a135-49c0-8dbf-a0efe34524de}">
+        <Declaration><![CDATA[METHOD PUBLIC Check_LREAL_TO_USINT_Lower
+VAR
+	value : LREAL := DatatypeLimits.MIN_VALUE_OF_LREAL_WHICH_CAN_BE_HELD_IN_A_USINT;
+	actual : USINT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[TEST('Check_LREAL_TO_USINT_Lower');
+
+// @TEST-RUN
+converted := TryConvert_LREAL_TO_Destination(value, actual);
+equal := actual = LREAL_TO_USINT(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert LREAL to USINT correctly');
+AssertTrue(Condition := converted, Message := 'Did not report LREAL to USINT conversion was successful');
+
+TEST_FINISHED();]]></ST>
+        </Implementation>
+      </Method>
+    
+      <Method Name="Check_LREAL_TO_USINT_TooHigh" Id="{fd5fa709-2014-4f0f-af96-bfeb3a99c76c}">
+        <Declaration><![CDATA[METHOD PUBLIC Check_LREAL_TO_USINT_TooHigh
+VAR
+	value : LREAL := DatatypeLimits.LREAL_UPPER_LIMIT;
+	actual : USINT;
+	converted : BOOL;
+END_VAR]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[TEST('Check_LREAL_TO_USINT_TooHigh');
+
+// @TEST-RUN
+converted := TryConvert_LREAL_TO_Destination(value, actual);
+
+// @TEST-ASSERT
+AssertFalse(Condition := converted, Message := 'Did not report LREAL to USINT conversion was prevented');
+
+TEST_FINISHED();]]></ST>
+        </Implementation>
+      </Method>
+    
+      <Method Name="Check_LREAL_TO_USINT_TooLow" Id="{944a1980-4f40-40e7-8d93-aa87fad53a8d}">
+        <Declaration><![CDATA[METHOD PUBLIC Check_LREAL_TO_USINT_TooLow
+VAR
+	value : LREAL := DatatypeLimits.LREAL_LOWER_LIMIT;
+	actual : USINT;
+	converted : BOOL;
+END_VAR]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[TEST('Check_LREAL_TO_USINT_TooLow');
+
+// @TEST-RUN
+converted := TryConvert_LREAL_TO_Destination(value, actual);
+
+// @TEST-ASSERT
+AssertFalse(Condition := converted, Message := 'Did not report LREAL to USINT conversion was prevented');
+
+TEST_FINISHED();]]></ST>
+        </Implementation>
+      </Method>
+    
+      <Method Name="Check_LREAL_TO_UINT_Upper" Id="{d7f06c44-57bf-4b87-866d-5d49e63049d0}">
+        <Declaration><![CDATA[METHOD PUBLIC Check_LREAL_TO_UINT_Upper
+VAR
+	value : LREAL := DatatypeLimits.MAX_VALUE_OF_LREAL_WHICH_CAN_BE_HELD_IN_A_UINT;
+	actual : UINT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[TEST('Check_LREAL_TO_UINT_Upper');
+
+// @TEST-RUN
+converted := TryConvert_LREAL_TO_Destination(value, actual);
+equal := actual = LREAL_TO_UINT(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert LREAL to UINT correctly');
+AssertTrue(Condition := converted, Message := 'Did not report LREAL to UINT conversion was successful');
+
+TEST_FINISHED();]]></ST>
+        </Implementation>
+      </Method>
+    
+      <Method Name="Check_LREAL_TO_UINT_Lower" Id="{9473dc3d-0c15-4140-b270-52404f2a6dee}">
+        <Declaration><![CDATA[METHOD PUBLIC Check_LREAL_TO_UINT_Lower
+VAR
+	value : LREAL := DatatypeLimits.MIN_VALUE_OF_LREAL_WHICH_CAN_BE_HELD_IN_A_UINT;
+	actual : UINT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[TEST('Check_LREAL_TO_UINT_Lower');
+
+// @TEST-RUN
+converted := TryConvert_LREAL_TO_Destination(value, actual);
+equal := actual = LREAL_TO_UINT(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert LREAL to UINT correctly');
+AssertTrue(Condition := converted, Message := 'Did not report LREAL to UINT conversion was successful');
+
+TEST_FINISHED();]]></ST>
+        </Implementation>
+      </Method>
+    
+      <Method Name="Check_LREAL_TO_UINT_TooHigh" Id="{b5053603-f15b-448b-a5b6-516b47bafb4e}">
+        <Declaration><![CDATA[METHOD PUBLIC Check_LREAL_TO_UINT_TooHigh
+VAR
+	value : LREAL := DatatypeLimits.LREAL_UPPER_LIMIT;
+	actual : UINT;
+	converted : BOOL;
+END_VAR]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[TEST('Check_LREAL_TO_UINT_TooHigh');
+
+// @TEST-RUN
+converted := TryConvert_LREAL_TO_Destination(value, actual);
+
+// @TEST-ASSERT
+AssertFalse(Condition := converted, Message := 'Did not report LREAL to UINT conversion was prevented');
+
+TEST_FINISHED();]]></ST>
+        </Implementation>
+      </Method>
+    
+      <Method Name="Check_LREAL_TO_UINT_TooLow" Id="{d8cc4761-507d-483b-a97b-4f67b5362f4d}">
+        <Declaration><![CDATA[METHOD PUBLIC Check_LREAL_TO_UINT_TooLow
+VAR
+	value : LREAL := DatatypeLimits.LREAL_LOWER_LIMIT;
+	actual : UINT;
+	converted : BOOL;
+END_VAR]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[TEST('Check_LREAL_TO_UINT_TooLow');
+
+// @TEST-RUN
+converted := TryConvert_LREAL_TO_Destination(value, actual);
+
+// @TEST-ASSERT
+AssertFalse(Condition := converted, Message := 'Did not report LREAL to UINT conversion was prevented');
+
+TEST_FINISHED();]]></ST>
+        </Implementation>
+      </Method>
+    
+      <Method Name="Check_LREAL_TO_UDINT_Upper" Id="{a6f8b052-9b8e-4efe-9d61-da6d5355a5cf}">
+        <Declaration><![CDATA[METHOD PUBLIC Check_LREAL_TO_UDINT_Upper
+VAR
+	value : LREAL := DatatypeLimits.MAX_VALUE_OF_LREAL_WHICH_CAN_BE_HELD_IN_A_UDINT;
+	actual : UDINT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[TEST('Check_LREAL_TO_UDINT_Upper');
+
+// @TEST-RUN
+converted := TryConvert_LREAL_TO_Destination(value, actual);
+equal := actual = LREAL_TO_UDINT(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert LREAL to UDINT correctly');
+AssertTrue(Condition := converted, Message := 'Did not report LREAL to UDINT conversion was successful');
+
+TEST_FINISHED();]]></ST>
+        </Implementation>
+      </Method>
+    
+      <Method Name="Check_LREAL_TO_UDINT_Lower" Id="{e94db034-e307-4c63-ab33-11b9ada86b9c}">
+        <Declaration><![CDATA[METHOD PUBLIC Check_LREAL_TO_UDINT_Lower
+VAR
+	value : LREAL := DatatypeLimits.MIN_VALUE_OF_LREAL_WHICH_CAN_BE_HELD_IN_A_UDINT;
+	actual : UDINT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[TEST('Check_LREAL_TO_UDINT_Lower');
+
+// @TEST-RUN
+converted := TryConvert_LREAL_TO_Destination(value, actual);
+equal := actual = LREAL_TO_UDINT(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert LREAL to UDINT correctly');
+AssertTrue(Condition := converted, Message := 'Did not report LREAL to UDINT conversion was successful');
+
+TEST_FINISHED();]]></ST>
+        </Implementation>
+      </Method>
+    
+      <Method Name="Check_LREAL_TO_UDINT_TooHigh" Id="{54f7ca00-a1cc-4971-80dd-b0be5e407ff0}">
+        <Declaration><![CDATA[METHOD PUBLIC Check_LREAL_TO_UDINT_TooHigh
+VAR
+	value : LREAL := DatatypeLimits.LREAL_UPPER_LIMIT;
+	actual : UDINT;
+	converted : BOOL;
+END_VAR]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[TEST('Check_LREAL_TO_UDINT_TooHigh');
+
+// @TEST-RUN
+converted := TryConvert_LREAL_TO_Destination(value, actual);
+
+// @TEST-ASSERT
+AssertFalse(Condition := converted, Message := 'Did not report LREAL to UDINT conversion was prevented');
+
+TEST_FINISHED();]]></ST>
+        </Implementation>
+      </Method>
+    
+      <Method Name="Check_LREAL_TO_UDINT_TooLow" Id="{812d33da-040d-4b19-bf63-ace8fbff0d56}">
+        <Declaration><![CDATA[METHOD PUBLIC Check_LREAL_TO_UDINT_TooLow
+VAR
+	value : LREAL := DatatypeLimits.LREAL_LOWER_LIMIT;
+	actual : UDINT;
+	converted : BOOL;
+END_VAR]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[TEST('Check_LREAL_TO_UDINT_TooLow');
+
+// @TEST-RUN
+converted := TryConvert_LREAL_TO_Destination(value, actual);
+
+// @TEST-ASSERT
+AssertFalse(Condition := converted, Message := 'Did not report LREAL to UDINT conversion was prevented');
+
+TEST_FINISHED();]]></ST>
+        </Implementation>
+      </Method>
+    
+      <Method Name="Check_LREAL_TO_ULINT_Upper" Id="{4d278f4e-a145-4775-98ec-a7579eaf97db}">
+        <Declaration><![CDATA[METHOD PUBLIC Check_LREAL_TO_ULINT_Upper
+VAR
+	value : LREAL := DatatypeLimits.MAX_VALUE_OF_LREAL_WHICH_CAN_BE_HELD_IN_A_ULINT;
+	actual : ULINT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[TEST('Check_LREAL_TO_ULINT_Upper');
+
+// @TEST-RUN
+converted := TryConvert_LREAL_TO_Destination(value, actual);
+equal := actual = LREAL_TO_ULINT(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert LREAL to ULINT correctly');
+AssertTrue(Condition := converted, Message := 'Did not report LREAL to ULINT conversion was successful');
+
+TEST_FINISHED();]]></ST>
+        </Implementation>
+      </Method>
+    
+      <Method Name="Check_LREAL_TO_ULINT_Lower" Id="{3942aaf7-4104-4871-af57-4159ed39391e}">
+        <Declaration><![CDATA[METHOD PUBLIC Check_LREAL_TO_ULINT_Lower
+VAR
+	value : LREAL := DatatypeLimits.MIN_VALUE_OF_LREAL_WHICH_CAN_BE_HELD_IN_A_ULINT;
+	actual : ULINT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[TEST('Check_LREAL_TO_ULINT_Lower');
+
+// @TEST-RUN
+converted := TryConvert_LREAL_TO_Destination(value, actual);
+equal := actual = LREAL_TO_ULINT(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert LREAL to ULINT correctly');
+AssertTrue(Condition := converted, Message := 'Did not report LREAL to ULINT conversion was successful');
+
+TEST_FINISHED();]]></ST>
+        </Implementation>
+      </Method>
+    
+      <Method Name="Check_LREAL_TO_ULINT_TooHigh" Id="{a7924eef-df2d-4e5c-8791-2c1eda033643}">
+        <Declaration><![CDATA[METHOD PUBLIC Check_LREAL_TO_ULINT_TooHigh
+VAR
+	value : LREAL := DatatypeLimits.LREAL_UPPER_LIMIT;
+	actual : ULINT;
+	converted : BOOL;
+END_VAR]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[TEST('Check_LREAL_TO_ULINT_TooHigh');
+
+// @TEST-RUN
+converted := TryConvert_LREAL_TO_Destination(value, actual);
+
+// @TEST-ASSERT
+AssertFalse(Condition := converted, Message := 'Did not report LREAL to ULINT conversion was prevented');
+
+TEST_FINISHED();]]></ST>
+        </Implementation>
+      </Method>
+    
+      <Method Name="Check_LREAL_TO_ULINT_TooLow" Id="{0a9b748b-3d6b-4d90-83aa-be962fc55b3c}">
+        <Declaration><![CDATA[METHOD PUBLIC Check_LREAL_TO_ULINT_TooLow
+VAR
+	value : LREAL := DatatypeLimits.LREAL_LOWER_LIMIT;
+	actual : ULINT;
+	converted : BOOL;
+END_VAR]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[TEST('Check_LREAL_TO_ULINT_TooLow');
+
+// @TEST-RUN
+converted := TryConvert_LREAL_TO_Destination(value, actual);
+
+// @TEST-ASSERT
+AssertFalse(Condition := converted, Message := 'Did not report LREAL to ULINT conversion was prevented');
+
+TEST_FINISHED();]]></ST>
+        </Implementation>
+      </Method>
+    
+      <Method Name="Check_LREAL_TO_REAL_Upper" Id="{69190003-e0f8-4935-93fb-d3f9c77a362b}">
+        <Declaration><![CDATA[METHOD PUBLIC Check_LREAL_TO_REAL_Upper
+VAR
+	value : LREAL := DatatypeLimits.MAX_VALUE_OF_LREAL_WHICH_CAN_BE_HELD_IN_A_REAL;
+	actual : REAL;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[TEST('Check_LREAL_TO_REAL_Upper');
+
+// @TEST-RUN
+converted := TryConvert_LREAL_TO_Destination(value, actual);
+equal := actual = LREAL_TO_REAL(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert LREAL to REAL correctly');
+AssertTrue(Condition := converted, Message := 'Did not report LREAL to REAL conversion was successful');
+
+TEST_FINISHED();]]></ST>
+        </Implementation>
+      </Method>
+    
+      <Method Name="Check_LREAL_TO_REAL_Lower" Id="{bffde52b-4497-4c66-9f27-078190dcd62a}">
+        <Declaration><![CDATA[METHOD PUBLIC Check_LREAL_TO_REAL_Lower
+VAR
+	value : LREAL := DatatypeLimits.MIN_VALUE_OF_LREAL_WHICH_CAN_BE_HELD_IN_A_REAL;
+	actual : REAL;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[TEST('Check_LREAL_TO_REAL_Lower');
+
+// @TEST-RUN
+converted := TryConvert_LREAL_TO_Destination(value, actual);
+equal := actual = LREAL_TO_REAL(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert LREAL to REAL correctly');
+AssertTrue(Condition := converted, Message := 'Did not report LREAL to REAL conversion was successful');
+
+TEST_FINISHED();]]></ST>
+        </Implementation>
+      </Method>
+    
+      <Method Name="Check_LREAL_TO_REAL_TooHigh" Id="{e5742dc2-2b15-4917-8bc0-243e53aa86b2}">
+        <Declaration><![CDATA[METHOD PUBLIC Check_LREAL_TO_REAL_TooHigh
+VAR
+	value : LREAL := DatatypeLimits.LREAL_UPPER_LIMIT;
+	actual : REAL;
+	converted : BOOL;
+END_VAR]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[TEST('Check_LREAL_TO_REAL_TooHigh');
+
+// @TEST-RUN
+converted := TryConvert_LREAL_TO_Destination(value, actual);
+
+// @TEST-ASSERT
+AssertFalse(Condition := converted, Message := 'Did not report LREAL to REAL conversion was prevented');
+
+TEST_FINISHED();]]></ST>
+        </Implementation>
+      </Method>
+    
+      <Method Name="Check_LREAL_TO_REAL_TooLow" Id="{71a5e304-f9de-420a-9770-d618cc8b4447}">
+        <Declaration><![CDATA[METHOD PUBLIC Check_LREAL_TO_REAL_TooLow
+VAR
+	value : LREAL := DatatypeLimits.LREAL_LOWER_LIMIT;
+	actual : REAL;
+	converted : BOOL;
+END_VAR]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[TEST('Check_LREAL_TO_REAL_TooLow');
+
+// @TEST-RUN
+converted := TryConvert_LREAL_TO_Destination(value, actual);
+
+// @TEST-ASSERT
+AssertFalse(Condition := converted, Message := 'Did not report LREAL to REAL conversion was prevented');
+
+TEST_FINISHED();]]></ST>
+        </Implementation>
+      </Method>
+    
+      <Method Name="Check_LREAL_TO_LREAL_Upper" Id="{3ce2ab66-7606-4647-bf49-9d414e24679f}">
+        <Declaration><![CDATA[METHOD PUBLIC Check_LREAL_TO_LREAL_Upper
+VAR
+	value : LREAL := DatatypeLimits.LREAL_UPPER_LIMIT;
+	actual : LREAL;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[TEST('Check_LREAL_TO_LREAL_Upper');
+
+// @TEST-RUN
+converted := TryConvert_LREAL_TO_Destination(value, actual);
+equal := actual = value;
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert LREAL to LREAL correctly');
+AssertTrue(Condition := converted, Message := 'Did not report LREAL to LREAL conversion was successful');
+
+TEST_FINISHED();]]></ST>
+        </Implementation>
+      </Method>
+    
+      <Method Name="Check_LREAL_TO_LREAL_Lower" Id="{5310e716-3620-4962-b222-5003b7097504}">
+        <Declaration><![CDATA[METHOD PUBLIC Check_LREAL_TO_LREAL_Lower
+VAR
+	value : LREAL := DatatypeLimits.LREAL_LOWER_LIMIT;
+	actual : LREAL;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[TEST('Check_LREAL_TO_LREAL_Lower');
+
+// @TEST-RUN
+converted := TryConvert_LREAL_TO_Destination(value, actual);
+equal := actual = value;
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert LREAL to LREAL correctly');
+AssertTrue(Condition := converted, Message := 'Did not report LREAL to LREAL conversion was successful');
+
+TEST_FINISHED();]]></ST>
+        </Implementation>
+      </Method>
+    
+      <Method Name="Check_LREAL_TO_TIME_Upper" Id="{7cc883ae-121f-4d6e-9507-2680b2f6e2c9}">
+        <Declaration><![CDATA[METHOD PUBLIC Check_LREAL_TO_TIME_Upper
+VAR
+	value : LREAL := DatatypeLimits.MAX_VALUE_OF_LREAL_WHICH_CAN_BE_HELD_IN_A_TIME;
+	actual : TIME;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[TEST('Check_LREAL_TO_TIME_Upper');
+
+// @TEST-RUN
+converted := TryConvert_LREAL_TO_Destination(value, actual);
+equal := actual = LREAL_TO_TIME(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert LREAL to TIME correctly');
+AssertTrue(Condition := converted, Message := 'Did not report LREAL to TIME conversion was successful');
+
+TEST_FINISHED();]]></ST>
+        </Implementation>
+      </Method>
+    
+      <Method Name="Check_LREAL_TO_TIME_Lower" Id="{4e8a64da-6326-4772-8897-e100fd92e6e2}">
+        <Declaration><![CDATA[METHOD PUBLIC Check_LREAL_TO_TIME_Lower
+VAR
+	value : LREAL := DatatypeLimits.MIN_VALUE_OF_LREAL_WHICH_CAN_BE_HELD_IN_A_TIME;
+	actual : TIME;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[TEST('Check_LREAL_TO_TIME_Lower');
+
+// @TEST-RUN
+converted := TryConvert_LREAL_TO_Destination(value, actual);
+equal := actual = LREAL_TO_TIME(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert LREAL to TIME correctly');
+AssertTrue(Condition := converted, Message := 'Did not report LREAL to TIME conversion was successful');
+
+TEST_FINISHED();]]></ST>
+        </Implementation>
+      </Method>
+    
+      <Method Name="Check_LREAL_TO_TIME_TooHigh" Id="{3b516186-d58f-4f05-87f7-95c5a2e256cb}">
+        <Declaration><![CDATA[METHOD PUBLIC Check_LREAL_TO_TIME_TooHigh
+VAR
+	value : LREAL := DatatypeLimits.LREAL_UPPER_LIMIT;
+	actual : TIME;
+	converted : BOOL;
+END_VAR]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[TEST('Check_LREAL_TO_TIME_TooHigh');
+
+// @TEST-RUN
+converted := TryConvert_LREAL_TO_Destination(value, actual);
+
+// @TEST-ASSERT
+AssertFalse(Condition := converted, Message := 'Did not report LREAL to TIME conversion was prevented');
+
+TEST_FINISHED();]]></ST>
+        </Implementation>
+      </Method>
+    
+      <Method Name="Check_LREAL_TO_TIME_TooLow" Id="{61dc34db-0437-4578-b987-20620a713a24}">
+        <Declaration><![CDATA[METHOD PUBLIC Check_LREAL_TO_TIME_TooLow
+VAR
+	value : LREAL := DatatypeLimits.LREAL_LOWER_LIMIT;
+	actual : TIME;
+	converted : BOOL;
+END_VAR]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[TEST('Check_LREAL_TO_TIME_TooLow');
+
+// @TEST-RUN
+converted := TryConvert_LREAL_TO_Destination(value, actual);
+
+// @TEST-ASSERT
+AssertFalse(Condition := converted, Message := 'Did not report LREAL to TIME conversion was prevented');
+
+TEST_FINISHED();]]></ST>
+        </Implementation>
+      </Method>
+    
+      <Method Name="Check_LREAL_TO_TOD_Upper" Id="{170a20b9-59ce-4ef8-adfa-334a37ce52d1}">
+        <Declaration><![CDATA[METHOD PUBLIC Check_LREAL_TO_TOD_Upper
+VAR
+	value : LREAL := DatatypeLimits.MAX_VALUE_OF_LREAL_WHICH_CAN_BE_HELD_IN_A_TOD;
+	actual : TOD;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[TEST('Check_LREAL_TO_TOD_Upper');
+
+// @TEST-RUN
+converted := TryConvert_LREAL_TO_Destination(value, actual);
+equal := actual = LREAL_TO_TOD(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert LREAL to TOD correctly');
+AssertTrue(Condition := converted, Message := 'Did not report LREAL to TOD conversion was successful');
+
+TEST_FINISHED();]]></ST>
+        </Implementation>
+      </Method>
+    
+      <Method Name="Check_LREAL_TO_TOD_Lower" Id="{296a1790-1f54-4bfb-8ddb-37849e980eca}">
+        <Declaration><![CDATA[METHOD PUBLIC Check_LREAL_TO_TOD_Lower
+VAR
+	value : LREAL := DatatypeLimits.MIN_VALUE_OF_LREAL_WHICH_CAN_BE_HELD_IN_A_TOD;
+	actual : TOD;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[TEST('Check_LREAL_TO_TOD_Lower');
+
+// @TEST-RUN
+converted := TryConvert_LREAL_TO_Destination(value, actual);
+equal := actual = LREAL_TO_TOD(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert LREAL to TOD correctly');
+AssertTrue(Condition := converted, Message := 'Did not report LREAL to TOD conversion was successful');
+
+TEST_FINISHED();]]></ST>
+        </Implementation>
+      </Method>
+    
+      <Method Name="Check_LREAL_TO_TOD_TooHigh" Id="{badc8ab0-7b3d-47e5-b413-f13c20f091ed}">
+        <Declaration><![CDATA[METHOD PUBLIC Check_LREAL_TO_TOD_TooHigh
+VAR
+	value : LREAL := DatatypeLimits.LREAL_UPPER_LIMIT;
+	actual : TOD;
+	converted : BOOL;
+END_VAR]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[TEST('Check_LREAL_TO_TOD_TooHigh');
+
+// @TEST-RUN
+converted := TryConvert_LREAL_TO_Destination(value, actual);
+
+// @TEST-ASSERT
+AssertFalse(Condition := converted, Message := 'Did not report LREAL to TOD conversion was prevented');
+
+TEST_FINISHED();]]></ST>
+        </Implementation>
+      </Method>
+    
+      <Method Name="Check_LREAL_TO_TOD_TooLow" Id="{721e22bd-998f-461e-91cf-55b0adf42f3c}">
+        <Declaration><![CDATA[METHOD PUBLIC Check_LREAL_TO_TOD_TooLow
+VAR
+	value : LREAL := DatatypeLimits.LREAL_LOWER_LIMIT;
+	actual : TOD;
+	converted : BOOL;
+END_VAR]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[TEST('Check_LREAL_TO_TOD_TooLow');
+
+// @TEST-RUN
+converted := TryConvert_LREAL_TO_Destination(value, actual);
+
+// @TEST-ASSERT
+AssertFalse(Condition := converted, Message := 'Did not report LREAL to TOD conversion was prevented');
+
+TEST_FINISHED();]]></ST>
+        </Implementation>
+      </Method>
+    
+      <Method Name="Check_LREAL_TO_DATE_Upper" Id="{2aada65b-71f8-458f-b11e-31e4e14993bf}">
+        <Declaration><![CDATA[METHOD PUBLIC Check_LREAL_TO_DATE_Upper
+VAR
+	value : LREAL := DatatypeLimits.MAX_VALUE_OF_LREAL_WHICH_CAN_BE_HELD_IN_A_DATE;
+	actual : DATE;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[TEST('Check_LREAL_TO_DATE_Upper');
+
+// @TEST-RUN
+converted := TryConvert_LREAL_TO_Destination(value, actual);
+equal := actual = LREAL_TO_DATE(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert LREAL to DATE correctly');
+AssertTrue(Condition := converted, Message := 'Did not report LREAL to DATE conversion was successful');
+
+TEST_FINISHED();]]></ST>
+        </Implementation>
+      </Method>
+    
+      <Method Name="Check_LREAL_TO_DATE_Lower" Id="{1ceebb4a-d338-4e8c-83c4-ac9fbcde0114}">
+        <Declaration><![CDATA[METHOD PUBLIC Check_LREAL_TO_DATE_Lower
+VAR
+	value : LREAL := DatatypeLimits.MIN_VALUE_OF_LREAL_WHICH_CAN_BE_HELD_IN_A_DATE;
+	actual : DATE;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[TEST('Check_LREAL_TO_DATE_Lower');
+
+// @TEST-RUN
+converted := TryConvert_LREAL_TO_Destination(value, actual);
+equal := actual = LREAL_TO_DATE(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert LREAL to DATE correctly');
+AssertTrue(Condition := converted, Message := 'Did not report LREAL to DATE conversion was successful');
+
+TEST_FINISHED();]]></ST>
+        </Implementation>
+      </Method>
+    
+      <Method Name="Check_LREAL_TO_DATE_TooHigh" Id="{d1048e48-7ef3-4c53-bb79-e8bf37625865}">
+        <Declaration><![CDATA[METHOD PUBLIC Check_LREAL_TO_DATE_TooHigh
+VAR
+	value : LREAL := DatatypeLimits.LREAL_UPPER_LIMIT;
+	actual : DATE;
+	converted : BOOL;
+END_VAR]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[TEST('Check_LREAL_TO_DATE_TooHigh');
+
+// @TEST-RUN
+converted := TryConvert_LREAL_TO_Destination(value, actual);
+
+// @TEST-ASSERT
+AssertFalse(Condition := converted, Message := 'Did not report LREAL to DATE conversion was prevented');
+
+TEST_FINISHED();]]></ST>
+        </Implementation>
+      </Method>
+    
+      <Method Name="Check_LREAL_TO_DATE_TooLow" Id="{8b108f0b-10c8-4e43-b862-c78f41d9d962}">
+        <Declaration><![CDATA[METHOD PUBLIC Check_LREAL_TO_DATE_TooLow
+VAR
+	value : LREAL := DatatypeLimits.LREAL_LOWER_LIMIT;
+	actual : DATE;
+	converted : BOOL;
+END_VAR]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[TEST('Check_LREAL_TO_DATE_TooLow');
+
+// @TEST-RUN
+converted := TryConvert_LREAL_TO_Destination(value, actual);
+
+// @TEST-ASSERT
+AssertFalse(Condition := converted, Message := 'Did not report LREAL to DATE conversion was prevented');
+
+TEST_FINISHED();]]></ST>
+        </Implementation>
+      </Method>
+    
+      <Method Name="Check_LREAL_TO_DT_Upper" Id="{118b28b1-4c59-40b5-b732-61567917c13f}">
+        <Declaration><![CDATA[METHOD PUBLIC Check_LREAL_TO_DT_Upper
+VAR
+	value : LREAL := DatatypeLimits.MAX_VALUE_OF_LREAL_WHICH_CAN_BE_HELD_IN_A_DT;
+	actual : DT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[TEST('Check_LREAL_TO_DT_Upper');
+
+// @TEST-RUN
+converted := TryConvert_LREAL_TO_Destination(value, actual);
+equal := actual = LREAL_TO_DT(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert LREAL to DT correctly');
+AssertTrue(Condition := converted, Message := 'Did not report LREAL to DT conversion was successful');
+
+TEST_FINISHED();]]></ST>
+        </Implementation>
+      </Method>
+    
+      <Method Name="Check_LREAL_TO_DT_Lower" Id="{89359b81-95e4-43ee-91ba-2c0180bf500f}">
+        <Declaration><![CDATA[METHOD PUBLIC Check_LREAL_TO_DT_Lower
+VAR
+	value : LREAL := DatatypeLimits.MIN_VALUE_OF_LREAL_WHICH_CAN_BE_HELD_IN_A_DT;
+	actual : DT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[TEST('Check_LREAL_TO_DT_Lower');
+
+// @TEST-RUN
+converted := TryConvert_LREAL_TO_Destination(value, actual);
+equal := actual = LREAL_TO_DT(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert LREAL to DT correctly');
+AssertTrue(Condition := converted, Message := 'Did not report LREAL to DT conversion was successful');
+
+TEST_FINISHED();]]></ST>
+        </Implementation>
+      </Method>
+    
+      <Method Name="Check_LREAL_TO_DT_TooHigh" Id="{03b1fde5-362a-4a8a-a179-eaf07bb45dbb}">
+        <Declaration><![CDATA[METHOD PUBLIC Check_LREAL_TO_DT_TooHigh
+VAR
+	value : LREAL := DatatypeLimits.LREAL_UPPER_LIMIT;
+	actual : DT;
+	converted : BOOL;
+END_VAR]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[TEST('Check_LREAL_TO_DT_TooHigh');
+
+// @TEST-RUN
+converted := TryConvert_LREAL_TO_Destination(value, actual);
+
+// @TEST-ASSERT
+AssertFalse(Condition := converted, Message := 'Did not report LREAL to DT conversion was prevented');
+
+TEST_FINISHED();]]></ST>
+        </Implementation>
+      </Method>
+    
+      <Method Name="Check_LREAL_TO_DT_TooLow" Id="{bf0fde8f-0ac5-4afe-ab12-709f8f7e2e1c}">
+        <Declaration><![CDATA[METHOD PUBLIC Check_LREAL_TO_DT_TooLow
+VAR
+	value : LREAL := DatatypeLimits.LREAL_LOWER_LIMIT;
+	actual : DT;
+	converted : BOOL;
+END_VAR]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[TEST('Check_LREAL_TO_DT_TooLow');
+
+// @TEST-RUN
+converted := TryConvert_LREAL_TO_Destination(value, actual);
+
+// @TEST-ASSERT
+AssertFalse(Condition := converted, Message := 'Did not report LREAL to DT conversion was prevented');
+
+TEST_FINISHED();]]></ST>
+        </Implementation>
+      </Method>
+    
+      <Method Name="Check_LREAL_TO_STRING_Upper" Id="{7847588c-435c-49d1-81d0-42ac759ccdf8}">
+        <Declaration><![CDATA[METHOD PUBLIC Check_LREAL_TO_STRING_Upper
+VAR
+	value : LREAL := DatatypeLimits.MAX_VALUE_OF_LREAL_WHICH_CAN_BE_HELD_IN_A_STRING;
+	actual : STRING;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[TEST('Check_LREAL_TO_STRING_Upper');
+
+// @TEST-RUN
+converted := TryConvert_LREAL_TO_Destination(value, actual);
+equal := actual = LREAL_TO_STRING(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert LREAL to STRING correctly');
+AssertTrue(Condition := converted, Message := 'Did not report LREAL to STRING conversion was successful');
+
+TEST_FINISHED();]]></ST>
+        </Implementation>
+      </Method>
+    
+      <Method Name="Check_LREAL_TO_STRING_Lower" Id="{5eeb9156-4af8-42e9-ba14-d890de4d1bef}">
+        <Declaration><![CDATA[METHOD PUBLIC Check_LREAL_TO_STRING_Lower
+VAR
+	value : LREAL := DatatypeLimits.MIN_VALUE_OF_LREAL_WHICH_CAN_BE_HELD_IN_A_STRING;
+	actual : STRING;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[TEST('Check_LREAL_TO_STRING_Lower');
+
+// @TEST-RUN
+converted := TryConvert_LREAL_TO_Destination(value, actual);
+equal := actual = LREAL_TO_STRING(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert LREAL to STRING correctly');
+AssertTrue(Condition := converted, Message := 'Did not report LREAL to STRING conversion was successful');
+
+TEST_FINISHED();]]></ST>
+        </Implementation>
+      </Method>
+    
+      <Method Name="Check_LREAL_TO_STRING_TooHigh" Id="{27ef000b-1c15-424e-84e7-b2ac939486d4}">
+        <Declaration><![CDATA[METHOD PUBLIC Check_LREAL_TO_STRING_TooHigh
+VAR
+	value : LREAL := DatatypeLimits.LREAL_UPPER_LIMIT;
+	actual : STRING;
+	converted : BOOL;
+END_VAR]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[TEST('Check_LREAL_TO_STRING_TooHigh');
+
+// @TEST-RUN
+converted := TryConvert_LREAL_TO_Destination(value, actual);
+
+// @TEST-ASSERT
+AssertFalse(Condition := converted, Message := 'Did not report LREAL to STRING conversion was prevented');
+
+TEST_FINISHED();]]></ST>
+        </Implementation>
+      </Method>
+    
+      <Method Name="Check_LREAL_TO_STRING_TooLow" Id="{efbc143e-95c5-4ec4-b0c3-e800f575e93c}">
+        <Declaration><![CDATA[METHOD PUBLIC Check_LREAL_TO_STRING_TooLow
+VAR
+	value : LREAL := DatatypeLimits.LREAL_LOWER_LIMIT;
+	actual : STRING;
+	converted : BOOL;
+END_VAR]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[TEST('Check_LREAL_TO_STRING_TooLow');
+
+// @TEST-RUN
+converted := TryConvert_LREAL_TO_Destination(value, actual);
+
+// @TEST-ASSERT
+AssertFalse(Condition := converted, Message := 'Did not report LREAL to STRING conversion was prevented');
+
+TEST_FINISHED();]]></ST>
+        </Implementation>
+      </Method>
+    
+  </POU>
+</TcPlcObject>

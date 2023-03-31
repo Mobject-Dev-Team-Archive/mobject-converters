@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="TryConvert_UDINT_TO_BYTE" Id="{b268473c-a2c5-47d4-ae10-cf275a0ac923}" SpecialFunc="None">
+      <Declaration><![CDATA[FUNCTION TryConvert_UDINT_TO_BYTE : BOOL
+VAR_INPUT
+	in : UDINT;
+	out : REFERENCE TO BYTE;
+END_VAR]]></Declaration>
+      <Implementation>
+          <ST><![CDATA[IF in > DatatypeLimits.MAX_VALUE_OF_UDINT_WHICH_CAN_BE_HELD_IN_A_BYTE THEN
+	RETURN;
+END_IF
+
+out := UDINT_TO_BYTE(in);
+TryConvert_UDINT_TO_BYTE := TRUE;]]></ST>
+      </Implementation>
+      
+  </POU>
+</TcPlcObject>

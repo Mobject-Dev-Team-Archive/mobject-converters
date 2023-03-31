@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="TryConvert_STRING_TO_USINT" Id="{c50da4ad-642c-4cf9-8984-cfbe58999add}" SpecialFunc="None">
+      <Declaration><![CDATA[FUNCTION TryConvert_STRING_TO_USINT : BOOL
+VAR_INPUT
+	in : STRING;
+	out : REFERENCE TO USINT;
+END_VAR]]></Declaration>
+      <Implementation>
+          <ST><![CDATA[IF in <> USINT_TO_STRING(STRING_TO_USINT(in)) THEN
+	RETURN;
+END_IF
+
+out := STRING_TO_USINT(in);
+TryConvert_STRING_TO_USINT := TRUE;]]></ST>
+      </Implementation>
+      
+  </POU>
+</TcPlcObject>

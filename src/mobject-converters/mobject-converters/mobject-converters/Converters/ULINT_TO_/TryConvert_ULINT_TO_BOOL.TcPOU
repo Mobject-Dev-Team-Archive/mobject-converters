@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="TryConvert_ULINT_TO_BOOL" Id="{b4f8a3f2-af0b-4a51-83cd-cf7c5771bb21}" SpecialFunc="None">
+      <Declaration><![CDATA[FUNCTION TryConvert_ULINT_TO_BOOL : BOOL
+VAR_INPUT
+	in : ULINT;
+	out : REFERENCE TO BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+          <ST><![CDATA[out := ULINT_TO_BOOL(in);
+TryConvert_ULINT_TO_BOOL := TRUE;]]></ST>
+      </Implementation>
+      
+  </POU>
+</TcPlcObject>

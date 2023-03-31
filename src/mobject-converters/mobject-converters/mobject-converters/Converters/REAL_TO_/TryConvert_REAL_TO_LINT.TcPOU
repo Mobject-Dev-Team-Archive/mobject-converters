@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="TryConvert_REAL_TO_LINT" Id="{46c677b7-c1ba-4b53-87d2-5aae20f99137}" SpecialFunc="None">
+      <Declaration><![CDATA[FUNCTION TryConvert_REAL_TO_LINT : BOOL
+VAR_INPUT
+	in : REAL;
+	out : REFERENCE TO LINT;
+END_VAR]]></Declaration>
+      <Implementation>
+          <ST><![CDATA[IF in > DatatypeLimits.MAX_VALUE_OF_REAL_WHICH_CAN_BE_HELD_IN_A_LINT THEN
+	RETURN;
+END_IF
+
+IF in < DatatypeLimits.MIN_VALUE_OF_REAL_WHICH_CAN_BE_HELD_IN_A_LINT THEN
+	RETURN;
+END_IF
+
+out := REAL_TO_LINT(in);
+TryConvert_REAL_TO_LINT := TRUE;]]></ST>
+      </Implementation>
+      
+  </POU>
+</TcPlcObject>

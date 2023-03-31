@@ -23,8 +23,83 @@
     <Compile Include="POUs\MAIN.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Tests\Converters_TestSuit.TcPOU">
+    <Compile Include="Tests\BOOL_TO_TestSuite.TcPOU">
       <SubType>Code</SubType>
+      <ExcludeFromBuild>false</ExcludeFromBuild>
+    </Compile>
+    <Compile Include="Tests\BYTE_TO_TestSuite.TcPOU">
+      <SubType>Code</SubType>
+      <ExcludeFromBuild>false</ExcludeFromBuild>
+    </Compile>
+    <Compile Include="Tests\DATE_TO_TestSuite.TcPOU">
+      <SubType>Code</SubType>
+      <ExcludeFromBuild>false</ExcludeFromBuild>
+    </Compile>
+    <Compile Include="Tests\DINT_TO_TestSuite.TcPOU">
+      <SubType>Code</SubType>
+      <ExcludeFromBuild>false</ExcludeFromBuild>
+    </Compile>
+    <Compile Include="Tests\DT_TO_TestSuite.TcPOU">
+      <SubType>Code</SubType>
+      <ExcludeFromBuild>false</ExcludeFromBuild>
+    </Compile>
+    <Compile Include="Tests\DWORD_TO_TestSuite.TcPOU">
+      <SubType>Code</SubType>
+      <ExcludeFromBuild>false</ExcludeFromBuild>
+    </Compile>
+    <Compile Include="Tests\INT_TO_TestSuite.TcPOU">
+      <SubType>Code</SubType>
+      <ExcludeFromBuild>false</ExcludeFromBuild>
+    </Compile>
+    <Compile Include="Tests\LINT_TO_TestSuite.TcPOU">
+      <SubType>Code</SubType>
+      <ExcludeFromBuild>false</ExcludeFromBuild>
+    </Compile>
+    <Compile Include="Tests\LREAL_TO_TestSuite.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tests\LWORD_TO_TestSuite.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tests\REAL_TO_TestSuite.TcPOU">
+      <SubType>Code</SubType>
+      <ExcludeFromBuild>false</ExcludeFromBuild>
+    </Compile>
+    <Compile Include="Tests\SINT_TO_TestSuite.TcPOU">
+      <SubType>Code</SubType>
+      <ExcludeFromBuild>false</ExcludeFromBuild>
+    </Compile>
+    <Compile Include="Tests\STRING_TO_TestSuite.TcPOU">
+      <SubType>Code</SubType>
+      <ExcludeFromBuild>false</ExcludeFromBuild>
+    </Compile>
+    <Compile Include="Tests\TIME_TO_TestSuite.TcPOU">
+      <SubType>Code</SubType>
+      <ExcludeFromBuild>false</ExcludeFromBuild>
+    </Compile>
+    <Compile Include="Tests\TOD_TO_TestSuite.TcPOU">
+      <SubType>Code</SubType>
+      <ExcludeFromBuild>false</ExcludeFromBuild>
+    </Compile>
+    <Compile Include="Tests\UDINT_TO_TestSuite.TcPOU">
+      <SubType>Code</SubType>
+      <ExcludeFromBuild>false</ExcludeFromBuild>
+    </Compile>
+    <Compile Include="Tests\UINT_TO_TestSuite.TcPOU">
+      <SubType>Code</SubType>
+      <ExcludeFromBuild>false</ExcludeFromBuild>
+    </Compile>
+    <Compile Include="Tests\ULINT_TO_TestSuite.TcPOU">
+      <SubType>Code</SubType>
+      <ExcludeFromBuild>false</ExcludeFromBuild>
+    </Compile>
+    <Compile Include="Tests\USINT_TO_TestSuite.TcPOU">
+      <SubType>Code</SubType>
+      <ExcludeFromBuild>false</ExcludeFromBuild>
+    </Compile>
+    <Compile Include="Tests\WORD_TO_TestSuite.TcPOU">
+      <SubType>Code</SubType>
+      <ExcludeFromBuild>false</ExcludeFromBuild>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -51,6 +126,16 @@
     <PlaceholderReference Include="TcUnit">
       <DefaultResolution>TcUnit, * (www.tcunit.org)</DefaultResolution>
       <Namespace>TcUnit</Namespace>
+      <Parameters>
+        <Parameter ListName="GVL_PARAM_TCUNIT">
+          <Key>MAXNUMBEROFTESTSUITES</Key>
+          <Value>100</Value>
+        </Parameter>
+        <Parameter ListName="GVL_PARAM_TCUNIT">
+          <Key>LOGEXTENDEDRESULTS</Key>
+          <Value>FALSE</Value>
+        </Parameter>
+      </Parameters>
     </PlaceholderReference>
   </ItemGroup>
   <ItemGroup>
@@ -60,7 +145,7 @@
   </ItemGroup>
   <ItemGroup>
     <PlaceholderResolution Include="mobject-converters">
-      <Resolution>mobject-converters, 0.0.1 (mobject)</Resolution>
+      <Resolution>mobject-converters, 0.1.0 (mobject)</Resolution>
     </PlaceholderResolution>
   </ItemGroup>
   <ProjectExtensions>

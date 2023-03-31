@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="TryConvert_SINT_TO_WORD" Id="{43f22f51-1bb3-4d76-bc90-6ae25fa7cd6c}" SpecialFunc="None">
+      <Declaration><![CDATA[FUNCTION TryConvert_SINT_TO_WORD : BOOL
+VAR_INPUT
+	in : SINT;
+	out : REFERENCE TO WORD;
+END_VAR]]></Declaration>
+      <Implementation>
+          <ST><![CDATA[IF in < DatatypeLimits.MIN_VALUE_OF_SINT_WHICH_CAN_BE_HELD_IN_A_WORD THEN
+	RETURN;
+END_IF
+
+out := SINT_TO_WORD(in);
+TryConvert_SINT_TO_WORD := TRUE;]]></ST>
+      </Implementation>
+      
+  </POU>
+</TcPlcObject>

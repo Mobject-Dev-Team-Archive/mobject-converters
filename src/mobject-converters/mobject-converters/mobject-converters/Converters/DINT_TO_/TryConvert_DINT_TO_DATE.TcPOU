@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="TryConvert_DINT_TO_DATE" Id="{6f8df3a7-96ca-40f6-8848-92b8622ae29b}" SpecialFunc="None">
+      <Declaration><![CDATA[FUNCTION TryConvert_DINT_TO_DATE : BOOL
+VAR_INPUT
+	in : DINT;
+	out : REFERENCE TO DATE;
+END_VAR]]></Declaration>
+      <Implementation>
+          <ST><![CDATA[IF in < DatatypeLimits.MIN_VALUE_OF_DINT_WHICH_CAN_BE_HELD_IN_A_DATE THEN
+	RETURN;
+END_IF
+
+out := DINT_TO_DATE(in);
+TryConvert_DINT_TO_DATE := TRUE;]]></ST>
+      </Implementation>
+      
+  </POU>
+</TcPlcObject>

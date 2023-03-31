@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="TryConvert_WORD_TO_LINT" Id="{7ff920f8-6f55-498a-b663-3c273ebd8b6b}" SpecialFunc="None">
+      <Declaration><![CDATA[FUNCTION TryConvert_WORD_TO_LINT : BOOL
+VAR_INPUT
+	in : WORD;
+	out : REFERENCE TO LINT;
+END_VAR]]></Declaration>
+      <Implementation>
+          <ST><![CDATA[out := WORD_TO_LINT(in);
+TryConvert_WORD_TO_LINT := TRUE;]]></ST>
+      </Implementation>
+      
+  </POU>
+</TcPlcObject>

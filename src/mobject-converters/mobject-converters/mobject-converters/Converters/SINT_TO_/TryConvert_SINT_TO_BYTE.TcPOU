@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="TryConvert_SINT_TO_BYTE" Id="{7caad706-df09-41d5-bd4d-9b07b1584eaf}" SpecialFunc="None">
+      <Declaration><![CDATA[FUNCTION TryConvert_SINT_TO_BYTE : BOOL
+VAR_INPUT
+	in : SINT;
+	out : REFERENCE TO BYTE;
+END_VAR]]></Declaration>
+      <Implementation>
+          <ST><![CDATA[IF in < DatatypeLimits.MIN_VALUE_OF_SINT_WHICH_CAN_BE_HELD_IN_A_BYTE THEN
+	RETURN;
+END_IF
+
+out := SINT_TO_BYTE(in);
+TryConvert_SINT_TO_BYTE := TRUE;]]></ST>
+      </Implementation>
+      
+  </POU>
+</TcPlcObject>

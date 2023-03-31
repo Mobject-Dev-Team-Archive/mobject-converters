@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="TryConvert_LINT_TO_BYTE" Id="{e5a70972-3db8-41cf-b642-a8a33d3d3386}" SpecialFunc="None">
+      <Declaration><![CDATA[FUNCTION TryConvert_LINT_TO_BYTE : BOOL
+VAR_INPUT
+	in : LINT;
+	out : REFERENCE TO BYTE;
+END_VAR]]></Declaration>
+      <Implementation>
+          <ST><![CDATA[IF in > DatatypeLimits.MAX_VALUE_OF_LINT_WHICH_CAN_BE_HELD_IN_A_BYTE THEN
+	RETURN;
+END_IF
+
+IF in < DatatypeLimits.MIN_VALUE_OF_LINT_WHICH_CAN_BE_HELD_IN_A_BYTE THEN
+	RETURN;
+END_IF
+
+out := LINT_TO_BYTE(in);
+TryConvert_LINT_TO_BYTE := TRUE;]]></ST>
+      </Implementation>
+      
+  </POU>
+</TcPlcObject>

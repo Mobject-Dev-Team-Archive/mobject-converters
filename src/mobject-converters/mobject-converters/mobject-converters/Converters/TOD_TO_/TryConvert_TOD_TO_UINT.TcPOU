@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="TryConvert_TOD_TO_UINT" Id="{7fdc90b4-c483-4a65-9185-b9020adcdbd9}" SpecialFunc="None">
+      <Declaration><![CDATA[FUNCTION TryConvert_TOD_TO_UINT : BOOL
+VAR_INPUT
+	in : TOD;
+	out : REFERENCE TO UINT;
+END_VAR]]></Declaration>
+      <Implementation>
+          <ST><![CDATA[IF in > DatatypeLimits.MAX_VALUE_OF_TOD_WHICH_CAN_BE_HELD_IN_A_UINT THEN
+	RETURN;
+END_IF
+
+out := TOD_TO_UINT(in);
+TryConvert_TOD_TO_UINT := TRUE;]]></ST>
+      </Implementation>
+      
+  </POU>
+</TcPlcObject>

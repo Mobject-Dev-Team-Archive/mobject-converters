@@ -1,0 +1,1090 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="DWORD_TO_TestSuite" Id="{7a8c85ad-1cfe-443b-8e63-219e5a547953}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK PUBLIC DWORD_TO_TestSuite EXTENDS TcUnit.FB_TestSuite
+VAR
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[Check_DWORD_TO_BOOL_Upper();
+Check_DWORD_TO_BOOL_Lower();
+Check_DWORD_TO_BYTE_Upper();
+Check_DWORD_TO_BYTE_Lower();
+Check_DWORD_TO_BYTE_TooHigh();
+Check_DWORD_TO_WORD_Upper();
+Check_DWORD_TO_WORD_Lower();
+Check_DWORD_TO_WORD_TooHigh();
+Check_DWORD_TO_DWORD_Upper();
+Check_DWORD_TO_DWORD_Lower();
+Check_DWORD_TO_LWORD_Upper();
+Check_DWORD_TO_LWORD_Lower();
+Check_DWORD_TO_SINT_Upper();
+Check_DWORD_TO_SINT_Lower();
+Check_DWORD_TO_SINT_TooHigh();
+Check_DWORD_TO_INT_Upper();
+Check_DWORD_TO_INT_Lower();
+Check_DWORD_TO_INT_TooHigh();
+Check_DWORD_TO_DINT_Upper();
+Check_DWORD_TO_DINT_Lower();
+Check_DWORD_TO_DINT_TooHigh();
+Check_DWORD_TO_LINT_Upper();
+Check_DWORD_TO_LINT_Lower();
+Check_DWORD_TO_USINT_Upper();
+Check_DWORD_TO_USINT_Lower();
+Check_DWORD_TO_USINT_TooHigh();
+Check_DWORD_TO_UINT_Upper();
+Check_DWORD_TO_UINT_Lower();
+Check_DWORD_TO_UINT_TooHigh();
+Check_DWORD_TO_UDINT_Upper();
+Check_DWORD_TO_UDINT_Lower();
+Check_DWORD_TO_ULINT_Upper();
+Check_DWORD_TO_ULINT_Lower();
+Check_DWORD_TO_REAL_Upper();
+Check_DWORD_TO_REAL_Lower();
+Check_DWORD_TO_LREAL_Upper();
+Check_DWORD_TO_LREAL_Lower();
+Check_DWORD_TO_TIME_Upper();
+Check_DWORD_TO_TIME_Lower();
+Check_DWORD_TO_TOD_Upper();
+Check_DWORD_TO_TOD_Lower();
+Check_DWORD_TO_TOD_TooHigh();
+Check_DWORD_TO_DATE_Upper();
+Check_DWORD_TO_DATE_Lower();
+Check_DWORD_TO_DT_Upper();
+Check_DWORD_TO_DT_Lower();
+Check_DWORD_TO_STRING_Upper();
+Check_DWORD_TO_STRING_Lower();]]></ST>
+    </Implementation>
+    <Method Name="Check_DWORD_TO_BOOL_Lower" Id="{07fc88be-8694-46b6-9fca-8368d4840359}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DWORD_TO_BOOL_Lower
+VAR
+	value : DWORD := DatatypeLimits.DWORD_LOWER_LIMIT;
+	actual : BOOL;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DWORD_TO_BOOL_Lower');
+
+// @TEST-RUN
+converted := TryConvert_DWORD_TO_Destination(value, actual);
+equal := actual = DWORD_TO_BOOL(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert DWORD to BOOL correctly');
+AssertTrue(Condition := converted, Message := 'Did not report DWORD to BOOL conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DWORD_TO_BOOL_Upper" Id="{ed47387e-00ec-48ac-be53-614f7ea5675a}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DWORD_TO_BOOL_Upper
+VAR
+	value : DWORD := DatatypeLimits.DWORD_UPPER_LIMIT;
+	actual : BOOL;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DWORD_TO_BOOL_Upper');
+
+// @TEST-RUN
+converted := TryConvert_DWORD_TO_Destination(value, actual);
+equal := actual = DWORD_TO_BOOL(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert DWORD to BOOL correctly');
+AssertTrue(Condition := converted, Message := 'Did not report DWORD to BOOL conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DWORD_TO_BYTE_Lower" Id="{09f39aee-336b-4681-9dc9-cee28f1192d4}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DWORD_TO_BYTE_Lower
+VAR
+	value : DWORD := DatatypeLimits.DWORD_LOWER_LIMIT;
+	actual : BYTE;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DWORD_TO_BYTE_Lower');
+
+// @TEST-RUN
+converted := TryConvert_DWORD_TO_Destination(value, actual);
+equal := actual = DWORD_TO_BYTE(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert DWORD to BYTE correctly');
+AssertTrue(Condition := converted, Message := 'Did not report DWORD to BYTE conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DWORD_TO_BYTE_TooHigh" Id="{4436c74d-1466-4b2a-8dff-de482fb54bab}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DWORD_TO_BYTE_TooHigh
+VAR
+	value : DWORD := DatatypeLimits.DWORD_UPPER_LIMIT;
+	actual : BYTE;
+	converted : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DWORD_TO_BYTE_TooHigh');
+
+// @TEST-RUN
+converted := TryConvert_DWORD_TO_Destination(value, actual);
+
+// @TEST-ASSERT
+AssertFalse(Condition := converted, Message := 'Did not report DWORD to BYTE conversion was prevented');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DWORD_TO_BYTE_Upper" Id="{bf25ab57-31d4-4cc6-8c2c-5cf962e97284}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DWORD_TO_BYTE_Upper
+VAR
+	value : DWORD := DatatypeLimits.MAX_VALUE_OF_DWORD_WHICH_CAN_BE_HELD_IN_A_BYTE;
+	actual : BYTE;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DWORD_TO_BYTE_Upper');
+
+// @TEST-RUN
+converted := TryConvert_DWORD_TO_Destination(value, actual);
+equal := actual = DWORD_TO_BYTE(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert DWORD to BYTE correctly');
+AssertTrue(Condition := converted, Message := 'Did not report DWORD to BYTE conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DWORD_TO_DATE_Lower" Id="{65788d3c-b2ed-415d-90a9-a4977f11dacb}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DWORD_TO_DATE_Lower
+VAR
+	value : DWORD := DatatypeLimits.DWORD_LOWER_LIMIT;
+	actual : DATE;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DWORD_TO_DATE_Lower');
+
+// @TEST-RUN
+converted := TryConvert_DWORD_TO_Destination(value, actual);
+equal := actual = DWORD_TO_DATE(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert DWORD to DATE correctly');
+AssertTrue(Condition := converted, Message := 'Did not report DWORD to DATE conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DWORD_TO_DATE_Upper" Id="{004cbaf1-391c-440f-ac97-9045eb14618d}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DWORD_TO_DATE_Upper
+VAR
+	value : DWORD := DatatypeLimits.DWORD_UPPER_LIMIT;
+	actual : DATE;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DWORD_TO_DATE_Upper');
+
+// @TEST-RUN
+converted := TryConvert_DWORD_TO_Destination(value, actual);
+equal := actual = DWORD_TO_DATE(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert DWORD to DATE correctly');
+AssertTrue(Condition := converted, Message := 'Did not report DWORD to DATE conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DWORD_TO_DINT_Lower" Id="{53f0a93d-bc08-421b-82ce-46c431ede3a6}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DWORD_TO_DINT_Lower
+VAR
+	value : DWORD := DatatypeLimits.DWORD_LOWER_LIMIT;
+	actual : DINT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DWORD_TO_DINT_Lower');
+
+// @TEST-RUN
+converted := TryConvert_DWORD_TO_Destination(value, actual);
+equal := actual = DWORD_TO_DINT(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert DWORD to DINT correctly');
+AssertTrue(Condition := converted, Message := 'Did not report DWORD to DINT conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DWORD_TO_DINT_TooHigh" Id="{f48d0fe4-14e3-4b17-a3f8-180a6962dae7}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DWORD_TO_DINT_TooHigh
+VAR
+	value : DWORD := DatatypeLimits.DWORD_UPPER_LIMIT;
+	actual : DINT;
+	converted : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DWORD_TO_DINT_TooHigh');
+
+// @TEST-RUN
+converted := TryConvert_DWORD_TO_Destination(value, actual);
+
+// @TEST-ASSERT
+AssertFalse(Condition := converted, Message := 'Did not report DWORD to DINT conversion was prevented');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DWORD_TO_DINT_Upper" Id="{61d0916a-ae90-4e50-aa4b-deebabfc8bcf}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DWORD_TO_DINT_Upper
+VAR
+	value : DWORD := DatatypeLimits.MAX_VALUE_OF_DWORD_WHICH_CAN_BE_HELD_IN_A_DINT;
+	actual : DINT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DWORD_TO_DINT_Upper');
+
+// @TEST-RUN
+converted := TryConvert_DWORD_TO_Destination(value, actual);
+equal := actual = DWORD_TO_DINT(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert DWORD to DINT correctly');
+AssertTrue(Condition := converted, Message := 'Did not report DWORD to DINT conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DWORD_TO_DT_Lower" Id="{b79f649f-9f63-47c3-a913-92d2fa9c6ea0}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DWORD_TO_DT_Lower
+VAR
+	value : DWORD := DatatypeLimits.DWORD_LOWER_LIMIT;
+	actual : DT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DWORD_TO_DT_Lower');
+
+// @TEST-RUN
+converted := TryConvert_DWORD_TO_Destination(value, actual);
+equal := actual = DWORD_TO_DT(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert DWORD to DT correctly');
+AssertTrue(Condition := converted, Message := 'Did not report DWORD to DT conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DWORD_TO_DT_Upper" Id="{01031123-0fda-4762-9da9-e6674247eec4}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DWORD_TO_DT_Upper
+VAR
+	value : DWORD := DatatypeLimits.DWORD_UPPER_LIMIT;
+	actual : DT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DWORD_TO_DT_Upper');
+
+// @TEST-RUN
+converted := TryConvert_DWORD_TO_Destination(value, actual);
+equal := actual = DWORD_TO_DT(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert DWORD to DT correctly');
+AssertTrue(Condition := converted, Message := 'Did not report DWORD to DT conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DWORD_TO_DWORD_Lower" Id="{0568782d-7283-40a2-adf7-6e70bc8ab210}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DWORD_TO_DWORD_Lower
+VAR
+	value : DWORD := DatatypeLimits.DWORD_LOWER_LIMIT;
+	actual : DWORD;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DWORD_TO_DWORD_Lower');
+
+// @TEST-RUN
+converted := TryConvert_DWORD_TO_Destination(value, actual);
+equal := actual = value;
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert DWORD to DWORD correctly');
+AssertTrue(Condition := converted, Message := 'Did not report DWORD to DWORD conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DWORD_TO_DWORD_Upper" Id="{efe913fe-17a3-49d7-a514-182dcebd46eb}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DWORD_TO_DWORD_Upper
+VAR
+	value : DWORD := DatatypeLimits.DWORD_UPPER_LIMIT;
+	actual : DWORD;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DWORD_TO_DWORD_Upper');
+
+// @TEST-RUN
+converted := TryConvert_DWORD_TO_Destination(value, actual);
+equal := actual = value;
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert DWORD to DWORD correctly');
+AssertTrue(Condition := converted, Message := 'Did not report DWORD to DWORD conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DWORD_TO_INT_Lower" Id="{9daf1417-ef16-4381-be4b-e4e3f57722d0}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DWORD_TO_INT_Lower
+VAR
+	value : DWORD := DatatypeLimits.DWORD_LOWER_LIMIT;
+	actual : INT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DWORD_TO_INT_Lower');
+
+// @TEST-RUN
+converted := TryConvert_DWORD_TO_Destination(value, actual);
+equal := actual = DWORD_TO_INT(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert DWORD to INT correctly');
+AssertTrue(Condition := converted, Message := 'Did not report DWORD to INT conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DWORD_TO_INT_TooHigh" Id="{8891ec4b-e1f6-4002-a52f-168ef2680fed}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DWORD_TO_INT_TooHigh
+VAR
+	value : DWORD := DatatypeLimits.DWORD_UPPER_LIMIT;
+	actual : INT;
+	converted : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DWORD_TO_INT_TooHigh');
+
+// @TEST-RUN
+converted := TryConvert_DWORD_TO_Destination(value, actual);
+
+// @TEST-ASSERT
+AssertFalse(Condition := converted, Message := 'Did not report DWORD to INT conversion was prevented');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DWORD_TO_INT_Upper" Id="{ced29ffe-ebe4-4e5c-9447-6bc9d5f1c690}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DWORD_TO_INT_Upper
+VAR
+	value : DWORD := DatatypeLimits.MAX_VALUE_OF_DWORD_WHICH_CAN_BE_HELD_IN_A_INT;
+	actual : INT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DWORD_TO_INT_Upper');
+
+// @TEST-RUN
+converted := TryConvert_DWORD_TO_Destination(value, actual);
+equal := actual = DWORD_TO_INT(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert DWORD to INT correctly');
+AssertTrue(Condition := converted, Message := 'Did not report DWORD to INT conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DWORD_TO_LINT_Lower" Id="{2c59776c-a564-4616-a7e8-72d6c3102fe1}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DWORD_TO_LINT_Lower
+VAR
+	value : DWORD := DatatypeLimits.DWORD_LOWER_LIMIT;
+	actual : LINT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DWORD_TO_LINT_Lower');
+
+// @TEST-RUN
+converted := TryConvert_DWORD_TO_Destination(value, actual);
+equal := actual = DWORD_TO_LINT(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert DWORD to LINT correctly');
+AssertTrue(Condition := converted, Message := 'Did not report DWORD to LINT conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DWORD_TO_LINT_Upper" Id="{fc927a56-93d0-4c96-b9d0-d8a66abe78ac}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DWORD_TO_LINT_Upper
+VAR
+	value : DWORD := DatatypeLimits.DWORD_UPPER_LIMIT;
+	actual : LINT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DWORD_TO_LINT_Upper');
+
+// @TEST-RUN
+converted := TryConvert_DWORD_TO_Destination(value, actual);
+equal := actual = DWORD_TO_LINT(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert DWORD to LINT correctly');
+AssertTrue(Condition := converted, Message := 'Did not report DWORD to LINT conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DWORD_TO_LREAL_Lower" Id="{aa079ac4-4126-4e51-9f91-6cb49a980211}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DWORD_TO_LREAL_Lower
+VAR
+	value : DWORD := DatatypeLimits.DWORD_LOWER_LIMIT;
+	actual : LREAL;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DWORD_TO_LREAL_Lower');
+
+// @TEST-RUN
+converted := TryConvert_DWORD_TO_Destination(value, actual);
+equal := actual = DWORD_TO_LREAL(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert DWORD to LREAL correctly');
+AssertTrue(Condition := converted, Message := 'Did not report DWORD to LREAL conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DWORD_TO_LREAL_Upper" Id="{3eebc2e2-0bec-4f30-9629-1e0ff15aadd9}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DWORD_TO_LREAL_Upper
+VAR
+	value : DWORD := DatatypeLimits.DWORD_UPPER_LIMIT;
+	actual : LREAL;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DWORD_TO_LREAL_Upper');
+
+// @TEST-RUN
+converted := TryConvert_DWORD_TO_Destination(value, actual);
+equal := actual = DWORD_TO_LREAL(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert DWORD to LREAL correctly');
+AssertTrue(Condition := converted, Message := 'Did not report DWORD to LREAL conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DWORD_TO_LWORD_Lower" Id="{d246fcd2-4f3d-481b-b849-403c53e39f14}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DWORD_TO_LWORD_Lower
+VAR
+	value : DWORD := DatatypeLimits.DWORD_LOWER_LIMIT;
+	actual : LWORD;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DWORD_TO_LWORD_Lower');
+
+// @TEST-RUN
+converted := TryConvert_DWORD_TO_Destination(value, actual);
+equal := actual = DWORD_TO_LWORD(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert DWORD to LWORD correctly');
+AssertTrue(Condition := converted, Message := 'Did not report DWORD to LWORD conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DWORD_TO_LWORD_Upper" Id="{a6a37bc4-1b16-4ed0-a57a-a2712420e971}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DWORD_TO_LWORD_Upper
+VAR
+	value : DWORD := DatatypeLimits.DWORD_UPPER_LIMIT;
+	actual : LWORD;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DWORD_TO_LWORD_Upper');
+
+// @TEST-RUN
+converted := TryConvert_DWORD_TO_Destination(value, actual);
+equal := actual = DWORD_TO_LWORD(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert DWORD to LWORD correctly');
+AssertTrue(Condition := converted, Message := 'Did not report DWORD to LWORD conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DWORD_TO_REAL_Lower" Id="{4565b06a-0191-48b5-9088-689a6b98aab0}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DWORD_TO_REAL_Lower
+VAR
+	value : DWORD := DatatypeLimits.DWORD_LOWER_LIMIT;
+	actual : REAL;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DWORD_TO_REAL_Lower');
+
+// @TEST-RUN
+converted := TryConvert_DWORD_TO_Destination(value, actual);
+equal := actual = DWORD_TO_REAL(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert DWORD to REAL correctly');
+AssertTrue(Condition := converted, Message := 'Did not report DWORD to REAL conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DWORD_TO_REAL_Upper" Id="{59e716b3-8819-41e1-a3e4-f6028145e353}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DWORD_TO_REAL_Upper
+VAR
+	value : DWORD := DatatypeLimits.DWORD_UPPER_LIMIT;
+	actual : REAL;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DWORD_TO_REAL_Upper');
+
+// @TEST-RUN
+converted := TryConvert_DWORD_TO_Destination(value, actual);
+equal := actual = DWORD_TO_REAL(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert DWORD to REAL correctly');
+AssertTrue(Condition := converted, Message := 'Did not report DWORD to REAL conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DWORD_TO_SINT_Lower" Id="{3f31228d-9430-4978-8743-61e8b600adb0}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DWORD_TO_SINT_Lower
+VAR
+	value : DWORD := DatatypeLimits.DWORD_LOWER_LIMIT;
+	actual : SINT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DWORD_TO_SINT_Lower');
+
+// @TEST-RUN
+converted := TryConvert_DWORD_TO_Destination(value, actual);
+equal := actual = DWORD_TO_SINT(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert DWORD to SINT correctly');
+AssertTrue(Condition := converted, Message := 'Did not report DWORD to SINT conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DWORD_TO_SINT_TooHigh" Id="{60345f4c-da23-428d-8764-6573f38942a2}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DWORD_TO_SINT_TooHigh
+VAR
+	value : DWORD := DatatypeLimits.DWORD_UPPER_LIMIT;
+	actual : SINT;
+	converted : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DWORD_TO_SINT_TooHigh');
+
+// @TEST-RUN
+converted := TryConvert_DWORD_TO_Destination(value, actual);
+
+// @TEST-ASSERT
+AssertFalse(Condition := converted, Message := 'Did not report DWORD to SINT conversion was prevented');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DWORD_TO_SINT_Upper" Id="{359f688c-279a-4ea1-b493-7b2b217df875}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DWORD_TO_SINT_Upper
+VAR
+	value : DWORD := DatatypeLimits.MAX_VALUE_OF_DWORD_WHICH_CAN_BE_HELD_IN_A_SINT;
+	actual : SINT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DWORD_TO_SINT_Upper');
+
+// @TEST-RUN
+converted := TryConvert_DWORD_TO_Destination(value, actual);
+equal := actual = DWORD_TO_SINT(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert DWORD to SINT correctly');
+AssertTrue(Condition := converted, Message := 'Did not report DWORD to SINT conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DWORD_TO_STRING_Lower" Id="{9c7d596c-a6ac-4102-a669-74fac7ce2875}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DWORD_TO_STRING_Lower
+VAR
+	value : DWORD := DatatypeLimits.DWORD_LOWER_LIMIT;
+	actual : STRING;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DWORD_TO_STRING_Lower');
+
+// @TEST-RUN
+converted := TryConvert_DWORD_TO_Destination(value, actual);
+equal := actual = DWORD_TO_STRING(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert DWORD to STRING correctly');
+AssertTrue(Condition := converted, Message := 'Did not report DWORD to STRING conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DWORD_TO_STRING_Upper" Id="{12793165-38f7-4320-9ded-06c85348c293}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DWORD_TO_STRING_Upper
+VAR
+	value : DWORD := DatatypeLimits.DWORD_UPPER_LIMIT;
+	actual : STRING;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DWORD_TO_STRING_Upper');
+
+// @TEST-RUN
+converted := TryConvert_DWORD_TO_Destination(value, actual);
+equal := actual = DWORD_TO_STRING(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert DWORD to STRING correctly');
+AssertTrue(Condition := converted, Message := 'Did not report DWORD to STRING conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DWORD_TO_TIME_Lower" Id="{527e5cc0-27b4-4768-b987-c3efe67be093}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DWORD_TO_TIME_Lower
+VAR
+	value : DWORD := DatatypeLimits.DWORD_LOWER_LIMIT;
+	actual : TIME;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DWORD_TO_TIME_Lower');
+
+// @TEST-RUN
+converted := TryConvert_DWORD_TO_Destination(value, actual);
+equal := actual = DWORD_TO_TIME(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert DWORD to TIME correctly');
+AssertTrue(Condition := converted, Message := 'Did not report DWORD to TIME conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DWORD_TO_TIME_Upper" Id="{6a0ff5e5-56a7-4817-8ab7-d3053a0098ab}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DWORD_TO_TIME_Upper
+VAR
+	value : DWORD := DatatypeLimits.DWORD_UPPER_LIMIT;
+	actual : TIME;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DWORD_TO_TIME_Upper');
+
+// @TEST-RUN
+converted := TryConvert_DWORD_TO_Destination(value, actual);
+equal := actual = DWORD_TO_TIME(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert DWORD to TIME correctly');
+AssertTrue(Condition := converted, Message := 'Did not report DWORD to TIME conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DWORD_TO_TOD_Lower" Id="{2c72b07d-6a4e-45b0-85c7-f16779786941}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DWORD_TO_TOD_Lower
+VAR
+	value : DWORD := DatatypeLimits.DWORD_LOWER_LIMIT;
+	actual : TOD;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DWORD_TO_TOD_Lower');
+
+// @TEST-RUN
+converted := TryConvert_DWORD_TO_Destination(value, actual);
+equal := actual = DWORD_TO_TOD(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert DWORD to TOD correctly');
+AssertTrue(Condition := converted, Message := 'Did not report DWORD to TOD conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DWORD_TO_TOD_TooHigh" Id="{571344ef-0c69-4863-ad88-be256bf03834}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DWORD_TO_TOD_TooHigh
+VAR
+	value : DWORD := DatatypeLimits.DWORD_UPPER_LIMIT;
+	actual : TOD;
+	converted : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DWORD_TO_TOD_TooHigh');
+
+// @TEST-RUN
+converted := TryConvert_DWORD_TO_Destination(value, actual);
+
+// @TEST-ASSERT
+AssertFalse(Condition := converted, Message := 'Did not report DWORD to TOD conversion was prevented');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DWORD_TO_TOD_Upper" Id="{d5453286-f3b9-46bc-ade7-532ba10705d4}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DWORD_TO_TOD_Upper
+VAR
+	value : DWORD := DatatypeLimits.MAX_VALUE_OF_DWORD_WHICH_CAN_BE_HELD_IN_A_TOD;
+	actual : TOD;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DWORD_TO_TOD_Upper');
+
+// @TEST-RUN
+converted := TryConvert_DWORD_TO_Destination(value, actual);
+equal := actual = DWORD_TO_TOD(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert DWORD to TOD correctly');
+AssertTrue(Condition := converted, Message := 'Did not report DWORD to TOD conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DWORD_TO_UDINT_Lower" Id="{dc97c9c2-adc7-4926-9bf4-e111d10c2cf6}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DWORD_TO_UDINT_Lower
+VAR
+	value : DWORD := DatatypeLimits.DWORD_LOWER_LIMIT;
+	actual : UDINT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DWORD_TO_UDINT_Lower');
+
+// @TEST-RUN
+converted := TryConvert_DWORD_TO_Destination(value, actual);
+equal := actual = DWORD_TO_UDINT(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert DWORD to UDINT correctly');
+AssertTrue(Condition := converted, Message := 'Did not report DWORD to UDINT conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DWORD_TO_UDINT_Upper" Id="{36dc8de3-8468-40e2-9a39-9d546e041d14}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DWORD_TO_UDINT_Upper
+VAR
+	value : DWORD := DatatypeLimits.DWORD_UPPER_LIMIT;
+	actual : UDINT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DWORD_TO_UDINT_Upper');
+
+// @TEST-RUN
+converted := TryConvert_DWORD_TO_Destination(value, actual);
+equal := actual = DWORD_TO_UDINT(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert DWORD to UDINT correctly');
+AssertTrue(Condition := converted, Message := 'Did not report DWORD to UDINT conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DWORD_TO_UINT_Lower" Id="{5a6009cc-15c6-4b17-9d67-d62085b764cf}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DWORD_TO_UINT_Lower
+VAR
+	value : DWORD := DatatypeLimits.DWORD_LOWER_LIMIT;
+	actual : UINT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DWORD_TO_UINT_Lower');
+
+// @TEST-RUN
+converted := TryConvert_DWORD_TO_Destination(value, actual);
+equal := actual = DWORD_TO_UINT(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert DWORD to UINT correctly');
+AssertTrue(Condition := converted, Message := 'Did not report DWORD to UINT conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DWORD_TO_UINT_TooHigh" Id="{b21d957a-4fb1-4338-9794-3f66e64a8991}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DWORD_TO_UINT_TooHigh
+VAR
+	value : DWORD := DatatypeLimits.DWORD_UPPER_LIMIT;
+	actual : UINT;
+	converted : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DWORD_TO_UINT_TooHigh');
+
+// @TEST-RUN
+converted := TryConvert_DWORD_TO_Destination(value, actual);
+
+// @TEST-ASSERT
+AssertFalse(Condition := converted, Message := 'Did not report DWORD to UINT conversion was prevented');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DWORD_TO_UINT_Upper" Id="{3fb76949-74d3-40ae-9525-3ce227737fee}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DWORD_TO_UINT_Upper
+VAR
+	value : DWORD := DatatypeLimits.MAX_VALUE_OF_DWORD_WHICH_CAN_BE_HELD_IN_A_UINT;
+	actual : UINT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DWORD_TO_UINT_Upper');
+
+// @TEST-RUN
+converted := TryConvert_DWORD_TO_Destination(value, actual);
+equal := actual = DWORD_TO_UINT(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert DWORD to UINT correctly');
+AssertTrue(Condition := converted, Message := 'Did not report DWORD to UINT conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DWORD_TO_ULINT_Lower" Id="{c1e374f3-b4b4-4f94-a37b-932efc60d2e4}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DWORD_TO_ULINT_Lower
+VAR
+	value : DWORD := DatatypeLimits.DWORD_LOWER_LIMIT;
+	actual : ULINT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DWORD_TO_ULINT_Lower');
+
+// @TEST-RUN
+converted := TryConvert_DWORD_TO_Destination(value, actual);
+equal := actual = DWORD_TO_ULINT(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert DWORD to ULINT correctly');
+AssertTrue(Condition := converted, Message := 'Did not report DWORD to ULINT conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DWORD_TO_ULINT_Upper" Id="{8253a9e9-6d4e-4872-8374-31bfc3891310}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DWORD_TO_ULINT_Upper
+VAR
+	value : DWORD := DatatypeLimits.DWORD_UPPER_LIMIT;
+	actual : ULINT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DWORD_TO_ULINT_Upper');
+
+// @TEST-RUN
+converted := TryConvert_DWORD_TO_Destination(value, actual);
+equal := actual = DWORD_TO_ULINT(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert DWORD to ULINT correctly');
+AssertTrue(Condition := converted, Message := 'Did not report DWORD to ULINT conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DWORD_TO_USINT_Lower" Id="{cca8ef02-b8ec-4a44-9d53-f8d6eb0f4e4a}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DWORD_TO_USINT_Lower
+VAR
+	value : DWORD := DatatypeLimits.DWORD_LOWER_LIMIT;
+	actual : USINT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DWORD_TO_USINT_Lower');
+
+// @TEST-RUN
+converted := TryConvert_DWORD_TO_Destination(value, actual);
+equal := actual = DWORD_TO_USINT(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert DWORD to USINT correctly');
+AssertTrue(Condition := converted, Message := 'Did not report DWORD to USINT conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DWORD_TO_USINT_TooHigh" Id="{d4a3d2e5-5a63-4cb5-b585-90b401440f97}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DWORD_TO_USINT_TooHigh
+VAR
+	value : DWORD := DatatypeLimits.DWORD_UPPER_LIMIT;
+	actual : USINT;
+	converted : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DWORD_TO_USINT_TooHigh');
+
+// @TEST-RUN
+converted := TryConvert_DWORD_TO_Destination(value, actual);
+
+// @TEST-ASSERT
+AssertFalse(Condition := converted, Message := 'Did not report DWORD to USINT conversion was prevented');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DWORD_TO_USINT_Upper" Id="{710ff2e4-2dc5-4bac-929c-4b1980a03ee0}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DWORD_TO_USINT_Upper
+VAR
+	value : DWORD := DatatypeLimits.MAX_VALUE_OF_DWORD_WHICH_CAN_BE_HELD_IN_A_USINT;
+	actual : USINT;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DWORD_TO_USINT_Upper');
+
+// @TEST-RUN
+converted := TryConvert_DWORD_TO_Destination(value, actual);
+equal := actual = DWORD_TO_USINT(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert DWORD to USINT correctly');
+AssertTrue(Condition := converted, Message := 'Did not report DWORD to USINT conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DWORD_TO_WORD_Lower" Id="{b4ba2b08-c29b-498d-b493-05e9e39cf092}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DWORD_TO_WORD_Lower
+VAR
+	value : DWORD := DatatypeLimits.DWORD_LOWER_LIMIT;
+	actual : WORD;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DWORD_TO_WORD_Lower');
+
+// @TEST-RUN
+converted := TryConvert_DWORD_TO_Destination(value, actual);
+equal := actual = DWORD_TO_WORD(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert DWORD to WORD correctly');
+AssertTrue(Condition := converted, Message := 'Did not report DWORD to WORD conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DWORD_TO_WORD_TooHigh" Id="{a1b98b94-3fed-41ae-8ecd-c68417a69874}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DWORD_TO_WORD_TooHigh
+VAR
+	value : DWORD := DatatypeLimits.DWORD_UPPER_LIMIT;
+	actual : WORD;
+	converted : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DWORD_TO_WORD_TooHigh');
+
+// @TEST-RUN
+converted := TryConvert_DWORD_TO_Destination(value, actual);
+
+// @TEST-ASSERT
+AssertFalse(Condition := converted, Message := 'Did not report DWORD to WORD conversion was prevented');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Check_DWORD_TO_WORD_Upper" Id="{cba3999c-d42e-4607-b129-002003582754}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_DWORD_TO_WORD_Upper
+VAR
+	value : DWORD := DatatypeLimits.MAX_VALUE_OF_DWORD_WHICH_CAN_BE_HELD_IN_A_WORD;
+	actual : WORD;
+	converted : BOOL;
+	equal : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TEST('Check_DWORD_TO_WORD_Upper');
+
+// @TEST-RUN
+converted := TryConvert_DWORD_TO_Destination(value, actual);
+equal := actual = DWORD_TO_WORD(value);
+
+// @TEST-ASSERT
+AssertTrue(Condition := equal, Message := 'Did not convert DWORD to WORD correctly');
+AssertTrue(Condition := converted, Message := 'Did not report DWORD to WORD conversion was successful');
+
+TEST_FINISHED();]]></ST>
+      </Implementation>
+    </Method>
+  </POU>
+</TcPlcObject>

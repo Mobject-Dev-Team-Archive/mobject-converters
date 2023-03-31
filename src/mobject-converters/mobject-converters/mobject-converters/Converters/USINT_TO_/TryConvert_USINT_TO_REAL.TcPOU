@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="TryConvert_USINT_TO_REAL" Id="{a42da584-985b-4c12-b097-fdfce534f201}" SpecialFunc="None">
+      <Declaration><![CDATA[FUNCTION TryConvert_USINT_TO_REAL : BOOL
+VAR_INPUT
+	in : USINT;
+	out : REFERENCE TO REAL;
+END_VAR]]></Declaration>
+      <Implementation>
+          <ST><![CDATA[out := USINT_TO_REAL(in);
+TryConvert_USINT_TO_REAL := TRUE;]]></ST>
+      </Implementation>
+      
+  </POU>
+</TcPlcObject>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="TryConvert_WORD_TO_DINT" Id="{4e6ebdca-b36d-452d-af5e-d899d2a88daf}" SpecialFunc="None">
+      <Declaration><![CDATA[FUNCTION TryConvert_WORD_TO_DINT : BOOL
+VAR_INPUT
+	in : WORD;
+	out : REFERENCE TO DINT;
+END_VAR]]></Declaration>
+      <Implementation>
+          <ST><![CDATA[out := WORD_TO_DINT(in);
+TryConvert_WORD_TO_DINT := TRUE;]]></ST>
+      </Implementation>
+      
+  </POU>
+</TcPlcObject>

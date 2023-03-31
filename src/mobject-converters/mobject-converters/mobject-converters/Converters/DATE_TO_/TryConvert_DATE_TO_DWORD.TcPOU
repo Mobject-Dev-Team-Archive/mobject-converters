@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="TryConvert_DATE_TO_DWORD" Id="{e62d743c-7d5f-4462-950c-ff7439f15739}" SpecialFunc="None">
+      <Declaration><![CDATA[FUNCTION TryConvert_DATE_TO_DWORD : BOOL
+VAR_INPUT
+	in : DATE;
+	out : REFERENCE TO DWORD;
+END_VAR]]></Declaration>
+      <Implementation>
+          <ST><![CDATA[out := DATE_TO_DWORD(in);
+TryConvert_DATE_TO_DWORD := TRUE;]]></ST>
+      </Implementation>
+      
+  </POU>
+</TcPlcObject>

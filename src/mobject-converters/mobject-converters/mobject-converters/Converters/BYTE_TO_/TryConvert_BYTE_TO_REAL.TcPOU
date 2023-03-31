@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="TryConvert_BYTE_TO_REAL" Id="{f4027f7c-9ab1-42e5-9405-cd5d24086ef4}" SpecialFunc="None">
+      <Declaration><![CDATA[FUNCTION TryConvert_BYTE_TO_REAL : BOOL
+VAR_INPUT
+	in : BYTE;
+	out : REFERENCE TO REAL;
+END_VAR]]></Declaration>
+      <Implementation>
+          <ST><![CDATA[out := BYTE_TO_REAL(in);
+TryConvert_BYTE_TO_REAL := TRUE;]]></ST>
+      </Implementation>
+      
+  </POU>
+</TcPlcObject>

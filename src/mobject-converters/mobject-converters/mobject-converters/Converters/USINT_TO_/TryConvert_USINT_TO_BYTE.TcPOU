@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="TryConvert_USINT_TO_BYTE" Id="{5fcdea9c-e20c-48a7-8913-1c8b44fd8d3b}" SpecialFunc="None">
+      <Declaration><![CDATA[FUNCTION TryConvert_USINT_TO_BYTE : BOOL
+VAR_INPUT
+	in : USINT;
+	out : REFERENCE TO BYTE;
+END_VAR]]></Declaration>
+      <Implementation>
+          <ST><![CDATA[out := USINT_TO_BYTE(in);
+TryConvert_USINT_TO_BYTE := TRUE;]]></ST>
+      </Implementation>
+      
+  </POU>
+</TcPlcObject>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="TryConvert_STRING_TO_BOOL" Id="{3f1c2518-0987-49d9-b2e0-6df50aa0ef7c}" SpecialFunc="None">
+      <Declaration><![CDATA[FUNCTION TryConvert_STRING_TO_BOOL : BOOL
+VAR_INPUT
+	in : STRING;
+	out : REFERENCE TO BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+          <ST><![CDATA[out := STRING_TO_BOOL(in);
+TryConvert_STRING_TO_BOOL := TRUE;]]></ST>
+      </Implementation>
+      
+  </POU>
+</TcPlcObject>

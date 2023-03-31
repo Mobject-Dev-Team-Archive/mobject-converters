@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="TryConvert_TIME_TO_LWORD" Id="{5a6fdfe4-482a-4778-a010-5bb9599c0d22}" SpecialFunc="None">
+      <Declaration><![CDATA[FUNCTION TryConvert_TIME_TO_LWORD : BOOL
+VAR_INPUT
+	in : TIME;
+	out : REFERENCE TO LWORD;
+END_VAR]]></Declaration>
+      <Implementation>
+          <ST><![CDATA[out := TIME_TO_LWORD(in);
+TryConvert_TIME_TO_LWORD := TRUE;]]></ST>
+      </Implementation>
+      
+  </POU>
+</TcPlcObject>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="TryConvert_BYTE_TO_TOD" Id="{89988aef-c5b2-44ba-be17-1c37fa0fbc98}" SpecialFunc="None">
+      <Declaration><![CDATA[FUNCTION TryConvert_BYTE_TO_TOD : BOOL
+VAR_INPUT
+	in : BYTE;
+	out : REFERENCE TO TOD;
+END_VAR]]></Declaration>
+      <Implementation>
+          <ST><![CDATA[out := BYTE_TO_TOD(in);
+TryConvert_BYTE_TO_TOD := TRUE;]]></ST>
+      </Implementation>
+      
+  </POU>
+</TcPlcObject>

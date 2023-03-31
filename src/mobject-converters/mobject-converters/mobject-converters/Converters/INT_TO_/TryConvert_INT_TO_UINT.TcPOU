@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="TryConvert_INT_TO_UINT" Id="{e13f218d-4e49-4dba-80c9-74719842f78f}" SpecialFunc="None">
+      <Declaration><![CDATA[FUNCTION TryConvert_INT_TO_UINT : BOOL
+VAR_INPUT
+	in : INT;
+	out : REFERENCE TO UINT;
+END_VAR]]></Declaration>
+      <Implementation>
+          <ST><![CDATA[IF in < DatatypeLimits.MIN_VALUE_OF_INT_WHICH_CAN_BE_HELD_IN_A_UINT THEN
+	RETURN;
+END_IF
+
+out := INT_TO_UINT(in);
+TryConvert_INT_TO_UINT := TRUE;]]></ST>
+      </Implementation>
+      
+  </POU>
+</TcPlcObject>

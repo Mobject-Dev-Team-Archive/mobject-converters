@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="TryConvert_LREAL_TO_LWORD" Id="{9fa883af-12c4-439a-b70f-337bfbc67f85}" SpecialFunc="None">
+      <Declaration><![CDATA[FUNCTION TryConvert_LREAL_TO_LWORD : BOOL
+VAR_INPUT
+	in : LREAL;
+	out : REFERENCE TO LWORD;
+END_VAR]]></Declaration>
+      <Implementation>
+          <ST><![CDATA[IF in > DatatypeLimits.MAX_VALUE_OF_LREAL_WHICH_CAN_BE_HELD_IN_A_LWORD THEN
+	RETURN;
+END_IF
+
+IF in < DatatypeLimits.MIN_VALUE_OF_LREAL_WHICH_CAN_BE_HELD_IN_A_LWORD THEN
+	RETURN;
+END_IF
+
+out := LREAL_TO_LWORD(in);
+TryConvert_LREAL_TO_LWORD := TRUE;]]></ST>
+      </Implementation>
+      
+  </POU>
+</TcPlcObject>

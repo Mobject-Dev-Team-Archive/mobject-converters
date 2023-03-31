@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="TryConvert_STRING_TO_DATE" Id="{c067d518-51c2-4f8e-8d5b-2878903bd41c}" SpecialFunc="None">
+      <Declaration><![CDATA[FUNCTION TryConvert_STRING_TO_DATE : BOOL
+VAR_INPUT
+	in : STRING;
+	out : REFERENCE TO DATE;
+END_VAR]]></Declaration>
+      <Implementation>
+          <ST><![CDATA[IF in <> DATE_TO_STRING(STRING_TO_DATE(in)) THEN
+	RETURN;
+END_IF
+
+out := STRING_TO_DATE(in);
+TryConvert_STRING_TO_DATE := TRUE;]]></ST>
+      </Implementation>
+      
+  </POU>
+</TcPlcObject>

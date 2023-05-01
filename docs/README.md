@@ -6,7 +6,7 @@
 
 ## The mobject-conversion Library
 
-This is one of the many libraries of mobject. This library focuses on the handling of type conversion.
+This is one of the many libraries of [mobject](http://mobject.org/#/). This library focuses on the handling of type conversion.
 
 ## What is mobject?
 

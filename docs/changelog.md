@@ -1,13 +1,19 @@
 # Changelog
 
-## 0.1.1
+## v1.0.0-beta
+
+- Changed status from alpha to beta.
+- Updated documentation to support dark mode.
+- Library built using 4024.53.
+
+## v0.1.1-alpha
 
 - Updated to 4024.44
 
-## 0.1.0
+## v0.1.0-alpha
 
 - Full refactor to use TryConvert naming, add bounds checking and added full unit tests
 
-## 0.0.0
+## v0.0.0-alpha
 
 - Initial alpha code

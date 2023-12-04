@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.0.1-beta
+
+- Added explicit conversion to remove warning message.
+
 ## v1.0.0-beta
 
 - Changed status from alpha to beta.

@@ -5,57 +5,57 @@
 VAR
 END_VAR]]></Declaration>
     <Implementation>
-      <ST><![CDATA[Check_BOOL_TO_BOOL_Upper();
-Check_BOOL_TO_BOOL_Lower();
-Check_BOOL_TO_BYTE_Upper();
-Check_BOOL_TO_BYTE_Lower();
-Check_BOOL_TO_WORD_Upper();
-Check_BOOL_TO_WORD_Lower();
-Check_BOOL_TO_DWORD_Upper();
-Check_BOOL_TO_DWORD_Lower();
-Check_BOOL_TO_LWORD_Upper();
-Check_BOOL_TO_LWORD_Lower();
-Check_BOOL_TO_SINT_Upper();
-Check_BOOL_TO_SINT_Lower();
-Check_BOOL_TO_INT_Upper();
-Check_BOOL_TO_INT_Lower();
-Check_BOOL_TO_DINT_Upper();
-Check_BOOL_TO_DINT_Lower();
-Check_BOOL_TO_LINT_Upper();
-Check_BOOL_TO_LINT_Lower();
-Check_BOOL_TO_USINT_Upper();
-Check_BOOL_TO_USINT_Lower();
-Check_BOOL_TO_UINT_Upper();
-Check_BOOL_TO_UINT_Lower();
-Check_BOOL_TO_UDINT_Upper();
-Check_BOOL_TO_UDINT_Lower();
-Check_BOOL_TO_ULINT_Upper();
-Check_BOOL_TO_ULINT_Lower();
-Check_BOOL_TO_REAL_Upper();
-Check_BOOL_TO_REAL_Lower();
-Check_BOOL_TO_LREAL_Upper();
-Check_BOOL_TO_LREAL_Lower();
-Check_BOOL_TO_TIME_Upper();
-Check_BOOL_TO_TIME_Lower();
-Check_BOOL_TO_TOD_Upper();
-Check_BOOL_TO_TOD_Lower();
-Check_BOOL_TO_DATE_Upper();
-Check_BOOL_TO_DATE_Lower();
-Check_BOOL_TO_DT_Upper();
-Check_BOOL_TO_DT_Lower();
-Check_BOOL_TO_STRING_Upper();
-Check_BOOL_TO_STRING_Lower();]]></ST>
+      <ST><![CDATA[Check_BOOL_TO_BOOL_Max();
+Check_BOOL_TO_BOOL_Min();
+Check_BOOL_TO_BYTE_Max();
+Check_BOOL_TO_BYTE_Min();
+Check_BOOL_TO_WORD_Max();
+Check_BOOL_TO_WORD_Min();
+Check_BOOL_TO_DWORD_Max();
+Check_BOOL_TO_DWORD_Min();
+Check_BOOL_TO_LWORD_Max();
+Check_BOOL_TO_LWORD_Min();
+Check_BOOL_TO_SINT_Max();
+Check_BOOL_TO_SINT_Min();
+Check_BOOL_TO_INT_Max();
+Check_BOOL_TO_INT_Min();
+Check_BOOL_TO_DINT_Max();
+Check_BOOL_TO_DINT_Min();
+Check_BOOL_TO_LINT_Max();
+Check_BOOL_TO_LINT_Min();
+Check_BOOL_TO_USINT_Max();
+Check_BOOL_TO_USINT_Min();
+Check_BOOL_TO_UINT_Max();
+Check_BOOL_TO_UINT_Min();
+Check_BOOL_TO_UDINT_Max();
+Check_BOOL_TO_UDINT_Min();
+Check_BOOL_TO_ULINT_Max();
+Check_BOOL_TO_ULINT_Min();
+Check_BOOL_TO_REAL_Max();
+Check_BOOL_TO_REAL_Min();
+Check_BOOL_TO_LREAL_Max();
+Check_BOOL_TO_LREAL_Min();
+Check_BOOL_TO_TIME_Max();
+Check_BOOL_TO_TIME_Min();
+Check_BOOL_TO_TOD_Max();
+Check_BOOL_TO_TOD_Min();
+Check_BOOL_TO_DATE_Max();
+Check_BOOL_TO_DATE_Min();
+Check_BOOL_TO_DT_Max();
+Check_BOOL_TO_DT_Min();
+Check_BOOL_TO_STRING_Max();
+Check_BOOL_TO_STRING_Min();]]></ST>
     </Implementation>
-    <Method Name="Check_BOOL_TO_BOOL_Lower" Id="{50b70e98-ca30-43e2-ae8f-4c5f19ee2025}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_BOOL_Lower
+    <Method Name="Check_BOOL_TO_BOOL_Min" Id="{50b70e98-ca30-43e2-ae8f-4c5f19ee2025}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_BOOL_Min
 VAR
-	value : BOOL := DatatypeLimits.BOOL_LOWER_LIMIT;
+	value : BOOL := DatatypeLimits.BOOL_MIN_VALUE;
 	actual : BOOL;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_BOOL_TO_BOOL_Lower');
+        <ST><![CDATA[TEST('Check_BOOL_TO_BOOL_Min');
 
 // @TEST-RUN
 converted := TryConvert_BOOL_TO_Destination(value, actual);
@@ -68,16 +68,16 @@ AssertTrue(Condition := converted, Message := 'Did not report BOOL to BOOL conve
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_BOOL_TO_BOOL_Upper" Id="{9c002dc5-df52-4233-ac7e-bc4b65770cbb}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_BOOL_Upper
+    <Method Name="Check_BOOL_TO_BOOL_Max" Id="{9c002dc5-df52-4233-ac7e-bc4b65770cbb}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_BOOL_Max
 VAR
-	value : BOOL := DatatypeLimits.BOOL_UPPER_LIMIT;
+	value : BOOL := DatatypeLimits.BOOL_MAX_VALUE;
 	actual : BOOL;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_BOOL_TO_BOOL_Upper');
+        <ST><![CDATA[TEST('Check_BOOL_TO_BOOL_Max');
 
 // @TEST-RUN
 converted := TryConvert_BOOL_TO_Destination(value, actual);
@@ -90,16 +90,16 @@ AssertTrue(Condition := converted, Message := 'Did not report BOOL to BOOL conve
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_BOOL_TO_BYTE_Lower" Id="{a33a0e8e-e0a4-411f-9b80-63dd2c27918a}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_BYTE_Lower
+    <Method Name="Check_BOOL_TO_BYTE_Min" Id="{a33a0e8e-e0a4-411f-9b80-63dd2c27918a}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_BYTE_Min
 VAR
-	value : BOOL := DatatypeLimits.BOOL_LOWER_LIMIT;
+	value : BOOL := DatatypeLimits.BOOL_MIN_VALUE;
 	actual : BYTE;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_BOOL_TO_BYTE_Lower');
+        <ST><![CDATA[TEST('Check_BOOL_TO_BYTE_Min');
 
 // @TEST-RUN
 converted := TryConvert_BOOL_TO_Destination(value, actual);
@@ -112,16 +112,16 @@ AssertTrue(Condition := converted, Message := 'Did not report BOOL to BYTE conve
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_BOOL_TO_BYTE_Upper" Id="{7ffb1f0c-cd59-457b-9822-4e88565ae689}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_BYTE_Upper
+    <Method Name="Check_BOOL_TO_BYTE_Max" Id="{7ffb1f0c-cd59-457b-9822-4e88565ae689}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_BYTE_Max
 VAR
-	value : BOOL := DatatypeLimits.BOOL_UPPER_LIMIT;
+	value : BOOL := DatatypeLimits.BOOL_MAX_VALUE;
 	actual : BYTE;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_BOOL_TO_BYTE_Upper');
+        <ST><![CDATA[TEST('Check_BOOL_TO_BYTE_Max');
 
 // @TEST-RUN
 converted := TryConvert_BOOL_TO_Destination(value, actual);
@@ -134,16 +134,16 @@ AssertTrue(Condition := converted, Message := 'Did not report BOOL to BYTE conve
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_BOOL_TO_DATE_Lower" Id="{50ffa676-b08b-4bc5-be55-cbc0b887a09f}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_DATE_Lower
+    <Method Name="Check_BOOL_TO_DATE_Min" Id="{50ffa676-b08b-4bc5-be55-cbc0b887a09f}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_DATE_Min
 VAR
-	value : BOOL := DatatypeLimits.BOOL_LOWER_LIMIT;
+	value : BOOL := DatatypeLimits.BOOL_MIN_VALUE;
 	actual : DATE;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_BOOL_TO_DATE_Lower');
+        <ST><![CDATA[TEST('Check_BOOL_TO_DATE_Min');
 
 // @TEST-RUN
 converted := TryConvert_BOOL_TO_Destination(value, actual);
@@ -156,16 +156,16 @@ AssertTrue(Condition := converted, Message := 'Did not report BOOL to DATE conve
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_BOOL_TO_DATE_Upper" Id="{2f760352-443b-40ed-b0b2-f5f38ec3a6ac}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_DATE_Upper
+    <Method Name="Check_BOOL_TO_DATE_Max" Id="{2f760352-443b-40ed-b0b2-f5f38ec3a6ac}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_DATE_Max
 VAR
-	value : BOOL := DatatypeLimits.BOOL_UPPER_LIMIT;
+	value : BOOL := DatatypeLimits.BOOL_MAX_VALUE;
 	actual : DATE;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_BOOL_TO_DATE_Upper');
+        <ST><![CDATA[TEST('Check_BOOL_TO_DATE_Max');
 
 // @TEST-RUN
 converted := TryConvert_BOOL_TO_Destination(value, actual);
@@ -178,16 +178,16 @@ AssertTrue(Condition := converted, Message := 'Did not report BOOL to DATE conve
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_BOOL_TO_DINT_Lower" Id="{b698199d-455c-42f0-a18e-b53202b4efd0}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_DINT_Lower
+    <Method Name="Check_BOOL_TO_DINT_Min" Id="{b698199d-455c-42f0-a18e-b53202b4efd0}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_DINT_Min
 VAR
-	value : BOOL := DatatypeLimits.BOOL_LOWER_LIMIT;
+	value : BOOL := DatatypeLimits.BOOL_MIN_VALUE;
 	actual : DINT;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_BOOL_TO_DINT_Lower');
+        <ST><![CDATA[TEST('Check_BOOL_TO_DINT_Min');
 
 // @TEST-RUN
 converted := TryConvert_BOOL_TO_Destination(value, actual);
@@ -200,16 +200,16 @@ AssertTrue(Condition := converted, Message := 'Did not report BOOL to DINT conve
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_BOOL_TO_DINT_Upper" Id="{5df6e6e5-77fb-4b4e-9b62-b490f86cdb65}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_DINT_Upper
+    <Method Name="Check_BOOL_TO_DINT_Max" Id="{5df6e6e5-77fb-4b4e-9b62-b490f86cdb65}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_DINT_Max
 VAR
-	value : BOOL := DatatypeLimits.BOOL_UPPER_LIMIT;
+	value : BOOL := DatatypeLimits.BOOL_MAX_VALUE;
 	actual : DINT;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_BOOL_TO_DINT_Upper');
+        <ST><![CDATA[TEST('Check_BOOL_TO_DINT_Max');
 
 // @TEST-RUN
 converted := TryConvert_BOOL_TO_Destination(value, actual);
@@ -222,16 +222,16 @@ AssertTrue(Condition := converted, Message := 'Did not report BOOL to DINT conve
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_BOOL_TO_DT_Lower" Id="{3085df9d-c8ac-4bd5-a0a2-2d0819432431}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_DT_Lower
+    <Method Name="Check_BOOL_TO_DT_Min" Id="{3085df9d-c8ac-4bd5-a0a2-2d0819432431}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_DT_Min
 VAR
-	value : BOOL := DatatypeLimits.BOOL_LOWER_LIMIT;
+	value : BOOL := DatatypeLimits.BOOL_MIN_VALUE;
 	actual : DT;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_BOOL_TO_DT_Lower');
+        <ST><![CDATA[TEST('Check_BOOL_TO_DT_Min');
 
 // @TEST-RUN
 converted := TryConvert_BOOL_TO_Destination(value, actual);
@@ -244,16 +244,16 @@ AssertTrue(Condition := converted, Message := 'Did not report BOOL to DT convers
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_BOOL_TO_DT_Upper" Id="{24c21568-ba4e-472f-9049-9bbb3ce2e636}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_DT_Upper
+    <Method Name="Check_BOOL_TO_DT_Max" Id="{24c21568-ba4e-472f-9049-9bbb3ce2e636}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_DT_Max
 VAR
-	value : BOOL := DatatypeLimits.BOOL_UPPER_LIMIT;
+	value : BOOL := DatatypeLimits.BOOL_MAX_VALUE;
 	actual : DT;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_BOOL_TO_DT_Upper');
+        <ST><![CDATA[TEST('Check_BOOL_TO_DT_Max');
 
 // @TEST-RUN
 converted := TryConvert_BOOL_TO_Destination(value, actual);
@@ -266,16 +266,16 @@ AssertTrue(Condition := converted, Message := 'Did not report BOOL to DT convers
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_BOOL_TO_DWORD_Lower" Id="{c05ae3e5-7f5f-45cc-874f-d531bdf2c76b}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_DWORD_Lower
+    <Method Name="Check_BOOL_TO_DWORD_Min" Id="{c05ae3e5-7f5f-45cc-874f-d531bdf2c76b}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_DWORD_Min
 VAR
-	value : BOOL := DatatypeLimits.BOOL_LOWER_LIMIT;
+	value : BOOL := DatatypeLimits.BOOL_MIN_VALUE;
 	actual : DWORD;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_BOOL_TO_DWORD_Lower');
+        <ST><![CDATA[TEST('Check_BOOL_TO_DWORD_Min');
 
 // @TEST-RUN
 converted := TryConvert_BOOL_TO_Destination(value, actual);
@@ -288,16 +288,16 @@ AssertTrue(Condition := converted, Message := 'Did not report BOOL to DWORD conv
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_BOOL_TO_DWORD_Upper" Id="{97e031f8-63f4-4ccd-8391-bd3097134f2c}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_DWORD_Upper
+    <Method Name="Check_BOOL_TO_DWORD_Max" Id="{97e031f8-63f4-4ccd-8391-bd3097134f2c}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_DWORD_Max
 VAR
-	value : BOOL := DatatypeLimits.BOOL_UPPER_LIMIT;
+	value : BOOL := DatatypeLimits.BOOL_MAX_VALUE;
 	actual : DWORD;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_BOOL_TO_DWORD_Upper');
+        <ST><![CDATA[TEST('Check_BOOL_TO_DWORD_Max');
 
 // @TEST-RUN
 converted := TryConvert_BOOL_TO_Destination(value, actual);
@@ -310,16 +310,16 @@ AssertTrue(Condition := converted, Message := 'Did not report BOOL to DWORD conv
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_BOOL_TO_INT_Lower" Id="{4fc7d153-7e5d-4dfb-b439-2a33fa2bb7b5}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_INT_Lower
+    <Method Name="Check_BOOL_TO_INT_Min" Id="{4fc7d153-7e5d-4dfb-b439-2a33fa2bb7b5}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_INT_Min
 VAR
-	value : BOOL := DatatypeLimits.BOOL_LOWER_LIMIT;
+	value : BOOL := DatatypeLimits.BOOL_MIN_VALUE;
 	actual : INT;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_BOOL_TO_INT_Lower');
+        <ST><![CDATA[TEST('Check_BOOL_TO_INT_Min');
 
 // @TEST-RUN
 converted := TryConvert_BOOL_TO_Destination(value, actual);
@@ -332,16 +332,16 @@ AssertTrue(Condition := converted, Message := 'Did not report BOOL to INT conver
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_BOOL_TO_INT_Upper" Id="{c341bb71-d20f-4bc8-9db5-29d480479c9f}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_INT_Upper
+    <Method Name="Check_BOOL_TO_INT_Max" Id="{c341bb71-d20f-4bc8-9db5-29d480479c9f}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_INT_Max
 VAR
-	value : BOOL := DatatypeLimits.BOOL_UPPER_LIMIT;
+	value : BOOL := DatatypeLimits.BOOL_MAX_VALUE;
 	actual : INT;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_BOOL_TO_INT_Upper');
+        <ST><![CDATA[TEST('Check_BOOL_TO_INT_Max');
 
 // @TEST-RUN
 converted := TryConvert_BOOL_TO_Destination(value, actual);
@@ -354,16 +354,16 @@ AssertTrue(Condition := converted, Message := 'Did not report BOOL to INT conver
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_BOOL_TO_LINT_Lower" Id="{3277b481-6be1-4c48-b261-4d95d90b5794}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_LINT_Lower
+    <Method Name="Check_BOOL_TO_LINT_Min" Id="{3277b481-6be1-4c48-b261-4d95d90b5794}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_LINT_Min
 VAR
-	value : BOOL := DatatypeLimits.BOOL_LOWER_LIMIT;
+	value : BOOL := DatatypeLimits.BOOL_MIN_VALUE;
 	actual : LINT;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_BOOL_TO_LINT_Lower');
+        <ST><![CDATA[TEST('Check_BOOL_TO_LINT_Min');
 
 // @TEST-RUN
 converted := TryConvert_BOOL_TO_Destination(value, actual);
@@ -376,16 +376,16 @@ AssertTrue(Condition := converted, Message := 'Did not report BOOL to LINT conve
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_BOOL_TO_LINT_Upper" Id="{88449851-0464-431a-a9a3-4c59fb79809c}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_LINT_Upper
+    <Method Name="Check_BOOL_TO_LINT_Max" Id="{88449851-0464-431a-a9a3-4c59fb79809c}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_LINT_Max
 VAR
-	value : BOOL := DatatypeLimits.BOOL_UPPER_LIMIT;
+	value : BOOL := DatatypeLimits.BOOL_MAX_VALUE;
 	actual : LINT;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_BOOL_TO_LINT_Upper');
+        <ST><![CDATA[TEST('Check_BOOL_TO_LINT_Max');
 
 // @TEST-RUN
 converted := TryConvert_BOOL_TO_Destination(value, actual);
@@ -398,16 +398,16 @@ AssertTrue(Condition := converted, Message := 'Did not report BOOL to LINT conve
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_BOOL_TO_LREAL_Lower" Id="{2fb86d33-f2d9-40be-b620-98e284d1767e}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_LREAL_Lower
+    <Method Name="Check_BOOL_TO_LREAL_Min" Id="{2fb86d33-f2d9-40be-b620-98e284d1767e}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_LREAL_Min
 VAR
-	value : BOOL := DatatypeLimits.BOOL_LOWER_LIMIT;
+	value : BOOL := DatatypeLimits.BOOL_MIN_VALUE;
 	actual : LREAL;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_BOOL_TO_LREAL_Lower');
+        <ST><![CDATA[TEST('Check_BOOL_TO_LREAL_Min');
 
 // @TEST-RUN
 converted := TryConvert_BOOL_TO_Destination(value, actual);
@@ -420,16 +420,16 @@ AssertTrue(Condition := converted, Message := 'Did not report BOOL to LREAL conv
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_BOOL_TO_LREAL_Upper" Id="{25e66faa-9f77-40fb-8f11-9fd079917a98}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_LREAL_Upper
+    <Method Name="Check_BOOL_TO_LREAL_Max" Id="{25e66faa-9f77-40fb-8f11-9fd079917a98}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_LREAL_Max
 VAR
-	value : BOOL := DatatypeLimits.BOOL_UPPER_LIMIT;
+	value : BOOL := DatatypeLimits.BOOL_MAX_VALUE;
 	actual : LREAL;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_BOOL_TO_LREAL_Upper');
+        <ST><![CDATA[TEST('Check_BOOL_TO_LREAL_Max');
 
 // @TEST-RUN
 converted := TryConvert_BOOL_TO_Destination(value, actual);
@@ -442,16 +442,16 @@ AssertTrue(Condition := converted, Message := 'Did not report BOOL to LREAL conv
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_BOOL_TO_LWORD_Lower" Id="{7b726689-c316-4f49-9e67-916d8abe68d3}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_LWORD_Lower
+    <Method Name="Check_BOOL_TO_LWORD_Min" Id="{7b726689-c316-4f49-9e67-916d8abe68d3}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_LWORD_Min
 VAR
-	value : BOOL := DatatypeLimits.BOOL_LOWER_LIMIT;
+	value : BOOL := DatatypeLimits.BOOL_MIN_VALUE;
 	actual : LWORD;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_BOOL_TO_LWORD_Lower');
+        <ST><![CDATA[TEST('Check_BOOL_TO_LWORD_Min');
 
 // @TEST-RUN
 converted := TryConvert_BOOL_TO_Destination(value, actual);
@@ -464,16 +464,16 @@ AssertTrue(Condition := converted, Message := 'Did not report BOOL to LWORD conv
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_BOOL_TO_LWORD_Upper" Id="{31210787-df0d-49bf-ac63-34257fe87994}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_LWORD_Upper
+    <Method Name="Check_BOOL_TO_LWORD_Max" Id="{31210787-df0d-49bf-ac63-34257fe87994}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_LWORD_Max
 VAR
-	value : BOOL := DatatypeLimits.BOOL_UPPER_LIMIT;
+	value : BOOL := DatatypeLimits.BOOL_MAX_VALUE;
 	actual : LWORD;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_BOOL_TO_LWORD_Upper');
+        <ST><![CDATA[TEST('Check_BOOL_TO_LWORD_Max');
 
 // @TEST-RUN
 converted := TryConvert_BOOL_TO_Destination(value, actual);
@@ -486,16 +486,16 @@ AssertTrue(Condition := converted, Message := 'Did not report BOOL to LWORD conv
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_BOOL_TO_REAL_Lower" Id="{bfa8ee64-bf1c-41c5-ac6c-a53eae07f82c}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_REAL_Lower
+    <Method Name="Check_BOOL_TO_REAL_Min" Id="{bfa8ee64-bf1c-41c5-ac6c-a53eae07f82c}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_REAL_Min
 VAR
-	value : BOOL := DatatypeLimits.BOOL_LOWER_LIMIT;
+	value : BOOL := DatatypeLimits.BOOL_MIN_VALUE;
 	actual : REAL;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_BOOL_TO_REAL_Lower');
+        <ST><![CDATA[TEST('Check_BOOL_TO_REAL_Min');
 
 // @TEST-RUN
 converted := TryConvert_BOOL_TO_Destination(value, actual);
@@ -508,16 +508,16 @@ AssertTrue(Condition := converted, Message := 'Did not report BOOL to REAL conve
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_BOOL_TO_REAL_Upper" Id="{ddcd1777-93dc-40cf-a282-685291c60b40}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_REAL_Upper
+    <Method Name="Check_BOOL_TO_REAL_Max" Id="{ddcd1777-93dc-40cf-a282-685291c60b40}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_REAL_Max
 VAR
-	value : BOOL := DatatypeLimits.BOOL_UPPER_LIMIT;
+	value : BOOL := DatatypeLimits.BOOL_MAX_VALUE;
 	actual : REAL;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_BOOL_TO_REAL_Upper');
+        <ST><![CDATA[TEST('Check_BOOL_TO_REAL_Max');
 
 // @TEST-RUN
 converted := TryConvert_BOOL_TO_Destination(value, actual);
@@ -530,16 +530,16 @@ AssertTrue(Condition := converted, Message := 'Did not report BOOL to REAL conve
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_BOOL_TO_SINT_Lower" Id="{ac0179ca-760d-413e-84bd-01a8f418a7c8}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_SINT_Lower
+    <Method Name="Check_BOOL_TO_SINT_Min" Id="{ac0179ca-760d-413e-84bd-01a8f418a7c8}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_SINT_Min
 VAR
-	value : BOOL := DatatypeLimits.BOOL_LOWER_LIMIT;
+	value : BOOL := DatatypeLimits.BOOL_MIN_VALUE;
 	actual : SINT;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_BOOL_TO_SINT_Lower');
+        <ST><![CDATA[TEST('Check_BOOL_TO_SINT_Min');
 
 // @TEST-RUN
 converted := TryConvert_BOOL_TO_Destination(value, actual);
@@ -552,16 +552,16 @@ AssertTrue(Condition := converted, Message := 'Did not report BOOL to SINT conve
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_BOOL_TO_SINT_Upper" Id="{068cd061-f459-4654-9f95-10e7c00f30f1}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_SINT_Upper
+    <Method Name="Check_BOOL_TO_SINT_Max" Id="{068cd061-f459-4654-9f95-10e7c00f30f1}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_SINT_Max
 VAR
-	value : BOOL := DatatypeLimits.BOOL_UPPER_LIMIT;
+	value : BOOL := DatatypeLimits.BOOL_MAX_VALUE;
 	actual : SINT;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_BOOL_TO_SINT_Upper');
+        <ST><![CDATA[TEST('Check_BOOL_TO_SINT_Max');
 
 // @TEST-RUN
 converted := TryConvert_BOOL_TO_Destination(value, actual);
@@ -574,16 +574,16 @@ AssertTrue(Condition := converted, Message := 'Did not report BOOL to SINT conve
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_BOOL_TO_STRING_Lower" Id="{90a6c9d2-6980-42e2-80b7-3066ddae811e}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_STRING_Lower
+    <Method Name="Check_BOOL_TO_STRING_Min" Id="{90a6c9d2-6980-42e2-80b7-3066ddae811e}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_STRING_Min
 VAR
-	value : BOOL := DatatypeLimits.BOOL_LOWER_LIMIT;
+	value : BOOL := DatatypeLimits.BOOL_MIN_VALUE;
 	actual : STRING;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_BOOL_TO_STRING_Lower');
+        <ST><![CDATA[TEST('Check_BOOL_TO_STRING_Min');
 
 // @TEST-RUN
 converted := TryConvert_BOOL_TO_Destination(value, actual);
@@ -596,16 +596,16 @@ AssertTrue(Condition := converted, Message := 'Did not report BOOL to STRING con
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_BOOL_TO_STRING_Upper" Id="{a58c7ad8-9eae-4989-a3cb-04b9765dc27b}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_STRING_Upper
+    <Method Name="Check_BOOL_TO_STRING_Max" Id="{a58c7ad8-9eae-4989-a3cb-04b9765dc27b}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_STRING_Max
 VAR
-	value : BOOL := DatatypeLimits.BOOL_UPPER_LIMIT;
+	value : BOOL := DatatypeLimits.BOOL_MAX_VALUE;
 	actual : STRING;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_BOOL_TO_STRING_Upper');
+        <ST><![CDATA[TEST('Check_BOOL_TO_STRING_Max');
 
 // @TEST-RUN
 converted := TryConvert_BOOL_TO_Destination(value, actual);
@@ -618,16 +618,16 @@ AssertTrue(Condition := converted, Message := 'Did not report BOOL to STRING con
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_BOOL_TO_TIME_Lower" Id="{025ff3e0-69a2-4db9-8af1-c46c0054bd6e}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_TIME_Lower
+    <Method Name="Check_BOOL_TO_TIME_Min" Id="{025ff3e0-69a2-4db9-8af1-c46c0054bd6e}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_TIME_Min
 VAR
-	value : BOOL := DatatypeLimits.BOOL_LOWER_LIMIT;
+	value : BOOL := DatatypeLimits.BOOL_MIN_VALUE;
 	actual : TIME;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_BOOL_TO_TIME_Lower');
+        <ST><![CDATA[TEST('Check_BOOL_TO_TIME_Min');
 
 // @TEST-RUN
 converted := TryConvert_BOOL_TO_Destination(value, actual);
@@ -640,16 +640,16 @@ AssertTrue(Condition := converted, Message := 'Did not report BOOL to TIME conve
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_BOOL_TO_TIME_Upper" Id="{ad7501e5-c52e-4f66-86cb-2de0a4568aef}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_TIME_Upper
+    <Method Name="Check_BOOL_TO_TIME_Max" Id="{ad7501e5-c52e-4f66-86cb-2de0a4568aef}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_TIME_Max
 VAR
-	value : BOOL := DatatypeLimits.BOOL_UPPER_LIMIT;
+	value : BOOL := DatatypeLimits.BOOL_MAX_VALUE;
 	actual : TIME;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_BOOL_TO_TIME_Upper');
+        <ST><![CDATA[TEST('Check_BOOL_TO_TIME_Max');
 
 // @TEST-RUN
 converted := TryConvert_BOOL_TO_Destination(value, actual);
@@ -662,16 +662,16 @@ AssertTrue(Condition := converted, Message := 'Did not report BOOL to TIME conve
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_BOOL_TO_TOD_Lower" Id="{1f90e325-f6c5-41cd-8cef-52d68518179e}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_TOD_Lower
+    <Method Name="Check_BOOL_TO_TOD_Min" Id="{1f90e325-f6c5-41cd-8cef-52d68518179e}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_TOD_Min
 VAR
-	value : BOOL := DatatypeLimits.BOOL_LOWER_LIMIT;
+	value : BOOL := DatatypeLimits.BOOL_MIN_VALUE;
 	actual : TOD;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_BOOL_TO_TOD_Lower');
+        <ST><![CDATA[TEST('Check_BOOL_TO_TOD_Min');
 
 // @TEST-RUN
 converted := TryConvert_BOOL_TO_Destination(value, actual);
@@ -684,16 +684,16 @@ AssertTrue(Condition := converted, Message := 'Did not report BOOL to TOD conver
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_BOOL_TO_TOD_Upper" Id="{5768927a-0f6f-413a-9a36-21855c71934a}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_TOD_Upper
+    <Method Name="Check_BOOL_TO_TOD_Max" Id="{5768927a-0f6f-413a-9a36-21855c71934a}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_TOD_Max
 VAR
-	value : BOOL := DatatypeLimits.BOOL_UPPER_LIMIT;
+	value : BOOL := DatatypeLimits.BOOL_MAX_VALUE;
 	actual : TOD;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_BOOL_TO_TOD_Upper');
+        <ST><![CDATA[TEST('Check_BOOL_TO_TOD_Max');
 
 // @TEST-RUN
 converted := TryConvert_BOOL_TO_Destination(value, actual);
@@ -706,16 +706,16 @@ AssertTrue(Condition := converted, Message := 'Did not report BOOL to TOD conver
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_BOOL_TO_UDINT_Lower" Id="{41261337-d68a-4505-a535-51a0865b1afc}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_UDINT_Lower
+    <Method Name="Check_BOOL_TO_UDINT_Min" Id="{41261337-d68a-4505-a535-51a0865b1afc}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_UDINT_Min
 VAR
-	value : BOOL := DatatypeLimits.BOOL_LOWER_LIMIT;
+	value : BOOL := DatatypeLimits.BOOL_MIN_VALUE;
 	actual : UDINT;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_BOOL_TO_UDINT_Lower');
+        <ST><![CDATA[TEST('Check_BOOL_TO_UDINT_Min');
 
 // @TEST-RUN
 converted := TryConvert_BOOL_TO_Destination(value, actual);
@@ -728,16 +728,16 @@ AssertTrue(Condition := converted, Message := 'Did not report BOOL to UDINT conv
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_BOOL_TO_UDINT_Upper" Id="{b4a6bb3e-23b5-4e38-a81e-f9a1b74d0562}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_UDINT_Upper
+    <Method Name="Check_BOOL_TO_UDINT_Max" Id="{b4a6bb3e-23b5-4e38-a81e-f9a1b74d0562}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_UDINT_Max
 VAR
-	value : BOOL := DatatypeLimits.BOOL_UPPER_LIMIT;
+	value : BOOL := DatatypeLimits.BOOL_MAX_VALUE;
 	actual : UDINT;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_BOOL_TO_UDINT_Upper');
+        <ST><![CDATA[TEST('Check_BOOL_TO_UDINT_Max');
 
 // @TEST-RUN
 converted := TryConvert_BOOL_TO_Destination(value, actual);
@@ -750,16 +750,16 @@ AssertTrue(Condition := converted, Message := 'Did not report BOOL to UDINT conv
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_BOOL_TO_UINT_Lower" Id="{6036c3cc-9f0d-4238-b2a8-d594107a5dc7}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_UINT_Lower
+    <Method Name="Check_BOOL_TO_UINT_Min" Id="{6036c3cc-9f0d-4238-b2a8-d594107a5dc7}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_UINT_Min
 VAR
-	value : BOOL := DatatypeLimits.BOOL_LOWER_LIMIT;
+	value : BOOL := DatatypeLimits.BOOL_MIN_VALUE;
 	actual : UINT;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_BOOL_TO_UINT_Lower');
+        <ST><![CDATA[TEST('Check_BOOL_TO_UINT_Min');
 
 // @TEST-RUN
 converted := TryConvert_BOOL_TO_Destination(value, actual);
@@ -772,16 +772,16 @@ AssertTrue(Condition := converted, Message := 'Did not report BOOL to UINT conve
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_BOOL_TO_UINT_Upper" Id="{e57e108f-0f74-4e36-af64-c6ea80e6c827}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_UINT_Upper
+    <Method Name="Check_BOOL_TO_UINT_Max" Id="{e57e108f-0f74-4e36-af64-c6ea80e6c827}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_UINT_Max
 VAR
-	value : BOOL := DatatypeLimits.BOOL_UPPER_LIMIT;
+	value : BOOL := DatatypeLimits.BOOL_MAX_VALUE;
 	actual : UINT;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_BOOL_TO_UINT_Upper');
+        <ST><![CDATA[TEST('Check_BOOL_TO_UINT_Max');
 
 // @TEST-RUN
 converted := TryConvert_BOOL_TO_Destination(value, actual);
@@ -794,16 +794,16 @@ AssertTrue(Condition := converted, Message := 'Did not report BOOL to UINT conve
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_BOOL_TO_ULINT_Lower" Id="{f2dce75d-5ce9-4520-88cd-749f35bffe8f}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_ULINT_Lower
+    <Method Name="Check_BOOL_TO_ULINT_Min" Id="{f2dce75d-5ce9-4520-88cd-749f35bffe8f}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_ULINT_Min
 VAR
-	value : BOOL := DatatypeLimits.BOOL_LOWER_LIMIT;
+	value : BOOL := DatatypeLimits.BOOL_MIN_VALUE;
 	actual : ULINT;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_BOOL_TO_ULINT_Lower');
+        <ST><![CDATA[TEST('Check_BOOL_TO_ULINT_Min');
 
 // @TEST-RUN
 converted := TryConvert_BOOL_TO_Destination(value, actual);
@@ -816,16 +816,16 @@ AssertTrue(Condition := converted, Message := 'Did not report BOOL to ULINT conv
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_BOOL_TO_ULINT_Upper" Id="{65a6cebe-77be-4531-ba0a-cac289778d9b}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_ULINT_Upper
+    <Method Name="Check_BOOL_TO_ULINT_Max" Id="{65a6cebe-77be-4531-ba0a-cac289778d9b}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_ULINT_Max
 VAR
-	value : BOOL := DatatypeLimits.BOOL_UPPER_LIMIT;
+	value : BOOL := DatatypeLimits.BOOL_MAX_VALUE;
 	actual : ULINT;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_BOOL_TO_ULINT_Upper');
+        <ST><![CDATA[TEST('Check_BOOL_TO_ULINT_Max');
 
 // @TEST-RUN
 converted := TryConvert_BOOL_TO_Destination(value, actual);
@@ -838,16 +838,16 @@ AssertTrue(Condition := converted, Message := 'Did not report BOOL to ULINT conv
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_BOOL_TO_USINT_Lower" Id="{43f33054-0789-4576-a83c-856b5cabd486}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_USINT_Lower
+    <Method Name="Check_BOOL_TO_USINT_Min" Id="{43f33054-0789-4576-a83c-856b5cabd486}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_USINT_Min
 VAR
-	value : BOOL := DatatypeLimits.BOOL_LOWER_LIMIT;
+	value : BOOL := DatatypeLimits.BOOL_MIN_VALUE;
 	actual : USINT;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_BOOL_TO_USINT_Lower');
+        <ST><![CDATA[TEST('Check_BOOL_TO_USINT_Min');
 
 // @TEST-RUN
 converted := TryConvert_BOOL_TO_Destination(value, actual);
@@ -860,16 +860,16 @@ AssertTrue(Condition := converted, Message := 'Did not report BOOL to USINT conv
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_BOOL_TO_USINT_Upper" Id="{1b1b9309-2ca5-4c33-b12e-557fdbd600f4}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_USINT_Upper
+    <Method Name="Check_BOOL_TO_USINT_Max" Id="{1b1b9309-2ca5-4c33-b12e-557fdbd600f4}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_USINT_Max
 VAR
-	value : BOOL := DatatypeLimits.BOOL_UPPER_LIMIT;
+	value : BOOL := DatatypeLimits.BOOL_MAX_VALUE;
 	actual : USINT;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_BOOL_TO_USINT_Upper');
+        <ST><![CDATA[TEST('Check_BOOL_TO_USINT_Max');
 
 // @TEST-RUN
 converted := TryConvert_BOOL_TO_Destination(value, actual);
@@ -882,16 +882,16 @@ AssertTrue(Condition := converted, Message := 'Did not report BOOL to USINT conv
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_BOOL_TO_WORD_Lower" Id="{7350ecb3-7d99-404c-8b58-e2d82a7ac980}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_WORD_Lower
+    <Method Name="Check_BOOL_TO_WORD_Min" Id="{7350ecb3-7d99-404c-8b58-e2d82a7ac980}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_WORD_Min
 VAR
-	value : BOOL := DatatypeLimits.BOOL_LOWER_LIMIT;
+	value : BOOL := DatatypeLimits.BOOL_MIN_VALUE;
 	actual : WORD;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_BOOL_TO_WORD_Lower');
+        <ST><![CDATA[TEST('Check_BOOL_TO_WORD_Min');
 
 // @TEST-RUN
 converted := TryConvert_BOOL_TO_Destination(value, actual);
@@ -904,16 +904,16 @@ AssertTrue(Condition := converted, Message := 'Did not report BOOL to WORD conve
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_BOOL_TO_WORD_Upper" Id="{297fe2f6-ee5f-48a6-bd61-151513397c9a}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_WORD_Upper
+    <Method Name="Check_BOOL_TO_WORD_Max" Id="{297fe2f6-ee5f-48a6-bd61-151513397c9a}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BOOL_TO_WORD_Max
 VAR
-	value : BOOL := DatatypeLimits.BOOL_UPPER_LIMIT;
+	value : BOOL := DatatypeLimits.BOOL_MAX_VALUE;
 	actual : WORD;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_BOOL_TO_WORD_Upper');
+        <ST><![CDATA[TEST('Check_BOOL_TO_WORD_Max');
 
 // @TEST-RUN
 converted := TryConvert_BOOL_TO_Destination(value, actual);

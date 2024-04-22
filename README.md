@@ -6,7 +6,7 @@
   </picture>
 </p>
 
-## The mobject-conversion Library
+## The mobject-converters Library
 
 This is one of the many libraries of [mobject](http://mobject.org). This library focuses on the handling of type conversion.
 
@@ -24,4 +24,4 @@ The documentation for this project can be found [here](http://converters.mobject
 
 ## Versions
 
-- TcXaeShell 3.1.4024.53
+- TcXaeShell 3.1.4024.55

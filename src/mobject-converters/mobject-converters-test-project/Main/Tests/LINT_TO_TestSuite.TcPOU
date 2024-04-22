@@ -5,85 +5,85 @@
 VAR
 END_VAR]]></Declaration>
     <Implementation>
-      <ST><![CDATA[Check_LINT_TO_BOOL_Upper();
-Check_LINT_TO_BOOL_Lower();
-Check_LINT_TO_BYTE_Upper();
-Check_LINT_TO_BYTE_Lower();
+      <ST><![CDATA[Check_LINT_TO_BOOL_Max();
+Check_LINT_TO_BOOL_Min();
+Check_LINT_TO_BYTE_Max();
+Check_LINT_TO_BYTE_Min();
 Check_LINT_TO_BYTE_TooHigh();
 Check_LINT_TO_BYTE_TooLow();
-Check_LINT_TO_WORD_Upper();
-Check_LINT_TO_WORD_Lower();
+Check_LINT_TO_WORD_Max();
+Check_LINT_TO_WORD_Min();
 Check_LINT_TO_WORD_TooHigh();
 Check_LINT_TO_WORD_TooLow();
-Check_LINT_TO_DWORD_Upper();
-Check_LINT_TO_DWORD_Lower();
+Check_LINT_TO_DWORD_Max();
+Check_LINT_TO_DWORD_Min();
 Check_LINT_TO_DWORD_TooHigh();
 Check_LINT_TO_DWORD_TooLow();
-Check_LINT_TO_LWORD_Upper();
-Check_LINT_TO_LWORD_Lower();
+Check_LINT_TO_LWORD_Max();
+Check_LINT_TO_LWORD_Min();
 Check_LINT_TO_LWORD_TooLow();
-Check_LINT_TO_SINT_Upper();
-Check_LINT_TO_SINT_Lower();
+Check_LINT_TO_SINT_Max();
+Check_LINT_TO_SINT_Min();
 Check_LINT_TO_SINT_TooHigh();
 Check_LINT_TO_SINT_TooLow();
-Check_LINT_TO_INT_Upper();
-Check_LINT_TO_INT_Lower();
+Check_LINT_TO_INT_Max();
+Check_LINT_TO_INT_Min();
 Check_LINT_TO_INT_TooHigh();
 Check_LINT_TO_INT_TooLow();
-Check_LINT_TO_DINT_Upper();
-Check_LINT_TO_DINT_Lower();
+Check_LINT_TO_DINT_Max();
+Check_LINT_TO_DINT_Min();
 Check_LINT_TO_DINT_TooHigh();
 Check_LINT_TO_DINT_TooLow();
-Check_LINT_TO_LINT_Upper();
-Check_LINT_TO_LINT_Lower();
-Check_LINT_TO_USINT_Upper();
-Check_LINT_TO_USINT_Lower();
+Check_LINT_TO_LINT_Max();
+Check_LINT_TO_LINT_Min();
+Check_LINT_TO_USINT_Max();
+Check_LINT_TO_USINT_Min();
 Check_LINT_TO_USINT_TooHigh();
 Check_LINT_TO_USINT_TooLow();
-Check_LINT_TO_UINT_Upper();
-Check_LINT_TO_UINT_Lower();
+Check_LINT_TO_UINT_Max();
+Check_LINT_TO_UINT_Min();
 Check_LINT_TO_UINT_TooHigh();
 Check_LINT_TO_UINT_TooLow();
-Check_LINT_TO_UDINT_Upper();
-Check_LINT_TO_UDINT_Lower();
+Check_LINT_TO_UDINT_Max();
+Check_LINT_TO_UDINT_Min();
 Check_LINT_TO_UDINT_TooHigh();
 Check_LINT_TO_UDINT_TooLow();
-Check_LINT_TO_ULINT_Upper();
-Check_LINT_TO_ULINT_Lower();
+Check_LINT_TO_ULINT_Max();
+Check_LINT_TO_ULINT_Min();
 Check_LINT_TO_ULINT_TooLow();
-Check_LINT_TO_REAL_Upper();
-Check_LINT_TO_REAL_Lower();
-Check_LINT_TO_LREAL_Upper();
-Check_LINT_TO_LREAL_Lower();
-Check_LINT_TO_TIME_Upper();
-Check_LINT_TO_TIME_Lower();
+Check_LINT_TO_REAL_Max();
+Check_LINT_TO_REAL_Min();
+Check_LINT_TO_LREAL_Max();
+Check_LINT_TO_LREAL_Min();
+Check_LINT_TO_TIME_Max();
+Check_LINT_TO_TIME_Min();
 Check_LINT_TO_TIME_TooHigh();
 Check_LINT_TO_TIME_TooLow();
-Check_LINT_TO_TOD_Upper();
-Check_LINT_TO_TOD_Lower();
+Check_LINT_TO_TOD_Max();
+Check_LINT_TO_TOD_Min();
 Check_LINT_TO_TOD_TooHigh();
 Check_LINT_TO_TOD_TooLow();
-Check_LINT_TO_DATE_Upper();
-Check_LINT_TO_DATE_Lower();
+Check_LINT_TO_DATE_Max();
+Check_LINT_TO_DATE_Min();
 Check_LINT_TO_DATE_TooHigh();
 Check_LINT_TO_DATE_TooLow();
-Check_LINT_TO_DT_Upper();
-Check_LINT_TO_DT_Lower();
+Check_LINT_TO_DT_Max();
+Check_LINT_TO_DT_Min();
 Check_LINT_TO_DT_TooHigh();
 Check_LINT_TO_DT_TooLow();
-Check_LINT_TO_STRING_Upper();
-Check_LINT_TO_STRING_Lower();]]></ST>
+Check_LINT_TO_STRING_Max();
+Check_LINT_TO_STRING_Min();]]></ST>
     </Implementation>
-    <Method Name="Check_LINT_TO_BOOL_Lower" Id="{42c0fc53-df6f-4105-b75b-4ec7d61de7e0}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_BOOL_Lower
+    <Method Name="Check_LINT_TO_BOOL_Min" Id="{42c0fc53-df6f-4105-b75b-4ec7d61de7e0}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_BOOL_Min
 VAR
-	value : LINT := DatatypeLimits.LINT_LOWER_LIMIT;
+	value : LINT := DatatypeLimits.LINT_MIN_VALUE;
 	actual : BOOL;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_LINT_TO_BOOL_Lower');
+        <ST><![CDATA[TEST('Check_LINT_TO_BOOL_Min');
 
 // @TEST-RUN
 converted := TryConvert_LINT_TO_Destination(value, actual);
@@ -96,16 +96,16 @@ AssertTrue(Condition := converted, Message := 'Did not report LINT to BOOL conve
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_LINT_TO_BOOL_Upper" Id="{e26bf448-a808-43d5-944b-4b73a3845b05}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_BOOL_Upper
+    <Method Name="Check_LINT_TO_BOOL_Max" Id="{e26bf448-a808-43d5-944b-4b73a3845b05}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_BOOL_Max
 VAR
-	value : LINT := DatatypeLimits.LINT_UPPER_LIMIT;
+	value : LINT := DatatypeLimits.LINT_MAX_VALUE;
 	actual : BOOL;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_LINT_TO_BOOL_Upper');
+        <ST><![CDATA[TEST('Check_LINT_TO_BOOL_Max');
 
 // @TEST-RUN
 converted := TryConvert_LINT_TO_Destination(value, actual);
@@ -118,8 +118,8 @@ AssertTrue(Condition := converted, Message := 'Did not report LINT to BOOL conve
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_LINT_TO_BYTE_Lower" Id="{5ccf301e-c08f-4938-95fd-96db8b58c73c}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_BYTE_Lower
+    <Method Name="Check_LINT_TO_BYTE_Min" Id="{5ccf301e-c08f-4938-95fd-96db8b58c73c}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_BYTE_Min
 VAR
 	value : LINT := DatatypeLimits.MIN_VALUE_OF_LINT_WHICH_CAN_BE_HELD_IN_A_BYTE;
 	actual : BYTE;
@@ -127,7 +127,7 @@ VAR
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_LINT_TO_BYTE_Lower');
+        <ST><![CDATA[TEST('Check_LINT_TO_BYTE_Min');
 
 // @TEST-RUN
 converted := TryConvert_LINT_TO_Destination(value, actual);
@@ -143,7 +143,7 @@ TEST_FINISHED();]]></ST>
     <Method Name="Check_LINT_TO_BYTE_TooHigh" Id="{70c7fc76-f628-463e-be3d-916ae53dfb10}">
       <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_BYTE_TooHigh
 VAR
-	value : LINT := DatatypeLimits.LINT_UPPER_LIMIT;
+	value : LINT := DatatypeLimits.LINT_MAX_VALUE;
 	actual : BYTE;
 	converted : BOOL;
 END_VAR]]></Declaration>
@@ -162,7 +162,7 @@ TEST_FINISHED();]]></ST>
     <Method Name="Check_LINT_TO_BYTE_TooLow" Id="{c022a252-fa42-4172-8a7f-87e03659d4e3}">
       <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_BYTE_TooLow
 VAR
-	value : LINT := DatatypeLimits.LINT_LOWER_LIMIT;
+	value : LINT := DatatypeLimits.LINT_MIN_VALUE;
 	actual : BYTE;
 	converted : BOOL;
 END_VAR]]></Declaration>
@@ -178,8 +178,8 @@ AssertFalse(Condition := converted, Message := 'Did not report LINT to BYTE conv
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_LINT_TO_BYTE_Upper" Id="{61dc699b-2acb-4d58-9821-350f8bb1aeab}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_BYTE_Upper
+    <Method Name="Check_LINT_TO_BYTE_Max" Id="{61dc699b-2acb-4d58-9821-350f8bb1aeab}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_BYTE_Max
 VAR
 	value : LINT := DatatypeLimits.MAX_VALUE_OF_LINT_WHICH_CAN_BE_HELD_IN_A_BYTE;
 	actual : BYTE;
@@ -187,7 +187,7 @@ VAR
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_LINT_TO_BYTE_Upper');
+        <ST><![CDATA[TEST('Check_LINT_TO_BYTE_Max');
 
 // @TEST-RUN
 converted := TryConvert_LINT_TO_Destination(value, actual);
@@ -200,8 +200,8 @@ AssertTrue(Condition := converted, Message := 'Did not report LINT to BYTE conve
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_LINT_TO_DATE_Lower" Id="{6e4b2a9f-a2eb-43dd-8a6f-31537b5d3582}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_DATE_Lower
+    <Method Name="Check_LINT_TO_DATE_Min" Id="{6e4b2a9f-a2eb-43dd-8a6f-31537b5d3582}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_DATE_Min
 VAR
 	value : LINT := DatatypeLimits.MIN_VALUE_OF_LINT_WHICH_CAN_BE_HELD_IN_A_DATE;
 	actual : DATE;
@@ -209,7 +209,7 @@ VAR
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_LINT_TO_DATE_Lower');
+        <ST><![CDATA[TEST('Check_LINT_TO_DATE_Min');
 
 // @TEST-RUN
 converted := TryConvert_LINT_TO_Destination(value, actual);
@@ -225,7 +225,7 @@ TEST_FINISHED();]]></ST>
     <Method Name="Check_LINT_TO_DATE_TooHigh" Id="{e63af9b5-fa15-4296-a3df-767d9697f8ab}">
       <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_DATE_TooHigh
 VAR
-	value : LINT := DatatypeLimits.LINT_UPPER_LIMIT;
+	value : LINT := DatatypeLimits.LINT_MAX_VALUE;
 	actual : DATE;
 	converted : BOOL;
 END_VAR]]></Declaration>
@@ -244,7 +244,7 @@ TEST_FINISHED();]]></ST>
     <Method Name="Check_LINT_TO_DATE_TooLow" Id="{539404e7-37ac-4f92-a9e9-07b508b37e52}">
       <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_DATE_TooLow
 VAR
-	value : LINT := DatatypeLimits.LINT_LOWER_LIMIT;
+	value : LINT := DatatypeLimits.LINT_MIN_VALUE;
 	actual : DATE;
 	converted : BOOL;
 END_VAR]]></Declaration>
@@ -260,8 +260,8 @@ AssertFalse(Condition := converted, Message := 'Did not report LINT to DATE conv
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_LINT_TO_DATE_Upper" Id="{544b2ef5-6c10-4d32-be91-7e6b7be83585}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_DATE_Upper
+    <Method Name="Check_LINT_TO_DATE_Max" Id="{544b2ef5-6c10-4d32-be91-7e6b7be83585}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_DATE_Max
 VAR
 	value : LINT := DatatypeLimits.MAX_VALUE_OF_LINT_WHICH_CAN_BE_HELD_IN_A_DATE;
 	actual : DATE;
@@ -269,7 +269,7 @@ VAR
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_LINT_TO_DATE_Upper');
+        <ST><![CDATA[TEST('Check_LINT_TO_DATE_Max');
 
 // @TEST-RUN
 converted := TryConvert_LINT_TO_Destination(value, actual);
@@ -282,8 +282,8 @@ AssertTrue(Condition := converted, Message := 'Did not report LINT to DATE conve
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_LINT_TO_DINT_Lower" Id="{1d67ec21-5c0f-4170-8aa8-60b328e5f79b}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_DINT_Lower
+    <Method Name="Check_LINT_TO_DINT_Min" Id="{1d67ec21-5c0f-4170-8aa8-60b328e5f79b}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_DINT_Min
 VAR
 	value : LINT := DatatypeLimits.MIN_VALUE_OF_LINT_WHICH_CAN_BE_HELD_IN_A_DINT;
 	actual : DINT;
@@ -291,7 +291,7 @@ VAR
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_LINT_TO_DINT_Lower');
+        <ST><![CDATA[TEST('Check_LINT_TO_DINT_Min');
 
 // @TEST-RUN
 converted := TryConvert_LINT_TO_Destination(value, actual);
@@ -307,7 +307,7 @@ TEST_FINISHED();]]></ST>
     <Method Name="Check_LINT_TO_DINT_TooHigh" Id="{cfd2aeec-e06a-4f3e-a518-5417baca01e5}">
       <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_DINT_TooHigh
 VAR
-	value : LINT := DatatypeLimits.LINT_UPPER_LIMIT;
+	value : LINT := DatatypeLimits.LINT_MAX_VALUE;
 	actual : DINT;
 	converted : BOOL;
 END_VAR]]></Declaration>
@@ -326,7 +326,7 @@ TEST_FINISHED();]]></ST>
     <Method Name="Check_LINT_TO_DINT_TooLow" Id="{ea77ea2c-55db-4de0-8623-f2bebc9b633c}">
       <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_DINT_TooLow
 VAR
-	value : LINT := DatatypeLimits.LINT_LOWER_LIMIT;
+	value : LINT := DatatypeLimits.LINT_MIN_VALUE;
 	actual : DINT;
 	converted : BOOL;
 END_VAR]]></Declaration>
@@ -342,8 +342,8 @@ AssertFalse(Condition := converted, Message := 'Did not report LINT to DINT conv
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_LINT_TO_DINT_Upper" Id="{5d386188-5ffd-4aec-b216-fda18d8efca3}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_DINT_Upper
+    <Method Name="Check_LINT_TO_DINT_Max" Id="{5d386188-5ffd-4aec-b216-fda18d8efca3}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_DINT_Max
 VAR
 	value : LINT := DatatypeLimits.MAX_VALUE_OF_LINT_WHICH_CAN_BE_HELD_IN_A_DINT;
 	actual : DINT;
@@ -351,7 +351,7 @@ VAR
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_LINT_TO_DINT_Upper');
+        <ST><![CDATA[TEST('Check_LINT_TO_DINT_Max');
 
 // @TEST-RUN
 converted := TryConvert_LINT_TO_Destination(value, actual);
@@ -364,8 +364,8 @@ AssertTrue(Condition := converted, Message := 'Did not report LINT to DINT conve
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_LINT_TO_DT_Lower" Id="{648f62d0-2fbf-4e99-91be-e68dd7b10fcc}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_DT_Lower
+    <Method Name="Check_LINT_TO_DT_Min" Id="{648f62d0-2fbf-4e99-91be-e68dd7b10fcc}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_DT_Min
 VAR
 	value : LINT := DatatypeLimits.MIN_VALUE_OF_LINT_WHICH_CAN_BE_HELD_IN_A_DT;
 	actual : DT;
@@ -373,7 +373,7 @@ VAR
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_LINT_TO_DT_Lower');
+        <ST><![CDATA[TEST('Check_LINT_TO_DT_Min');
 
 // @TEST-RUN
 converted := TryConvert_LINT_TO_Destination(value, actual);
@@ -389,7 +389,7 @@ TEST_FINISHED();]]></ST>
     <Method Name="Check_LINT_TO_DT_TooHigh" Id="{d017fcd4-0b63-46b6-a0b7-9871ec32b4ad}">
       <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_DT_TooHigh
 VAR
-	value : LINT := DatatypeLimits.LINT_UPPER_LIMIT;
+	value : LINT := DatatypeLimits.LINT_MAX_VALUE;
 	actual : DT;
 	converted : BOOL;
 END_VAR]]></Declaration>
@@ -408,7 +408,7 @@ TEST_FINISHED();]]></ST>
     <Method Name="Check_LINT_TO_DT_TooLow" Id="{e05d3e15-20ba-4b81-a94e-af0f1546e0a3}">
       <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_DT_TooLow
 VAR
-	value : LINT := DatatypeLimits.LINT_LOWER_LIMIT;
+	value : LINT := DatatypeLimits.LINT_MIN_VALUE;
 	actual : DT;
 	converted : BOOL;
 END_VAR]]></Declaration>
@@ -424,8 +424,8 @@ AssertFalse(Condition := converted, Message := 'Did not report LINT to DT conver
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_LINT_TO_DT_Upper" Id="{c96c58d2-d95f-41ff-9d51-08abfbf8efab}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_DT_Upper
+    <Method Name="Check_LINT_TO_DT_Max" Id="{c96c58d2-d95f-41ff-9d51-08abfbf8efab}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_DT_Max
 VAR
 	value : LINT := DatatypeLimits.MAX_VALUE_OF_LINT_WHICH_CAN_BE_HELD_IN_A_DT;
 	actual : DT;
@@ -433,7 +433,7 @@ VAR
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_LINT_TO_DT_Upper');
+        <ST><![CDATA[TEST('Check_LINT_TO_DT_Max');
 
 // @TEST-RUN
 converted := TryConvert_LINT_TO_Destination(value, actual);
@@ -446,8 +446,8 @@ AssertTrue(Condition := converted, Message := 'Did not report LINT to DT convers
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_LINT_TO_DWORD_Lower" Id="{f2cab39c-c7e3-43bc-8d71-d183983ba3d8}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_DWORD_Lower
+    <Method Name="Check_LINT_TO_DWORD_Min" Id="{f2cab39c-c7e3-43bc-8d71-d183983ba3d8}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_DWORD_Min
 VAR
 	value : LINT := DatatypeLimits.MIN_VALUE_OF_LINT_WHICH_CAN_BE_HELD_IN_A_DWORD;
 	actual : DWORD;
@@ -455,7 +455,7 @@ VAR
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_LINT_TO_DWORD_Lower');
+        <ST><![CDATA[TEST('Check_LINT_TO_DWORD_Min');
 
 // @TEST-RUN
 converted := TryConvert_LINT_TO_Destination(value, actual);
@@ -471,7 +471,7 @@ TEST_FINISHED();]]></ST>
     <Method Name="Check_LINT_TO_DWORD_TooHigh" Id="{a1a0be18-fd94-49e4-98d1-a75c9cfa80b2}">
       <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_DWORD_TooHigh
 VAR
-	value : LINT := DatatypeLimits.LINT_UPPER_LIMIT;
+	value : LINT := DatatypeLimits.LINT_MAX_VALUE;
 	actual : DWORD;
 	converted : BOOL;
 END_VAR]]></Declaration>
@@ -490,7 +490,7 @@ TEST_FINISHED();]]></ST>
     <Method Name="Check_LINT_TO_DWORD_TooLow" Id="{44e97f1e-eb77-40bb-aaaf-1b44c512f662}">
       <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_DWORD_TooLow
 VAR
-	value : LINT := DatatypeLimits.LINT_LOWER_LIMIT;
+	value : LINT := DatatypeLimits.LINT_MIN_VALUE;
 	actual : DWORD;
 	converted : BOOL;
 END_VAR]]></Declaration>
@@ -506,8 +506,8 @@ AssertFalse(Condition := converted, Message := 'Did not report LINT to DWORD con
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_LINT_TO_DWORD_Upper" Id="{7f345cf3-2892-484e-95e9-4fe631f2bb12}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_DWORD_Upper
+    <Method Name="Check_LINT_TO_DWORD_Max" Id="{7f345cf3-2892-484e-95e9-4fe631f2bb12}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_DWORD_Max
 VAR
 	value : LINT := DatatypeLimits.MAX_VALUE_OF_LINT_WHICH_CAN_BE_HELD_IN_A_DWORD;
 	actual : DWORD;
@@ -515,7 +515,7 @@ VAR
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_LINT_TO_DWORD_Upper');
+        <ST><![CDATA[TEST('Check_LINT_TO_DWORD_Max');
 
 // @TEST-RUN
 converted := TryConvert_LINT_TO_Destination(value, actual);
@@ -528,8 +528,8 @@ AssertTrue(Condition := converted, Message := 'Did not report LINT to DWORD conv
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_LINT_TO_INT_Lower" Id="{50346f33-0eff-4e6f-a036-f554e7fc7962}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_INT_Lower
+    <Method Name="Check_LINT_TO_INT_Min" Id="{50346f33-0eff-4e6f-a036-f554e7fc7962}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_INT_Min
 VAR
 	value : LINT := DatatypeLimits.MIN_VALUE_OF_LINT_WHICH_CAN_BE_HELD_IN_A_INT;
 	actual : INT;
@@ -537,7 +537,7 @@ VAR
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_LINT_TO_INT_Lower');
+        <ST><![CDATA[TEST('Check_LINT_TO_INT_Min');
 
 // @TEST-RUN
 converted := TryConvert_LINT_TO_Destination(value, actual);
@@ -553,7 +553,7 @@ TEST_FINISHED();]]></ST>
     <Method Name="Check_LINT_TO_INT_TooHigh" Id="{976bde4f-6a23-46cc-89b9-3ed85d5451da}">
       <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_INT_TooHigh
 VAR
-	value : LINT := DatatypeLimits.LINT_UPPER_LIMIT;
+	value : LINT := DatatypeLimits.LINT_MAX_VALUE;
 	actual : INT;
 	converted : BOOL;
 END_VAR]]></Declaration>
@@ -572,7 +572,7 @@ TEST_FINISHED();]]></ST>
     <Method Name="Check_LINT_TO_INT_TooLow" Id="{ee8101bf-eae8-4e07-8f03-bea582e416df}">
       <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_INT_TooLow
 VAR
-	value : LINT := DatatypeLimits.LINT_LOWER_LIMIT;
+	value : LINT := DatatypeLimits.LINT_MIN_VALUE;
 	actual : INT;
 	converted : BOOL;
 END_VAR]]></Declaration>
@@ -588,8 +588,8 @@ AssertFalse(Condition := converted, Message := 'Did not report LINT to INT conve
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_LINT_TO_INT_Upper" Id="{a96e57e8-3785-4a75-a6b7-825c12ec7fb2}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_INT_Upper
+    <Method Name="Check_LINT_TO_INT_Max" Id="{a96e57e8-3785-4a75-a6b7-825c12ec7fb2}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_INT_Max
 VAR
 	value : LINT := DatatypeLimits.MAX_VALUE_OF_LINT_WHICH_CAN_BE_HELD_IN_A_INT;
 	actual : INT;
@@ -597,7 +597,7 @@ VAR
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_LINT_TO_INT_Upper');
+        <ST><![CDATA[TEST('Check_LINT_TO_INT_Max');
 
 // @TEST-RUN
 converted := TryConvert_LINT_TO_Destination(value, actual);
@@ -610,16 +610,16 @@ AssertTrue(Condition := converted, Message := 'Did not report LINT to INT conver
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_LINT_TO_LINT_Lower" Id="{97cd8e49-dc1d-4123-a5c7-8940926e5747}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_LINT_Lower
+    <Method Name="Check_LINT_TO_LINT_Min" Id="{97cd8e49-dc1d-4123-a5c7-8940926e5747}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_LINT_Min
 VAR
-	value : LINT := DatatypeLimits.LINT_LOWER_LIMIT;
+	value : LINT := DatatypeLimits.LINT_MIN_VALUE;
 	actual : LINT;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_LINT_TO_LINT_Lower');
+        <ST><![CDATA[TEST('Check_LINT_TO_LINT_Min');
 
 // @TEST-RUN
 converted := TryConvert_LINT_TO_Destination(value, actual);
@@ -632,16 +632,16 @@ AssertTrue(Condition := converted, Message := 'Did not report LINT to LINT conve
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_LINT_TO_LINT_Upper" Id="{08f2d8e7-22c0-48fe-8b5d-fdb4b463b6ea}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_LINT_Upper
+    <Method Name="Check_LINT_TO_LINT_Max" Id="{08f2d8e7-22c0-48fe-8b5d-fdb4b463b6ea}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_LINT_Max
 VAR
-	value : LINT := DatatypeLimits.LINT_UPPER_LIMIT;
+	value : LINT := DatatypeLimits.LINT_MAX_VALUE;
 	actual : LINT;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_LINT_TO_LINT_Upper');
+        <ST><![CDATA[TEST('Check_LINT_TO_LINT_Max');
 
 // @TEST-RUN
 converted := TryConvert_LINT_TO_Destination(value, actual);
@@ -654,16 +654,16 @@ AssertTrue(Condition := converted, Message := 'Did not report LINT to LINT conve
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_LINT_TO_LREAL_Lower" Id="{3bbf1a0b-6d4a-436f-81fd-52b9fc79b997}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_LREAL_Lower
+    <Method Name="Check_LINT_TO_LREAL_Min" Id="{3bbf1a0b-6d4a-436f-81fd-52b9fc79b997}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_LREAL_Min
 VAR
-	value : LINT := DatatypeLimits.LINT_LOWER_LIMIT;
+	value : LINT := DatatypeLimits.LINT_MIN_VALUE;
 	actual : LREAL;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_LINT_TO_LREAL_Lower');
+        <ST><![CDATA[TEST('Check_LINT_TO_LREAL_Min');
 
 // @TEST-RUN
 converted := TryConvert_LINT_TO_Destination(value, actual);
@@ -676,16 +676,16 @@ AssertTrue(Condition := converted, Message := 'Did not report LINT to LREAL conv
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_LINT_TO_LREAL_Upper" Id="{c43d2abe-025b-4f17-82c9-bad9c9866dec}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_LREAL_Upper
+    <Method Name="Check_LINT_TO_LREAL_Max" Id="{c43d2abe-025b-4f17-82c9-bad9c9866dec}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_LREAL_Max
 VAR
-	value : LINT := DatatypeLimits.LINT_UPPER_LIMIT;
+	value : LINT := DatatypeLimits.LINT_MAX_VALUE;
 	actual : LREAL;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_LINT_TO_LREAL_Upper');
+        <ST><![CDATA[TEST('Check_LINT_TO_LREAL_Max');
 
 // @TEST-RUN
 converted := TryConvert_LINT_TO_Destination(value, actual);
@@ -698,8 +698,8 @@ AssertTrue(Condition := converted, Message := 'Did not report LINT to LREAL conv
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_LINT_TO_LWORD_Lower" Id="{60fec2f4-09aa-4a23-8dad-ad5f0bfc7c94}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_LWORD_Lower
+    <Method Name="Check_LINT_TO_LWORD_Min" Id="{60fec2f4-09aa-4a23-8dad-ad5f0bfc7c94}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_LWORD_Min
 VAR
 	value : LINT := DatatypeLimits.MIN_VALUE_OF_LINT_WHICH_CAN_BE_HELD_IN_A_LWORD;
 	actual : LWORD;
@@ -707,7 +707,7 @@ VAR
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_LINT_TO_LWORD_Lower');
+        <ST><![CDATA[TEST('Check_LINT_TO_LWORD_Min');
 
 // @TEST-RUN
 converted := TryConvert_LINT_TO_Destination(value, actual);
@@ -723,7 +723,7 @@ TEST_FINISHED();]]></ST>
     <Method Name="Check_LINT_TO_LWORD_TooLow" Id="{7d8da66b-52d6-4555-a6e9-c96199377ed1}">
       <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_LWORD_TooLow
 VAR
-	value : LINT := DatatypeLimits.LINT_LOWER_LIMIT;
+	value : LINT := DatatypeLimits.LINT_MIN_VALUE;
 	actual : LWORD;
 	converted : BOOL;
 END_VAR]]></Declaration>
@@ -739,16 +739,16 @@ AssertFalse(Condition := converted, Message := 'Did not report LINT to LWORD con
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_LINT_TO_LWORD_Upper" Id="{41085455-b6f0-43b9-8b07-af75b7839aad}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_LWORD_Upper
+    <Method Name="Check_LINT_TO_LWORD_Max" Id="{41085455-b6f0-43b9-8b07-af75b7839aad}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_LWORD_Max
 VAR
-	value : LINT := DatatypeLimits.LINT_UPPER_LIMIT;
+	value : LINT := DatatypeLimits.LINT_MAX_VALUE;
 	actual : LWORD;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_LINT_TO_LWORD_Upper');
+        <ST><![CDATA[TEST('Check_LINT_TO_LWORD_Max');
 
 // @TEST-RUN
 converted := TryConvert_LINT_TO_Destination(value, actual);
@@ -761,16 +761,16 @@ AssertTrue(Condition := converted, Message := 'Did not report LINT to LWORD conv
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_LINT_TO_REAL_Lower" Id="{5072b32e-36cf-40a2-8779-501ff6e33ab7}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_REAL_Lower
+    <Method Name="Check_LINT_TO_REAL_Min" Id="{5072b32e-36cf-40a2-8779-501ff6e33ab7}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_REAL_Min
 VAR
-	value : LINT := DatatypeLimits.LINT_LOWER_LIMIT;
+	value : LINT := DatatypeLimits.LINT_MIN_VALUE;
 	actual : REAL;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_LINT_TO_REAL_Lower');
+        <ST><![CDATA[TEST('Check_LINT_TO_REAL_Min');
 
 // @TEST-RUN
 converted := TryConvert_LINT_TO_Destination(value, actual);
@@ -783,16 +783,16 @@ AssertTrue(Condition := converted, Message := 'Did not report LINT to REAL conve
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_LINT_TO_REAL_Upper" Id="{d272aa93-4192-4fe5-9eed-cedef6f8032d}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_REAL_Upper
+    <Method Name="Check_LINT_TO_REAL_Max" Id="{d272aa93-4192-4fe5-9eed-cedef6f8032d}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_REAL_Max
 VAR
-	value : LINT := DatatypeLimits.LINT_UPPER_LIMIT;
+	value : LINT := DatatypeLimits.LINT_MAX_VALUE;
 	actual : REAL;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_LINT_TO_REAL_Upper');
+        <ST><![CDATA[TEST('Check_LINT_TO_REAL_Max');
 
 // @TEST-RUN
 converted := TryConvert_LINT_TO_Destination(value, actual);
@@ -805,8 +805,8 @@ AssertTrue(Condition := converted, Message := 'Did not report LINT to REAL conve
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_LINT_TO_SINT_Lower" Id="{96c6411a-6bd8-4bdf-a402-5221d05c3c8a}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_SINT_Lower
+    <Method Name="Check_LINT_TO_SINT_Min" Id="{96c6411a-6bd8-4bdf-a402-5221d05c3c8a}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_SINT_Min
 VAR
 	value : LINT := DatatypeLimits.MIN_VALUE_OF_LINT_WHICH_CAN_BE_HELD_IN_A_SINT;
 	actual : SINT;
@@ -814,7 +814,7 @@ VAR
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_LINT_TO_SINT_Lower');
+        <ST><![CDATA[TEST('Check_LINT_TO_SINT_Min');
 
 // @TEST-RUN
 converted := TryConvert_LINT_TO_Destination(value, actual);
@@ -830,7 +830,7 @@ TEST_FINISHED();]]></ST>
     <Method Name="Check_LINT_TO_SINT_TooHigh" Id="{d4b83c48-f93b-469a-81cb-0ac74b282104}">
       <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_SINT_TooHigh
 VAR
-	value : LINT := DatatypeLimits.LINT_UPPER_LIMIT;
+	value : LINT := DatatypeLimits.LINT_MAX_VALUE;
 	actual : SINT;
 	converted : BOOL;
 END_VAR]]></Declaration>
@@ -849,7 +849,7 @@ TEST_FINISHED();]]></ST>
     <Method Name="Check_LINT_TO_SINT_TooLow" Id="{12737fd9-1411-4321-bace-96a59609c76d}">
       <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_SINT_TooLow
 VAR
-	value : LINT := DatatypeLimits.LINT_LOWER_LIMIT;
+	value : LINT := DatatypeLimits.LINT_MIN_VALUE;
 	actual : SINT;
 	converted : BOOL;
 END_VAR]]></Declaration>
@@ -865,8 +865,8 @@ AssertFalse(Condition := converted, Message := 'Did not report LINT to SINT conv
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_LINT_TO_SINT_Upper" Id="{81cd1547-8390-428e-9c65-ad74c9068bc5}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_SINT_Upper
+    <Method Name="Check_LINT_TO_SINT_Max" Id="{81cd1547-8390-428e-9c65-ad74c9068bc5}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_SINT_Max
 VAR
 	value : LINT := DatatypeLimits.MAX_VALUE_OF_LINT_WHICH_CAN_BE_HELD_IN_A_SINT;
 	actual : SINT;
@@ -874,7 +874,7 @@ VAR
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_LINT_TO_SINT_Upper');
+        <ST><![CDATA[TEST('Check_LINT_TO_SINT_Max');
 
 // @TEST-RUN
 converted := TryConvert_LINT_TO_Destination(value, actual);
@@ -887,16 +887,16 @@ AssertTrue(Condition := converted, Message := 'Did not report LINT to SINT conve
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_LINT_TO_STRING_Lower" Id="{cfd6e4f0-8d47-48cb-8157-9348c8b1733c}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_STRING_Lower
+    <Method Name="Check_LINT_TO_STRING_Min" Id="{cfd6e4f0-8d47-48cb-8157-9348c8b1733c}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_STRING_Min
 VAR
-	value : LINT := DatatypeLimits.LINT_LOWER_LIMIT;
+	value : LINT := DatatypeLimits.LINT_MIN_VALUE;
 	actual : STRING;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_LINT_TO_STRING_Lower');
+        <ST><![CDATA[TEST('Check_LINT_TO_STRING_Min');
 
 // @TEST-RUN
 converted := TryConvert_LINT_TO_Destination(value, actual);
@@ -909,16 +909,16 @@ AssertTrue(Condition := converted, Message := 'Did not report LINT to STRING con
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_LINT_TO_STRING_Upper" Id="{01b4a72c-c1e0-4a84-b047-873d174fc9a6}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_STRING_Upper
+    <Method Name="Check_LINT_TO_STRING_Max" Id="{01b4a72c-c1e0-4a84-b047-873d174fc9a6}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_STRING_Max
 VAR
-	value : LINT := DatatypeLimits.LINT_UPPER_LIMIT;
+	value : LINT := DatatypeLimits.LINT_MAX_VALUE;
 	actual : STRING;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_LINT_TO_STRING_Upper');
+        <ST><![CDATA[TEST('Check_LINT_TO_STRING_Max');
 
 // @TEST-RUN
 converted := TryConvert_LINT_TO_Destination(value, actual);
@@ -931,8 +931,8 @@ AssertTrue(Condition := converted, Message := 'Did not report LINT to STRING con
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_LINT_TO_TIME_Lower" Id="{2aa2f220-ab25-45c4-89d0-fa2aca878314}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_TIME_Lower
+    <Method Name="Check_LINT_TO_TIME_Min" Id="{2aa2f220-ab25-45c4-89d0-fa2aca878314}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_TIME_Min
 VAR
 	value : LINT := DatatypeLimits.MIN_VALUE_OF_LINT_WHICH_CAN_BE_HELD_IN_A_TIME;
 	actual : TIME;
@@ -940,7 +940,7 @@ VAR
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_LINT_TO_TIME_Lower');
+        <ST><![CDATA[TEST('Check_LINT_TO_TIME_Min');
 
 // @TEST-RUN
 converted := TryConvert_LINT_TO_Destination(value, actual);
@@ -956,7 +956,7 @@ TEST_FINISHED();]]></ST>
     <Method Name="Check_LINT_TO_TIME_TooHigh" Id="{41b0a828-9a7a-49d7-a4d5-0b441c2233e8}">
       <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_TIME_TooHigh
 VAR
-	value : LINT := DatatypeLimits.LINT_UPPER_LIMIT;
+	value : LINT := DatatypeLimits.LINT_MAX_VALUE;
 	actual : TIME;
 	converted : BOOL;
 END_VAR]]></Declaration>
@@ -975,7 +975,7 @@ TEST_FINISHED();]]></ST>
     <Method Name="Check_LINT_TO_TIME_TooLow" Id="{0a22d689-4d35-46a4-82d2-c87548cbfcc4}">
       <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_TIME_TooLow
 VAR
-	value : LINT := DatatypeLimits.LINT_LOWER_LIMIT;
+	value : LINT := DatatypeLimits.LINT_MIN_VALUE;
 	actual : TIME;
 	converted : BOOL;
 END_VAR]]></Declaration>
@@ -991,8 +991,8 @@ AssertFalse(Condition := converted, Message := 'Did not report LINT to TIME conv
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_LINT_TO_TIME_Upper" Id="{55650074-f23f-41b3-bd31-9b91346ff1f0}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_TIME_Upper
+    <Method Name="Check_LINT_TO_TIME_Max" Id="{55650074-f23f-41b3-bd31-9b91346ff1f0}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_TIME_Max
 VAR
 	value : LINT := DatatypeLimits.MAX_VALUE_OF_LINT_WHICH_CAN_BE_HELD_IN_A_TIME;
 	actual : TIME;
@@ -1000,7 +1000,7 @@ VAR
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_LINT_TO_TIME_Upper');
+        <ST><![CDATA[TEST('Check_LINT_TO_TIME_Max');
 
 // @TEST-RUN
 converted := TryConvert_LINT_TO_Destination(value, actual);
@@ -1013,8 +1013,8 @@ AssertTrue(Condition := converted, Message := 'Did not report LINT to TIME conve
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_LINT_TO_TOD_Lower" Id="{92c4ad07-5e37-48e5-9c43-e6c0a8a24669}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_TOD_Lower
+    <Method Name="Check_LINT_TO_TOD_Min" Id="{92c4ad07-5e37-48e5-9c43-e6c0a8a24669}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_TOD_Min
 VAR
 	value : LINT := DatatypeLimits.MIN_VALUE_OF_LINT_WHICH_CAN_BE_HELD_IN_A_TOD;
 	actual : TOD;
@@ -1022,7 +1022,7 @@ VAR
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_LINT_TO_TOD_Lower');
+        <ST><![CDATA[TEST('Check_LINT_TO_TOD_Min');
 
 // @TEST-RUN
 converted := TryConvert_LINT_TO_Destination(value, actual);
@@ -1038,7 +1038,7 @@ TEST_FINISHED();]]></ST>
     <Method Name="Check_LINT_TO_TOD_TooHigh" Id="{180abb5a-ae97-4126-8eb8-9eb238e278c7}">
       <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_TOD_TooHigh
 VAR
-	value : LINT := DatatypeLimits.LINT_UPPER_LIMIT;
+	value : LINT := DatatypeLimits.LINT_MAX_VALUE;
 	actual : TOD;
 	converted : BOOL;
 END_VAR]]></Declaration>
@@ -1057,7 +1057,7 @@ TEST_FINISHED();]]></ST>
     <Method Name="Check_LINT_TO_TOD_TooLow" Id="{ca4c9459-b42c-41be-bdf7-8b0c430c5c60}">
       <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_TOD_TooLow
 VAR
-	value : LINT := DatatypeLimits.LINT_LOWER_LIMIT;
+	value : LINT := DatatypeLimits.LINT_MIN_VALUE;
 	actual : TOD;
 	converted : BOOL;
 END_VAR]]></Declaration>
@@ -1073,8 +1073,8 @@ AssertFalse(Condition := converted, Message := 'Did not report LINT to TOD conve
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_LINT_TO_TOD_Upper" Id="{e422d51a-8f04-4d65-a35d-3435485bbd71}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_TOD_Upper
+    <Method Name="Check_LINT_TO_TOD_Max" Id="{e422d51a-8f04-4d65-a35d-3435485bbd71}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_TOD_Max
 VAR
 	value : LINT := DatatypeLimits.MAX_VALUE_OF_LINT_WHICH_CAN_BE_HELD_IN_A_TOD;
 	actual : TOD;
@@ -1082,7 +1082,7 @@ VAR
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_LINT_TO_TOD_Upper');
+        <ST><![CDATA[TEST('Check_LINT_TO_TOD_Max');
 
 // @TEST-RUN
 converted := TryConvert_LINT_TO_Destination(value, actual);
@@ -1095,8 +1095,8 @@ AssertTrue(Condition := converted, Message := 'Did not report LINT to TOD conver
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_LINT_TO_UDINT_Lower" Id="{f96de0ce-0e98-4719-b0c6-f72bd41a03b0}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_UDINT_Lower
+    <Method Name="Check_LINT_TO_UDINT_Min" Id="{f96de0ce-0e98-4719-b0c6-f72bd41a03b0}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_UDINT_Min
 VAR
 	value : LINT := DatatypeLimits.MIN_VALUE_OF_LINT_WHICH_CAN_BE_HELD_IN_A_UDINT;
 	actual : UDINT;
@@ -1104,7 +1104,7 @@ VAR
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_LINT_TO_UDINT_Lower');
+        <ST><![CDATA[TEST('Check_LINT_TO_UDINT_Min');
 
 // @TEST-RUN
 converted := TryConvert_LINT_TO_Destination(value, actual);
@@ -1120,7 +1120,7 @@ TEST_FINISHED();]]></ST>
     <Method Name="Check_LINT_TO_UDINT_TooHigh" Id="{aee4ace3-6c5d-4c21-aa6a-b07c33f6483c}">
       <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_UDINT_TooHigh
 VAR
-	value : LINT := DatatypeLimits.LINT_UPPER_LIMIT;
+	value : LINT := DatatypeLimits.LINT_MAX_VALUE;
 	actual : UDINT;
 	converted : BOOL;
 END_VAR]]></Declaration>
@@ -1139,7 +1139,7 @@ TEST_FINISHED();]]></ST>
     <Method Name="Check_LINT_TO_UDINT_TooLow" Id="{e993218f-0f10-4ced-9e39-12e655d9b228}">
       <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_UDINT_TooLow
 VAR
-	value : LINT := DatatypeLimits.LINT_LOWER_LIMIT;
+	value : LINT := DatatypeLimits.LINT_MIN_VALUE;
 	actual : UDINT;
 	converted : BOOL;
 END_VAR]]></Declaration>
@@ -1155,8 +1155,8 @@ AssertFalse(Condition := converted, Message := 'Did not report LINT to UDINT con
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_LINT_TO_UDINT_Upper" Id="{d605a80b-ea2d-4db0-9eb6-cab82dc0b4d9}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_UDINT_Upper
+    <Method Name="Check_LINT_TO_UDINT_Max" Id="{d605a80b-ea2d-4db0-9eb6-cab82dc0b4d9}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_UDINT_Max
 VAR
 	value : LINT := DatatypeLimits.MAX_VALUE_OF_LINT_WHICH_CAN_BE_HELD_IN_A_UDINT;
 	actual : UDINT;
@@ -1164,7 +1164,7 @@ VAR
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_LINT_TO_UDINT_Upper');
+        <ST><![CDATA[TEST('Check_LINT_TO_UDINT_Max');
 
 // @TEST-RUN
 converted := TryConvert_LINT_TO_Destination(value, actual);
@@ -1177,8 +1177,8 @@ AssertTrue(Condition := converted, Message := 'Did not report LINT to UDINT conv
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_LINT_TO_UINT_Lower" Id="{dde52459-9e59-4cb9-b3c5-bb7e08c66251}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_UINT_Lower
+    <Method Name="Check_LINT_TO_UINT_Min" Id="{dde52459-9e59-4cb9-b3c5-bb7e08c66251}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_UINT_Min
 VAR
 	value : LINT := DatatypeLimits.MIN_VALUE_OF_LINT_WHICH_CAN_BE_HELD_IN_A_UINT;
 	actual : UINT;
@@ -1186,7 +1186,7 @@ VAR
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_LINT_TO_UINT_Lower');
+        <ST><![CDATA[TEST('Check_LINT_TO_UINT_Min');
 
 // @TEST-RUN
 converted := TryConvert_LINT_TO_Destination(value, actual);
@@ -1202,7 +1202,7 @@ TEST_FINISHED();]]></ST>
     <Method Name="Check_LINT_TO_UINT_TooHigh" Id="{b7216e73-ce48-4c22-8190-a057abf6c492}">
       <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_UINT_TooHigh
 VAR
-	value : LINT := DatatypeLimits.LINT_UPPER_LIMIT;
+	value : LINT := DatatypeLimits.LINT_MAX_VALUE;
 	actual : UINT;
 	converted : BOOL;
 END_VAR]]></Declaration>
@@ -1221,7 +1221,7 @@ TEST_FINISHED();]]></ST>
     <Method Name="Check_LINT_TO_UINT_TooLow" Id="{8ec175bb-d9d9-455e-91ae-32a0319d7352}">
       <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_UINT_TooLow
 VAR
-	value : LINT := DatatypeLimits.LINT_LOWER_LIMIT;
+	value : LINT := DatatypeLimits.LINT_MIN_VALUE;
 	actual : UINT;
 	converted : BOOL;
 END_VAR]]></Declaration>
@@ -1237,8 +1237,8 @@ AssertFalse(Condition := converted, Message := 'Did not report LINT to UINT conv
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_LINT_TO_UINT_Upper" Id="{ad7ac0bc-d499-4f9c-985f-7a1a91f137e0}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_UINT_Upper
+    <Method Name="Check_LINT_TO_UINT_Max" Id="{ad7ac0bc-d499-4f9c-985f-7a1a91f137e0}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_UINT_Max
 VAR
 	value : LINT := DatatypeLimits.MAX_VALUE_OF_LINT_WHICH_CAN_BE_HELD_IN_A_UINT;
 	actual : UINT;
@@ -1246,7 +1246,7 @@ VAR
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_LINT_TO_UINT_Upper');
+        <ST><![CDATA[TEST('Check_LINT_TO_UINT_Max');
 
 // @TEST-RUN
 converted := TryConvert_LINT_TO_Destination(value, actual);
@@ -1259,8 +1259,8 @@ AssertTrue(Condition := converted, Message := 'Did not report LINT to UINT conve
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_LINT_TO_ULINT_Lower" Id="{1db82dd7-d79e-4d8f-8fbb-9138aaf42fa4}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_ULINT_Lower
+    <Method Name="Check_LINT_TO_ULINT_Min" Id="{1db82dd7-d79e-4d8f-8fbb-9138aaf42fa4}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_ULINT_Min
 VAR
 	value : LINT := DatatypeLimits.MIN_VALUE_OF_LINT_WHICH_CAN_BE_HELD_IN_A_ULINT;
 	actual : ULINT;
@@ -1268,7 +1268,7 @@ VAR
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_LINT_TO_ULINT_Lower');
+        <ST><![CDATA[TEST('Check_LINT_TO_ULINT_Min');
 
 // @TEST-RUN
 converted := TryConvert_LINT_TO_Destination(value, actual);
@@ -1284,7 +1284,7 @@ TEST_FINISHED();]]></ST>
     <Method Name="Check_LINT_TO_ULINT_TooLow" Id="{f2a98633-30de-43f3-9d39-fbda68e8eba9}">
       <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_ULINT_TooLow
 VAR
-	value : LINT := DatatypeLimits.LINT_LOWER_LIMIT;
+	value : LINT := DatatypeLimits.LINT_MIN_VALUE;
 	actual : ULINT;
 	converted : BOOL;
 END_VAR]]></Declaration>
@@ -1300,16 +1300,16 @@ AssertFalse(Condition := converted, Message := 'Did not report LINT to ULINT con
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_LINT_TO_ULINT_Upper" Id="{deb971c7-867c-4ca9-8bad-ac1aef190bf5}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_ULINT_Upper
+    <Method Name="Check_LINT_TO_ULINT_Max" Id="{deb971c7-867c-4ca9-8bad-ac1aef190bf5}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_ULINT_Max
 VAR
-	value : LINT := DatatypeLimits.LINT_UPPER_LIMIT;
+	value : LINT := DatatypeLimits.LINT_MAX_VALUE;
 	actual : ULINT;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_LINT_TO_ULINT_Upper');
+        <ST><![CDATA[TEST('Check_LINT_TO_ULINT_Max');
 
 // @TEST-RUN
 converted := TryConvert_LINT_TO_Destination(value, actual);
@@ -1322,8 +1322,8 @@ AssertTrue(Condition := converted, Message := 'Did not report LINT to ULINT conv
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_LINT_TO_USINT_Lower" Id="{deee47e6-6138-4f62-8609-839283ca6df9}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_USINT_Lower
+    <Method Name="Check_LINT_TO_USINT_Min" Id="{deee47e6-6138-4f62-8609-839283ca6df9}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_USINT_Min
 VAR
 	value : LINT := DatatypeLimits.MIN_VALUE_OF_LINT_WHICH_CAN_BE_HELD_IN_A_USINT;
 	actual : USINT;
@@ -1331,7 +1331,7 @@ VAR
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_LINT_TO_USINT_Lower');
+        <ST><![CDATA[TEST('Check_LINT_TO_USINT_Min');
 
 // @TEST-RUN
 converted := TryConvert_LINT_TO_Destination(value, actual);
@@ -1347,7 +1347,7 @@ TEST_FINISHED();]]></ST>
     <Method Name="Check_LINT_TO_USINT_TooHigh" Id="{9a7a9cfe-ab83-427e-925d-08670c917270}">
       <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_USINT_TooHigh
 VAR
-	value : LINT := DatatypeLimits.LINT_UPPER_LIMIT;
+	value : LINT := DatatypeLimits.LINT_MAX_VALUE;
 	actual : USINT;
 	converted : BOOL;
 END_VAR]]></Declaration>
@@ -1366,7 +1366,7 @@ TEST_FINISHED();]]></ST>
     <Method Name="Check_LINT_TO_USINT_TooLow" Id="{97ad46db-cb90-4d3b-8020-acea9e3a9e7a}">
       <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_USINT_TooLow
 VAR
-	value : LINT := DatatypeLimits.LINT_LOWER_LIMIT;
+	value : LINT := DatatypeLimits.LINT_MIN_VALUE;
 	actual : USINT;
 	converted : BOOL;
 END_VAR]]></Declaration>
@@ -1382,8 +1382,8 @@ AssertFalse(Condition := converted, Message := 'Did not report LINT to USINT con
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_LINT_TO_USINT_Upper" Id="{8508483c-5d39-464d-a5d7-4f2bdf3f9e11}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_USINT_Upper
+    <Method Name="Check_LINT_TO_USINT_Max" Id="{8508483c-5d39-464d-a5d7-4f2bdf3f9e11}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_USINT_Max
 VAR
 	value : LINT := DatatypeLimits.MAX_VALUE_OF_LINT_WHICH_CAN_BE_HELD_IN_A_USINT;
 	actual : USINT;
@@ -1391,7 +1391,7 @@ VAR
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_LINT_TO_USINT_Upper');
+        <ST><![CDATA[TEST('Check_LINT_TO_USINT_Max');
 
 // @TEST-RUN
 converted := TryConvert_LINT_TO_Destination(value, actual);
@@ -1404,8 +1404,8 @@ AssertTrue(Condition := converted, Message := 'Did not report LINT to USINT conv
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_LINT_TO_WORD_Lower" Id="{c68d42f6-322e-4c38-949a-a73c054f0525}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_WORD_Lower
+    <Method Name="Check_LINT_TO_WORD_Min" Id="{c68d42f6-322e-4c38-949a-a73c054f0525}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_WORD_Min
 VAR
 	value : LINT := DatatypeLimits.MIN_VALUE_OF_LINT_WHICH_CAN_BE_HELD_IN_A_WORD;
 	actual : WORD;
@@ -1413,7 +1413,7 @@ VAR
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_LINT_TO_WORD_Lower');
+        <ST><![CDATA[TEST('Check_LINT_TO_WORD_Min');
 
 // @TEST-RUN
 converted := TryConvert_LINT_TO_Destination(value, actual);
@@ -1429,7 +1429,7 @@ TEST_FINISHED();]]></ST>
     <Method Name="Check_LINT_TO_WORD_TooHigh" Id="{8c35b95e-2907-475e-8d84-1f8ce051c1b2}">
       <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_WORD_TooHigh
 VAR
-	value : LINT := DatatypeLimits.LINT_UPPER_LIMIT;
+	value : LINT := DatatypeLimits.LINT_MAX_VALUE;
 	actual : WORD;
 	converted : BOOL;
 END_VAR]]></Declaration>
@@ -1448,7 +1448,7 @@ TEST_FINISHED();]]></ST>
     <Method Name="Check_LINT_TO_WORD_TooLow" Id="{fa569f72-4c46-4def-86d7-8cc2c782ec2d}">
       <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_WORD_TooLow
 VAR
-	value : LINT := DatatypeLimits.LINT_LOWER_LIMIT;
+	value : LINT := DatatypeLimits.LINT_MIN_VALUE;
 	actual : WORD;
 	converted : BOOL;
 END_VAR]]></Declaration>
@@ -1464,8 +1464,8 @@ AssertFalse(Condition := converted, Message := 'Did not report LINT to WORD conv
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_LINT_TO_WORD_Upper" Id="{1cd4d22e-7f41-4af8-8c4f-e75e51fd541c}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_WORD_Upper
+    <Method Name="Check_LINT_TO_WORD_Max" Id="{1cd4d22e-7f41-4af8-8c4f-e75e51fd541c}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_LINT_TO_WORD_Max
 VAR
 	value : LINT := DatatypeLimits.MAX_VALUE_OF_LINT_WHICH_CAN_BE_HELD_IN_A_WORD;
 	actual : WORD;
@@ -1473,7 +1473,7 @@ VAR
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_LINT_TO_WORD_Upper');
+        <ST><![CDATA[TEST('Check_LINT_TO_WORD_Max');
 
 // @TEST-RUN
 converted := TryConvert_LINT_TO_Destination(value, actual);

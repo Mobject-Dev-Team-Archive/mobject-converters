@@ -18,7 +18,7 @@
     <Company>mobject</Company>
     <Released>false</Released>
     <Title>mobject-converters</Title>
-    <ProjectVersion>1.0.1</ProjectVersion>
+    <ProjectVersion>1.0.2</ProjectVersion>
     <DefaultNamespace>mobject-converters</DefaultNamespace>
     <Placeholder>mobject-converters</Placeholder>
     <Author>mobject dev team</Author>
@@ -1321,10 +1321,6 @@
     <Compile Include="Converters\WORD_TO_\TryConvert_WORD_TO_WORD.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DataTypeLimits.TcGVL">
-      <SubType>Code</SubType>
-      <LinkAlways>true</LinkAlways>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="mobject-converters.tmc">
@@ -1336,6 +1332,11 @@
       <DefaultResolution>Tc2_System, * (Beckhoff Automation GmbH)</DefaultResolution>
       <Namespace>Tc2_System</Namespace>
     </PlaceholderReference>
+  </ItemGroup>
+  <ItemGroup>
+    <LibraryReference Include="mobject-constants-datatype-limits,1.0.0,mobject">
+      <Namespace>mobject_constants_datatype_limits</Namespace>
+    </LibraryReference>
   </ItemGroup>
   <ProjectExtensions>
     <PlcProjectOptions>

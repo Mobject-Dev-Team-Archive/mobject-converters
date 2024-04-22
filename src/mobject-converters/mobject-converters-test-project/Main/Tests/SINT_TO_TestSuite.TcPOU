@@ -5,69 +5,69 @@
 VAR
 END_VAR]]></Declaration>
     <Implementation>
-      <ST><![CDATA[Check_SINT_TO_BOOL_Upper();
-Check_SINT_TO_BOOL_Lower();
-Check_SINT_TO_BYTE_Upper();
-Check_SINT_TO_BYTE_Lower();
+      <ST><![CDATA[Check_SINT_TO_BOOL_Max();
+Check_SINT_TO_BOOL_Min();
+Check_SINT_TO_BYTE_Max();
+Check_SINT_TO_BYTE_Min();
 Check_SINT_TO_BYTE_TooLow();
-Check_SINT_TO_WORD_Upper();
-Check_SINT_TO_WORD_Lower();
+Check_SINT_TO_WORD_Max();
+Check_SINT_TO_WORD_Min();
 Check_SINT_TO_WORD_TooLow();
-Check_SINT_TO_DWORD_Upper();
-Check_SINT_TO_DWORD_Lower();
+Check_SINT_TO_DWORD_Max();
+Check_SINT_TO_DWORD_Min();
 Check_SINT_TO_DWORD_TooLow();
-Check_SINT_TO_LWORD_Upper();
-Check_SINT_TO_LWORD_Lower();
+Check_SINT_TO_LWORD_Max();
+Check_SINT_TO_LWORD_Min();
 Check_SINT_TO_LWORD_TooLow();
-Check_SINT_TO_SINT_Upper();
-Check_SINT_TO_SINT_Lower();
-Check_SINT_TO_INT_Upper();
-Check_SINT_TO_INT_Lower();
-Check_SINT_TO_DINT_Upper();
-Check_SINT_TO_DINT_Lower();
-Check_SINT_TO_LINT_Upper();
-Check_SINT_TO_LINT_Lower();
-Check_SINT_TO_USINT_Upper();
-Check_SINT_TO_USINT_Lower();
+Check_SINT_TO_SINT_Max();
+Check_SINT_TO_SINT_Min();
+Check_SINT_TO_INT_Max();
+Check_SINT_TO_INT_Min();
+Check_SINT_TO_DINT_Max();
+Check_SINT_TO_DINT_Min();
+Check_SINT_TO_LINT_Max();
+Check_SINT_TO_LINT_Min();
+Check_SINT_TO_USINT_Max();
+Check_SINT_TO_USINT_Min();
 Check_SINT_TO_USINT_TooLow();
-Check_SINT_TO_UINT_Upper();
-Check_SINT_TO_UINT_Lower();
+Check_SINT_TO_UINT_Max();
+Check_SINT_TO_UINT_Min();
 Check_SINT_TO_UINT_TooLow();
-Check_SINT_TO_UDINT_Upper();
-Check_SINT_TO_UDINT_Lower();
+Check_SINT_TO_UDINT_Max();
+Check_SINT_TO_UDINT_Min();
 Check_SINT_TO_UDINT_TooLow();
-Check_SINT_TO_ULINT_Upper();
-Check_SINT_TO_ULINT_Lower();
+Check_SINT_TO_ULINT_Max();
+Check_SINT_TO_ULINT_Min();
 Check_SINT_TO_ULINT_TooLow();
-Check_SINT_TO_REAL_Upper();
-Check_SINT_TO_REAL_Lower();
-Check_SINT_TO_LREAL_Upper();
-Check_SINT_TO_LREAL_Lower();
-Check_SINT_TO_TIME_Upper();
-Check_SINT_TO_TIME_Lower();
+Check_SINT_TO_REAL_Max();
+Check_SINT_TO_REAL_Min();
+Check_SINT_TO_LREAL_Max();
+Check_SINT_TO_LREAL_Min();
+Check_SINT_TO_TIME_Max();
+Check_SINT_TO_TIME_Min();
 Check_SINT_TO_TIME_TooLow();
-Check_SINT_TO_TOD_Upper();
-Check_SINT_TO_TOD_Lower();
+Check_SINT_TO_TOD_Max();
+Check_SINT_TO_TOD_Min();
 Check_SINT_TO_TOD_TooLow();
-Check_SINT_TO_DATE_Upper();
-Check_SINT_TO_DATE_Lower();
+Check_SINT_TO_DATE_Max();
+Check_SINT_TO_DATE_Min();
 Check_SINT_TO_DATE_TooLow();
-Check_SINT_TO_DT_Upper();
-Check_SINT_TO_DT_Lower();
+Check_SINT_TO_DT_Max();
+Check_SINT_TO_DT_Min();
 Check_SINT_TO_DT_TooLow();
-Check_SINT_TO_STRING_Upper();
-Check_SINT_TO_STRING_Lower();]]></ST>
+Check_SINT_TO_STRING_Max();
+Check_SINT_TO_STRING_Min();]]></ST>
     </Implementation>
-    <Method Name="Check_SINT_TO_BOOL_Lower" Id="{b4e1f5ea-a868-42a5-badf-1c2fe6e474bf}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_BOOL_Lower
+    <Method Name="Check_SINT_TO_BOOL_Min" Id="{b4e1f5ea-a868-42a5-badf-1c2fe6e474bf}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_BOOL_Min
 VAR
-	value : SINT := DatatypeLimits.SINT_LOWER_LIMIT;
+	value : SINT := DatatypeLimits.SINT_MIN_VALUE;
 	actual : BOOL;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_SINT_TO_BOOL_Lower');
+        <ST><![CDATA[TEST('Check_SINT_TO_BOOL_Min');
 
 // @TEST-RUN
 converted := TryConvert_SINT_TO_Destination(value, actual);
@@ -80,16 +80,16 @@ AssertTrue(Condition := converted, Message := 'Did not report SINT to BOOL conve
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_SINT_TO_BOOL_Upper" Id="{6a2e4cb8-bd22-40da-a63c-023c440de75b}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_BOOL_Upper
+    <Method Name="Check_SINT_TO_BOOL_Max" Id="{6a2e4cb8-bd22-40da-a63c-023c440de75b}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_BOOL_Max
 VAR
-	value : SINT := DatatypeLimits.SINT_UPPER_LIMIT;
+	value : SINT := DatatypeLimits.SINT_MAX_VALUE;
 	actual : BOOL;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_SINT_TO_BOOL_Upper');
+        <ST><![CDATA[TEST('Check_SINT_TO_BOOL_Max');
 
 // @TEST-RUN
 converted := TryConvert_SINT_TO_Destination(value, actual);
@@ -102,8 +102,8 @@ AssertTrue(Condition := converted, Message := 'Did not report SINT to BOOL conve
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_SINT_TO_BYTE_Lower" Id="{f33d30b4-fb45-4db5-b495-92d8c1be4e0d}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_BYTE_Lower
+    <Method Name="Check_SINT_TO_BYTE_Min" Id="{f33d30b4-fb45-4db5-b495-92d8c1be4e0d}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_BYTE_Min
 VAR
 	value : SINT := DatatypeLimits.MIN_VALUE_OF_SINT_WHICH_CAN_BE_HELD_IN_A_BYTE;
 	actual : BYTE;
@@ -111,7 +111,7 @@ VAR
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_SINT_TO_BYTE_Lower');
+        <ST><![CDATA[TEST('Check_SINT_TO_BYTE_Min');
 
 // @TEST-RUN
 converted := TryConvert_SINT_TO_Destination(value, actual);
@@ -127,7 +127,7 @@ TEST_FINISHED();]]></ST>
     <Method Name="Check_SINT_TO_BYTE_TooLow" Id="{8da1fcb5-2a9e-4304-921b-105444f4a9da}">
       <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_BYTE_TooLow
 VAR
-	value : SINT := DatatypeLimits.SINT_LOWER_LIMIT;
+	value : SINT := DatatypeLimits.SINT_MIN_VALUE;
 	actual : BYTE;
 	converted : BOOL;
 END_VAR]]></Declaration>
@@ -143,16 +143,16 @@ AssertFalse(Condition := converted, Message := 'Did not report SINT to BYTE conv
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_SINT_TO_BYTE_Upper" Id="{b7af06c5-ef60-4ce5-a614-3cf717914206}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_BYTE_Upper
+    <Method Name="Check_SINT_TO_BYTE_Max" Id="{b7af06c5-ef60-4ce5-a614-3cf717914206}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_BYTE_Max
 VAR
-	value : SINT := DatatypeLimits.SINT_UPPER_LIMIT;
+	value : SINT := DatatypeLimits.SINT_MAX_VALUE;
 	actual : BYTE;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_SINT_TO_BYTE_Upper');
+        <ST><![CDATA[TEST('Check_SINT_TO_BYTE_Max');
 
 // @TEST-RUN
 converted := TryConvert_SINT_TO_Destination(value, actual);
@@ -165,8 +165,8 @@ AssertTrue(Condition := converted, Message := 'Did not report SINT to BYTE conve
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_SINT_TO_DATE_Lower" Id="{bf03900b-05b9-4b28-87e2-be08ff069d64}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_DATE_Lower
+    <Method Name="Check_SINT_TO_DATE_Min" Id="{bf03900b-05b9-4b28-87e2-be08ff069d64}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_DATE_Min
 VAR
 	value : SINT := DatatypeLimits.MIN_VALUE_OF_SINT_WHICH_CAN_BE_HELD_IN_A_DATE;
 	actual : DATE;
@@ -174,7 +174,7 @@ VAR
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_SINT_TO_DATE_Lower');
+        <ST><![CDATA[TEST('Check_SINT_TO_DATE_Min');
 
 // @TEST-RUN
 converted := TryConvert_SINT_TO_Destination(value, actual);
@@ -190,7 +190,7 @@ TEST_FINISHED();]]></ST>
     <Method Name="Check_SINT_TO_DATE_TooLow" Id="{00895fa3-c1d3-4036-a103-755a25149ebb}">
       <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_DATE_TooLow
 VAR
-	value : SINT := DatatypeLimits.SINT_LOWER_LIMIT;
+	value : SINT := DatatypeLimits.SINT_MIN_VALUE;
 	actual : DATE;
 	converted : BOOL;
 END_VAR]]></Declaration>
@@ -206,16 +206,16 @@ AssertFalse(Condition := converted, Message := 'Did not report SINT to DATE conv
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_SINT_TO_DATE_Upper" Id="{d91b2e4f-15e3-43c3-bf64-989c31456b0b}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_DATE_Upper
+    <Method Name="Check_SINT_TO_DATE_Max" Id="{d91b2e4f-15e3-43c3-bf64-989c31456b0b}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_DATE_Max
 VAR
-	value : SINT := DatatypeLimits.SINT_UPPER_LIMIT;
+	value : SINT := DatatypeLimits.SINT_MAX_VALUE;
 	actual : DATE;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_SINT_TO_DATE_Upper');
+        <ST><![CDATA[TEST('Check_SINT_TO_DATE_Max');
 
 // @TEST-RUN
 converted := TryConvert_SINT_TO_Destination(value, actual);
@@ -228,16 +228,16 @@ AssertTrue(Condition := converted, Message := 'Did not report SINT to DATE conve
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_SINT_TO_DINT_Lower" Id="{40f42476-e11e-4c5c-b29b-1d625aeb0e28}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_DINT_Lower
+    <Method Name="Check_SINT_TO_DINT_Min" Id="{40f42476-e11e-4c5c-b29b-1d625aeb0e28}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_DINT_Min
 VAR
-	value : SINT := DatatypeLimits.SINT_LOWER_LIMIT;
+	value : SINT := DatatypeLimits.SINT_MIN_VALUE;
 	actual : DINT;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_SINT_TO_DINT_Lower');
+        <ST><![CDATA[TEST('Check_SINT_TO_DINT_Min');
 
 // @TEST-RUN
 converted := TryConvert_SINT_TO_Destination(value, actual);
@@ -250,16 +250,16 @@ AssertTrue(Condition := converted, Message := 'Did not report SINT to DINT conve
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_SINT_TO_DINT_Upper" Id="{6cb791d0-d5db-4d0d-ad4e-25eb7167f62a}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_DINT_Upper
+    <Method Name="Check_SINT_TO_DINT_Max" Id="{6cb791d0-d5db-4d0d-ad4e-25eb7167f62a}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_DINT_Max
 VAR
-	value : SINT := DatatypeLimits.SINT_UPPER_LIMIT;
+	value : SINT := DatatypeLimits.SINT_MAX_VALUE;
 	actual : DINT;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_SINT_TO_DINT_Upper');
+        <ST><![CDATA[TEST('Check_SINT_TO_DINT_Max');
 
 // @TEST-RUN
 converted := TryConvert_SINT_TO_Destination(value, actual);
@@ -272,8 +272,8 @@ AssertTrue(Condition := converted, Message := 'Did not report SINT to DINT conve
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_SINT_TO_DT_Lower" Id="{ba3605d1-4ae1-49a8-913f-f05511458d02}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_DT_Lower
+    <Method Name="Check_SINT_TO_DT_Min" Id="{ba3605d1-4ae1-49a8-913f-f05511458d02}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_DT_Min
 VAR
 	value : SINT := DatatypeLimits.MIN_VALUE_OF_SINT_WHICH_CAN_BE_HELD_IN_A_DT;
 	actual : DT;
@@ -281,7 +281,7 @@ VAR
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_SINT_TO_DT_Lower');
+        <ST><![CDATA[TEST('Check_SINT_TO_DT_Min');
 
 // @TEST-RUN
 converted := TryConvert_SINT_TO_Destination(value, actual);
@@ -297,7 +297,7 @@ TEST_FINISHED();]]></ST>
     <Method Name="Check_SINT_TO_DT_TooLow" Id="{df9b3847-bd7f-4d8f-b337-f908d2e1c66c}">
       <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_DT_TooLow
 VAR
-	value : SINT := DatatypeLimits.SINT_LOWER_LIMIT;
+	value : SINT := DatatypeLimits.SINT_MIN_VALUE;
 	actual : DT;
 	converted : BOOL;
 END_VAR]]></Declaration>
@@ -313,16 +313,16 @@ AssertFalse(Condition := converted, Message := 'Did not report SINT to DT conver
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_SINT_TO_DT_Upper" Id="{71f25761-6888-4de3-9dc6-22de9e170abf}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_DT_Upper
+    <Method Name="Check_SINT_TO_DT_Max" Id="{71f25761-6888-4de3-9dc6-22de9e170abf}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_DT_Max
 VAR
-	value : SINT := DatatypeLimits.SINT_UPPER_LIMIT;
+	value : SINT := DatatypeLimits.SINT_MAX_VALUE;
 	actual : DT;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_SINT_TO_DT_Upper');
+        <ST><![CDATA[TEST('Check_SINT_TO_DT_Max');
 
 // @TEST-RUN
 converted := TryConvert_SINT_TO_Destination(value, actual);
@@ -335,8 +335,8 @@ AssertTrue(Condition := converted, Message := 'Did not report SINT to DT convers
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_SINT_TO_DWORD_Lower" Id="{3e387a88-401d-4221-91b5-281691f40c04}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_DWORD_Lower
+    <Method Name="Check_SINT_TO_DWORD_Min" Id="{3e387a88-401d-4221-91b5-281691f40c04}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_DWORD_Min
 VAR
 	value : SINT := DatatypeLimits.MIN_VALUE_OF_SINT_WHICH_CAN_BE_HELD_IN_A_DWORD;
 	actual : DWORD;
@@ -344,7 +344,7 @@ VAR
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_SINT_TO_DWORD_Lower');
+        <ST><![CDATA[TEST('Check_SINT_TO_DWORD_Min');
 
 // @TEST-RUN
 converted := TryConvert_SINT_TO_Destination(value, actual);
@@ -360,7 +360,7 @@ TEST_FINISHED();]]></ST>
     <Method Name="Check_SINT_TO_DWORD_TooLow" Id="{6bcc7820-a37c-40f1-bcfb-796df12e614a}">
       <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_DWORD_TooLow
 VAR
-	value : SINT := DatatypeLimits.SINT_LOWER_LIMIT;
+	value : SINT := DatatypeLimits.SINT_MIN_VALUE;
 	actual : DWORD;
 	converted : BOOL;
 END_VAR]]></Declaration>
@@ -376,16 +376,16 @@ AssertFalse(Condition := converted, Message := 'Did not report SINT to DWORD con
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_SINT_TO_DWORD_Upper" Id="{3c54819b-072a-4563-917f-92f1de18d882}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_DWORD_Upper
+    <Method Name="Check_SINT_TO_DWORD_Max" Id="{3c54819b-072a-4563-917f-92f1de18d882}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_DWORD_Max
 VAR
-	value : SINT := DatatypeLimits.SINT_UPPER_LIMIT;
+	value : SINT := DatatypeLimits.SINT_MAX_VALUE;
 	actual : DWORD;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_SINT_TO_DWORD_Upper');
+        <ST><![CDATA[TEST('Check_SINT_TO_DWORD_Max');
 
 // @TEST-RUN
 converted := TryConvert_SINT_TO_Destination(value, actual);
@@ -398,16 +398,16 @@ AssertTrue(Condition := converted, Message := 'Did not report SINT to DWORD conv
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_SINT_TO_INT_Lower" Id="{8fbec2a1-d2c2-4853-99a8-d24ca453e639}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_INT_Lower
+    <Method Name="Check_SINT_TO_INT_Min" Id="{8fbec2a1-d2c2-4853-99a8-d24ca453e639}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_INT_Min
 VAR
-	value : SINT := DatatypeLimits.SINT_LOWER_LIMIT;
+	value : SINT := DatatypeLimits.SINT_MIN_VALUE;
 	actual : INT;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_SINT_TO_INT_Lower');
+        <ST><![CDATA[TEST('Check_SINT_TO_INT_Min');
 
 // @TEST-RUN
 converted := TryConvert_SINT_TO_Destination(value, actual);
@@ -420,16 +420,16 @@ AssertTrue(Condition := converted, Message := 'Did not report SINT to INT conver
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_SINT_TO_INT_Upper" Id="{9216db9d-9329-4bf5-90ce-569042c61e5e}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_INT_Upper
+    <Method Name="Check_SINT_TO_INT_Max" Id="{9216db9d-9329-4bf5-90ce-569042c61e5e}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_INT_Max
 VAR
-	value : SINT := DatatypeLimits.SINT_UPPER_LIMIT;
+	value : SINT := DatatypeLimits.SINT_MAX_VALUE;
 	actual : INT;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_SINT_TO_INT_Upper');
+        <ST><![CDATA[TEST('Check_SINT_TO_INT_Max');
 
 // @TEST-RUN
 converted := TryConvert_SINT_TO_Destination(value, actual);
@@ -442,16 +442,16 @@ AssertTrue(Condition := converted, Message := 'Did not report SINT to INT conver
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_SINT_TO_LINT_Lower" Id="{14d81d3a-1ee6-455e-8948-c185937a2ab0}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_LINT_Lower
+    <Method Name="Check_SINT_TO_LINT_Min" Id="{14d81d3a-1ee6-455e-8948-c185937a2ab0}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_LINT_Min
 VAR
-	value : SINT := DatatypeLimits.SINT_LOWER_LIMIT;
+	value : SINT := DatatypeLimits.SINT_MIN_VALUE;
 	actual : LINT;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_SINT_TO_LINT_Lower');
+        <ST><![CDATA[TEST('Check_SINT_TO_LINT_Min');
 
 // @TEST-RUN
 converted := TryConvert_SINT_TO_Destination(value, actual);
@@ -464,16 +464,16 @@ AssertTrue(Condition := converted, Message := 'Did not report SINT to LINT conve
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_SINT_TO_LINT_Upper" Id="{593f90c6-8e09-4e49-be21-5a716064a765}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_LINT_Upper
+    <Method Name="Check_SINT_TO_LINT_Max" Id="{593f90c6-8e09-4e49-be21-5a716064a765}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_LINT_Max
 VAR
-	value : SINT := DatatypeLimits.SINT_UPPER_LIMIT;
+	value : SINT := DatatypeLimits.SINT_MAX_VALUE;
 	actual : LINT;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_SINT_TO_LINT_Upper');
+        <ST><![CDATA[TEST('Check_SINT_TO_LINT_Max');
 
 // @TEST-RUN
 converted := TryConvert_SINT_TO_Destination(value, actual);
@@ -486,16 +486,16 @@ AssertTrue(Condition := converted, Message := 'Did not report SINT to LINT conve
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_SINT_TO_LREAL_Lower" Id="{b489d038-ea5b-4915-8886-cf2784d003dc}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_LREAL_Lower
+    <Method Name="Check_SINT_TO_LREAL_Min" Id="{b489d038-ea5b-4915-8886-cf2784d003dc}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_LREAL_Min
 VAR
-	value : SINT := DatatypeLimits.SINT_LOWER_LIMIT;
+	value : SINT := DatatypeLimits.SINT_MIN_VALUE;
 	actual : LREAL;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_SINT_TO_LREAL_Lower');
+        <ST><![CDATA[TEST('Check_SINT_TO_LREAL_Min');
 
 // @TEST-RUN
 converted := TryConvert_SINT_TO_Destination(value, actual);
@@ -508,16 +508,16 @@ AssertTrue(Condition := converted, Message := 'Did not report SINT to LREAL conv
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_SINT_TO_LREAL_Upper" Id="{ee483dc3-9ae9-441b-a030-e0a5642fe5dd}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_LREAL_Upper
+    <Method Name="Check_SINT_TO_LREAL_Max" Id="{ee483dc3-9ae9-441b-a030-e0a5642fe5dd}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_LREAL_Max
 VAR
-	value : SINT := DatatypeLimits.SINT_UPPER_LIMIT;
+	value : SINT := DatatypeLimits.SINT_MAX_VALUE;
 	actual : LREAL;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_SINT_TO_LREAL_Upper');
+        <ST><![CDATA[TEST('Check_SINT_TO_LREAL_Max');
 
 // @TEST-RUN
 converted := TryConvert_SINT_TO_Destination(value, actual);
@@ -530,8 +530,8 @@ AssertTrue(Condition := converted, Message := 'Did not report SINT to LREAL conv
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_SINT_TO_LWORD_Lower" Id="{d43962e1-ab2d-4a6e-b4af-5ef07cc726bd}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_LWORD_Lower
+    <Method Name="Check_SINT_TO_LWORD_Min" Id="{d43962e1-ab2d-4a6e-b4af-5ef07cc726bd}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_LWORD_Min
 VAR
 	value : SINT := DatatypeLimits.MIN_VALUE_OF_SINT_WHICH_CAN_BE_HELD_IN_A_LWORD;
 	actual : LWORD;
@@ -539,7 +539,7 @@ VAR
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_SINT_TO_LWORD_Lower');
+        <ST><![CDATA[TEST('Check_SINT_TO_LWORD_Min');
 
 // @TEST-RUN
 converted := TryConvert_SINT_TO_Destination(value, actual);
@@ -555,7 +555,7 @@ TEST_FINISHED();]]></ST>
     <Method Name="Check_SINT_TO_LWORD_TooLow" Id="{9f717789-6210-40d8-9c75-fc289d6ab3e7}">
       <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_LWORD_TooLow
 VAR
-	value : SINT := DatatypeLimits.SINT_LOWER_LIMIT;
+	value : SINT := DatatypeLimits.SINT_MIN_VALUE;
 	actual : LWORD;
 	converted : BOOL;
 END_VAR]]></Declaration>
@@ -571,16 +571,16 @@ AssertFalse(Condition := converted, Message := 'Did not report SINT to LWORD con
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_SINT_TO_LWORD_Upper" Id="{69369c34-2e90-4bbd-8d2c-23f6d4be26b5}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_LWORD_Upper
+    <Method Name="Check_SINT_TO_LWORD_Max" Id="{69369c34-2e90-4bbd-8d2c-23f6d4be26b5}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_LWORD_Max
 VAR
-	value : SINT := DatatypeLimits.SINT_UPPER_LIMIT;
+	value : SINT := DatatypeLimits.SINT_MAX_VALUE;
 	actual : LWORD;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_SINT_TO_LWORD_Upper');
+        <ST><![CDATA[TEST('Check_SINT_TO_LWORD_Max');
 
 // @TEST-RUN
 converted := TryConvert_SINT_TO_Destination(value, actual);
@@ -593,16 +593,16 @@ AssertTrue(Condition := converted, Message := 'Did not report SINT to LWORD conv
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_SINT_TO_REAL_Lower" Id="{7d5d602a-b046-4251-a378-cb71a2be4230}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_REAL_Lower
+    <Method Name="Check_SINT_TO_REAL_Min" Id="{7d5d602a-b046-4251-a378-cb71a2be4230}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_REAL_Min
 VAR
-	value : SINT := DatatypeLimits.SINT_LOWER_LIMIT;
+	value : SINT := DatatypeLimits.SINT_MIN_VALUE;
 	actual : REAL;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_SINT_TO_REAL_Lower');
+        <ST><![CDATA[TEST('Check_SINT_TO_REAL_Min');
 
 // @TEST-RUN
 converted := TryConvert_SINT_TO_Destination(value, actual);
@@ -615,16 +615,16 @@ AssertTrue(Condition := converted, Message := 'Did not report SINT to REAL conve
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_SINT_TO_REAL_Upper" Id="{4c6368af-1cbb-4072-9d05-5a70e4717849}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_REAL_Upper
+    <Method Name="Check_SINT_TO_REAL_Max" Id="{4c6368af-1cbb-4072-9d05-5a70e4717849}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_REAL_Max
 VAR
-	value : SINT := DatatypeLimits.SINT_UPPER_LIMIT;
+	value : SINT := DatatypeLimits.SINT_MAX_VALUE;
 	actual : REAL;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_SINT_TO_REAL_Upper');
+        <ST><![CDATA[TEST('Check_SINT_TO_REAL_Max');
 
 // @TEST-RUN
 converted := TryConvert_SINT_TO_Destination(value, actual);
@@ -637,16 +637,16 @@ AssertTrue(Condition := converted, Message := 'Did not report SINT to REAL conve
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_SINT_TO_SINT_Lower" Id="{aefbfa88-1176-4666-af3c-5ce1ce644a85}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_SINT_Lower
+    <Method Name="Check_SINT_TO_SINT_Min" Id="{aefbfa88-1176-4666-af3c-5ce1ce644a85}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_SINT_Min
 VAR
-	value : SINT := DatatypeLimits.SINT_LOWER_LIMIT;
+	value : SINT := DatatypeLimits.SINT_MIN_VALUE;
 	actual : SINT;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_SINT_TO_SINT_Lower');
+        <ST><![CDATA[TEST('Check_SINT_TO_SINT_Min');
 
 // @TEST-RUN
 converted := TryConvert_SINT_TO_Destination(value, actual);
@@ -659,16 +659,16 @@ AssertTrue(Condition := converted, Message := 'Did not report SINT to SINT conve
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_SINT_TO_SINT_Upper" Id="{b164d6eb-9ef3-404f-847d-11bc774c89d1}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_SINT_Upper
+    <Method Name="Check_SINT_TO_SINT_Max" Id="{b164d6eb-9ef3-404f-847d-11bc774c89d1}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_SINT_Max
 VAR
-	value : SINT := DatatypeLimits.SINT_UPPER_LIMIT;
+	value : SINT := DatatypeLimits.SINT_MAX_VALUE;
 	actual : SINT;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_SINT_TO_SINT_Upper');
+        <ST><![CDATA[TEST('Check_SINT_TO_SINT_Max');
 
 // @TEST-RUN
 converted := TryConvert_SINT_TO_Destination(value, actual);
@@ -681,16 +681,16 @@ AssertTrue(Condition := converted, Message := 'Did not report SINT to SINT conve
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_SINT_TO_STRING_Lower" Id="{f8a77fae-20fa-470f-8898-2c6d67152324}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_STRING_Lower
+    <Method Name="Check_SINT_TO_STRING_Min" Id="{f8a77fae-20fa-470f-8898-2c6d67152324}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_STRING_Min
 VAR
-	value : SINT := DatatypeLimits.SINT_LOWER_LIMIT;
+	value : SINT := DatatypeLimits.SINT_MIN_VALUE;
 	actual : STRING;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_SINT_TO_STRING_Lower');
+        <ST><![CDATA[TEST('Check_SINT_TO_STRING_Min');
 
 // @TEST-RUN
 converted := TryConvert_SINT_TO_Destination(value, actual);
@@ -703,16 +703,16 @@ AssertTrue(Condition := converted, Message := 'Did not report SINT to STRING con
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_SINT_TO_STRING_Upper" Id="{c4d4c69f-d3ab-40c3-bff1-c1e8915ed708}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_STRING_Upper
+    <Method Name="Check_SINT_TO_STRING_Max" Id="{c4d4c69f-d3ab-40c3-bff1-c1e8915ed708}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_STRING_Max
 VAR
-	value : SINT := DatatypeLimits.SINT_UPPER_LIMIT;
+	value : SINT := DatatypeLimits.SINT_MAX_VALUE;
 	actual : STRING;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_SINT_TO_STRING_Upper');
+        <ST><![CDATA[TEST('Check_SINT_TO_STRING_Max');
 
 // @TEST-RUN
 converted := TryConvert_SINT_TO_Destination(value, actual);
@@ -725,8 +725,8 @@ AssertTrue(Condition := converted, Message := 'Did not report SINT to STRING con
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_SINT_TO_TIME_Lower" Id="{d3ab607e-5948-41b8-9459-e3e871cfec53}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_TIME_Lower
+    <Method Name="Check_SINT_TO_TIME_Min" Id="{d3ab607e-5948-41b8-9459-e3e871cfec53}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_TIME_Min
 VAR
 	value : SINT := DatatypeLimits.MIN_VALUE_OF_SINT_WHICH_CAN_BE_HELD_IN_A_TIME;
 	actual : TIME;
@@ -734,7 +734,7 @@ VAR
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_SINT_TO_TIME_Lower');
+        <ST><![CDATA[TEST('Check_SINT_TO_TIME_Min');
 
 // @TEST-RUN
 converted := TryConvert_SINT_TO_Destination(value, actual);
@@ -750,7 +750,7 @@ TEST_FINISHED();]]></ST>
     <Method Name="Check_SINT_TO_TIME_TooLow" Id="{6937bed0-0311-479d-a41e-fa1ac5d6f7a5}">
       <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_TIME_TooLow
 VAR
-	value : SINT := DatatypeLimits.SINT_LOWER_LIMIT;
+	value : SINT := DatatypeLimits.SINT_MIN_VALUE;
 	actual : TIME;
 	converted : BOOL;
 END_VAR]]></Declaration>
@@ -766,16 +766,16 @@ AssertFalse(Condition := converted, Message := 'Did not report SINT to TIME conv
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_SINT_TO_TIME_Upper" Id="{6f11779f-31ec-479f-b446-90acdd7db6a0}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_TIME_Upper
+    <Method Name="Check_SINT_TO_TIME_Max" Id="{6f11779f-31ec-479f-b446-90acdd7db6a0}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_TIME_Max
 VAR
-	value : SINT := DatatypeLimits.SINT_UPPER_LIMIT;
+	value : SINT := DatatypeLimits.SINT_MAX_VALUE;
 	actual : TIME;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_SINT_TO_TIME_Upper');
+        <ST><![CDATA[TEST('Check_SINT_TO_TIME_Max');
 
 // @TEST-RUN
 converted := TryConvert_SINT_TO_Destination(value, actual);
@@ -788,8 +788,8 @@ AssertTrue(Condition := converted, Message := 'Did not report SINT to TIME conve
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_SINT_TO_TOD_Lower" Id="{14fae61c-b47f-48c1-bbc5-4ebd8ed62f71}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_TOD_Lower
+    <Method Name="Check_SINT_TO_TOD_Min" Id="{14fae61c-b47f-48c1-bbc5-4ebd8ed62f71}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_TOD_Min
 VAR
 	value : SINT := DatatypeLimits.MIN_VALUE_OF_SINT_WHICH_CAN_BE_HELD_IN_A_TOD;
 	actual : TOD;
@@ -797,7 +797,7 @@ VAR
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_SINT_TO_TOD_Lower');
+        <ST><![CDATA[TEST('Check_SINT_TO_TOD_Min');
 
 // @TEST-RUN
 converted := TryConvert_SINT_TO_Destination(value, actual);
@@ -813,7 +813,7 @@ TEST_FINISHED();]]></ST>
     <Method Name="Check_SINT_TO_TOD_TooLow" Id="{3b9d679f-5257-4a0a-9338-88395a27906f}">
       <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_TOD_TooLow
 VAR
-	value : SINT := DatatypeLimits.SINT_LOWER_LIMIT;
+	value : SINT := DatatypeLimits.SINT_MIN_VALUE;
 	actual : TOD;
 	converted : BOOL;
 END_VAR]]></Declaration>
@@ -829,16 +829,16 @@ AssertFalse(Condition := converted, Message := 'Did not report SINT to TOD conve
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_SINT_TO_TOD_Upper" Id="{787c4e9e-b5f1-4366-bbe0-2d965143225a}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_TOD_Upper
+    <Method Name="Check_SINT_TO_TOD_Max" Id="{787c4e9e-b5f1-4366-bbe0-2d965143225a}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_TOD_Max
 VAR
-	value : SINT := DatatypeLimits.SINT_UPPER_LIMIT;
+	value : SINT := DatatypeLimits.SINT_MAX_VALUE;
 	actual : TOD;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_SINT_TO_TOD_Upper');
+        <ST><![CDATA[TEST('Check_SINT_TO_TOD_Max');
 
 // @TEST-RUN
 converted := TryConvert_SINT_TO_Destination(value, actual);
@@ -851,8 +851,8 @@ AssertTrue(Condition := converted, Message := 'Did not report SINT to TOD conver
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_SINT_TO_UDINT_Lower" Id="{84ebcaed-29cf-48cd-af68-368c9ed4d701}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_UDINT_Lower
+    <Method Name="Check_SINT_TO_UDINT_Min" Id="{84ebcaed-29cf-48cd-af68-368c9ed4d701}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_UDINT_Min
 VAR
 	value : SINT := DatatypeLimits.MIN_VALUE_OF_SINT_WHICH_CAN_BE_HELD_IN_A_UDINT;
 	actual : UDINT;
@@ -860,7 +860,7 @@ VAR
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_SINT_TO_UDINT_Lower');
+        <ST><![CDATA[TEST('Check_SINT_TO_UDINT_Min');
 
 // @TEST-RUN
 converted := TryConvert_SINT_TO_Destination(value, actual);
@@ -876,7 +876,7 @@ TEST_FINISHED();]]></ST>
     <Method Name="Check_SINT_TO_UDINT_TooLow" Id="{20cdfb93-4116-482f-a768-8554d7cb23b4}">
       <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_UDINT_TooLow
 VAR
-	value : SINT := DatatypeLimits.SINT_LOWER_LIMIT;
+	value : SINT := DatatypeLimits.SINT_MIN_VALUE;
 	actual : UDINT;
 	converted : BOOL;
 END_VAR]]></Declaration>
@@ -892,16 +892,16 @@ AssertFalse(Condition := converted, Message := 'Did not report SINT to UDINT con
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_SINT_TO_UDINT_Upper" Id="{bb39e633-0de4-4f90-b3c4-24b857185546}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_UDINT_Upper
+    <Method Name="Check_SINT_TO_UDINT_Max" Id="{bb39e633-0de4-4f90-b3c4-24b857185546}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_UDINT_Max
 VAR
-	value : SINT := DatatypeLimits.SINT_UPPER_LIMIT;
+	value : SINT := DatatypeLimits.SINT_MAX_VALUE;
 	actual : UDINT;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_SINT_TO_UDINT_Upper');
+        <ST><![CDATA[TEST('Check_SINT_TO_UDINT_Max');
 
 // @TEST-RUN
 converted := TryConvert_SINT_TO_Destination(value, actual);
@@ -914,8 +914,8 @@ AssertTrue(Condition := converted, Message := 'Did not report SINT to UDINT conv
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_SINT_TO_UINT_Lower" Id="{ea4bf66e-49ab-42a4-9a13-9c9bd843bdc0}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_UINT_Lower
+    <Method Name="Check_SINT_TO_UINT_Min" Id="{ea4bf66e-49ab-42a4-9a13-9c9bd843bdc0}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_UINT_Min
 VAR
 	value : SINT := DatatypeLimits.MIN_VALUE_OF_SINT_WHICH_CAN_BE_HELD_IN_A_UINT;
 	actual : UINT;
@@ -923,7 +923,7 @@ VAR
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_SINT_TO_UINT_Lower');
+        <ST><![CDATA[TEST('Check_SINT_TO_UINT_Min');
 
 // @TEST-RUN
 converted := TryConvert_SINT_TO_Destination(value, actual);
@@ -939,7 +939,7 @@ TEST_FINISHED();]]></ST>
     <Method Name="Check_SINT_TO_UINT_TooLow" Id="{ed773e2e-523b-4467-8361-e8f66b20df3c}">
       <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_UINT_TooLow
 VAR
-	value : SINT := DatatypeLimits.SINT_LOWER_LIMIT;
+	value : SINT := DatatypeLimits.SINT_MIN_VALUE;
 	actual : UINT;
 	converted : BOOL;
 END_VAR]]></Declaration>
@@ -955,16 +955,16 @@ AssertFalse(Condition := converted, Message := 'Did not report SINT to UINT conv
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_SINT_TO_UINT_Upper" Id="{6bda5c26-036a-4914-9c9c-8404caa0c3da}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_UINT_Upper
+    <Method Name="Check_SINT_TO_UINT_Max" Id="{6bda5c26-036a-4914-9c9c-8404caa0c3da}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_UINT_Max
 VAR
-	value : SINT := DatatypeLimits.SINT_UPPER_LIMIT;
+	value : SINT := DatatypeLimits.SINT_MAX_VALUE;
 	actual : UINT;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_SINT_TO_UINT_Upper');
+        <ST><![CDATA[TEST('Check_SINT_TO_UINT_Max');
 
 // @TEST-RUN
 converted := TryConvert_SINT_TO_Destination(value, actual);
@@ -977,8 +977,8 @@ AssertTrue(Condition := converted, Message := 'Did not report SINT to UINT conve
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_SINT_TO_ULINT_Lower" Id="{b65951e6-2025-4884-bb03-8d80d08e246b}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_ULINT_Lower
+    <Method Name="Check_SINT_TO_ULINT_Min" Id="{b65951e6-2025-4884-bb03-8d80d08e246b}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_ULINT_Min
 VAR
 	value : SINT := DatatypeLimits.MIN_VALUE_OF_SINT_WHICH_CAN_BE_HELD_IN_A_ULINT;
 	actual : ULINT;
@@ -986,7 +986,7 @@ VAR
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_SINT_TO_ULINT_Lower');
+        <ST><![CDATA[TEST('Check_SINT_TO_ULINT_Min');
 
 // @TEST-RUN
 converted := TryConvert_SINT_TO_Destination(value, actual);
@@ -1002,7 +1002,7 @@ TEST_FINISHED();]]></ST>
     <Method Name="Check_SINT_TO_ULINT_TooLow" Id="{bf872a84-92f2-4e5b-9442-78b792781aa1}">
       <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_ULINT_TooLow
 VAR
-	value : SINT := DatatypeLimits.SINT_LOWER_LIMIT;
+	value : SINT := DatatypeLimits.SINT_MIN_VALUE;
 	actual : ULINT;
 	converted : BOOL;
 END_VAR]]></Declaration>
@@ -1018,16 +1018,16 @@ AssertFalse(Condition := converted, Message := 'Did not report SINT to ULINT con
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_SINT_TO_ULINT_Upper" Id="{471bd500-a610-45fb-ba86-721dcee6da88}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_ULINT_Upper
+    <Method Name="Check_SINT_TO_ULINT_Max" Id="{471bd500-a610-45fb-ba86-721dcee6da88}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_ULINT_Max
 VAR
-	value : SINT := DatatypeLimits.SINT_UPPER_LIMIT;
+	value : SINT := DatatypeLimits.SINT_MAX_VALUE;
 	actual : ULINT;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_SINT_TO_ULINT_Upper');
+        <ST><![CDATA[TEST('Check_SINT_TO_ULINT_Max');
 
 // @TEST-RUN
 converted := TryConvert_SINT_TO_Destination(value, actual);
@@ -1040,8 +1040,8 @@ AssertTrue(Condition := converted, Message := 'Did not report SINT to ULINT conv
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_SINT_TO_USINT_Lower" Id="{1f417970-bd87-40be-a947-673b6cbe0353}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_USINT_Lower
+    <Method Name="Check_SINT_TO_USINT_Min" Id="{1f417970-bd87-40be-a947-673b6cbe0353}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_USINT_Min
 VAR
 	value : SINT := DatatypeLimits.MIN_VALUE_OF_SINT_WHICH_CAN_BE_HELD_IN_A_USINT;
 	actual : USINT;
@@ -1049,7 +1049,7 @@ VAR
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_SINT_TO_USINT_Lower');
+        <ST><![CDATA[TEST('Check_SINT_TO_USINT_Min');
 
 // @TEST-RUN
 converted := TryConvert_SINT_TO_Destination(value, actual);
@@ -1065,7 +1065,7 @@ TEST_FINISHED();]]></ST>
     <Method Name="Check_SINT_TO_USINT_TooLow" Id="{a11cc494-78c6-4b3e-bde7-112a428fb65c}">
       <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_USINT_TooLow
 VAR
-	value : SINT := DatatypeLimits.SINT_LOWER_LIMIT;
+	value : SINT := DatatypeLimits.SINT_MIN_VALUE;
 	actual : USINT;
 	converted : BOOL;
 END_VAR]]></Declaration>
@@ -1081,16 +1081,16 @@ AssertFalse(Condition := converted, Message := 'Did not report SINT to USINT con
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_SINT_TO_USINT_Upper" Id="{868eeff5-bf77-4df4-b805-6838eb5affca}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_USINT_Upper
+    <Method Name="Check_SINT_TO_USINT_Max" Id="{868eeff5-bf77-4df4-b805-6838eb5affca}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_USINT_Max
 VAR
-	value : SINT := DatatypeLimits.SINT_UPPER_LIMIT;
+	value : SINT := DatatypeLimits.SINT_MAX_VALUE;
 	actual : USINT;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_SINT_TO_USINT_Upper');
+        <ST><![CDATA[TEST('Check_SINT_TO_USINT_Max');
 
 // @TEST-RUN
 converted := TryConvert_SINT_TO_Destination(value, actual);
@@ -1103,8 +1103,8 @@ AssertTrue(Condition := converted, Message := 'Did not report SINT to USINT conv
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_SINT_TO_WORD_Lower" Id="{1bbf01a8-c443-40e9-85e4-61883f7b38cb}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_WORD_Lower
+    <Method Name="Check_SINT_TO_WORD_Min" Id="{1bbf01a8-c443-40e9-85e4-61883f7b38cb}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_WORD_Min
 VAR
 	value : SINT := DatatypeLimits.MIN_VALUE_OF_SINT_WHICH_CAN_BE_HELD_IN_A_WORD;
 	actual : WORD;
@@ -1112,7 +1112,7 @@ VAR
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_SINT_TO_WORD_Lower');
+        <ST><![CDATA[TEST('Check_SINT_TO_WORD_Min');
 
 // @TEST-RUN
 converted := TryConvert_SINT_TO_Destination(value, actual);
@@ -1128,7 +1128,7 @@ TEST_FINISHED();]]></ST>
     <Method Name="Check_SINT_TO_WORD_TooLow" Id="{e140dada-602d-44c0-b950-9b3bb6244ac4}">
       <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_WORD_TooLow
 VAR
-	value : SINT := DatatypeLimits.SINT_LOWER_LIMIT;
+	value : SINT := DatatypeLimits.SINT_MIN_VALUE;
 	actual : WORD;
 	converted : BOOL;
 END_VAR]]></Declaration>
@@ -1144,16 +1144,16 @@ AssertFalse(Condition := converted, Message := 'Did not report SINT to WORD conv
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_SINT_TO_WORD_Upper" Id="{d80fc6dc-aeea-4280-90a1-b58a8e89c164}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_WORD_Upper
+    <Method Name="Check_SINT_TO_WORD_Max" Id="{d80fc6dc-aeea-4280-90a1-b58a8e89c164}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_SINT_TO_WORD_Max
 VAR
-	value : SINT := DatatypeLimits.SINT_UPPER_LIMIT;
+	value : SINT := DatatypeLimits.SINT_MAX_VALUE;
 	actual : WORD;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_SINT_TO_WORD_Upper');
+        <ST><![CDATA[TEST('Check_SINT_TO_WORD_Max');
 
 // @TEST-RUN
 converted := TryConvert_SINT_TO_Destination(value, actual);

@@ -6,7 +6,7 @@
 
 > A framework and guide for writing object oriented programs in structured text.
 
-## The mobject-conversion Library
+## The mobject-converters Library
 
 This is one of the many libraries of [mobject](http://mobject.org). This library focuses on the handling of type conversion.
 

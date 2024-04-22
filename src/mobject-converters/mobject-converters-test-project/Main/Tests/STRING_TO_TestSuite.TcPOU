@@ -47,7 +47,7 @@ Check_STRING_TO_STRING_Valid();]]></ST>
     <Method Name="Check_STRING_TO_BOOL_Valid" Id="{984c7c53-6b6e-4b35-8e5e-33a3089d9b67}">
       <Declaration><![CDATA[METHOD PUBLIC Check_STRING_TO_BOOL_Valid
 VAR
-	value : STRING := BOOL_TO_STRING(DatatypeLimits.BOOL_UPPER_LIMIT);
+	value : STRING := BOOL_TO_STRING(DatatypeLimits.BOOL_MAX_VALUE);
 	actual : BOOL;
 	converted : BOOL;
 	equal : BOOL;
@@ -88,7 +88,7 @@ TEST_FINISHED();]]></ST>
     <Method Name="Check_STRING_TO_BYTE_Valid" Id="{85ebb6bb-7d85-4089-b02f-56d6fed3c562}">
       <Declaration><![CDATA[METHOD PUBLIC Check_STRING_TO_BYTE_Valid
 VAR
-	value : STRING := BYTE_TO_STRING(DatatypeLimits.BYTE_UPPER_LIMIT);
+	value : STRING := BYTE_TO_STRING(DatatypeLimits.BYTE_MAX_VALUE);
 	actual : BYTE;
 	converted : BOOL;
 	equal : BOOL;
@@ -129,7 +129,7 @@ TEST_FINISHED();]]></ST>
     <Method Name="Check_STRING_TO_DATE_Valid" Id="{8c491c9c-fd90-4042-a771-3ad0c690094d}">
       <Declaration><![CDATA[METHOD PUBLIC Check_STRING_TO_DATE_Valid
 VAR
-	value : STRING := DATE_TO_STRING(DatatypeLimits.DATE_UPPER_LIMIT);
+	value : STRING := DATE_TO_STRING(DatatypeLimits.DATE_MAX_VALUE);
 	actual : DATE;
 	converted : BOOL;
 	equal : BOOL;
@@ -170,7 +170,7 @@ TEST_FINISHED();]]></ST>
     <Method Name="Check_STRING_TO_DINT_Valid" Id="{22147817-a5e8-41ab-942f-6ffe4d4d8cc5}">
       <Declaration><![CDATA[METHOD PUBLIC Check_STRING_TO_DINT_Valid
 VAR
-	value : STRING := DINT_TO_STRING(DatatypeLimits.DINT_UPPER_LIMIT);
+	value : STRING := DINT_TO_STRING(DatatypeLimits.DINT_MAX_VALUE);
 	actual : DINT;
 	converted : BOOL;
 	equal : BOOL;
@@ -211,7 +211,7 @@ TEST_FINISHED();]]></ST>
     <Method Name="Check_STRING_TO_DT_Valid" Id="{6c1fdb1a-82d3-41dd-99aa-3670e75ba4e2}">
       <Declaration><![CDATA[METHOD PUBLIC Check_STRING_TO_DT_Valid
 VAR
-	value : STRING := DT_TO_STRING(DatatypeLimits.DT_UPPER_LIMIT);
+	value : STRING := DT_TO_STRING(DatatypeLimits.DT_MAX_VALUE);
 	actual : DT;
 	converted : BOOL;
 	equal : BOOL;
@@ -252,7 +252,7 @@ TEST_FINISHED();]]></ST>
     <Method Name="Check_STRING_TO_DWORD_Valid" Id="{80b36c71-78b5-452d-ad37-5cfbcb1c144f}">
       <Declaration><![CDATA[METHOD PUBLIC Check_STRING_TO_DWORD_Valid
 VAR
-	value : STRING := DWORD_TO_STRING(DatatypeLimits.DWORD_UPPER_LIMIT);
+	value : STRING := DWORD_TO_STRING(DatatypeLimits.DWORD_MAX_VALUE);
 	actual : DWORD;
 	converted : BOOL;
 	equal : BOOL;
@@ -293,7 +293,7 @@ TEST_FINISHED();]]></ST>
     <Method Name="Check_STRING_TO_INT_Valid" Id="{6185d214-7ba7-4ae3-8bb8-ed6c2da10588}">
       <Declaration><![CDATA[METHOD PUBLIC Check_STRING_TO_INT_Valid
 VAR
-	value : STRING := INT_TO_STRING(DatatypeLimits.INT_UPPER_LIMIT);
+	value : STRING := INT_TO_STRING(DatatypeLimits.INT_MAX_VALUE);
 	actual : INT;
 	converted : BOOL;
 	equal : BOOL;
@@ -334,7 +334,7 @@ TEST_FINISHED();]]></ST>
     <Method Name="Check_STRING_TO_LINT_Valid" Id="{2e25bd45-4533-4fc0-bebc-d043a7d66aab}">
       <Declaration><![CDATA[METHOD PUBLIC Check_STRING_TO_LINT_Valid
 VAR
-	value : STRING := LINT_TO_STRING(DatatypeLimits.LINT_UPPER_LIMIT);
+	value : STRING := LINT_TO_STRING(DatatypeLimits.LINT_MAX_VALUE);
 	actual : LINT;
 	converted : BOOL;
 	equal : BOOL;
@@ -416,7 +416,7 @@ TEST_FINISHED();]]></ST>
     <Method Name="Check_STRING_TO_LWORD_Valid" Id="{703c7399-db14-42e8-92be-e13e77bac317}">
       <Declaration><![CDATA[METHOD PUBLIC Check_STRING_TO_LWORD_Valid
 VAR
-	value : STRING := LWORD_TO_STRING(DatatypeLimits.LWORD_UPPER_LIMIT);
+	value : STRING := LWORD_TO_STRING(DatatypeLimits.LWORD_MAX_VALUE);
 	actual : LWORD;
 	converted : BOOL;
 	equal : BOOL;
@@ -457,7 +457,7 @@ TEST_FINISHED();]]></ST>
     <Method Name="Check_STRING_TO_REAL_Valid" Id="{01a27583-8443-4a10-bdc1-f8d558097018}">
       <Declaration><![CDATA[METHOD PUBLIC Check_STRING_TO_REAL_Valid
 VAR
-	value : STRING := REAL_TO_STRING(DatatypeLimits.REAL_UPPER_LIMIT);
+	value : STRING := REAL_TO_STRING(DatatypeLimits.REAL_MAX_VALUE);
 	actual : REAL;
 	converted : BOOL;
 	equal : BOOL;
@@ -498,7 +498,7 @@ TEST_FINISHED();]]></ST>
     <Method Name="Check_STRING_TO_SINT_Valid" Id="{614f8237-16f3-4ed3-9b57-71a046de5a80}">
       <Declaration><![CDATA[METHOD PUBLIC Check_STRING_TO_SINT_Valid
 VAR
-	value : STRING := SINT_TO_STRING(DatatypeLimits.SINT_UPPER_LIMIT);
+	value : STRING := SINT_TO_STRING(DatatypeLimits.SINT_MAX_VALUE);
 	actual : SINT;
 	converted : BOOL;
 	equal : BOOL;
@@ -561,7 +561,7 @@ TEST_FINISHED();]]></ST>
     <Method Name="Check_STRING_TO_TIME_Valid" Id="{058ecea4-4d52-42ac-bb76-fd44f7ad672c}">
       <Declaration><![CDATA[METHOD PUBLIC Check_STRING_TO_TIME_Valid
 VAR
-	value : STRING := TIME_TO_STRING(DatatypeLimits.TIME_UPPER_LIMIT);
+	value : STRING := TIME_TO_STRING(DatatypeLimits.TIME_MAX_VALUE);
 	actual : TIME;
 	converted : BOOL;
 	equal : BOOL;
@@ -602,7 +602,7 @@ TEST_FINISHED();]]></ST>
     <Method Name="Check_STRING_TO_TOD_Valid" Id="{3c9fe59b-d450-4033-92fa-a052d6938727}">
       <Declaration><![CDATA[METHOD PUBLIC Check_STRING_TO_TOD_Valid
 VAR
-	value : STRING := TOD_TO_STRING(DatatypeLimits.TOD_UPPER_LIMIT);
+	value : STRING := TOD_TO_STRING(DatatypeLimits.TOD_MAX_VALUE);
 	actual : TOD;
 	converted : BOOL;
 	equal : BOOL;
@@ -643,7 +643,7 @@ TEST_FINISHED();]]></ST>
     <Method Name="Check_STRING_TO_UDINT_Valid" Id="{adb3bab5-02b2-4a60-ac4c-56270b48482f}">
       <Declaration><![CDATA[METHOD PUBLIC Check_STRING_TO_UDINT_Valid
 VAR
-	value : STRING := UDINT_TO_STRING(DatatypeLimits.UDINT_UPPER_LIMIT);
+	value : STRING := UDINT_TO_STRING(DatatypeLimits.UDINT_MAX_VALUE);
 	actual : UDINT;
 	converted : BOOL;
 	equal : BOOL;
@@ -684,7 +684,7 @@ TEST_FINISHED();]]></ST>
     <Method Name="Check_STRING_TO_UINT_Valid" Id="{f74c7ca8-9477-41f7-b236-e5b1fd4ad358}">
       <Declaration><![CDATA[METHOD PUBLIC Check_STRING_TO_UINT_Valid
 VAR
-	value : STRING := UINT_TO_STRING(DatatypeLimits.UINT_UPPER_LIMIT);
+	value : STRING := UINT_TO_STRING(DatatypeLimits.UINT_MAX_VALUE);
 	actual : UINT;
 	converted : BOOL;
 	equal : BOOL;
@@ -725,7 +725,7 @@ TEST_FINISHED();]]></ST>
     <Method Name="Check_STRING_TO_ULINT_Valid" Id="{bb2f49c5-702c-40d0-9d28-968ef73a3e2d}">
       <Declaration><![CDATA[METHOD PUBLIC Check_STRING_TO_ULINT_Valid
 VAR
-	value : STRING := ULINT_TO_STRING(DatatypeLimits.ULINT_UPPER_LIMIT);
+	value : STRING := ULINT_TO_STRING(DatatypeLimits.ULINT_MAX_VALUE);
 	actual : ULINT;
 	converted : BOOL;
 	equal : BOOL;
@@ -766,7 +766,7 @@ TEST_FINISHED();]]></ST>
     <Method Name="Check_STRING_TO_USINT_Valid" Id="{a01eac1f-c167-4a55-9661-418b7bc6475b}">
       <Declaration><![CDATA[METHOD PUBLIC Check_STRING_TO_USINT_Valid
 VAR
-	value : STRING := USINT_TO_STRING(DatatypeLimits.USINT_UPPER_LIMIT);
+	value : STRING := USINT_TO_STRING(DatatypeLimits.USINT_MAX_VALUE);
 	actual : USINT;
 	converted : BOOL;
 	equal : BOOL;
@@ -807,7 +807,7 @@ TEST_FINISHED();]]></ST>
     <Method Name="Check_STRING_TO_WORD_Valid" Id="{c19b652b-9154-41de-9bd8-7a382bb0ab2b}">
       <Declaration><![CDATA[METHOD PUBLIC Check_STRING_TO_WORD_Valid
 VAR
-	value : STRING := WORD_TO_STRING(DatatypeLimits.WORD_UPPER_LIMIT);
+	value : STRING := WORD_TO_STRING(DatatypeLimits.WORD_MAX_VALUE);
 	actual : WORD;
 	converted : BOOL;
 	equal : BOOL;

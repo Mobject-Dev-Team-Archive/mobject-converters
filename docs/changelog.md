@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.0.2-beta
+
+- Added support for mobject-constants-datatype-limits
+
 ## v1.0.1-beta
 
 - Added explicit conversion to remove warning message.

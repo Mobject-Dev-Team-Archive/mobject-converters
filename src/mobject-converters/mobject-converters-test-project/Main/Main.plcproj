@@ -140,6 +140,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <LibraryReference Include="mobject-constants-datatype-limits,1.0.0,mobject">
+      <Namespace>mobject_constants_datatype_limits</Namespace>
+    </LibraryReference>
     <LibraryReference Include="mobject-converters,1.0.2,mobject">
       <Namespace>mobject_converters</Namespace>
     </LibraryReference>

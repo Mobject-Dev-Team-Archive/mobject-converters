@@ -284,11 +284,11 @@ async function createGVLMinsAndMax(dict) {
     gvl += `\n// Limits of ${rowKey} used for conversions\n`;
 
     function createUpperLimit(from, to) {
-      gvl += `MAX_VALUE_OF_${from}_WHICH_CAN_BE_HELD_IN_A_${to} : ${from} := ${to}_TO_${from}(${to}_UPPER_LIMIT);\n`;
+      gvl += `MAX_VALUE_OF_${from}_WHICH_CAN_BE_HELD_IN_A_${to} : ${from} := ${to}_TO_${from}(${to}_MAX_VALUE);\n`;
     }
 
     function createLowerLimit(from, to) {
-      gvl += `MIN_VALUE_OF_${from}_WHICH_CAN_BE_HELD_IN_A_${to} : ${from} := ${to}_TO_${from}(${to}_LOWER_LIMIT);\n`;
+      gvl += `MIN_VALUE_OF_${from}_WHICH_CAN_BE_HELD_IN_A_${to} : ${from} := ${to}_TO_${from}(${to}_MIN_VALUE);\n`;
     }
 
     for (const colKey in dict[rowKey]) {
@@ -350,7 +350,7 @@ async function createTests(convertTable) {
           createValidConvertMethodContent(
             from,
             to,
-            `${to}_TO_STRING(DatatypeLimits.${to}_UPPER_LIMIT)`,
+            `${to}_TO_STRING(DatatypeLimits.${to}_MAX_VALUE)`,
             validCheckMethod
           );
 
@@ -369,10 +369,10 @@ async function createTests(convertTable) {
       } else {
         // all tests here are for non-string types.  These will use the upper and lower ranges
 
-        const upperCheckMethod = pou.addMethod(`Check_${from}_TO_${to}_Upper`);
+        const upperCheckMethod = pou.addMethod(`Check_${from}_TO_${to}_Max`);
         pou.body.addLine(`${upperCheckMethod.name}();`);
 
-        const lowerCheckMethod = pou.addMethod(`Check_${from}_TO_${to}_Lower`);
+        const lowerCheckMethod = pou.addMethod(`Check_${from}_TO_${to}_Min`);
         pou.body.addLine(`${lowerCheckMethod.name}();`);
 
         if (convertType == "MAX" || convertType == "MIN/MAX") {
@@ -384,7 +384,7 @@ async function createTests(convertTable) {
           createOutOfRangeConvertMethodContent(
             from,
             to,
-            `DatatypeLimits.${from}_UPPER_LIMIT`,
+            `DatatypeLimits.${from}_MAX_VALUE`,
             tooHighCheckMethod
           );
 
@@ -399,7 +399,7 @@ async function createTests(convertTable) {
           createValidConvertMethodContent(
             from,
             to,
-            `DatatypeLimits.${from}_UPPER_LIMIT`,
+            `DatatypeLimits.${from}_MAX_VALUE`,
             upperCheckMethod
           );
         }
@@ -413,7 +413,7 @@ async function createTests(convertTable) {
           createOutOfRangeConvertMethodContent(
             from,
             to,
-            `DatatypeLimits.${from}_LOWER_LIMIT`,
+            `DatatypeLimits.${from}_MIN_VALUE`,
             tooLowCheckMethod
           );
 
@@ -428,7 +428,7 @@ async function createTests(convertTable) {
           createValidConvertMethodContent(
             from,
             to,
-            `DatatypeLimits.${from}_LOWER_LIMIT`,
+            `DatatypeLimits.${from}_MIN_VALUE`,
             lowerCheckMethod
           );
         }
@@ -458,11 +458,11 @@ async function createGVLMinsAndMax(dict) {
     gvl += `\n// Limits of ${rowKey} used for conversions\n`;
 
     function createUpperLimit(from, to) {
-      gvl += `MAX_VALUE_OF_${from}_WHICH_CAN_BE_HELD_IN_A_${to} : ${from} := ${to}_TO_${from}(${to}_UPPER_LIMIT);\n`;
+      gvl += `MAX_VALUE_OF_${from}_WHICH_CAN_BE_HELD_IN_A_${to} : ${from} := ${to}_TO_${from}(${to}_MAX_VALUE);\n`;
     }
 
     function createLowerLimit(from, to) {
-      gvl += `MIN_VALUE_OF_${from}_WHICH_CAN_BE_HELD_IN_A_${to} : ${from} := ${to}_TO_${from}(${to}_LOWER_LIMIT);\n`;
+      gvl += `MIN_VALUE_OF_${from}_WHICH_CAN_BE_HELD_IN_A_${to} : ${from} := ${to}_TO_${from}(${to}_MIN_VALUE);\n`;
     }
 
     for (const colKey in dict[rowKey]) {

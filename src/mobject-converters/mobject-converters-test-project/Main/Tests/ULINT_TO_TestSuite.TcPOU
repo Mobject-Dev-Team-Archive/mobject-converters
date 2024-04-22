@@ -5,71 +5,71 @@
 VAR
 END_VAR]]></Declaration>
     <Implementation>
-      <ST><![CDATA[Check_ULINT_TO_BOOL_Upper();
-Check_ULINT_TO_BOOL_Lower();
-Check_ULINT_TO_BYTE_Upper();
-Check_ULINT_TO_BYTE_Lower();
+      <ST><![CDATA[Check_ULINT_TO_BOOL_Max();
+Check_ULINT_TO_BOOL_Min();
+Check_ULINT_TO_BYTE_Max();
+Check_ULINT_TO_BYTE_Min();
 Check_ULINT_TO_BYTE_TooHigh();
-Check_ULINT_TO_WORD_Upper();
-Check_ULINT_TO_WORD_Lower();
+Check_ULINT_TO_WORD_Max();
+Check_ULINT_TO_WORD_Min();
 Check_ULINT_TO_WORD_TooHigh();
-Check_ULINT_TO_DWORD_Upper();
-Check_ULINT_TO_DWORD_Lower();
+Check_ULINT_TO_DWORD_Max();
+Check_ULINT_TO_DWORD_Min();
 Check_ULINT_TO_DWORD_TooHigh();
-Check_ULINT_TO_LWORD_Upper();
-Check_ULINT_TO_LWORD_Lower();
-Check_ULINT_TO_SINT_Upper();
-Check_ULINT_TO_SINT_Lower();
+Check_ULINT_TO_LWORD_Max();
+Check_ULINT_TO_LWORD_Min();
+Check_ULINT_TO_SINT_Max();
+Check_ULINT_TO_SINT_Min();
 Check_ULINT_TO_SINT_TooHigh();
-Check_ULINT_TO_INT_Upper();
-Check_ULINT_TO_INT_Lower();
+Check_ULINT_TO_INT_Max();
+Check_ULINT_TO_INT_Min();
 Check_ULINT_TO_INT_TooHigh();
-Check_ULINT_TO_DINT_Upper();
-Check_ULINT_TO_DINT_Lower();
+Check_ULINT_TO_DINT_Max();
+Check_ULINT_TO_DINT_Min();
 Check_ULINT_TO_DINT_TooHigh();
-Check_ULINT_TO_LINT_Upper();
-Check_ULINT_TO_LINT_Lower();
+Check_ULINT_TO_LINT_Max();
+Check_ULINT_TO_LINT_Min();
 Check_ULINT_TO_LINT_TooHigh();
-Check_ULINT_TO_USINT_Upper();
-Check_ULINT_TO_USINT_Lower();
+Check_ULINT_TO_USINT_Max();
+Check_ULINT_TO_USINT_Min();
 Check_ULINT_TO_USINT_TooHigh();
-Check_ULINT_TO_UINT_Upper();
-Check_ULINT_TO_UINT_Lower();
+Check_ULINT_TO_UINT_Max();
+Check_ULINT_TO_UINT_Min();
 Check_ULINT_TO_UINT_TooHigh();
-Check_ULINT_TO_UDINT_Upper();
-Check_ULINT_TO_UDINT_Lower();
+Check_ULINT_TO_UDINT_Max();
+Check_ULINT_TO_UDINT_Min();
 Check_ULINT_TO_UDINT_TooHigh();
-Check_ULINT_TO_ULINT_Upper();
-Check_ULINT_TO_ULINT_Lower();
-Check_ULINT_TO_REAL_Upper();
-Check_ULINT_TO_REAL_Lower();
-Check_ULINT_TO_LREAL_Upper();
-Check_ULINT_TO_LREAL_Lower();
-Check_ULINT_TO_TIME_Upper();
-Check_ULINT_TO_TIME_Lower();
+Check_ULINT_TO_ULINT_Max();
+Check_ULINT_TO_ULINT_Min();
+Check_ULINT_TO_REAL_Max();
+Check_ULINT_TO_REAL_Min();
+Check_ULINT_TO_LREAL_Max();
+Check_ULINT_TO_LREAL_Min();
+Check_ULINT_TO_TIME_Max();
+Check_ULINT_TO_TIME_Min();
 Check_ULINT_TO_TIME_TooHigh();
-Check_ULINT_TO_TOD_Upper();
-Check_ULINT_TO_TOD_Lower();
+Check_ULINT_TO_TOD_Max();
+Check_ULINT_TO_TOD_Min();
 Check_ULINT_TO_TOD_TooHigh();
-Check_ULINT_TO_DATE_Upper();
-Check_ULINT_TO_DATE_Lower();
+Check_ULINT_TO_DATE_Max();
+Check_ULINT_TO_DATE_Min();
 Check_ULINT_TO_DATE_TooHigh();
-Check_ULINT_TO_DT_Upper();
-Check_ULINT_TO_DT_Lower();
+Check_ULINT_TO_DT_Max();
+Check_ULINT_TO_DT_Min();
 Check_ULINT_TO_DT_TooHigh();
-Check_ULINT_TO_STRING_Upper();
-Check_ULINT_TO_STRING_Lower();]]></ST>
+Check_ULINT_TO_STRING_Max();
+Check_ULINT_TO_STRING_Min();]]></ST>
     </Implementation>
-    <Method Name="Check_ULINT_TO_BOOL_Lower" Id="{3813cbbf-3884-48ae-bdd4-fa9e1921722f}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_BOOL_Lower
+    <Method Name="Check_ULINT_TO_BOOL_Min" Id="{3813cbbf-3884-48ae-bdd4-fa9e1921722f}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_BOOL_Min
 VAR
-	value : ULINT := DatatypeLimits.ULINT_LOWER_LIMIT;
+	value : ULINT := DatatypeLimits.ULINT_MIN_VALUE;
 	actual : BOOL;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_ULINT_TO_BOOL_Lower');
+        <ST><![CDATA[TEST('Check_ULINT_TO_BOOL_Min');
 
 // @TEST-RUN
 converted := TryConvert_ULINT_TO_Destination(value, actual);
@@ -82,16 +82,16 @@ AssertTrue(Condition := converted, Message := 'Did not report ULINT to BOOL conv
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_ULINT_TO_BOOL_Upper" Id="{7f11bcf6-6d2b-4c37-bc1c-261948142968}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_BOOL_Upper
+    <Method Name="Check_ULINT_TO_BOOL_Max" Id="{7f11bcf6-6d2b-4c37-bc1c-261948142968}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_BOOL_Max
 VAR
-	value : ULINT := DatatypeLimits.ULINT_UPPER_LIMIT;
+	value : ULINT := DatatypeLimits.ULINT_MAX_VALUE;
 	actual : BOOL;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_ULINT_TO_BOOL_Upper');
+        <ST><![CDATA[TEST('Check_ULINT_TO_BOOL_Max');
 
 // @TEST-RUN
 converted := TryConvert_ULINT_TO_Destination(value, actual);
@@ -104,16 +104,16 @@ AssertTrue(Condition := converted, Message := 'Did not report ULINT to BOOL conv
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_ULINT_TO_BYTE_Lower" Id="{dbb8c3a4-c572-4ebb-96d3-e52bc35e465c}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_BYTE_Lower
+    <Method Name="Check_ULINT_TO_BYTE_Min" Id="{dbb8c3a4-c572-4ebb-96d3-e52bc35e465c}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_BYTE_Min
 VAR
-	value : ULINT := DatatypeLimits.ULINT_LOWER_LIMIT;
+	value : ULINT := DatatypeLimits.ULINT_MIN_VALUE;
 	actual : BYTE;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_ULINT_TO_BYTE_Lower');
+        <ST><![CDATA[TEST('Check_ULINT_TO_BYTE_Min');
 
 // @TEST-RUN
 converted := TryConvert_ULINT_TO_Destination(value, actual);
@@ -129,7 +129,7 @@ TEST_FINISHED();]]></ST>
     <Method Name="Check_ULINT_TO_BYTE_TooHigh" Id="{bc5a2427-7b72-44e0-8caf-7d6c2f225048}">
       <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_BYTE_TooHigh
 VAR
-	value : ULINT := DatatypeLimits.ULINT_UPPER_LIMIT;
+	value : ULINT := DatatypeLimits.ULINT_MAX_VALUE;
 	actual : BYTE;
 	converted : BOOL;
 END_VAR]]></Declaration>
@@ -145,8 +145,8 @@ AssertFalse(Condition := converted, Message := 'Did not report ULINT to BYTE con
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_ULINT_TO_BYTE_Upper" Id="{5012fa44-87a5-490a-b77c-74df93c4feb7}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_BYTE_Upper
+    <Method Name="Check_ULINT_TO_BYTE_Max" Id="{5012fa44-87a5-490a-b77c-74df93c4feb7}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_BYTE_Max
 VAR
 	value : ULINT := DatatypeLimits.MAX_VALUE_OF_ULINT_WHICH_CAN_BE_HELD_IN_A_BYTE;
 	actual : BYTE;
@@ -154,7 +154,7 @@ VAR
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_ULINT_TO_BYTE_Upper');
+        <ST><![CDATA[TEST('Check_ULINT_TO_BYTE_Max');
 
 // @TEST-RUN
 converted := TryConvert_ULINT_TO_Destination(value, actual);
@@ -167,16 +167,16 @@ AssertTrue(Condition := converted, Message := 'Did not report ULINT to BYTE conv
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_ULINT_TO_DATE_Lower" Id="{54f36b9e-2fed-4ad0-bc26-3d34a41b6428}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_DATE_Lower
+    <Method Name="Check_ULINT_TO_DATE_Min" Id="{54f36b9e-2fed-4ad0-bc26-3d34a41b6428}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_DATE_Min
 VAR
-	value : ULINT := DatatypeLimits.ULINT_LOWER_LIMIT;
+	value : ULINT := DatatypeLimits.ULINT_MIN_VALUE;
 	actual : DATE;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_ULINT_TO_DATE_Lower');
+        <ST><![CDATA[TEST('Check_ULINT_TO_DATE_Min');
 
 // @TEST-RUN
 converted := TryConvert_ULINT_TO_Destination(value, actual);
@@ -192,7 +192,7 @@ TEST_FINISHED();]]></ST>
     <Method Name="Check_ULINT_TO_DATE_TooHigh" Id="{01366045-8949-43eb-91bf-02400433c2e6}">
       <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_DATE_TooHigh
 VAR
-	value : ULINT := DatatypeLimits.ULINT_UPPER_LIMIT;
+	value : ULINT := DatatypeLimits.ULINT_MAX_VALUE;
 	actual : DATE;
 	converted : BOOL;
 END_VAR]]></Declaration>
@@ -208,8 +208,8 @@ AssertFalse(Condition := converted, Message := 'Did not report ULINT to DATE con
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_ULINT_TO_DATE_Upper" Id="{144c7cae-7705-4c88-9912-9dff0c305413}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_DATE_Upper
+    <Method Name="Check_ULINT_TO_DATE_Max" Id="{144c7cae-7705-4c88-9912-9dff0c305413}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_DATE_Max
 VAR
 	value : ULINT := DatatypeLimits.MAX_VALUE_OF_ULINT_WHICH_CAN_BE_HELD_IN_A_DATE;
 	actual : DATE;
@@ -217,7 +217,7 @@ VAR
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_ULINT_TO_DATE_Upper');
+        <ST><![CDATA[TEST('Check_ULINT_TO_DATE_Max');
 
 // @TEST-RUN
 converted := TryConvert_ULINT_TO_Destination(value, actual);
@@ -230,16 +230,16 @@ AssertTrue(Condition := converted, Message := 'Did not report ULINT to DATE conv
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_ULINT_TO_DINT_Lower" Id="{5cfdfecd-fe4d-4ab7-92de-55116d6530ba}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_DINT_Lower
+    <Method Name="Check_ULINT_TO_DINT_Min" Id="{5cfdfecd-fe4d-4ab7-92de-55116d6530ba}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_DINT_Min
 VAR
-	value : ULINT := DatatypeLimits.ULINT_LOWER_LIMIT;
+	value : ULINT := DatatypeLimits.ULINT_MIN_VALUE;
 	actual : DINT;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_ULINT_TO_DINT_Lower');
+        <ST><![CDATA[TEST('Check_ULINT_TO_DINT_Min');
 
 // @TEST-RUN
 converted := TryConvert_ULINT_TO_Destination(value, actual);
@@ -255,7 +255,7 @@ TEST_FINISHED();]]></ST>
     <Method Name="Check_ULINT_TO_DINT_TooHigh" Id="{4c0a96b5-4a7f-4ba8-9f51-fac065833010}">
       <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_DINT_TooHigh
 VAR
-	value : ULINT := DatatypeLimits.ULINT_UPPER_LIMIT;
+	value : ULINT := DatatypeLimits.ULINT_MAX_VALUE;
 	actual : DINT;
 	converted : BOOL;
 END_VAR]]></Declaration>
@@ -271,8 +271,8 @@ AssertFalse(Condition := converted, Message := 'Did not report ULINT to DINT con
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_ULINT_TO_DINT_Upper" Id="{dfc18412-0aa5-4333-a5c8-b987115ce6ec}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_DINT_Upper
+    <Method Name="Check_ULINT_TO_DINT_Max" Id="{dfc18412-0aa5-4333-a5c8-b987115ce6ec}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_DINT_Max
 VAR
 	value : ULINT := DatatypeLimits.MAX_VALUE_OF_ULINT_WHICH_CAN_BE_HELD_IN_A_DINT;
 	actual : DINT;
@@ -280,7 +280,7 @@ VAR
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_ULINT_TO_DINT_Upper');
+        <ST><![CDATA[TEST('Check_ULINT_TO_DINT_Max');
 
 // @TEST-RUN
 converted := TryConvert_ULINT_TO_Destination(value, actual);
@@ -293,16 +293,16 @@ AssertTrue(Condition := converted, Message := 'Did not report ULINT to DINT conv
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_ULINT_TO_DT_Lower" Id="{df1a2ad7-0932-4775-b3cc-8858a89f40e8}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_DT_Lower
+    <Method Name="Check_ULINT_TO_DT_Min" Id="{df1a2ad7-0932-4775-b3cc-8858a89f40e8}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_DT_Min
 VAR
-	value : ULINT := DatatypeLimits.ULINT_LOWER_LIMIT;
+	value : ULINT := DatatypeLimits.ULINT_MIN_VALUE;
 	actual : DT;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_ULINT_TO_DT_Lower');
+        <ST><![CDATA[TEST('Check_ULINT_TO_DT_Min');
 
 // @TEST-RUN
 converted := TryConvert_ULINT_TO_Destination(value, actual);
@@ -318,7 +318,7 @@ TEST_FINISHED();]]></ST>
     <Method Name="Check_ULINT_TO_DT_TooHigh" Id="{f1ccab74-c6dc-48aa-afbf-bc8cc6619e06}">
       <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_DT_TooHigh
 VAR
-	value : ULINT := DatatypeLimits.ULINT_UPPER_LIMIT;
+	value : ULINT := DatatypeLimits.ULINT_MAX_VALUE;
 	actual : DT;
 	converted : BOOL;
 END_VAR]]></Declaration>
@@ -334,8 +334,8 @@ AssertFalse(Condition := converted, Message := 'Did not report ULINT to DT conve
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_ULINT_TO_DT_Upper" Id="{aeba6ee6-9e40-44d4-a203-476addde7d85}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_DT_Upper
+    <Method Name="Check_ULINT_TO_DT_Max" Id="{aeba6ee6-9e40-44d4-a203-476addde7d85}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_DT_Max
 VAR
 	value : ULINT := DatatypeLimits.MAX_VALUE_OF_ULINT_WHICH_CAN_BE_HELD_IN_A_DT;
 	actual : DT;
@@ -343,7 +343,7 @@ VAR
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_ULINT_TO_DT_Upper');
+        <ST><![CDATA[TEST('Check_ULINT_TO_DT_Max');
 
 // @TEST-RUN
 converted := TryConvert_ULINT_TO_Destination(value, actual);
@@ -356,16 +356,16 @@ AssertTrue(Condition := converted, Message := 'Did not report ULINT to DT conver
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_ULINT_TO_DWORD_Lower" Id="{05e67a63-085a-4747-8390-11c3f3b75e08}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_DWORD_Lower
+    <Method Name="Check_ULINT_TO_DWORD_Min" Id="{05e67a63-085a-4747-8390-11c3f3b75e08}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_DWORD_Min
 VAR
-	value : ULINT := DatatypeLimits.ULINT_LOWER_LIMIT;
+	value : ULINT := DatatypeLimits.ULINT_MIN_VALUE;
 	actual : DWORD;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_ULINT_TO_DWORD_Lower');
+        <ST><![CDATA[TEST('Check_ULINT_TO_DWORD_Min');
 
 // @TEST-RUN
 converted := TryConvert_ULINT_TO_Destination(value, actual);
@@ -381,7 +381,7 @@ TEST_FINISHED();]]></ST>
     <Method Name="Check_ULINT_TO_DWORD_TooHigh" Id="{02510961-93e4-466d-88ad-91c3b1eba841}">
       <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_DWORD_TooHigh
 VAR
-	value : ULINT := DatatypeLimits.ULINT_UPPER_LIMIT;
+	value : ULINT := DatatypeLimits.ULINT_MAX_VALUE;
 	actual : DWORD;
 	converted : BOOL;
 END_VAR]]></Declaration>
@@ -397,8 +397,8 @@ AssertFalse(Condition := converted, Message := 'Did not report ULINT to DWORD co
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_ULINT_TO_DWORD_Upper" Id="{e59c0b83-de32-4731-8efb-4e0851db99a3}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_DWORD_Upper
+    <Method Name="Check_ULINT_TO_DWORD_Max" Id="{e59c0b83-de32-4731-8efb-4e0851db99a3}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_DWORD_Max
 VAR
 	value : ULINT := DatatypeLimits.MAX_VALUE_OF_ULINT_WHICH_CAN_BE_HELD_IN_A_DWORD;
 	actual : DWORD;
@@ -406,7 +406,7 @@ VAR
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_ULINT_TO_DWORD_Upper');
+        <ST><![CDATA[TEST('Check_ULINT_TO_DWORD_Max');
 
 // @TEST-RUN
 converted := TryConvert_ULINT_TO_Destination(value, actual);
@@ -419,16 +419,16 @@ AssertTrue(Condition := converted, Message := 'Did not report ULINT to DWORD con
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_ULINT_TO_INT_Lower" Id="{e35f794a-76e6-4823-a4bc-bcb84d41d7de}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_INT_Lower
+    <Method Name="Check_ULINT_TO_INT_Min" Id="{e35f794a-76e6-4823-a4bc-bcb84d41d7de}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_INT_Min
 VAR
-	value : ULINT := DatatypeLimits.ULINT_LOWER_LIMIT;
+	value : ULINT := DatatypeLimits.ULINT_MIN_VALUE;
 	actual : INT;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_ULINT_TO_INT_Lower');
+        <ST><![CDATA[TEST('Check_ULINT_TO_INT_Min');
 
 // @TEST-RUN
 converted := TryConvert_ULINT_TO_Destination(value, actual);
@@ -444,7 +444,7 @@ TEST_FINISHED();]]></ST>
     <Method Name="Check_ULINT_TO_INT_TooHigh" Id="{212a4c05-eab4-4371-b354-d2c8754ef3a6}">
       <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_INT_TooHigh
 VAR
-	value : ULINT := DatatypeLimits.ULINT_UPPER_LIMIT;
+	value : ULINT := DatatypeLimits.ULINT_MAX_VALUE;
 	actual : INT;
 	converted : BOOL;
 END_VAR]]></Declaration>
@@ -460,8 +460,8 @@ AssertFalse(Condition := converted, Message := 'Did not report ULINT to INT conv
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_ULINT_TO_INT_Upper" Id="{b3507ae3-007a-4c8b-a9b4-1b63f8954158}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_INT_Upper
+    <Method Name="Check_ULINT_TO_INT_Max" Id="{b3507ae3-007a-4c8b-a9b4-1b63f8954158}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_INT_Max
 VAR
 	value : ULINT := DatatypeLimits.MAX_VALUE_OF_ULINT_WHICH_CAN_BE_HELD_IN_A_INT;
 	actual : INT;
@@ -469,7 +469,7 @@ VAR
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_ULINT_TO_INT_Upper');
+        <ST><![CDATA[TEST('Check_ULINT_TO_INT_Max');
 
 // @TEST-RUN
 converted := TryConvert_ULINT_TO_Destination(value, actual);
@@ -482,16 +482,16 @@ AssertTrue(Condition := converted, Message := 'Did not report ULINT to INT conve
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_ULINT_TO_LINT_Lower" Id="{1936a2d1-a604-43e3-9390-d6ace21b2d8d}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_LINT_Lower
+    <Method Name="Check_ULINT_TO_LINT_Min" Id="{1936a2d1-a604-43e3-9390-d6ace21b2d8d}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_LINT_Min
 VAR
-	value : ULINT := DatatypeLimits.ULINT_LOWER_LIMIT;
+	value : ULINT := DatatypeLimits.ULINT_MIN_VALUE;
 	actual : LINT;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_ULINT_TO_LINT_Lower');
+        <ST><![CDATA[TEST('Check_ULINT_TO_LINT_Min');
 
 // @TEST-RUN
 converted := TryConvert_ULINT_TO_Destination(value, actual);
@@ -507,7 +507,7 @@ TEST_FINISHED();]]></ST>
     <Method Name="Check_ULINT_TO_LINT_TooHigh" Id="{84a4cd92-421d-46ff-93f9-a60ca576ac48}">
       <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_LINT_TooHigh
 VAR
-	value : ULINT := DatatypeLimits.ULINT_UPPER_LIMIT;
+	value : ULINT := DatatypeLimits.ULINT_MAX_VALUE;
 	actual : LINT;
 	converted : BOOL;
 END_VAR]]></Declaration>
@@ -523,8 +523,8 @@ AssertFalse(Condition := converted, Message := 'Did not report ULINT to LINT con
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_ULINT_TO_LINT_Upper" Id="{f181e693-3792-46d6-9238-3d6bda88f87c}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_LINT_Upper
+    <Method Name="Check_ULINT_TO_LINT_Max" Id="{f181e693-3792-46d6-9238-3d6bda88f87c}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_LINT_Max
 VAR
 	value : ULINT := DatatypeLimits.MAX_VALUE_OF_ULINT_WHICH_CAN_BE_HELD_IN_A_LINT;
 	actual : LINT;
@@ -532,7 +532,7 @@ VAR
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_ULINT_TO_LINT_Upper');
+        <ST><![CDATA[TEST('Check_ULINT_TO_LINT_Max');
 
 // @TEST-RUN
 converted := TryConvert_ULINT_TO_Destination(value, actual);
@@ -545,16 +545,16 @@ AssertTrue(Condition := converted, Message := 'Did not report ULINT to LINT conv
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_ULINT_TO_LREAL_Lower" Id="{197e787e-13bd-4e33-9449-f4eb4a0a5b4c}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_LREAL_Lower
+    <Method Name="Check_ULINT_TO_LREAL_Min" Id="{197e787e-13bd-4e33-9449-f4eb4a0a5b4c}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_LREAL_Min
 VAR
-	value : ULINT := DatatypeLimits.ULINT_LOWER_LIMIT;
+	value : ULINT := DatatypeLimits.ULINT_MIN_VALUE;
 	actual : LREAL;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_ULINT_TO_LREAL_Lower');
+        <ST><![CDATA[TEST('Check_ULINT_TO_LREAL_Min');
 
 // @TEST-RUN
 converted := TryConvert_ULINT_TO_Destination(value, actual);
@@ -567,16 +567,16 @@ AssertTrue(Condition := converted, Message := 'Did not report ULINT to LREAL con
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_ULINT_TO_LREAL_Upper" Id="{724bc7e2-fed7-4310-aa79-3a6ae75400c5}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_LREAL_Upper
+    <Method Name="Check_ULINT_TO_LREAL_Max" Id="{724bc7e2-fed7-4310-aa79-3a6ae75400c5}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_LREAL_Max
 VAR
-	value : ULINT := DatatypeLimits.ULINT_UPPER_LIMIT;
+	value : ULINT := DatatypeLimits.ULINT_MAX_VALUE;
 	actual : LREAL;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_ULINT_TO_LREAL_Upper');
+        <ST><![CDATA[TEST('Check_ULINT_TO_LREAL_Max');
 
 // @TEST-RUN
 converted := TryConvert_ULINT_TO_Destination(value, actual);
@@ -589,16 +589,16 @@ AssertTrue(Condition := converted, Message := 'Did not report ULINT to LREAL con
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_ULINT_TO_LWORD_Lower" Id="{05f1be9c-ad83-4249-a971-85d12ac171a0}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_LWORD_Lower
+    <Method Name="Check_ULINT_TO_LWORD_Min" Id="{05f1be9c-ad83-4249-a971-85d12ac171a0}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_LWORD_Min
 VAR
-	value : ULINT := DatatypeLimits.ULINT_LOWER_LIMIT;
+	value : ULINT := DatatypeLimits.ULINT_MIN_VALUE;
 	actual : LWORD;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_ULINT_TO_LWORD_Lower');
+        <ST><![CDATA[TEST('Check_ULINT_TO_LWORD_Min');
 
 // @TEST-RUN
 converted := TryConvert_ULINT_TO_Destination(value, actual);
@@ -611,16 +611,16 @@ AssertTrue(Condition := converted, Message := 'Did not report ULINT to LWORD con
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_ULINT_TO_LWORD_Upper" Id="{d4ffca5c-2d88-43f4-ad5d-db37b66c2057}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_LWORD_Upper
+    <Method Name="Check_ULINT_TO_LWORD_Max" Id="{d4ffca5c-2d88-43f4-ad5d-db37b66c2057}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_LWORD_Max
 VAR
-	value : ULINT := DatatypeLimits.ULINT_UPPER_LIMIT;
+	value : ULINT := DatatypeLimits.ULINT_MAX_VALUE;
 	actual : LWORD;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_ULINT_TO_LWORD_Upper');
+        <ST><![CDATA[TEST('Check_ULINT_TO_LWORD_Max');
 
 // @TEST-RUN
 converted := TryConvert_ULINT_TO_Destination(value, actual);
@@ -633,16 +633,16 @@ AssertTrue(Condition := converted, Message := 'Did not report ULINT to LWORD con
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_ULINT_TO_REAL_Lower" Id="{7b4ae3ba-bde3-42b7-bbbc-614eed1c1e1d}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_REAL_Lower
+    <Method Name="Check_ULINT_TO_REAL_Min" Id="{7b4ae3ba-bde3-42b7-bbbc-614eed1c1e1d}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_REAL_Min
 VAR
-	value : ULINT := DatatypeLimits.ULINT_LOWER_LIMIT;
+	value : ULINT := DatatypeLimits.ULINT_MIN_VALUE;
 	actual : REAL;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_ULINT_TO_REAL_Lower');
+        <ST><![CDATA[TEST('Check_ULINT_TO_REAL_Min');
 
 // @TEST-RUN
 converted := TryConvert_ULINT_TO_Destination(value, actual);
@@ -655,16 +655,16 @@ AssertTrue(Condition := converted, Message := 'Did not report ULINT to REAL conv
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_ULINT_TO_REAL_Upper" Id="{2555a0a5-7769-4bf5-a355-3ffb03a6a168}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_REAL_Upper
+    <Method Name="Check_ULINT_TO_REAL_Max" Id="{2555a0a5-7769-4bf5-a355-3ffb03a6a168}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_REAL_Max
 VAR
-	value : ULINT := DatatypeLimits.ULINT_UPPER_LIMIT;
+	value : ULINT := DatatypeLimits.ULINT_MAX_VALUE;
 	actual : REAL;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_ULINT_TO_REAL_Upper');
+        <ST><![CDATA[TEST('Check_ULINT_TO_REAL_Max');
 
 // @TEST-RUN
 converted := TryConvert_ULINT_TO_Destination(value, actual);
@@ -677,16 +677,16 @@ AssertTrue(Condition := converted, Message := 'Did not report ULINT to REAL conv
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_ULINT_TO_SINT_Lower" Id="{9adf63b1-a1ac-46e7-9159-a5e0fb2e5d49}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_SINT_Lower
+    <Method Name="Check_ULINT_TO_SINT_Min" Id="{9adf63b1-a1ac-46e7-9159-a5e0fb2e5d49}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_SINT_Min
 VAR
-	value : ULINT := DatatypeLimits.ULINT_LOWER_LIMIT;
+	value : ULINT := DatatypeLimits.ULINT_MIN_VALUE;
 	actual : SINT;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_ULINT_TO_SINT_Lower');
+        <ST><![CDATA[TEST('Check_ULINT_TO_SINT_Min');
 
 // @TEST-RUN
 converted := TryConvert_ULINT_TO_Destination(value, actual);
@@ -702,7 +702,7 @@ TEST_FINISHED();]]></ST>
     <Method Name="Check_ULINT_TO_SINT_TooHigh" Id="{d97a5829-3c06-4acc-b894-2cc37f53f79b}">
       <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_SINT_TooHigh
 VAR
-	value : ULINT := DatatypeLimits.ULINT_UPPER_LIMIT;
+	value : ULINT := DatatypeLimits.ULINT_MAX_VALUE;
 	actual : SINT;
 	converted : BOOL;
 END_VAR]]></Declaration>
@@ -718,8 +718,8 @@ AssertFalse(Condition := converted, Message := 'Did not report ULINT to SINT con
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_ULINT_TO_SINT_Upper" Id="{d4bef9e9-f0f2-4680-9a50-d247a0a30016}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_SINT_Upper
+    <Method Name="Check_ULINT_TO_SINT_Max" Id="{d4bef9e9-f0f2-4680-9a50-d247a0a30016}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_SINT_Max
 VAR
 	value : ULINT := DatatypeLimits.MAX_VALUE_OF_ULINT_WHICH_CAN_BE_HELD_IN_A_SINT;
 	actual : SINT;
@@ -727,7 +727,7 @@ VAR
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_ULINT_TO_SINT_Upper');
+        <ST><![CDATA[TEST('Check_ULINT_TO_SINT_Max');
 
 // @TEST-RUN
 converted := TryConvert_ULINT_TO_Destination(value, actual);
@@ -740,16 +740,16 @@ AssertTrue(Condition := converted, Message := 'Did not report ULINT to SINT conv
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_ULINT_TO_STRING_Lower" Id="{7ba9e26a-a9ca-494a-ad84-788b323171da}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_STRING_Lower
+    <Method Name="Check_ULINT_TO_STRING_Min" Id="{7ba9e26a-a9ca-494a-ad84-788b323171da}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_STRING_Min
 VAR
-	value : ULINT := DatatypeLimits.ULINT_LOWER_LIMIT;
+	value : ULINT := DatatypeLimits.ULINT_MIN_VALUE;
 	actual : STRING;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_ULINT_TO_STRING_Lower');
+        <ST><![CDATA[TEST('Check_ULINT_TO_STRING_Min');
 
 // @TEST-RUN
 converted := TryConvert_ULINT_TO_Destination(value, actual);
@@ -762,16 +762,16 @@ AssertTrue(Condition := converted, Message := 'Did not report ULINT to STRING co
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_ULINT_TO_STRING_Upper" Id="{0c8b9b81-5376-462e-b135-5f49f860ad49}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_STRING_Upper
+    <Method Name="Check_ULINT_TO_STRING_Max" Id="{0c8b9b81-5376-462e-b135-5f49f860ad49}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_STRING_Max
 VAR
-	value : ULINT := DatatypeLimits.ULINT_UPPER_LIMIT;
+	value : ULINT := DatatypeLimits.ULINT_MAX_VALUE;
 	actual : STRING;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_ULINT_TO_STRING_Upper');
+        <ST><![CDATA[TEST('Check_ULINT_TO_STRING_Max');
 
 // @TEST-RUN
 converted := TryConvert_ULINT_TO_Destination(value, actual);
@@ -784,16 +784,16 @@ AssertTrue(Condition := converted, Message := 'Did not report ULINT to STRING co
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_ULINT_TO_TIME_Lower" Id="{b9a83fa1-9745-4ff8-bbd1-37d5f3390522}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_TIME_Lower
+    <Method Name="Check_ULINT_TO_TIME_Min" Id="{b9a83fa1-9745-4ff8-bbd1-37d5f3390522}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_TIME_Min
 VAR
-	value : ULINT := DatatypeLimits.ULINT_LOWER_LIMIT;
+	value : ULINT := DatatypeLimits.ULINT_MIN_VALUE;
 	actual : TIME;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_ULINT_TO_TIME_Lower');
+        <ST><![CDATA[TEST('Check_ULINT_TO_TIME_Min');
 
 // @TEST-RUN
 converted := TryConvert_ULINT_TO_Destination(value, actual);
@@ -809,7 +809,7 @@ TEST_FINISHED();]]></ST>
     <Method Name="Check_ULINT_TO_TIME_TooHigh" Id="{616c59d9-453a-4c34-8a1b-fa975cdd419d}">
       <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_TIME_TooHigh
 VAR
-	value : ULINT := DatatypeLimits.ULINT_UPPER_LIMIT;
+	value : ULINT := DatatypeLimits.ULINT_MAX_VALUE;
 	actual : TIME;
 	converted : BOOL;
 END_VAR]]></Declaration>
@@ -825,8 +825,8 @@ AssertFalse(Condition := converted, Message := 'Did not report ULINT to TIME con
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_ULINT_TO_TIME_Upper" Id="{a62e2467-acb0-4b89-8cfd-10ec23879416}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_TIME_Upper
+    <Method Name="Check_ULINT_TO_TIME_Max" Id="{a62e2467-acb0-4b89-8cfd-10ec23879416}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_TIME_Max
 VAR
 	value : ULINT := DatatypeLimits.MAX_VALUE_OF_ULINT_WHICH_CAN_BE_HELD_IN_A_TIME;
 	actual : TIME;
@@ -834,7 +834,7 @@ VAR
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_ULINT_TO_TIME_Upper');
+        <ST><![CDATA[TEST('Check_ULINT_TO_TIME_Max');
 
 // @TEST-RUN
 converted := TryConvert_ULINT_TO_Destination(value, actual);
@@ -847,16 +847,16 @@ AssertTrue(Condition := converted, Message := 'Did not report ULINT to TIME conv
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_ULINT_TO_TOD_Lower" Id="{dd8cdde3-ddac-44b3-8594-8ba3d989adbc}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_TOD_Lower
+    <Method Name="Check_ULINT_TO_TOD_Min" Id="{dd8cdde3-ddac-44b3-8594-8ba3d989adbc}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_TOD_Min
 VAR
-	value : ULINT := DatatypeLimits.ULINT_LOWER_LIMIT;
+	value : ULINT := DatatypeLimits.ULINT_MIN_VALUE;
 	actual : TOD;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_ULINT_TO_TOD_Lower');
+        <ST><![CDATA[TEST('Check_ULINT_TO_TOD_Min');
 
 // @TEST-RUN
 converted := TryConvert_ULINT_TO_Destination(value, actual);
@@ -872,7 +872,7 @@ TEST_FINISHED();]]></ST>
     <Method Name="Check_ULINT_TO_TOD_TooHigh" Id="{a1b1819a-10e9-4087-803b-146374b1f0f5}">
       <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_TOD_TooHigh
 VAR
-	value : ULINT := DatatypeLimits.ULINT_UPPER_LIMIT;
+	value : ULINT := DatatypeLimits.ULINT_MAX_VALUE;
 	actual : TOD;
 	converted : BOOL;
 END_VAR]]></Declaration>
@@ -888,8 +888,8 @@ AssertFalse(Condition := converted, Message := 'Did not report ULINT to TOD conv
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_ULINT_TO_TOD_Upper" Id="{5e8df974-8dda-4107-9bf4-040a94fc34ce}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_TOD_Upper
+    <Method Name="Check_ULINT_TO_TOD_Max" Id="{5e8df974-8dda-4107-9bf4-040a94fc34ce}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_TOD_Max
 VAR
 	value : ULINT := DatatypeLimits.MAX_VALUE_OF_ULINT_WHICH_CAN_BE_HELD_IN_A_TOD;
 	actual : TOD;
@@ -897,7 +897,7 @@ VAR
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_ULINT_TO_TOD_Upper');
+        <ST><![CDATA[TEST('Check_ULINT_TO_TOD_Max');
 
 // @TEST-RUN
 converted := TryConvert_ULINT_TO_Destination(value, actual);
@@ -910,16 +910,16 @@ AssertTrue(Condition := converted, Message := 'Did not report ULINT to TOD conve
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_ULINT_TO_UDINT_Lower" Id="{fb8dba39-220c-4b91-9d1d-202d045ce38e}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_UDINT_Lower
+    <Method Name="Check_ULINT_TO_UDINT_Min" Id="{fb8dba39-220c-4b91-9d1d-202d045ce38e}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_UDINT_Min
 VAR
-	value : ULINT := DatatypeLimits.ULINT_LOWER_LIMIT;
+	value : ULINT := DatatypeLimits.ULINT_MIN_VALUE;
 	actual : UDINT;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_ULINT_TO_UDINT_Lower');
+        <ST><![CDATA[TEST('Check_ULINT_TO_UDINT_Min');
 
 // @TEST-RUN
 converted := TryConvert_ULINT_TO_Destination(value, actual);
@@ -935,7 +935,7 @@ TEST_FINISHED();]]></ST>
     <Method Name="Check_ULINT_TO_UDINT_TooHigh" Id="{55efbead-33cd-4dba-a416-798eb8629e58}">
       <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_UDINT_TooHigh
 VAR
-	value : ULINT := DatatypeLimits.ULINT_UPPER_LIMIT;
+	value : ULINT := DatatypeLimits.ULINT_MAX_VALUE;
 	actual : UDINT;
 	converted : BOOL;
 END_VAR]]></Declaration>
@@ -951,8 +951,8 @@ AssertFalse(Condition := converted, Message := 'Did not report ULINT to UDINT co
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_ULINT_TO_UDINT_Upper" Id="{a500802d-cd6e-4c57-945a-8dac80afd939}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_UDINT_Upper
+    <Method Name="Check_ULINT_TO_UDINT_Max" Id="{a500802d-cd6e-4c57-945a-8dac80afd939}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_UDINT_Max
 VAR
 	value : ULINT := DatatypeLimits.MAX_VALUE_OF_ULINT_WHICH_CAN_BE_HELD_IN_A_UDINT;
 	actual : UDINT;
@@ -960,7 +960,7 @@ VAR
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_ULINT_TO_UDINT_Upper');
+        <ST><![CDATA[TEST('Check_ULINT_TO_UDINT_Max');
 
 // @TEST-RUN
 converted := TryConvert_ULINT_TO_Destination(value, actual);
@@ -973,16 +973,16 @@ AssertTrue(Condition := converted, Message := 'Did not report ULINT to UDINT con
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_ULINT_TO_UINT_Lower" Id="{ee608da2-c59b-41d4-ba56-050adde5a4ed}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_UINT_Lower
+    <Method Name="Check_ULINT_TO_UINT_Min" Id="{ee608da2-c59b-41d4-ba56-050adde5a4ed}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_UINT_Min
 VAR
-	value : ULINT := DatatypeLimits.ULINT_LOWER_LIMIT;
+	value : ULINT := DatatypeLimits.ULINT_MIN_VALUE;
 	actual : UINT;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_ULINT_TO_UINT_Lower');
+        <ST><![CDATA[TEST('Check_ULINT_TO_UINT_Min');
 
 // @TEST-RUN
 converted := TryConvert_ULINT_TO_Destination(value, actual);
@@ -998,7 +998,7 @@ TEST_FINISHED();]]></ST>
     <Method Name="Check_ULINT_TO_UINT_TooHigh" Id="{eada123b-1c01-415e-8241-d57fd09d31de}">
       <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_UINT_TooHigh
 VAR
-	value : ULINT := DatatypeLimits.ULINT_UPPER_LIMIT;
+	value : ULINT := DatatypeLimits.ULINT_MAX_VALUE;
 	actual : UINT;
 	converted : BOOL;
 END_VAR]]></Declaration>
@@ -1014,8 +1014,8 @@ AssertFalse(Condition := converted, Message := 'Did not report ULINT to UINT con
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_ULINT_TO_UINT_Upper" Id="{78a2149e-4579-47de-a5d2-66d45a222536}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_UINT_Upper
+    <Method Name="Check_ULINT_TO_UINT_Max" Id="{78a2149e-4579-47de-a5d2-66d45a222536}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_UINT_Max
 VAR
 	value : ULINT := DatatypeLimits.MAX_VALUE_OF_ULINT_WHICH_CAN_BE_HELD_IN_A_UINT;
 	actual : UINT;
@@ -1023,7 +1023,7 @@ VAR
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_ULINT_TO_UINT_Upper');
+        <ST><![CDATA[TEST('Check_ULINT_TO_UINT_Max');
 
 // @TEST-RUN
 converted := TryConvert_ULINT_TO_Destination(value, actual);
@@ -1036,16 +1036,16 @@ AssertTrue(Condition := converted, Message := 'Did not report ULINT to UINT conv
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_ULINT_TO_ULINT_Lower" Id="{1d7a46f2-77b3-407e-be05-b9434a5c90d4}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_ULINT_Lower
+    <Method Name="Check_ULINT_TO_ULINT_Min" Id="{1d7a46f2-77b3-407e-be05-b9434a5c90d4}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_ULINT_Min
 VAR
-	value : ULINT := DatatypeLimits.ULINT_LOWER_LIMIT;
+	value : ULINT := DatatypeLimits.ULINT_MIN_VALUE;
 	actual : ULINT;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_ULINT_TO_ULINT_Lower');
+        <ST><![CDATA[TEST('Check_ULINT_TO_ULINT_Min');
 
 // @TEST-RUN
 converted := TryConvert_ULINT_TO_Destination(value, actual);
@@ -1058,16 +1058,16 @@ AssertTrue(Condition := converted, Message := 'Did not report ULINT to ULINT con
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_ULINT_TO_ULINT_Upper" Id="{6b931675-167d-40eb-acf2-65626c637a87}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_ULINT_Upper
+    <Method Name="Check_ULINT_TO_ULINT_Max" Id="{6b931675-167d-40eb-acf2-65626c637a87}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_ULINT_Max
 VAR
-	value : ULINT := DatatypeLimits.ULINT_UPPER_LIMIT;
+	value : ULINT := DatatypeLimits.ULINT_MAX_VALUE;
 	actual : ULINT;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_ULINT_TO_ULINT_Upper');
+        <ST><![CDATA[TEST('Check_ULINT_TO_ULINT_Max');
 
 // @TEST-RUN
 converted := TryConvert_ULINT_TO_Destination(value, actual);
@@ -1080,16 +1080,16 @@ AssertTrue(Condition := converted, Message := 'Did not report ULINT to ULINT con
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_ULINT_TO_USINT_Lower" Id="{60fbd14e-7154-4ce4-a1d1-0b1662f528d7}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_USINT_Lower
+    <Method Name="Check_ULINT_TO_USINT_Min" Id="{60fbd14e-7154-4ce4-a1d1-0b1662f528d7}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_USINT_Min
 VAR
-	value : ULINT := DatatypeLimits.ULINT_LOWER_LIMIT;
+	value : ULINT := DatatypeLimits.ULINT_MIN_VALUE;
 	actual : USINT;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_ULINT_TO_USINT_Lower');
+        <ST><![CDATA[TEST('Check_ULINT_TO_USINT_Min');
 
 // @TEST-RUN
 converted := TryConvert_ULINT_TO_Destination(value, actual);
@@ -1105,7 +1105,7 @@ TEST_FINISHED();]]></ST>
     <Method Name="Check_ULINT_TO_USINT_TooHigh" Id="{68934edd-22ac-4bfe-87c3-4ccf2462565b}">
       <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_USINT_TooHigh
 VAR
-	value : ULINT := DatatypeLimits.ULINT_UPPER_LIMIT;
+	value : ULINT := DatatypeLimits.ULINT_MAX_VALUE;
 	actual : USINT;
 	converted : BOOL;
 END_VAR]]></Declaration>
@@ -1121,8 +1121,8 @@ AssertFalse(Condition := converted, Message := 'Did not report ULINT to USINT co
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_ULINT_TO_USINT_Upper" Id="{b54df26c-6140-4fec-8558-97406f7939f2}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_USINT_Upper
+    <Method Name="Check_ULINT_TO_USINT_Max" Id="{b54df26c-6140-4fec-8558-97406f7939f2}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_USINT_Max
 VAR
 	value : ULINT := DatatypeLimits.MAX_VALUE_OF_ULINT_WHICH_CAN_BE_HELD_IN_A_USINT;
 	actual : USINT;
@@ -1130,7 +1130,7 @@ VAR
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_ULINT_TO_USINT_Upper');
+        <ST><![CDATA[TEST('Check_ULINT_TO_USINT_Max');
 
 // @TEST-RUN
 converted := TryConvert_ULINT_TO_Destination(value, actual);
@@ -1143,16 +1143,16 @@ AssertTrue(Condition := converted, Message := 'Did not report ULINT to USINT con
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_ULINT_TO_WORD_Lower" Id="{0640a5b4-47c6-476d-bb9e-01bf775fcd54}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_WORD_Lower
+    <Method Name="Check_ULINT_TO_WORD_Min" Id="{0640a5b4-47c6-476d-bb9e-01bf775fcd54}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_WORD_Min
 VAR
-	value : ULINT := DatatypeLimits.ULINT_LOWER_LIMIT;
+	value : ULINT := DatatypeLimits.ULINT_MIN_VALUE;
 	actual : WORD;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_ULINT_TO_WORD_Lower');
+        <ST><![CDATA[TEST('Check_ULINT_TO_WORD_Min');
 
 // @TEST-RUN
 converted := TryConvert_ULINT_TO_Destination(value, actual);
@@ -1168,7 +1168,7 @@ TEST_FINISHED();]]></ST>
     <Method Name="Check_ULINT_TO_WORD_TooHigh" Id="{117153d0-bac7-4b3a-9708-365e66912c34}">
       <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_WORD_TooHigh
 VAR
-	value : ULINT := DatatypeLimits.ULINT_UPPER_LIMIT;
+	value : ULINT := DatatypeLimits.ULINT_MAX_VALUE;
 	actual : WORD;
 	converted : BOOL;
 END_VAR]]></Declaration>
@@ -1184,8 +1184,8 @@ AssertFalse(Condition := converted, Message := 'Did not report ULINT to WORD con
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_ULINT_TO_WORD_Upper" Id="{20e0e829-e7d7-459f-b14d-6837a632b231}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_WORD_Upper
+    <Method Name="Check_ULINT_TO_WORD_Max" Id="{20e0e829-e7d7-459f-b14d-6837a632b231}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_ULINT_TO_WORD_Max
 VAR
 	value : ULINT := DatatypeLimits.MAX_VALUE_OF_ULINT_WHICH_CAN_BE_HELD_IN_A_WORD;
 	actual : WORD;
@@ -1193,7 +1193,7 @@ VAR
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_ULINT_TO_WORD_Upper');
+        <ST><![CDATA[TEST('Check_ULINT_TO_WORD_Max');
 
 // @TEST-RUN
 converted := TryConvert_ULINT_TO_Destination(value, actual);

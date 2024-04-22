@@ -5,58 +5,58 @@
 VAR
 END_VAR]]></Declaration>
     <Implementation>
-      <ST><![CDATA[Check_BYTE_TO_BOOL_Upper();
-Check_BYTE_TO_BOOL_Lower();
-Check_BYTE_TO_BYTE_Upper();
-Check_BYTE_TO_BYTE_Lower();
-Check_BYTE_TO_WORD_Upper();
-Check_BYTE_TO_WORD_Lower();
-Check_BYTE_TO_DWORD_Upper();
-Check_BYTE_TO_DWORD_Lower();
-Check_BYTE_TO_LWORD_Upper();
-Check_BYTE_TO_LWORD_Lower();
-Check_BYTE_TO_SINT_Upper();
-Check_BYTE_TO_SINT_Lower();
+      <ST><![CDATA[Check_BYTE_TO_BOOL_Max();
+Check_BYTE_TO_BOOL_Min();
+Check_BYTE_TO_BYTE_Max();
+Check_BYTE_TO_BYTE_Min();
+Check_BYTE_TO_WORD_Max();
+Check_BYTE_TO_WORD_Min();
+Check_BYTE_TO_DWORD_Max();
+Check_BYTE_TO_DWORD_Min();
+Check_BYTE_TO_LWORD_Max();
+Check_BYTE_TO_LWORD_Min();
+Check_BYTE_TO_SINT_Max();
+Check_BYTE_TO_SINT_Min();
 Check_BYTE_TO_SINT_TooHigh();
-Check_BYTE_TO_INT_Upper();
-Check_BYTE_TO_INT_Lower();
-Check_BYTE_TO_DINT_Upper();
-Check_BYTE_TO_DINT_Lower();
-Check_BYTE_TO_LINT_Upper();
-Check_BYTE_TO_LINT_Lower();
-Check_BYTE_TO_USINT_Upper();
-Check_BYTE_TO_USINT_Lower();
-Check_BYTE_TO_UINT_Upper();
-Check_BYTE_TO_UINT_Lower();
-Check_BYTE_TO_UDINT_Upper();
-Check_BYTE_TO_UDINT_Lower();
-Check_BYTE_TO_ULINT_Upper();
-Check_BYTE_TO_ULINT_Lower();
-Check_BYTE_TO_REAL_Upper();
-Check_BYTE_TO_REAL_Lower();
-Check_BYTE_TO_LREAL_Upper();
-Check_BYTE_TO_LREAL_Lower();
-Check_BYTE_TO_TIME_Upper();
-Check_BYTE_TO_TIME_Lower();
-Check_BYTE_TO_TOD_Upper();
-Check_BYTE_TO_TOD_Lower();
-Check_BYTE_TO_DATE_Upper();
-Check_BYTE_TO_DATE_Lower();
-Check_BYTE_TO_DT_Upper();
-Check_BYTE_TO_DT_Lower();
-Check_BYTE_TO_STRING_Upper();
-Check_BYTE_TO_STRING_Lower();]]></ST>
+Check_BYTE_TO_INT_Max();
+Check_BYTE_TO_INT_Min();
+Check_BYTE_TO_DINT_Max();
+Check_BYTE_TO_DINT_Min();
+Check_BYTE_TO_LINT_Max();
+Check_BYTE_TO_LINT_Min();
+Check_BYTE_TO_USINT_Max();
+Check_BYTE_TO_USINT_Min();
+Check_BYTE_TO_UINT_Max();
+Check_BYTE_TO_UINT_Min();
+Check_BYTE_TO_UDINT_Max();
+Check_BYTE_TO_UDINT_Min();
+Check_BYTE_TO_ULINT_Max();
+Check_BYTE_TO_ULINT_Min();
+Check_BYTE_TO_REAL_Max();
+Check_BYTE_TO_REAL_Min();
+Check_BYTE_TO_LREAL_Max();
+Check_BYTE_TO_LREAL_Min();
+Check_BYTE_TO_TIME_Max();
+Check_BYTE_TO_TIME_Min();
+Check_BYTE_TO_TOD_Max();
+Check_BYTE_TO_TOD_Min();
+Check_BYTE_TO_DATE_Max();
+Check_BYTE_TO_DATE_Min();
+Check_BYTE_TO_DT_Max();
+Check_BYTE_TO_DT_Min();
+Check_BYTE_TO_STRING_Max();
+Check_BYTE_TO_STRING_Min();]]></ST>
     </Implementation>
-    <Method Name="Check_BYTE_TO_BOOL_Lower" Id="{ac87d2f6-db36-43f6-a7e2-3782b29cdbe9}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_BYTE_TO_BOOL_Lower
+    <Method Name="Check_BYTE_TO_BOOL_Min" Id="{ac87d2f6-db36-43f6-a7e2-3782b29cdbe9}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BYTE_TO_BOOL_Min
 VAR
-	value : BYTE := DatatypeLimits.BYTE_LOWER_LIMIT;
+	value : BYTE := DatatypeLimits.BYTE_MIN_VALUE;
 	actual : BOOL;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_BYTE_TO_BOOL_Lower');
+        <ST><![CDATA[TEST('Check_BYTE_TO_BOOL_Min');
 
 // @TEST-RUN
 converted := TryConvert_BYTE_TO_Destination(value, actual);
@@ -69,16 +69,16 @@ AssertTrue(Condition := converted, Message := 'Did not report BYTE to BOOL conve
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_BYTE_TO_BOOL_Upper" Id="{0b2bb98c-65c5-4fde-89f8-a39c52c26978}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_BYTE_TO_BOOL_Upper
+    <Method Name="Check_BYTE_TO_BOOL_Max" Id="{0b2bb98c-65c5-4fde-89f8-a39c52c26978}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BYTE_TO_BOOL_Max
 VAR
-	value : BYTE := DatatypeLimits.BYTE_UPPER_LIMIT;
+	value : BYTE := DatatypeLimits.BYTE_MAX_VALUE;
 	actual : BOOL;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_BYTE_TO_BOOL_Upper');
+        <ST><![CDATA[TEST('Check_BYTE_TO_BOOL_Max');
 
 // @TEST-RUN
 converted := TryConvert_BYTE_TO_Destination(value, actual);
@@ -91,16 +91,16 @@ AssertTrue(Condition := converted, Message := 'Did not report BYTE to BOOL conve
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_BYTE_TO_BYTE_Lower" Id="{f6660d92-b1e3-4bd7-859e-bdf26e62f002}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_BYTE_TO_BYTE_Lower
+    <Method Name="Check_BYTE_TO_BYTE_Min" Id="{f6660d92-b1e3-4bd7-859e-bdf26e62f002}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BYTE_TO_BYTE_Min
 VAR
-	value : BYTE := DatatypeLimits.BYTE_LOWER_LIMIT;
+	value : BYTE := DatatypeLimits.BYTE_MIN_VALUE;
 	actual : BYTE;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_BYTE_TO_BYTE_Lower');
+        <ST><![CDATA[TEST('Check_BYTE_TO_BYTE_Min');
 
 // @TEST-RUN
 converted := TryConvert_BYTE_TO_Destination(value, actual);
@@ -113,16 +113,16 @@ AssertTrue(Condition := converted, Message := 'Did not report BYTE to BYTE conve
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_BYTE_TO_BYTE_Upper" Id="{214aa7e3-4abb-4d75-9c99-83868509447e}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_BYTE_TO_BYTE_Upper
+    <Method Name="Check_BYTE_TO_BYTE_Max" Id="{214aa7e3-4abb-4d75-9c99-83868509447e}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BYTE_TO_BYTE_Max
 VAR
-	value : BYTE := DatatypeLimits.BYTE_UPPER_LIMIT;
+	value : BYTE := DatatypeLimits.BYTE_MAX_VALUE;
 	actual : BYTE;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_BYTE_TO_BYTE_Upper');
+        <ST><![CDATA[TEST('Check_BYTE_TO_BYTE_Max');
 
 // @TEST-RUN
 converted := TryConvert_BYTE_TO_Destination(value, actual);
@@ -135,16 +135,16 @@ AssertTrue(Condition := converted, Message := 'Did not report BYTE to BYTE conve
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_BYTE_TO_DATE_Lower" Id="{320bf2d8-ca67-46f1-ba33-720bd20321f8}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_BYTE_TO_DATE_Lower
+    <Method Name="Check_BYTE_TO_DATE_Min" Id="{320bf2d8-ca67-46f1-ba33-720bd20321f8}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BYTE_TO_DATE_Min
 VAR
-	value : BYTE := DatatypeLimits.BYTE_LOWER_LIMIT;
+	value : BYTE := DatatypeLimits.BYTE_MIN_VALUE;
 	actual : DATE;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_BYTE_TO_DATE_Lower');
+        <ST><![CDATA[TEST('Check_BYTE_TO_DATE_Min');
 
 // @TEST-RUN
 converted := TryConvert_BYTE_TO_Destination(value, actual);
@@ -157,16 +157,16 @@ AssertTrue(Condition := converted, Message := 'Did not report BYTE to DATE conve
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_BYTE_TO_DATE_Upper" Id="{3cf17eab-74ac-46e2-a95f-2c07971ee139}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_BYTE_TO_DATE_Upper
+    <Method Name="Check_BYTE_TO_DATE_Max" Id="{3cf17eab-74ac-46e2-a95f-2c07971ee139}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BYTE_TO_DATE_Max
 VAR
-	value : BYTE := DatatypeLimits.BYTE_UPPER_LIMIT;
+	value : BYTE := DatatypeLimits.BYTE_MAX_VALUE;
 	actual : DATE;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_BYTE_TO_DATE_Upper');
+        <ST><![CDATA[TEST('Check_BYTE_TO_DATE_Max');
 
 // @TEST-RUN
 converted := TryConvert_BYTE_TO_Destination(value, actual);
@@ -179,16 +179,16 @@ AssertTrue(Condition := converted, Message := 'Did not report BYTE to DATE conve
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_BYTE_TO_DINT_Lower" Id="{e508eea2-52a0-40ff-9ef8-14ae11ecc757}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_BYTE_TO_DINT_Lower
+    <Method Name="Check_BYTE_TO_DINT_Min" Id="{e508eea2-52a0-40ff-9ef8-14ae11ecc757}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BYTE_TO_DINT_Min
 VAR
-	value : BYTE := DatatypeLimits.BYTE_LOWER_LIMIT;
+	value : BYTE := DatatypeLimits.BYTE_MIN_VALUE;
 	actual : DINT;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_BYTE_TO_DINT_Lower');
+        <ST><![CDATA[TEST('Check_BYTE_TO_DINT_Min');
 
 // @TEST-RUN
 converted := TryConvert_BYTE_TO_Destination(value, actual);
@@ -201,16 +201,16 @@ AssertTrue(Condition := converted, Message := 'Did not report BYTE to DINT conve
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_BYTE_TO_DINT_Upper" Id="{bfe0cd31-916e-4fd6-947b-d5c0748704be}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_BYTE_TO_DINT_Upper
+    <Method Name="Check_BYTE_TO_DINT_Max" Id="{bfe0cd31-916e-4fd6-947b-d5c0748704be}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BYTE_TO_DINT_Max
 VAR
-	value : BYTE := DatatypeLimits.BYTE_UPPER_LIMIT;
+	value : BYTE := DatatypeLimits.BYTE_MAX_VALUE;
 	actual : DINT;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_BYTE_TO_DINT_Upper');
+        <ST><![CDATA[TEST('Check_BYTE_TO_DINT_Max');
 
 // @TEST-RUN
 converted := TryConvert_BYTE_TO_Destination(value, actual);
@@ -223,16 +223,16 @@ AssertTrue(Condition := converted, Message := 'Did not report BYTE to DINT conve
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_BYTE_TO_DT_Lower" Id="{81196007-2d5a-43ab-b4fc-58fdaa84fc8d}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_BYTE_TO_DT_Lower
+    <Method Name="Check_BYTE_TO_DT_Min" Id="{81196007-2d5a-43ab-b4fc-58fdaa84fc8d}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BYTE_TO_DT_Min
 VAR
-	value : BYTE := DatatypeLimits.BYTE_LOWER_LIMIT;
+	value : BYTE := DatatypeLimits.BYTE_MIN_VALUE;
 	actual : DT;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_BYTE_TO_DT_Lower');
+        <ST><![CDATA[TEST('Check_BYTE_TO_DT_Min');
 
 // @TEST-RUN
 converted := TryConvert_BYTE_TO_Destination(value, actual);
@@ -245,16 +245,16 @@ AssertTrue(Condition := converted, Message := 'Did not report BYTE to DT convers
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_BYTE_TO_DT_Upper" Id="{a684ce64-9c59-42db-a531-1c0930e01ec0}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_BYTE_TO_DT_Upper
+    <Method Name="Check_BYTE_TO_DT_Max" Id="{a684ce64-9c59-42db-a531-1c0930e01ec0}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BYTE_TO_DT_Max
 VAR
-	value : BYTE := DatatypeLimits.BYTE_UPPER_LIMIT;
+	value : BYTE := DatatypeLimits.BYTE_MAX_VALUE;
 	actual : DT;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_BYTE_TO_DT_Upper');
+        <ST><![CDATA[TEST('Check_BYTE_TO_DT_Max');
 
 // @TEST-RUN
 converted := TryConvert_BYTE_TO_Destination(value, actual);
@@ -267,16 +267,16 @@ AssertTrue(Condition := converted, Message := 'Did not report BYTE to DT convers
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_BYTE_TO_DWORD_Lower" Id="{ceda0525-c609-4a2b-91c9-dfd57021404f}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_BYTE_TO_DWORD_Lower
+    <Method Name="Check_BYTE_TO_DWORD_Min" Id="{ceda0525-c609-4a2b-91c9-dfd57021404f}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BYTE_TO_DWORD_Min
 VAR
-	value : BYTE := DatatypeLimits.BYTE_LOWER_LIMIT;
+	value : BYTE := DatatypeLimits.BYTE_MIN_VALUE;
 	actual : DWORD;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_BYTE_TO_DWORD_Lower');
+        <ST><![CDATA[TEST('Check_BYTE_TO_DWORD_Min');
 
 // @TEST-RUN
 converted := TryConvert_BYTE_TO_Destination(value, actual);
@@ -289,16 +289,16 @@ AssertTrue(Condition := converted, Message := 'Did not report BYTE to DWORD conv
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_BYTE_TO_DWORD_Upper" Id="{394ec300-8e92-4750-a92d-f5a449afe173}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_BYTE_TO_DWORD_Upper
+    <Method Name="Check_BYTE_TO_DWORD_Max" Id="{394ec300-8e92-4750-a92d-f5a449afe173}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BYTE_TO_DWORD_Max
 VAR
-	value : BYTE := DatatypeLimits.BYTE_UPPER_LIMIT;
+	value : BYTE := DatatypeLimits.BYTE_MAX_VALUE;
 	actual : DWORD;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_BYTE_TO_DWORD_Upper');
+        <ST><![CDATA[TEST('Check_BYTE_TO_DWORD_Max');
 
 // @TEST-RUN
 converted := TryConvert_BYTE_TO_Destination(value, actual);
@@ -311,16 +311,16 @@ AssertTrue(Condition := converted, Message := 'Did not report BYTE to DWORD conv
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_BYTE_TO_INT_Lower" Id="{8080f2f9-d096-4f16-88b2-2f50c8ec5a75}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_BYTE_TO_INT_Lower
+    <Method Name="Check_BYTE_TO_INT_Min" Id="{8080f2f9-d096-4f16-88b2-2f50c8ec5a75}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BYTE_TO_INT_Min
 VAR
-	value : BYTE := DatatypeLimits.BYTE_LOWER_LIMIT;
+	value : BYTE := DatatypeLimits.BYTE_MIN_VALUE;
 	actual : INT;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_BYTE_TO_INT_Lower');
+        <ST><![CDATA[TEST('Check_BYTE_TO_INT_Min');
 
 // @TEST-RUN
 converted := TryConvert_BYTE_TO_Destination(value, actual);
@@ -333,16 +333,16 @@ AssertTrue(Condition := converted, Message := 'Did not report BYTE to INT conver
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_BYTE_TO_INT_Upper" Id="{c6146aec-040c-41b1-99b7-e81a82ec74bb}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_BYTE_TO_INT_Upper
+    <Method Name="Check_BYTE_TO_INT_Max" Id="{c6146aec-040c-41b1-99b7-e81a82ec74bb}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BYTE_TO_INT_Max
 VAR
-	value : BYTE := DatatypeLimits.BYTE_UPPER_LIMIT;
+	value : BYTE := DatatypeLimits.BYTE_MAX_VALUE;
 	actual : INT;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_BYTE_TO_INT_Upper');
+        <ST><![CDATA[TEST('Check_BYTE_TO_INT_Max');
 
 // @TEST-RUN
 converted := TryConvert_BYTE_TO_Destination(value, actual);
@@ -355,16 +355,16 @@ AssertTrue(Condition := converted, Message := 'Did not report BYTE to INT conver
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_BYTE_TO_LINT_Lower" Id="{d2a15a3c-8591-41c6-8f8a-712b75da87ca}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_BYTE_TO_LINT_Lower
+    <Method Name="Check_BYTE_TO_LINT_Min" Id="{d2a15a3c-8591-41c6-8f8a-712b75da87ca}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BYTE_TO_LINT_Min
 VAR
-	value : BYTE := DatatypeLimits.BYTE_LOWER_LIMIT;
+	value : BYTE := DatatypeLimits.BYTE_MIN_VALUE;
 	actual : LINT;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_BYTE_TO_LINT_Lower');
+        <ST><![CDATA[TEST('Check_BYTE_TO_LINT_Min');
 
 // @TEST-RUN
 converted := TryConvert_BYTE_TO_Destination(value, actual);
@@ -377,16 +377,16 @@ AssertTrue(Condition := converted, Message := 'Did not report BYTE to LINT conve
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_BYTE_TO_LINT_Upper" Id="{715385c8-ee4f-4666-b813-06813d334745}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_BYTE_TO_LINT_Upper
+    <Method Name="Check_BYTE_TO_LINT_Max" Id="{715385c8-ee4f-4666-b813-06813d334745}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BYTE_TO_LINT_Max
 VAR
-	value : BYTE := DatatypeLimits.BYTE_UPPER_LIMIT;
+	value : BYTE := DatatypeLimits.BYTE_MAX_VALUE;
 	actual : LINT;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_BYTE_TO_LINT_Upper');
+        <ST><![CDATA[TEST('Check_BYTE_TO_LINT_Max');
 
 // @TEST-RUN
 converted := TryConvert_BYTE_TO_Destination(value, actual);
@@ -399,16 +399,16 @@ AssertTrue(Condition := converted, Message := 'Did not report BYTE to LINT conve
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_BYTE_TO_LREAL_Lower" Id="{4a6da61f-ab07-4d60-b4f7-770e1b95f180}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_BYTE_TO_LREAL_Lower
+    <Method Name="Check_BYTE_TO_LREAL_Min" Id="{4a6da61f-ab07-4d60-b4f7-770e1b95f180}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BYTE_TO_LREAL_Min
 VAR
-	value : BYTE := DatatypeLimits.BYTE_LOWER_LIMIT;
+	value : BYTE := DatatypeLimits.BYTE_MIN_VALUE;
 	actual : LREAL;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_BYTE_TO_LREAL_Lower');
+        <ST><![CDATA[TEST('Check_BYTE_TO_LREAL_Min');
 
 // @TEST-RUN
 converted := TryConvert_BYTE_TO_Destination(value, actual);
@@ -421,16 +421,16 @@ AssertTrue(Condition := converted, Message := 'Did not report BYTE to LREAL conv
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_BYTE_TO_LREAL_Upper" Id="{13263a4d-bed1-4e61-a453-3e2a16e91009}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_BYTE_TO_LREAL_Upper
+    <Method Name="Check_BYTE_TO_LREAL_Max" Id="{13263a4d-bed1-4e61-a453-3e2a16e91009}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BYTE_TO_LREAL_Max
 VAR
-	value : BYTE := DatatypeLimits.BYTE_UPPER_LIMIT;
+	value : BYTE := DatatypeLimits.BYTE_MAX_VALUE;
 	actual : LREAL;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_BYTE_TO_LREAL_Upper');
+        <ST><![CDATA[TEST('Check_BYTE_TO_LREAL_Max');
 
 // @TEST-RUN
 converted := TryConvert_BYTE_TO_Destination(value, actual);
@@ -443,16 +443,16 @@ AssertTrue(Condition := converted, Message := 'Did not report BYTE to LREAL conv
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_BYTE_TO_LWORD_Lower" Id="{5e4906f1-9173-415e-8d6f-9de78ecf07e0}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_BYTE_TO_LWORD_Lower
+    <Method Name="Check_BYTE_TO_LWORD_Min" Id="{5e4906f1-9173-415e-8d6f-9de78ecf07e0}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BYTE_TO_LWORD_Min
 VAR
-	value : BYTE := DatatypeLimits.BYTE_LOWER_LIMIT;
+	value : BYTE := DatatypeLimits.BYTE_MIN_VALUE;
 	actual : LWORD;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_BYTE_TO_LWORD_Lower');
+        <ST><![CDATA[TEST('Check_BYTE_TO_LWORD_Min');
 
 // @TEST-RUN
 converted := TryConvert_BYTE_TO_Destination(value, actual);
@@ -465,16 +465,16 @@ AssertTrue(Condition := converted, Message := 'Did not report BYTE to LWORD conv
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_BYTE_TO_LWORD_Upper" Id="{b8d892bc-5a1a-4f94-a867-37a708170076}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_BYTE_TO_LWORD_Upper
+    <Method Name="Check_BYTE_TO_LWORD_Max" Id="{b8d892bc-5a1a-4f94-a867-37a708170076}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BYTE_TO_LWORD_Max
 VAR
-	value : BYTE := DatatypeLimits.BYTE_UPPER_LIMIT;
+	value : BYTE := DatatypeLimits.BYTE_MAX_VALUE;
 	actual : LWORD;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_BYTE_TO_LWORD_Upper');
+        <ST><![CDATA[TEST('Check_BYTE_TO_LWORD_Max');
 
 // @TEST-RUN
 converted := TryConvert_BYTE_TO_Destination(value, actual);
@@ -487,16 +487,16 @@ AssertTrue(Condition := converted, Message := 'Did not report BYTE to LWORD conv
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_BYTE_TO_REAL_Lower" Id="{66d88623-6280-4b85-81db-00980d11a0d7}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_BYTE_TO_REAL_Lower
+    <Method Name="Check_BYTE_TO_REAL_Min" Id="{66d88623-6280-4b85-81db-00980d11a0d7}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BYTE_TO_REAL_Min
 VAR
-	value : BYTE := DatatypeLimits.BYTE_LOWER_LIMIT;
+	value : BYTE := DatatypeLimits.BYTE_MIN_VALUE;
 	actual : REAL;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_BYTE_TO_REAL_Lower');
+        <ST><![CDATA[TEST('Check_BYTE_TO_REAL_Min');
 
 // @TEST-RUN
 converted := TryConvert_BYTE_TO_Destination(value, actual);
@@ -509,16 +509,16 @@ AssertTrue(Condition := converted, Message := 'Did not report BYTE to REAL conve
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_BYTE_TO_REAL_Upper" Id="{833c93a5-b68d-4efc-8c07-64ad0e2f0534}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_BYTE_TO_REAL_Upper
+    <Method Name="Check_BYTE_TO_REAL_Max" Id="{833c93a5-b68d-4efc-8c07-64ad0e2f0534}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BYTE_TO_REAL_Max
 VAR
-	value : BYTE := DatatypeLimits.BYTE_UPPER_LIMIT;
+	value : BYTE := DatatypeLimits.BYTE_MAX_VALUE;
 	actual : REAL;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_BYTE_TO_REAL_Upper');
+        <ST><![CDATA[TEST('Check_BYTE_TO_REAL_Max');
 
 // @TEST-RUN
 converted := TryConvert_BYTE_TO_Destination(value, actual);
@@ -531,16 +531,16 @@ AssertTrue(Condition := converted, Message := 'Did not report BYTE to REAL conve
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_BYTE_TO_SINT_Lower" Id="{fc3c69e3-2268-4748-a95b-d54e6dac5486}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_BYTE_TO_SINT_Lower
+    <Method Name="Check_BYTE_TO_SINT_Min" Id="{fc3c69e3-2268-4748-a95b-d54e6dac5486}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BYTE_TO_SINT_Min
 VAR
-	value : BYTE := DatatypeLimits.BYTE_LOWER_LIMIT;
+	value : BYTE := DatatypeLimits.BYTE_MIN_VALUE;
 	actual : SINT;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_BYTE_TO_SINT_Lower');
+        <ST><![CDATA[TEST('Check_BYTE_TO_SINT_Min');
 
 // @TEST-RUN
 converted := TryConvert_BYTE_TO_Destination(value, actual);
@@ -556,7 +556,7 @@ TEST_FINISHED();]]></ST>
     <Method Name="Check_BYTE_TO_SINT_TooHigh" Id="{4f82368a-ed93-4eda-a2df-8a1a25520103}">
       <Declaration><![CDATA[METHOD PUBLIC Check_BYTE_TO_SINT_TooHigh
 VAR
-	value : BYTE := DatatypeLimits.BYTE_UPPER_LIMIT;
+	value : BYTE := DatatypeLimits.BYTE_MAX_VALUE;
 	actual : SINT;
 	converted : BOOL;
 END_VAR]]></Declaration>
@@ -572,8 +572,8 @@ AssertFalse(Condition := converted, Message := 'Did not report BYTE to SINT conv
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_BYTE_TO_SINT_Upper" Id="{7662b3d2-9f21-4887-9d3f-1fba962bb068}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_BYTE_TO_SINT_Upper
+    <Method Name="Check_BYTE_TO_SINT_Max" Id="{7662b3d2-9f21-4887-9d3f-1fba962bb068}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BYTE_TO_SINT_Max
 VAR
 	value : BYTE := DatatypeLimits.MAX_VALUE_OF_BYTE_WHICH_CAN_BE_HELD_IN_A_SINT;
 	actual : SINT;
@@ -581,7 +581,7 @@ VAR
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_BYTE_TO_SINT_Upper');
+        <ST><![CDATA[TEST('Check_BYTE_TO_SINT_Max');
 
 // @TEST-RUN
 converted := TryConvert_BYTE_TO_Destination(value, actual);
@@ -594,16 +594,16 @@ AssertTrue(Condition := converted, Message := 'Did not report BYTE to SINT conve
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_BYTE_TO_STRING_Lower" Id="{3b139635-c449-4125-bcae-96bc5cb96dfa}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_BYTE_TO_STRING_Lower
+    <Method Name="Check_BYTE_TO_STRING_Min" Id="{3b139635-c449-4125-bcae-96bc5cb96dfa}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BYTE_TO_STRING_Min
 VAR
-	value : BYTE := DatatypeLimits.BYTE_LOWER_LIMIT;
+	value : BYTE := DatatypeLimits.BYTE_MIN_VALUE;
 	actual : STRING;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_BYTE_TO_STRING_Lower');
+        <ST><![CDATA[TEST('Check_BYTE_TO_STRING_Min');
 
 // @TEST-RUN
 converted := TryConvert_BYTE_TO_Destination(value, actual);
@@ -616,16 +616,16 @@ AssertTrue(Condition := converted, Message := 'Did not report BYTE to STRING con
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_BYTE_TO_STRING_Upper" Id="{1dfa0191-b3fa-40c4-b43e-69cf43fff885}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_BYTE_TO_STRING_Upper
+    <Method Name="Check_BYTE_TO_STRING_Max" Id="{1dfa0191-b3fa-40c4-b43e-69cf43fff885}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BYTE_TO_STRING_Max
 VAR
-	value : BYTE := DatatypeLimits.BYTE_UPPER_LIMIT;
+	value : BYTE := DatatypeLimits.BYTE_MAX_VALUE;
 	actual : STRING;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_BYTE_TO_STRING_Upper');
+        <ST><![CDATA[TEST('Check_BYTE_TO_STRING_Max');
 
 // @TEST-RUN
 converted := TryConvert_BYTE_TO_Destination(value, actual);
@@ -638,16 +638,16 @@ AssertTrue(Condition := converted, Message := 'Did not report BYTE to STRING con
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_BYTE_TO_TIME_Lower" Id="{cc87951f-0127-41f4-9ae6-8f9b79fe08d3}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_BYTE_TO_TIME_Lower
+    <Method Name="Check_BYTE_TO_TIME_Min" Id="{cc87951f-0127-41f4-9ae6-8f9b79fe08d3}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BYTE_TO_TIME_Min
 VAR
-	value : BYTE := DatatypeLimits.BYTE_LOWER_LIMIT;
+	value : BYTE := DatatypeLimits.BYTE_MIN_VALUE;
 	actual : TIME;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_BYTE_TO_TIME_Lower');
+        <ST><![CDATA[TEST('Check_BYTE_TO_TIME_Min');
 
 // @TEST-RUN
 converted := TryConvert_BYTE_TO_Destination(value, actual);
@@ -660,16 +660,16 @@ AssertTrue(Condition := converted, Message := 'Did not report BYTE to TIME conve
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_BYTE_TO_TIME_Upper" Id="{48ed6b00-2296-4db2-b5ae-ff0138cc5110}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_BYTE_TO_TIME_Upper
+    <Method Name="Check_BYTE_TO_TIME_Max" Id="{48ed6b00-2296-4db2-b5ae-ff0138cc5110}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BYTE_TO_TIME_Max
 VAR
-	value : BYTE := DatatypeLimits.BYTE_UPPER_LIMIT;
+	value : BYTE := DatatypeLimits.BYTE_MAX_VALUE;
 	actual : TIME;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_BYTE_TO_TIME_Upper');
+        <ST><![CDATA[TEST('Check_BYTE_TO_TIME_Max');
 
 // @TEST-RUN
 converted := TryConvert_BYTE_TO_Destination(value, actual);
@@ -682,16 +682,16 @@ AssertTrue(Condition := converted, Message := 'Did not report BYTE to TIME conve
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_BYTE_TO_TOD_Lower" Id="{867e7ef4-4226-4fdd-bd7b-8f696c0a4ba9}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_BYTE_TO_TOD_Lower
+    <Method Name="Check_BYTE_TO_TOD_Min" Id="{867e7ef4-4226-4fdd-bd7b-8f696c0a4ba9}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BYTE_TO_TOD_Min
 VAR
-	value : BYTE := DatatypeLimits.BYTE_LOWER_LIMIT;
+	value : BYTE := DatatypeLimits.BYTE_MIN_VALUE;
 	actual : TOD;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_BYTE_TO_TOD_Lower');
+        <ST><![CDATA[TEST('Check_BYTE_TO_TOD_Min');
 
 // @TEST-RUN
 converted := TryConvert_BYTE_TO_Destination(value, actual);
@@ -704,16 +704,16 @@ AssertTrue(Condition := converted, Message := 'Did not report BYTE to TOD conver
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_BYTE_TO_TOD_Upper" Id="{fefb83ce-cd15-4fba-804b-3fb377456bc0}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_BYTE_TO_TOD_Upper
+    <Method Name="Check_BYTE_TO_TOD_Max" Id="{fefb83ce-cd15-4fba-804b-3fb377456bc0}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BYTE_TO_TOD_Max
 VAR
-	value : BYTE := DatatypeLimits.BYTE_UPPER_LIMIT;
+	value : BYTE := DatatypeLimits.BYTE_MAX_VALUE;
 	actual : TOD;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_BYTE_TO_TOD_Upper');
+        <ST><![CDATA[TEST('Check_BYTE_TO_TOD_Max');
 
 // @TEST-RUN
 converted := TryConvert_BYTE_TO_Destination(value, actual);
@@ -726,16 +726,16 @@ AssertTrue(Condition := converted, Message := 'Did not report BYTE to TOD conver
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_BYTE_TO_UDINT_Lower" Id="{105ca9eb-1da0-4753-9a84-b70159b2c3d5}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_BYTE_TO_UDINT_Lower
+    <Method Name="Check_BYTE_TO_UDINT_Min" Id="{105ca9eb-1da0-4753-9a84-b70159b2c3d5}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BYTE_TO_UDINT_Min
 VAR
-	value : BYTE := DatatypeLimits.BYTE_LOWER_LIMIT;
+	value : BYTE := DatatypeLimits.BYTE_MIN_VALUE;
 	actual : UDINT;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_BYTE_TO_UDINT_Lower');
+        <ST><![CDATA[TEST('Check_BYTE_TO_UDINT_Min');
 
 // @TEST-RUN
 converted := TryConvert_BYTE_TO_Destination(value, actual);
@@ -748,16 +748,16 @@ AssertTrue(Condition := converted, Message := 'Did not report BYTE to UDINT conv
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_BYTE_TO_UDINT_Upper" Id="{5bfa05f3-8c34-4808-b049-9a95bf4cb139}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_BYTE_TO_UDINT_Upper
+    <Method Name="Check_BYTE_TO_UDINT_Max" Id="{5bfa05f3-8c34-4808-b049-9a95bf4cb139}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BYTE_TO_UDINT_Max
 VAR
-	value : BYTE := DatatypeLimits.BYTE_UPPER_LIMIT;
+	value : BYTE := DatatypeLimits.BYTE_MAX_VALUE;
 	actual : UDINT;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_BYTE_TO_UDINT_Upper');
+        <ST><![CDATA[TEST('Check_BYTE_TO_UDINT_Max');
 
 // @TEST-RUN
 converted := TryConvert_BYTE_TO_Destination(value, actual);
@@ -770,16 +770,16 @@ AssertTrue(Condition := converted, Message := 'Did not report BYTE to UDINT conv
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_BYTE_TO_UINT_Lower" Id="{abec39c6-c70d-4eb7-a674-0c7ee202b0b4}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_BYTE_TO_UINT_Lower
+    <Method Name="Check_BYTE_TO_UINT_Min" Id="{abec39c6-c70d-4eb7-a674-0c7ee202b0b4}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BYTE_TO_UINT_Min
 VAR
-	value : BYTE := DatatypeLimits.BYTE_LOWER_LIMIT;
+	value : BYTE := DatatypeLimits.BYTE_MIN_VALUE;
 	actual : UINT;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_BYTE_TO_UINT_Lower');
+        <ST><![CDATA[TEST('Check_BYTE_TO_UINT_Min');
 
 // @TEST-RUN
 converted := TryConvert_BYTE_TO_Destination(value, actual);
@@ -792,16 +792,16 @@ AssertTrue(Condition := converted, Message := 'Did not report BYTE to UINT conve
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_BYTE_TO_UINT_Upper" Id="{9b863ea2-c33a-4fd3-a6fc-46f1a04d9c6a}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_BYTE_TO_UINT_Upper
+    <Method Name="Check_BYTE_TO_UINT_Max" Id="{9b863ea2-c33a-4fd3-a6fc-46f1a04d9c6a}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BYTE_TO_UINT_Max
 VAR
-	value : BYTE := DatatypeLimits.BYTE_UPPER_LIMIT;
+	value : BYTE := DatatypeLimits.BYTE_MAX_VALUE;
 	actual : UINT;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_BYTE_TO_UINT_Upper');
+        <ST><![CDATA[TEST('Check_BYTE_TO_UINT_Max');
 
 // @TEST-RUN
 converted := TryConvert_BYTE_TO_Destination(value, actual);
@@ -814,16 +814,16 @@ AssertTrue(Condition := converted, Message := 'Did not report BYTE to UINT conve
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_BYTE_TO_ULINT_Lower" Id="{4459ea7e-e863-4bfe-a213-57bb397357e9}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_BYTE_TO_ULINT_Lower
+    <Method Name="Check_BYTE_TO_ULINT_Min" Id="{4459ea7e-e863-4bfe-a213-57bb397357e9}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BYTE_TO_ULINT_Min
 VAR
-	value : BYTE := DatatypeLimits.BYTE_LOWER_LIMIT;
+	value : BYTE := DatatypeLimits.BYTE_MIN_VALUE;
 	actual : ULINT;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_BYTE_TO_ULINT_Lower');
+        <ST><![CDATA[TEST('Check_BYTE_TO_ULINT_Min');
 
 // @TEST-RUN
 converted := TryConvert_BYTE_TO_Destination(value, actual);
@@ -836,16 +836,16 @@ AssertTrue(Condition := converted, Message := 'Did not report BYTE to ULINT conv
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_BYTE_TO_ULINT_Upper" Id="{4d269956-1a5a-4223-bd85-678fc11d7cca}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_BYTE_TO_ULINT_Upper
+    <Method Name="Check_BYTE_TO_ULINT_Max" Id="{4d269956-1a5a-4223-bd85-678fc11d7cca}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BYTE_TO_ULINT_Max
 VAR
-	value : BYTE := DatatypeLimits.BYTE_UPPER_LIMIT;
+	value : BYTE := DatatypeLimits.BYTE_MAX_VALUE;
 	actual : ULINT;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_BYTE_TO_ULINT_Upper');
+        <ST><![CDATA[TEST('Check_BYTE_TO_ULINT_Max');
 
 // @TEST-RUN
 converted := TryConvert_BYTE_TO_Destination(value, actual);
@@ -858,16 +858,16 @@ AssertTrue(Condition := converted, Message := 'Did not report BYTE to ULINT conv
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_BYTE_TO_USINT_Lower" Id="{466c0147-49db-4795-9fd6-3496b523087c}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_BYTE_TO_USINT_Lower
+    <Method Name="Check_BYTE_TO_USINT_Min" Id="{466c0147-49db-4795-9fd6-3496b523087c}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BYTE_TO_USINT_Min
 VAR
-	value : BYTE := DatatypeLimits.BYTE_LOWER_LIMIT;
+	value : BYTE := DatatypeLimits.BYTE_MIN_VALUE;
 	actual : USINT;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_BYTE_TO_USINT_Lower');
+        <ST><![CDATA[TEST('Check_BYTE_TO_USINT_Min');
 
 // @TEST-RUN
 converted := TryConvert_BYTE_TO_Destination(value, actual);
@@ -880,16 +880,16 @@ AssertTrue(Condition := converted, Message := 'Did not report BYTE to USINT conv
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_BYTE_TO_USINT_Upper" Id="{c56cfcd3-4ee2-4a1a-9412-695ab5be1610}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_BYTE_TO_USINT_Upper
+    <Method Name="Check_BYTE_TO_USINT_Max" Id="{c56cfcd3-4ee2-4a1a-9412-695ab5be1610}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BYTE_TO_USINT_Max
 VAR
-	value : BYTE := DatatypeLimits.BYTE_UPPER_LIMIT;
+	value : BYTE := DatatypeLimits.BYTE_MAX_VALUE;
 	actual : USINT;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_BYTE_TO_USINT_Upper');
+        <ST><![CDATA[TEST('Check_BYTE_TO_USINT_Max');
 
 // @TEST-RUN
 converted := TryConvert_BYTE_TO_Destination(value, actual);
@@ -902,16 +902,16 @@ AssertTrue(Condition := converted, Message := 'Did not report BYTE to USINT conv
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_BYTE_TO_WORD_Lower" Id="{9d24b7a5-2d36-4d60-8627-3e676ad233bc}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_BYTE_TO_WORD_Lower
+    <Method Name="Check_BYTE_TO_WORD_Min" Id="{9d24b7a5-2d36-4d60-8627-3e676ad233bc}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BYTE_TO_WORD_Min
 VAR
-	value : BYTE := DatatypeLimits.BYTE_LOWER_LIMIT;
+	value : BYTE := DatatypeLimits.BYTE_MIN_VALUE;
 	actual : WORD;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_BYTE_TO_WORD_Lower');
+        <ST><![CDATA[TEST('Check_BYTE_TO_WORD_Min');
 
 // @TEST-RUN
 converted := TryConvert_BYTE_TO_Destination(value, actual);
@@ -924,16 +924,16 @@ AssertTrue(Condition := converted, Message := 'Did not report BYTE to WORD conve
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_BYTE_TO_WORD_Upper" Id="{82b2f5e8-925d-423b-9dfb-e5c06b87b59e}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_BYTE_TO_WORD_Upper
+    <Method Name="Check_BYTE_TO_WORD_Max" Id="{82b2f5e8-925d-423b-9dfb-e5c06b87b59e}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_BYTE_TO_WORD_Max
 VAR
-	value : BYTE := DatatypeLimits.BYTE_UPPER_LIMIT;
+	value : BYTE := DatatypeLimits.BYTE_MAX_VALUE;
 	actual : WORD;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_BYTE_TO_WORD_Upper');
+        <ST><![CDATA[TEST('Check_BYTE_TO_WORD_Max');
 
 // @TEST-RUN
 converted := TryConvert_BYTE_TO_Destination(value, actual);

@@ -5,73 +5,73 @@
 VAR
 END_VAR]]></Declaration>
     <Implementation>
-      <ST><![CDATA[Check_INT_TO_BOOL_Upper();
-Check_INT_TO_BOOL_Lower();
-Check_INT_TO_BYTE_Upper();
-Check_INT_TO_BYTE_Lower();
+      <ST><![CDATA[Check_INT_TO_BOOL_Max();
+Check_INT_TO_BOOL_Min();
+Check_INT_TO_BYTE_Max();
+Check_INT_TO_BYTE_Min();
 Check_INT_TO_BYTE_TooHigh();
 Check_INT_TO_BYTE_TooLow();
-Check_INT_TO_WORD_Upper();
-Check_INT_TO_WORD_Lower();
+Check_INT_TO_WORD_Max();
+Check_INT_TO_WORD_Min();
 Check_INT_TO_WORD_TooLow();
-Check_INT_TO_DWORD_Upper();
-Check_INT_TO_DWORD_Lower();
+Check_INT_TO_DWORD_Max();
+Check_INT_TO_DWORD_Min();
 Check_INT_TO_DWORD_TooLow();
-Check_INT_TO_LWORD_Upper();
-Check_INT_TO_LWORD_Lower();
+Check_INT_TO_LWORD_Max();
+Check_INT_TO_LWORD_Min();
 Check_INT_TO_LWORD_TooLow();
-Check_INT_TO_SINT_Upper();
-Check_INT_TO_SINT_Lower();
+Check_INT_TO_SINT_Max();
+Check_INT_TO_SINT_Min();
 Check_INT_TO_SINT_TooHigh();
 Check_INT_TO_SINT_TooLow();
-Check_INT_TO_INT_Upper();
-Check_INT_TO_INT_Lower();
-Check_INT_TO_DINT_Upper();
-Check_INT_TO_DINT_Lower();
-Check_INT_TO_LINT_Upper();
-Check_INT_TO_LINT_Lower();
-Check_INT_TO_USINT_Upper();
-Check_INT_TO_USINT_Lower();
+Check_INT_TO_INT_Max();
+Check_INT_TO_INT_Min();
+Check_INT_TO_DINT_Max();
+Check_INT_TO_DINT_Min();
+Check_INT_TO_LINT_Max();
+Check_INT_TO_LINT_Min();
+Check_INT_TO_USINT_Max();
+Check_INT_TO_USINT_Min();
 Check_INT_TO_USINT_TooHigh();
 Check_INT_TO_USINT_TooLow();
-Check_INT_TO_UINT_Upper();
-Check_INT_TO_UINT_Lower();
+Check_INT_TO_UINT_Max();
+Check_INT_TO_UINT_Min();
 Check_INT_TO_UINT_TooLow();
-Check_INT_TO_UDINT_Upper();
-Check_INT_TO_UDINT_Lower();
+Check_INT_TO_UDINT_Max();
+Check_INT_TO_UDINT_Min();
 Check_INT_TO_UDINT_TooLow();
-Check_INT_TO_ULINT_Upper();
-Check_INT_TO_ULINT_Lower();
+Check_INT_TO_ULINT_Max();
+Check_INT_TO_ULINT_Min();
 Check_INT_TO_ULINT_TooLow();
-Check_INT_TO_REAL_Upper();
-Check_INT_TO_REAL_Lower();
-Check_INT_TO_LREAL_Upper();
-Check_INT_TO_LREAL_Lower();
-Check_INT_TO_TIME_Upper();
-Check_INT_TO_TIME_Lower();
+Check_INT_TO_REAL_Max();
+Check_INT_TO_REAL_Min();
+Check_INT_TO_LREAL_Max();
+Check_INT_TO_LREAL_Min();
+Check_INT_TO_TIME_Max();
+Check_INT_TO_TIME_Min();
 Check_INT_TO_TIME_TooLow();
-Check_INT_TO_TOD_Upper();
-Check_INT_TO_TOD_Lower();
+Check_INT_TO_TOD_Max();
+Check_INT_TO_TOD_Min();
 Check_INT_TO_TOD_TooLow();
-Check_INT_TO_DATE_Upper();
-Check_INT_TO_DATE_Lower();
+Check_INT_TO_DATE_Max();
+Check_INT_TO_DATE_Min();
 Check_INT_TO_DATE_TooLow();
-Check_INT_TO_DT_Upper();
-Check_INT_TO_DT_Lower();
+Check_INT_TO_DT_Max();
+Check_INT_TO_DT_Min();
 Check_INT_TO_DT_TooLow();
-Check_INT_TO_STRING_Upper();
-Check_INT_TO_STRING_Lower();]]></ST>
+Check_INT_TO_STRING_Max();
+Check_INT_TO_STRING_Min();]]></ST>
     </Implementation>
-    <Method Name="Check_INT_TO_BOOL_Lower" Id="{32156cb6-9a0c-4aef-bf99-3e8f29292cf8}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_BOOL_Lower
+    <Method Name="Check_INT_TO_BOOL_Min" Id="{32156cb6-9a0c-4aef-bf99-3e8f29292cf8}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_BOOL_Min
 VAR
-	value : INT := DatatypeLimits.INT_LOWER_LIMIT;
+	value : INT := DatatypeLimits.INT_MIN_VALUE;
 	actual : BOOL;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_INT_TO_BOOL_Lower');
+        <ST><![CDATA[TEST('Check_INT_TO_BOOL_Min');
 
 // @TEST-RUN
 converted := TryConvert_INT_TO_Destination(value, actual);
@@ -84,16 +84,16 @@ AssertTrue(Condition := converted, Message := 'Did not report INT to BOOL conver
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_INT_TO_BOOL_Upper" Id="{1d9d5780-528d-4a29-8bb5-53300853a196}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_BOOL_Upper
+    <Method Name="Check_INT_TO_BOOL_Max" Id="{1d9d5780-528d-4a29-8bb5-53300853a196}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_BOOL_Max
 VAR
-	value : INT := DatatypeLimits.INT_UPPER_LIMIT;
+	value : INT := DatatypeLimits.INT_MAX_VALUE;
 	actual : BOOL;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_INT_TO_BOOL_Upper');
+        <ST><![CDATA[TEST('Check_INT_TO_BOOL_Max');
 
 // @TEST-RUN
 converted := TryConvert_INT_TO_Destination(value, actual);
@@ -106,8 +106,8 @@ AssertTrue(Condition := converted, Message := 'Did not report INT to BOOL conver
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_INT_TO_BYTE_Lower" Id="{604748c8-9287-49ac-b3f3-0589eaec3376}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_BYTE_Lower
+    <Method Name="Check_INT_TO_BYTE_Min" Id="{604748c8-9287-49ac-b3f3-0589eaec3376}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_BYTE_Min
 VAR
 	value : INT := DatatypeLimits.MIN_VALUE_OF_INT_WHICH_CAN_BE_HELD_IN_A_BYTE;
 	actual : BYTE;
@@ -115,7 +115,7 @@ VAR
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_INT_TO_BYTE_Lower');
+        <ST><![CDATA[TEST('Check_INT_TO_BYTE_Min');
 
 // @TEST-RUN
 converted := TryConvert_INT_TO_Destination(value, actual);
@@ -131,7 +131,7 @@ TEST_FINISHED();]]></ST>
     <Method Name="Check_INT_TO_BYTE_TooHigh" Id="{8a8473fd-a2b8-4fc5-a5d4-4232e92b637c}">
       <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_BYTE_TooHigh
 VAR
-	value : INT := DatatypeLimits.INT_UPPER_LIMIT;
+	value : INT := DatatypeLimits.INT_MAX_VALUE;
 	actual : BYTE;
 	converted : BOOL;
 END_VAR]]></Declaration>
@@ -150,7 +150,7 @@ TEST_FINISHED();]]></ST>
     <Method Name="Check_INT_TO_BYTE_TooLow" Id="{aa2eaf11-b33a-4834-a73c-b51377857963}">
       <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_BYTE_TooLow
 VAR
-	value : INT := DatatypeLimits.INT_LOWER_LIMIT;
+	value : INT := DatatypeLimits.INT_MIN_VALUE;
 	actual : BYTE;
 	converted : BOOL;
 END_VAR]]></Declaration>
@@ -166,8 +166,8 @@ AssertFalse(Condition := converted, Message := 'Did not report INT to BYTE conve
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_INT_TO_BYTE_Upper" Id="{7139bacd-4670-4b33-b9b5-df1c0b141d8e}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_BYTE_Upper
+    <Method Name="Check_INT_TO_BYTE_Max" Id="{7139bacd-4670-4b33-b9b5-df1c0b141d8e}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_BYTE_Max
 VAR
 	value : INT := DatatypeLimits.MAX_VALUE_OF_INT_WHICH_CAN_BE_HELD_IN_A_BYTE;
 	actual : BYTE;
@@ -175,7 +175,7 @@ VAR
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_INT_TO_BYTE_Upper');
+        <ST><![CDATA[TEST('Check_INT_TO_BYTE_Max');
 
 // @TEST-RUN
 converted := TryConvert_INT_TO_Destination(value, actual);
@@ -188,8 +188,8 @@ AssertTrue(Condition := converted, Message := 'Did not report INT to BYTE conver
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_INT_TO_DATE_Lower" Id="{4ee02edc-9406-4391-8c72-8b8e2e736490}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_DATE_Lower
+    <Method Name="Check_INT_TO_DATE_Min" Id="{4ee02edc-9406-4391-8c72-8b8e2e736490}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_DATE_Min
 VAR
 	value : INT := DatatypeLimits.MIN_VALUE_OF_INT_WHICH_CAN_BE_HELD_IN_A_DATE;
 	actual : DATE;
@@ -197,7 +197,7 @@ VAR
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_INT_TO_DATE_Lower');
+        <ST><![CDATA[TEST('Check_INT_TO_DATE_Min');
 
 // @TEST-RUN
 converted := TryConvert_INT_TO_Destination(value, actual);
@@ -213,7 +213,7 @@ TEST_FINISHED();]]></ST>
     <Method Name="Check_INT_TO_DATE_TooLow" Id="{e290bf39-c70e-44f1-97f2-0175febd7a1a}">
       <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_DATE_TooLow
 VAR
-	value : INT := DatatypeLimits.INT_LOWER_LIMIT;
+	value : INT := DatatypeLimits.INT_MIN_VALUE;
 	actual : DATE;
 	converted : BOOL;
 END_VAR]]></Declaration>
@@ -229,16 +229,16 @@ AssertFalse(Condition := converted, Message := 'Did not report INT to DATE conve
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_INT_TO_DATE_Upper" Id="{b8013a63-94fc-4481-a8f7-89d073877b3a}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_DATE_Upper
+    <Method Name="Check_INT_TO_DATE_Max" Id="{b8013a63-94fc-4481-a8f7-89d073877b3a}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_DATE_Max
 VAR
-	value : INT := DatatypeLimits.INT_UPPER_LIMIT;
+	value : INT := DatatypeLimits.INT_MAX_VALUE;
 	actual : DATE;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_INT_TO_DATE_Upper');
+        <ST><![CDATA[TEST('Check_INT_TO_DATE_Max');
 
 // @TEST-RUN
 converted := TryConvert_INT_TO_Destination(value, actual);
@@ -251,16 +251,16 @@ AssertTrue(Condition := converted, Message := 'Did not report INT to DATE conver
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_INT_TO_DINT_Lower" Id="{971fa0ee-5ff0-4cb2-9104-4cba68719b83}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_DINT_Lower
+    <Method Name="Check_INT_TO_DINT_Min" Id="{971fa0ee-5ff0-4cb2-9104-4cba68719b83}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_DINT_Min
 VAR
-	value : INT := DatatypeLimits.INT_LOWER_LIMIT;
+	value : INT := DatatypeLimits.INT_MIN_VALUE;
 	actual : DINT;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_INT_TO_DINT_Lower');
+        <ST><![CDATA[TEST('Check_INT_TO_DINT_Min');
 
 // @TEST-RUN
 converted := TryConvert_INT_TO_Destination(value, actual);
@@ -273,16 +273,16 @@ AssertTrue(Condition := converted, Message := 'Did not report INT to DINT conver
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_INT_TO_DINT_Upper" Id="{d36d6177-0ef3-494c-b4c6-249817fd92b5}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_DINT_Upper
+    <Method Name="Check_INT_TO_DINT_Max" Id="{d36d6177-0ef3-494c-b4c6-249817fd92b5}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_DINT_Max
 VAR
-	value : INT := DatatypeLimits.INT_UPPER_LIMIT;
+	value : INT := DatatypeLimits.INT_MAX_VALUE;
 	actual : DINT;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_INT_TO_DINT_Upper');
+        <ST><![CDATA[TEST('Check_INT_TO_DINT_Max');
 
 // @TEST-RUN
 converted := TryConvert_INT_TO_Destination(value, actual);
@@ -295,8 +295,8 @@ AssertTrue(Condition := converted, Message := 'Did not report INT to DINT conver
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_INT_TO_DT_Lower" Id="{ddee4014-2feb-4945-ab4a-472a5794a9a8}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_DT_Lower
+    <Method Name="Check_INT_TO_DT_Min" Id="{ddee4014-2feb-4945-ab4a-472a5794a9a8}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_DT_Min
 VAR
 	value : INT := DatatypeLimits.MIN_VALUE_OF_INT_WHICH_CAN_BE_HELD_IN_A_DT;
 	actual : DT;
@@ -304,7 +304,7 @@ VAR
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_INT_TO_DT_Lower');
+        <ST><![CDATA[TEST('Check_INT_TO_DT_Min');
 
 // @TEST-RUN
 converted := TryConvert_INT_TO_Destination(value, actual);
@@ -320,7 +320,7 @@ TEST_FINISHED();]]></ST>
     <Method Name="Check_INT_TO_DT_TooLow" Id="{1f0e2b42-40b2-4cbb-9c86-eb70cd2d9acf}">
       <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_DT_TooLow
 VAR
-	value : INT := DatatypeLimits.INT_LOWER_LIMIT;
+	value : INT := DatatypeLimits.INT_MIN_VALUE;
 	actual : DT;
 	converted : BOOL;
 END_VAR]]></Declaration>
@@ -336,16 +336,16 @@ AssertFalse(Condition := converted, Message := 'Did not report INT to DT convers
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_INT_TO_DT_Upper" Id="{86821030-f53a-4f8b-b7e9-0b10cc0599a6}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_DT_Upper
+    <Method Name="Check_INT_TO_DT_Max" Id="{86821030-f53a-4f8b-b7e9-0b10cc0599a6}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_DT_Max
 VAR
-	value : INT := DatatypeLimits.INT_UPPER_LIMIT;
+	value : INT := DatatypeLimits.INT_MAX_VALUE;
 	actual : DT;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_INT_TO_DT_Upper');
+        <ST><![CDATA[TEST('Check_INT_TO_DT_Max');
 
 // @TEST-RUN
 converted := TryConvert_INT_TO_Destination(value, actual);
@@ -358,8 +358,8 @@ AssertTrue(Condition := converted, Message := 'Did not report INT to DT conversi
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_INT_TO_DWORD_Lower" Id="{360c6004-fbd3-4d5c-a731-f223784d19eb}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_DWORD_Lower
+    <Method Name="Check_INT_TO_DWORD_Min" Id="{360c6004-fbd3-4d5c-a731-f223784d19eb}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_DWORD_Min
 VAR
 	value : INT := DatatypeLimits.MIN_VALUE_OF_INT_WHICH_CAN_BE_HELD_IN_A_DWORD;
 	actual : DWORD;
@@ -367,7 +367,7 @@ VAR
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_INT_TO_DWORD_Lower');
+        <ST><![CDATA[TEST('Check_INT_TO_DWORD_Min');
 
 // @TEST-RUN
 converted := TryConvert_INT_TO_Destination(value, actual);
@@ -383,7 +383,7 @@ TEST_FINISHED();]]></ST>
     <Method Name="Check_INT_TO_DWORD_TooLow" Id="{d6b36cf2-8fe8-4fc0-bcaa-29b22480a1a1}">
       <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_DWORD_TooLow
 VAR
-	value : INT := DatatypeLimits.INT_LOWER_LIMIT;
+	value : INT := DatatypeLimits.INT_MIN_VALUE;
 	actual : DWORD;
 	converted : BOOL;
 END_VAR]]></Declaration>
@@ -399,16 +399,16 @@ AssertFalse(Condition := converted, Message := 'Did not report INT to DWORD conv
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_INT_TO_DWORD_Upper" Id="{dc380078-4927-40a1-b13d-81ac66cdd2c2}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_DWORD_Upper
+    <Method Name="Check_INT_TO_DWORD_Max" Id="{dc380078-4927-40a1-b13d-81ac66cdd2c2}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_DWORD_Max
 VAR
-	value : INT := DatatypeLimits.INT_UPPER_LIMIT;
+	value : INT := DatatypeLimits.INT_MAX_VALUE;
 	actual : DWORD;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_INT_TO_DWORD_Upper');
+        <ST><![CDATA[TEST('Check_INT_TO_DWORD_Max');
 
 // @TEST-RUN
 converted := TryConvert_INT_TO_Destination(value, actual);
@@ -421,16 +421,16 @@ AssertTrue(Condition := converted, Message := 'Did not report INT to DWORD conve
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_INT_TO_INT_Lower" Id="{418e2fab-d489-495f-b767-1cbf7f7a3ee5}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_INT_Lower
+    <Method Name="Check_INT_TO_INT_Min" Id="{418e2fab-d489-495f-b767-1cbf7f7a3ee5}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_INT_Min
 VAR
-	value : INT := DatatypeLimits.INT_LOWER_LIMIT;
+	value : INT := DatatypeLimits.INT_MIN_VALUE;
 	actual : INT;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_INT_TO_INT_Lower');
+        <ST><![CDATA[TEST('Check_INT_TO_INT_Min');
 
 // @TEST-RUN
 converted := TryConvert_INT_TO_Destination(value, actual);
@@ -443,16 +443,16 @@ AssertTrue(Condition := converted, Message := 'Did not report INT to INT convers
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_INT_TO_INT_Upper" Id="{24bc1b7c-9981-48e5-8e8a-ab17df44d01c}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_INT_Upper
+    <Method Name="Check_INT_TO_INT_Max" Id="{24bc1b7c-9981-48e5-8e8a-ab17df44d01c}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_INT_Max
 VAR
-	value : INT := DatatypeLimits.INT_UPPER_LIMIT;
+	value : INT := DatatypeLimits.INT_MAX_VALUE;
 	actual : INT;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_INT_TO_INT_Upper');
+        <ST><![CDATA[TEST('Check_INT_TO_INT_Max');
 
 // @TEST-RUN
 converted := TryConvert_INT_TO_Destination(value, actual);
@@ -465,16 +465,16 @@ AssertTrue(Condition := converted, Message := 'Did not report INT to INT convers
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_INT_TO_LINT_Lower" Id="{0a6850bb-8b38-49e5-8df5-21636d205de3}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_LINT_Lower
+    <Method Name="Check_INT_TO_LINT_Min" Id="{0a6850bb-8b38-49e5-8df5-21636d205de3}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_LINT_Min
 VAR
-	value : INT := DatatypeLimits.INT_LOWER_LIMIT;
+	value : INT := DatatypeLimits.INT_MIN_VALUE;
 	actual : LINT;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_INT_TO_LINT_Lower');
+        <ST><![CDATA[TEST('Check_INT_TO_LINT_Min');
 
 // @TEST-RUN
 converted := TryConvert_INT_TO_Destination(value, actual);
@@ -487,16 +487,16 @@ AssertTrue(Condition := converted, Message := 'Did not report INT to LINT conver
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_INT_TO_LINT_Upper" Id="{b4f136e5-58df-4a53-9a80-acdf2b9a00f0}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_LINT_Upper
+    <Method Name="Check_INT_TO_LINT_Max" Id="{b4f136e5-58df-4a53-9a80-acdf2b9a00f0}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_LINT_Max
 VAR
-	value : INT := DatatypeLimits.INT_UPPER_LIMIT;
+	value : INT := DatatypeLimits.INT_MAX_VALUE;
 	actual : LINT;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_INT_TO_LINT_Upper');
+        <ST><![CDATA[TEST('Check_INT_TO_LINT_Max');
 
 // @TEST-RUN
 converted := TryConvert_INT_TO_Destination(value, actual);
@@ -509,16 +509,16 @@ AssertTrue(Condition := converted, Message := 'Did not report INT to LINT conver
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_INT_TO_LREAL_Lower" Id="{ed481059-2756-4424-a112-1fa14ceeb9b2}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_LREAL_Lower
+    <Method Name="Check_INT_TO_LREAL_Min" Id="{ed481059-2756-4424-a112-1fa14ceeb9b2}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_LREAL_Min
 VAR
-	value : INT := DatatypeLimits.INT_LOWER_LIMIT;
+	value : INT := DatatypeLimits.INT_MIN_VALUE;
 	actual : LREAL;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_INT_TO_LREAL_Lower');
+        <ST><![CDATA[TEST('Check_INT_TO_LREAL_Min');
 
 // @TEST-RUN
 converted := TryConvert_INT_TO_Destination(value, actual);
@@ -531,16 +531,16 @@ AssertTrue(Condition := converted, Message := 'Did not report INT to LREAL conve
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_INT_TO_LREAL_Upper" Id="{05b6bb6b-5d14-4d76-8324-e3a6300a45f7}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_LREAL_Upper
+    <Method Name="Check_INT_TO_LREAL_Max" Id="{05b6bb6b-5d14-4d76-8324-e3a6300a45f7}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_LREAL_Max
 VAR
-	value : INT := DatatypeLimits.INT_UPPER_LIMIT;
+	value : INT := DatatypeLimits.INT_MAX_VALUE;
 	actual : LREAL;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_INT_TO_LREAL_Upper');
+        <ST><![CDATA[TEST('Check_INT_TO_LREAL_Max');
 
 // @TEST-RUN
 converted := TryConvert_INT_TO_Destination(value, actual);
@@ -553,8 +553,8 @@ AssertTrue(Condition := converted, Message := 'Did not report INT to LREAL conve
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_INT_TO_LWORD_Lower" Id="{0052db15-60f9-4e4c-aa21-855bcd894842}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_LWORD_Lower
+    <Method Name="Check_INT_TO_LWORD_Min" Id="{0052db15-60f9-4e4c-aa21-855bcd894842}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_LWORD_Min
 VAR
 	value : INT := DatatypeLimits.MIN_VALUE_OF_INT_WHICH_CAN_BE_HELD_IN_A_LWORD;
 	actual : LWORD;
@@ -562,7 +562,7 @@ VAR
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_INT_TO_LWORD_Lower');
+        <ST><![CDATA[TEST('Check_INT_TO_LWORD_Min');
 
 // @TEST-RUN
 converted := TryConvert_INT_TO_Destination(value, actual);
@@ -578,7 +578,7 @@ TEST_FINISHED();]]></ST>
     <Method Name="Check_INT_TO_LWORD_TooLow" Id="{7d9b9fde-b308-4cb5-bf20-fcd59ce57d4f}">
       <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_LWORD_TooLow
 VAR
-	value : INT := DatatypeLimits.INT_LOWER_LIMIT;
+	value : INT := DatatypeLimits.INT_MIN_VALUE;
 	actual : LWORD;
 	converted : BOOL;
 END_VAR]]></Declaration>
@@ -594,16 +594,16 @@ AssertFalse(Condition := converted, Message := 'Did not report INT to LWORD conv
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_INT_TO_LWORD_Upper" Id="{405c0e65-46ce-4299-93f3-1834d81f85ee}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_LWORD_Upper
+    <Method Name="Check_INT_TO_LWORD_Max" Id="{405c0e65-46ce-4299-93f3-1834d81f85ee}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_LWORD_Max
 VAR
-	value : INT := DatatypeLimits.INT_UPPER_LIMIT;
+	value : INT := DatatypeLimits.INT_MAX_VALUE;
 	actual : LWORD;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_INT_TO_LWORD_Upper');
+        <ST><![CDATA[TEST('Check_INT_TO_LWORD_Max');
 
 // @TEST-RUN
 converted := TryConvert_INT_TO_Destination(value, actual);
@@ -616,16 +616,16 @@ AssertTrue(Condition := converted, Message := 'Did not report INT to LWORD conve
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_INT_TO_REAL_Lower" Id="{99368ffc-07fc-4b8b-b453-f552ec4e92d0}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_REAL_Lower
+    <Method Name="Check_INT_TO_REAL_Min" Id="{99368ffc-07fc-4b8b-b453-f552ec4e92d0}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_REAL_Min
 VAR
-	value : INT := DatatypeLimits.INT_LOWER_LIMIT;
+	value : INT := DatatypeLimits.INT_MIN_VALUE;
 	actual : REAL;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_INT_TO_REAL_Lower');
+        <ST><![CDATA[TEST('Check_INT_TO_REAL_Min');
 
 // @TEST-RUN
 converted := TryConvert_INT_TO_Destination(value, actual);
@@ -638,16 +638,16 @@ AssertTrue(Condition := converted, Message := 'Did not report INT to REAL conver
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_INT_TO_REAL_Upper" Id="{5cacae25-3b7a-4d45-b92b-d7b95fa2eaad}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_REAL_Upper
+    <Method Name="Check_INT_TO_REAL_Max" Id="{5cacae25-3b7a-4d45-b92b-d7b95fa2eaad}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_REAL_Max
 VAR
-	value : INT := DatatypeLimits.INT_UPPER_LIMIT;
+	value : INT := DatatypeLimits.INT_MAX_VALUE;
 	actual : REAL;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_INT_TO_REAL_Upper');
+        <ST><![CDATA[TEST('Check_INT_TO_REAL_Max');
 
 // @TEST-RUN
 converted := TryConvert_INT_TO_Destination(value, actual);
@@ -660,8 +660,8 @@ AssertTrue(Condition := converted, Message := 'Did not report INT to REAL conver
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_INT_TO_SINT_Lower" Id="{af548d3a-f6e9-48f9-b65f-91e9d757e909}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_SINT_Lower
+    <Method Name="Check_INT_TO_SINT_Min" Id="{af548d3a-f6e9-48f9-b65f-91e9d757e909}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_SINT_Min
 VAR
 	value : INT := DatatypeLimits.MIN_VALUE_OF_INT_WHICH_CAN_BE_HELD_IN_A_SINT;
 	actual : SINT;
@@ -669,7 +669,7 @@ VAR
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_INT_TO_SINT_Lower');
+        <ST><![CDATA[TEST('Check_INT_TO_SINT_Min');
 
 // @TEST-RUN
 converted := TryConvert_INT_TO_Destination(value, actual);
@@ -685,7 +685,7 @@ TEST_FINISHED();]]></ST>
     <Method Name="Check_INT_TO_SINT_TooHigh" Id="{06042f2e-5512-407d-a436-9586adaba5c5}">
       <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_SINT_TooHigh
 VAR
-	value : INT := DatatypeLimits.INT_UPPER_LIMIT;
+	value : INT := DatatypeLimits.INT_MAX_VALUE;
 	actual : SINT;
 	converted : BOOL;
 END_VAR]]></Declaration>
@@ -704,7 +704,7 @@ TEST_FINISHED();]]></ST>
     <Method Name="Check_INT_TO_SINT_TooLow" Id="{b8fb8a0c-a1d1-4d8a-add2-990912de1342}">
       <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_SINT_TooLow
 VAR
-	value : INT := DatatypeLimits.INT_LOWER_LIMIT;
+	value : INT := DatatypeLimits.INT_MIN_VALUE;
 	actual : SINT;
 	converted : BOOL;
 END_VAR]]></Declaration>
@@ -720,8 +720,8 @@ AssertFalse(Condition := converted, Message := 'Did not report INT to SINT conve
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_INT_TO_SINT_Upper" Id="{3a18f0d1-94ed-4c19-99f2-ff2cd3a48098}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_SINT_Upper
+    <Method Name="Check_INT_TO_SINT_Max" Id="{3a18f0d1-94ed-4c19-99f2-ff2cd3a48098}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_SINT_Max
 VAR
 	value : INT := DatatypeLimits.MAX_VALUE_OF_INT_WHICH_CAN_BE_HELD_IN_A_SINT;
 	actual : SINT;
@@ -729,7 +729,7 @@ VAR
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_INT_TO_SINT_Upper');
+        <ST><![CDATA[TEST('Check_INT_TO_SINT_Max');
 
 // @TEST-RUN
 converted := TryConvert_INT_TO_Destination(value, actual);
@@ -742,16 +742,16 @@ AssertTrue(Condition := converted, Message := 'Did not report INT to SINT conver
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_INT_TO_STRING_Lower" Id="{0c581bf8-d726-42a1-83e2-71d24efb6c52}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_STRING_Lower
+    <Method Name="Check_INT_TO_STRING_Min" Id="{0c581bf8-d726-42a1-83e2-71d24efb6c52}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_STRING_Min
 VAR
-	value : INT := DatatypeLimits.INT_LOWER_LIMIT;
+	value : INT := DatatypeLimits.INT_MIN_VALUE;
 	actual : STRING;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_INT_TO_STRING_Lower');
+        <ST><![CDATA[TEST('Check_INT_TO_STRING_Min');
 
 // @TEST-RUN
 converted := TryConvert_INT_TO_Destination(value, actual);
@@ -764,16 +764,16 @@ AssertTrue(Condition := converted, Message := 'Did not report INT to STRING conv
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_INT_TO_STRING_Upper" Id="{4cce7f29-be55-463f-87e6-160f6af2d19b}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_STRING_Upper
+    <Method Name="Check_INT_TO_STRING_Max" Id="{4cce7f29-be55-463f-87e6-160f6af2d19b}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_STRING_Max
 VAR
-	value : INT := DatatypeLimits.INT_UPPER_LIMIT;
+	value : INT := DatatypeLimits.INT_MAX_VALUE;
 	actual : STRING;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_INT_TO_STRING_Upper');
+        <ST><![CDATA[TEST('Check_INT_TO_STRING_Max');
 
 // @TEST-RUN
 converted := TryConvert_INT_TO_Destination(value, actual);
@@ -786,8 +786,8 @@ AssertTrue(Condition := converted, Message := 'Did not report INT to STRING conv
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_INT_TO_TIME_Lower" Id="{2ea8a561-dbb6-4d6c-8d4d-e4a17b226517}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_TIME_Lower
+    <Method Name="Check_INT_TO_TIME_Min" Id="{2ea8a561-dbb6-4d6c-8d4d-e4a17b226517}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_TIME_Min
 VAR
 	value : INT := DatatypeLimits.MIN_VALUE_OF_INT_WHICH_CAN_BE_HELD_IN_A_TIME;
 	actual : TIME;
@@ -795,7 +795,7 @@ VAR
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_INT_TO_TIME_Lower');
+        <ST><![CDATA[TEST('Check_INT_TO_TIME_Min');
 
 // @TEST-RUN
 converted := TryConvert_INT_TO_Destination(value, actual);
@@ -811,7 +811,7 @@ TEST_FINISHED();]]></ST>
     <Method Name="Check_INT_TO_TIME_TooLow" Id="{152a1d80-755a-49a0-a278-3da1a59599f7}">
       <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_TIME_TooLow
 VAR
-	value : INT := DatatypeLimits.INT_LOWER_LIMIT;
+	value : INT := DatatypeLimits.INT_MIN_VALUE;
 	actual : TIME;
 	converted : BOOL;
 END_VAR]]></Declaration>
@@ -827,16 +827,16 @@ AssertFalse(Condition := converted, Message := 'Did not report INT to TIME conve
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_INT_TO_TIME_Upper" Id="{427c99f6-6c28-4aa6-bea8-078860dd54e7}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_TIME_Upper
+    <Method Name="Check_INT_TO_TIME_Max" Id="{427c99f6-6c28-4aa6-bea8-078860dd54e7}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_TIME_Max
 VAR
-	value : INT := DatatypeLimits.INT_UPPER_LIMIT;
+	value : INT := DatatypeLimits.INT_MAX_VALUE;
 	actual : TIME;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_INT_TO_TIME_Upper');
+        <ST><![CDATA[TEST('Check_INT_TO_TIME_Max');
 
 // @TEST-RUN
 converted := TryConvert_INT_TO_Destination(value, actual);
@@ -849,8 +849,8 @@ AssertTrue(Condition := converted, Message := 'Did not report INT to TIME conver
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_INT_TO_TOD_Lower" Id="{63a6625c-f24c-47fa-b8dd-55caaf146ad7}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_TOD_Lower
+    <Method Name="Check_INT_TO_TOD_Min" Id="{63a6625c-f24c-47fa-b8dd-55caaf146ad7}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_TOD_Min
 VAR
 	value : INT := DatatypeLimits.MIN_VALUE_OF_INT_WHICH_CAN_BE_HELD_IN_A_TOD;
 	actual : TOD;
@@ -858,7 +858,7 @@ VAR
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_INT_TO_TOD_Lower');
+        <ST><![CDATA[TEST('Check_INT_TO_TOD_Min');
 
 // @TEST-RUN
 converted := TryConvert_INT_TO_Destination(value, actual);
@@ -874,7 +874,7 @@ TEST_FINISHED();]]></ST>
     <Method Name="Check_INT_TO_TOD_TooLow" Id="{cc4abc86-7625-4a25-9760-103630dcfd37}">
       <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_TOD_TooLow
 VAR
-	value : INT := DatatypeLimits.INT_LOWER_LIMIT;
+	value : INT := DatatypeLimits.INT_MIN_VALUE;
 	actual : TOD;
 	converted : BOOL;
 END_VAR]]></Declaration>
@@ -890,16 +890,16 @@ AssertFalse(Condition := converted, Message := 'Did not report INT to TOD conver
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_INT_TO_TOD_Upper" Id="{6a6d2b72-0427-4894-bfed-828471533db6}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_TOD_Upper
+    <Method Name="Check_INT_TO_TOD_Max" Id="{6a6d2b72-0427-4894-bfed-828471533db6}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_TOD_Max
 VAR
-	value : INT := DatatypeLimits.INT_UPPER_LIMIT;
+	value : INT := DatatypeLimits.INT_MAX_VALUE;
 	actual : TOD;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_INT_TO_TOD_Upper');
+        <ST><![CDATA[TEST('Check_INT_TO_TOD_Max');
 
 // @TEST-RUN
 converted := TryConvert_INT_TO_Destination(value, actual);
@@ -912,8 +912,8 @@ AssertTrue(Condition := converted, Message := 'Did not report INT to TOD convers
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_INT_TO_UDINT_Lower" Id="{ad8808bb-b213-4792-be21-c139605927ce}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_UDINT_Lower
+    <Method Name="Check_INT_TO_UDINT_Min" Id="{ad8808bb-b213-4792-be21-c139605927ce}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_UDINT_Min
 VAR
 	value : INT := DatatypeLimits.MIN_VALUE_OF_INT_WHICH_CAN_BE_HELD_IN_A_UDINT;
 	actual : UDINT;
@@ -921,7 +921,7 @@ VAR
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_INT_TO_UDINT_Lower');
+        <ST><![CDATA[TEST('Check_INT_TO_UDINT_Min');
 
 // @TEST-RUN
 converted := TryConvert_INT_TO_Destination(value, actual);
@@ -937,7 +937,7 @@ TEST_FINISHED();]]></ST>
     <Method Name="Check_INT_TO_UDINT_TooLow" Id="{fc91b410-ae05-4231-810e-b8c57aefd2f7}">
       <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_UDINT_TooLow
 VAR
-	value : INT := DatatypeLimits.INT_LOWER_LIMIT;
+	value : INT := DatatypeLimits.INT_MIN_VALUE;
 	actual : UDINT;
 	converted : BOOL;
 END_VAR]]></Declaration>
@@ -953,16 +953,16 @@ AssertFalse(Condition := converted, Message := 'Did not report INT to UDINT conv
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_INT_TO_UDINT_Upper" Id="{88f14955-6146-4348-97eb-df90c815d01b}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_UDINT_Upper
+    <Method Name="Check_INT_TO_UDINT_Max" Id="{88f14955-6146-4348-97eb-df90c815d01b}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_UDINT_Max
 VAR
-	value : INT := DatatypeLimits.INT_UPPER_LIMIT;
+	value : INT := DatatypeLimits.INT_MAX_VALUE;
 	actual : UDINT;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_INT_TO_UDINT_Upper');
+        <ST><![CDATA[TEST('Check_INT_TO_UDINT_Max');
 
 // @TEST-RUN
 converted := TryConvert_INT_TO_Destination(value, actual);
@@ -975,8 +975,8 @@ AssertTrue(Condition := converted, Message := 'Did not report INT to UDINT conve
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_INT_TO_UINT_Lower" Id="{1d896281-340b-4204-8277-bc3957b7bf6e}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_UINT_Lower
+    <Method Name="Check_INT_TO_UINT_Min" Id="{1d896281-340b-4204-8277-bc3957b7bf6e}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_UINT_Min
 VAR
 	value : INT := DatatypeLimits.MIN_VALUE_OF_INT_WHICH_CAN_BE_HELD_IN_A_UINT;
 	actual : UINT;
@@ -984,7 +984,7 @@ VAR
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_INT_TO_UINT_Lower');
+        <ST><![CDATA[TEST('Check_INT_TO_UINT_Min');
 
 // @TEST-RUN
 converted := TryConvert_INT_TO_Destination(value, actual);
@@ -1000,7 +1000,7 @@ TEST_FINISHED();]]></ST>
     <Method Name="Check_INT_TO_UINT_TooLow" Id="{0e1f0c30-d506-4cfc-9b89-f838c7b980c9}">
       <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_UINT_TooLow
 VAR
-	value : INT := DatatypeLimits.INT_LOWER_LIMIT;
+	value : INT := DatatypeLimits.INT_MIN_VALUE;
 	actual : UINT;
 	converted : BOOL;
 END_VAR]]></Declaration>
@@ -1016,16 +1016,16 @@ AssertFalse(Condition := converted, Message := 'Did not report INT to UINT conve
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_INT_TO_UINT_Upper" Id="{c3a4cb0c-d5e0-4988-8919-4f3f006b9d91}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_UINT_Upper
+    <Method Name="Check_INT_TO_UINT_Max" Id="{c3a4cb0c-d5e0-4988-8919-4f3f006b9d91}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_UINT_Max
 VAR
-	value : INT := DatatypeLimits.INT_UPPER_LIMIT;
+	value : INT := DatatypeLimits.INT_MAX_VALUE;
 	actual : UINT;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_INT_TO_UINT_Upper');
+        <ST><![CDATA[TEST('Check_INT_TO_UINT_Max');
 
 // @TEST-RUN
 converted := TryConvert_INT_TO_Destination(value, actual);
@@ -1038,8 +1038,8 @@ AssertTrue(Condition := converted, Message := 'Did not report INT to UINT conver
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_INT_TO_ULINT_Lower" Id="{2af88920-d8a2-44e7-be90-6ffcba1c51f6}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_ULINT_Lower
+    <Method Name="Check_INT_TO_ULINT_Min" Id="{2af88920-d8a2-44e7-be90-6ffcba1c51f6}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_ULINT_Min
 VAR
 	value : INT := DatatypeLimits.MIN_VALUE_OF_INT_WHICH_CAN_BE_HELD_IN_A_ULINT;
 	actual : ULINT;
@@ -1047,7 +1047,7 @@ VAR
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_INT_TO_ULINT_Lower');
+        <ST><![CDATA[TEST('Check_INT_TO_ULINT_Min');
 
 // @TEST-RUN
 converted := TryConvert_INT_TO_Destination(value, actual);
@@ -1063,7 +1063,7 @@ TEST_FINISHED();]]></ST>
     <Method Name="Check_INT_TO_ULINT_TooLow" Id="{66120413-db17-4457-a2f0-dcbfa8d948dc}">
       <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_ULINT_TooLow
 VAR
-	value : INT := DatatypeLimits.INT_LOWER_LIMIT;
+	value : INT := DatatypeLimits.INT_MIN_VALUE;
 	actual : ULINT;
 	converted : BOOL;
 END_VAR]]></Declaration>
@@ -1079,16 +1079,16 @@ AssertFalse(Condition := converted, Message := 'Did not report INT to ULINT conv
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_INT_TO_ULINT_Upper" Id="{f147abaf-acd3-4b64-950c-8da054942518}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_ULINT_Upper
+    <Method Name="Check_INT_TO_ULINT_Max" Id="{f147abaf-acd3-4b64-950c-8da054942518}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_ULINT_Max
 VAR
-	value : INT := DatatypeLimits.INT_UPPER_LIMIT;
+	value : INT := DatatypeLimits.INT_MAX_VALUE;
 	actual : ULINT;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_INT_TO_ULINT_Upper');
+        <ST><![CDATA[TEST('Check_INT_TO_ULINT_Max');
 
 // @TEST-RUN
 converted := TryConvert_INT_TO_Destination(value, actual);
@@ -1101,8 +1101,8 @@ AssertTrue(Condition := converted, Message := 'Did not report INT to ULINT conve
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_INT_TO_USINT_Lower" Id="{83c81e22-927f-479a-8d4b-392e54405016}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_USINT_Lower
+    <Method Name="Check_INT_TO_USINT_Min" Id="{83c81e22-927f-479a-8d4b-392e54405016}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_USINT_Min
 VAR
 	value : INT := DatatypeLimits.MIN_VALUE_OF_INT_WHICH_CAN_BE_HELD_IN_A_USINT;
 	actual : USINT;
@@ -1110,7 +1110,7 @@ VAR
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_INT_TO_USINT_Lower');
+        <ST><![CDATA[TEST('Check_INT_TO_USINT_Min');
 
 // @TEST-RUN
 converted := TryConvert_INT_TO_Destination(value, actual);
@@ -1126,7 +1126,7 @@ TEST_FINISHED();]]></ST>
     <Method Name="Check_INT_TO_USINT_TooHigh" Id="{d041b806-fdaf-4914-9d6a-7dffaa976e62}">
       <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_USINT_TooHigh
 VAR
-	value : INT := DatatypeLimits.INT_UPPER_LIMIT;
+	value : INT := DatatypeLimits.INT_MAX_VALUE;
 	actual : USINT;
 	converted : BOOL;
 END_VAR]]></Declaration>
@@ -1145,7 +1145,7 @@ TEST_FINISHED();]]></ST>
     <Method Name="Check_INT_TO_USINT_TooLow" Id="{34b3ccd4-7331-4020-811d-1a56e9a34208}">
       <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_USINT_TooLow
 VAR
-	value : INT := DatatypeLimits.INT_LOWER_LIMIT;
+	value : INT := DatatypeLimits.INT_MIN_VALUE;
 	actual : USINT;
 	converted : BOOL;
 END_VAR]]></Declaration>
@@ -1161,8 +1161,8 @@ AssertFalse(Condition := converted, Message := 'Did not report INT to USINT conv
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_INT_TO_USINT_Upper" Id="{7ef1c902-de44-4b39-8905-bd611b882df5}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_USINT_Upper
+    <Method Name="Check_INT_TO_USINT_Max" Id="{7ef1c902-de44-4b39-8905-bd611b882df5}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_USINT_Max
 VAR
 	value : INT := DatatypeLimits.MAX_VALUE_OF_INT_WHICH_CAN_BE_HELD_IN_A_USINT;
 	actual : USINT;
@@ -1170,7 +1170,7 @@ VAR
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_INT_TO_USINT_Upper');
+        <ST><![CDATA[TEST('Check_INT_TO_USINT_Max');
 
 // @TEST-RUN
 converted := TryConvert_INT_TO_Destination(value, actual);
@@ -1183,8 +1183,8 @@ AssertTrue(Condition := converted, Message := 'Did not report INT to USINT conve
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_INT_TO_WORD_Lower" Id="{a49d01de-f126-474d-8ca1-c7a8dab4deb2}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_WORD_Lower
+    <Method Name="Check_INT_TO_WORD_Min" Id="{a49d01de-f126-474d-8ca1-c7a8dab4deb2}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_WORD_Min
 VAR
 	value : INT := DatatypeLimits.MIN_VALUE_OF_INT_WHICH_CAN_BE_HELD_IN_A_WORD;
 	actual : WORD;
@@ -1192,7 +1192,7 @@ VAR
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_INT_TO_WORD_Lower');
+        <ST><![CDATA[TEST('Check_INT_TO_WORD_Min');
 
 // @TEST-RUN
 converted := TryConvert_INT_TO_Destination(value, actual);
@@ -1208,7 +1208,7 @@ TEST_FINISHED();]]></ST>
     <Method Name="Check_INT_TO_WORD_TooLow" Id="{04495b51-98a0-4a2b-bcbb-e7a89adbf33a}">
       <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_WORD_TooLow
 VAR
-	value : INT := DatatypeLimits.INT_LOWER_LIMIT;
+	value : INT := DatatypeLimits.INT_MIN_VALUE;
 	actual : WORD;
 	converted : BOOL;
 END_VAR]]></Declaration>
@@ -1224,16 +1224,16 @@ AssertFalse(Condition := converted, Message := 'Did not report INT to WORD conve
 TEST_FINISHED();]]></ST>
       </Implementation>
     </Method>
-    <Method Name="Check_INT_TO_WORD_Upper" Id="{89ca9ffc-eb34-4de6-ab00-b13f7c2b879b}">
-      <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_WORD_Upper
+    <Method Name="Check_INT_TO_WORD_Max" Id="{89ca9ffc-eb34-4de6-ab00-b13f7c2b879b}">
+      <Declaration><![CDATA[METHOD PUBLIC Check_INT_TO_WORD_Max
 VAR
-	value : INT := DatatypeLimits.INT_UPPER_LIMIT;
+	value : INT := DatatypeLimits.INT_MAX_VALUE;
 	actual : WORD;
 	converted : BOOL;
 	equal : BOOL;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[TEST('Check_INT_TO_WORD_Upper');
+        <ST><![CDATA[TEST('Check_INT_TO_WORD_Max');
 
 // @TEST-RUN
 converted := TryConvert_INT_TO_Destination(value, actual);
